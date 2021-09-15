@@ -1806,7 +1806,7 @@ input[type="checkbox"] {
 }
 
 .header-wrapper--border-bottom {
-  border-bottom: 0.1rem solid rgba(var(--colors_accent_2));
+  /*border-bottom: 0.1rem solid rgba(var(--colors_accent_2));*/
 }
 
 .header {
@@ -1816,7 +1816,8 @@ input[type="checkbox"] {
   align-items: center;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  border-bottom-color: rgb(var(--colors_accent_2));
+  /*border-bottom-color: rgb(var(--colors_accent_2));*/
+  border-bottom-color: var(--colors_accent_2);
   border-bottom-width: 5px;
   border-bottom-style: solid;
 }
