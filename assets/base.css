@@ -1806,7 +1806,9 @@ input[type="checkbox"] {
 }
 
 .header-wrapper--border-bottom {
-  /*border-bottom: 0.1rem solid rgba(var(--colors_accent_2));*/
+  border-bottom-color: #b79668;
+  border-bottom-width: 5px;
+  border-bottom-style: solid;
 }
 
 .header {
@@ -1816,9 +1818,6 @@ input[type="checkbox"] {
   align-items: center;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  border-bottom-color: #b79668;
-  border-bottom-width: 5px;
-  border-bottom-style: solid;
 }
 
 @media screen and (min-width: 990px) {
