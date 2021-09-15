@@ -1816,7 +1816,7 @@ input[type="checkbox"] {
   align-items: center;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  border-bottom-color: rgb(var(--colors-accent-2));
+  border-bottom-color: #b79668;
   border-bottom-width: 5px;
   border-bottom-style: solid;
 }
