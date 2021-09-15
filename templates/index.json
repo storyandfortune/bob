@@ -75,6 +75,49 @@
         "full_width": true
       }
     },
+    "multi_column": {
+      "type": "multicolumn",
+      "blocks": {
+        "column1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/history.jpg",
+            "title": "",
+            "text": "<p>This Bob's® restaurant was built in 1949 by local residents <strong>Scott MacDonald<\/strong> and <strong>Ward Albert<\/strong>, and is the oldest remaining Bob’s Big Boy® in America.<\/p><p>It was designed by renowned architect <a href=\"https:\/\/bobs.net\/history\/architecture\">Wayne McAllister<\/a>, incorporating the 1940's transitional design of streamline modern style while anticipating the free-form 50's coffee shop architecture.<\/p><p>The towering Bob's® sign is an integral part of the building design and its most prominent feature. The restaurant was honored, receiving the designation as a <a href=\"https:\/\/bobs.net\/history\/conservancy\">\"Point of Historical Interest\"<\/a> by the state of California.<\/p><p><\/p>"
+          }
+        },
+        "column2": {
+          "type": "column",
+          "settings": {
+            "title": "MORE HISTORY",
+            "text": "<p><a href=\"https:\/\/bobs.net\/history\/opening\">The Big Boy® Story<\/a><\/p><p><a href=\"https:\/\/bobs.net\/history\/architecture\">Architecture of Wayne McAllister<\/a><\/p><p><a href=\"https:\/\/bobs.net\/history\/beatles\">The Beatles Booth<\/a><\/p><p><a href=\"https:\/\/bobs.net\/history\/heat\">Filming Michael Mann's <em>Heat<\/em><\/a><\/p><p><\/p><p>The current owner, the MacDonald Family, acquired control of the restaurant in 1993 and began to restore it to its past glory.<\/p><p>An exterior patio was added; the tower sign was rehabilitated; the dining room was remodeled; \"Car Hop\" service was re-introduced on Saturday and Sunday nights; and on Friday nights a <a href=\"https:\/\/bobs.net\/events\/classic-car-show\">“Classic Car Show”<\/a> reverberates in the parking lot.<\/p><p><\/p><p>Many resources were spent to restore the quality of food, service, and hospitality which made Bob's® a tradition and your meal the very best value in Southern California.<\/p><p><strong>“The Bob's Big Boy<\/strong>®<strong> and sign ensemble is significant to the history, culture, and architecture of Los Angeles and merits recognition and preservation.”<\/strong><\/p><p><strong>Barbara A. Hoff<\/strong> of the LA Conservancy<\/p><p><\/p>"
+          }
+        },
+        "column3": {
+          "type": "column",
+          "disabled": true,
+          "settings": {
+            "title": "Column",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "column1",
+        "column2",
+        "column3"
+      ],
+      "settings": {
+        "title": "History",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "Button label",
+        "button_link": "",
+        "swipe_on_mobile": false
+      }
+    },
     "featured_products": {
       "type": "featured-collection",
       "settings": {
@@ -93,6 +136,7 @@
     },
     "collage": {
       "type": "collage",
+      "disabled": true,
       "blocks": {
         "video": {
           "type": "video",
@@ -140,54 +184,27 @@
         "full_width": false
       }
     },
-    "multi_column": {
-      "type": "multicolumn",
-      "blocks": {
-        "column1": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>"
-          }
-        },
-        "column2": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>"
-          }
-        },
-        "column3": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>"
-          }
-        }
-      },
-      "block_order": [
-        "column1",
-        "column2",
-        "column3"
-      ],
+    "1631662467f6288af6": {
+      "type": "featured-blog",
       "settings": {
-        "title": "Multicolumn",
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "column_alignment": "left",
-        "background_style": "primary",
-        "button_label": "Button label",
-        "button_link": "",
-        "swipe_on_mobile": false
+        "heading": "Blog posts",
+        "blog": "bobs-big-boy",
+        "post_limit": 3,
+        "show_image": true,
+        "show_date": true,
+        "show_author": false,
+        "soft_background": false,
+        "show_view_all": true
       }
     }
   },
   "order": [
     "image_banner",
     "rich_text",
+    "multi_column",
     "featured_products",
     "collage",
     "video",
-    "multi_column"
+    "1631662467f6288af6"
   ]
 }
