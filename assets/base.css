@@ -1782,6 +1782,8 @@ input[type="checkbox"] {
 
 /* section-header */
 #shopify-section-header {
+  position: sticky;
+  top: 0;
   z-index: 3;
 }
 
@@ -1791,11 +1793,11 @@ input[type="checkbox"] {
 }
 
 .shopify-section-header-hidden {
-  transform: translateY(-100%);
+  /*transform: translateY(-100%);*/
 }
 
 #shopify-section-header.animate {
-  transition: transform 0.15s ease-out;
+  /*transition: transform 0.15s ease-out;*/
 }
 
 /* Main Header Layout */
