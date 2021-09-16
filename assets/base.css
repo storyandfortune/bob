@@ -537,6 +537,7 @@ h6:empty {
   font-size: 2.4rem;
   text-transform: uppercase;
   font-family: inherit;
+  font-weight: 800;
 }
 
 .link--text {
@@ -544,7 +545,8 @@ h6:empty {
 }
 
 .link--text:hover {
-  color: rgba(var(--color-foreground), 0.75);
+  color: rgba(var(--color-base-accent-1));
+  /*color: #b6966b;*/
 }
 
 .link-with-icon {
@@ -1784,12 +1786,14 @@ input[type="checkbox"] {
 #shopify-section-header {
   position: sticky;
   top: 0;
+  left: 0;
+  width: 100%;
   z-index: 3;
 }
 
 .shopify-section-header-sticky {
-  position: sticky;
-  top: 0;
+  /*position: sticky;
+  top: 0;*/
 }
 
 .shopify-section-header-hidden {
