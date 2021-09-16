@@ -2131,6 +2131,7 @@ details[open] > .header__icon--menu .icon-hamburger {
 @media screen and (min-width: 990px) {
   .header__inline-menu {
     display: block;
+    text-align: center;
   }
 
   .header--top-center .header__inline-menu {
