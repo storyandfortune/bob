@@ -14,6 +14,44 @@
 <noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'disclosure.css' | asset_url | stylesheet_tag }}</noscript>
 
+
+<style>
+  .footer-map {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    height: 500px;
+    width: 100%;
+    border-bottom:1px solid #b6966b;
+    background-image: url({{ "map-graphic.svg" | asset_url }});
+    background-position:center center;
+    background-size:cover;
+  }
+
+  .map-overlay, 
+  .coupon-code{
+    text-align:center;
+  }
+
+</style>
+
+<div class="footer-map">
+  <div class="map-overlay">
+    <h4>BOB'S BIG BOY</h4>
+    <p>4211 W Riverside Drive</p>
+    <p>Burbank, CA 91505</p>
+    <p><a href="https://www.google.com/maps/dir/4211+W+Riverside+Drive+Burbank+CA+91505" target="_blank">Get Directions</a></p>		
+  </div>
+</div>
+
+<div class="coupon-code">
+  <h1>SAVE 10% USING COUPON CODE</h1>
+  <h2>TAKE10%OF</h2>
+
+  <div class="footter-big-boy">
+  </div>
+</div>
+
 <footer class="footer color-{{ section.settings.color_scheme }} gradient">
   {%- if section.blocks.size > 0 or section.settings.newsletter_enable or section.settings.show_social -%}
     <div class="footer__content-top page-width">
