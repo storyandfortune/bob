@@ -1,5 +1,12 @@
 /* ------- Bobs secondary page styles ------------- */
 
+h1.main-page-title.page-title.h0 {
+    width: 100%;
+    text-align: center;
+    font-size: 5rem;
+    color: #e62544;
+}
+
 .bob-page-content section {
     margin-bottom: 10rem;
     text-align: center;
@@ -8,7 +15,7 @@
 .bob-page-content section h3 {
     width: 100%;
     text-align: center;
-    font-size: 5rem;
+    font-size: 4rem;
     color: #e62544;
 }
 
@@ -106,6 +113,19 @@
     font-size: 1.3rem;
     font-style: italic;
     line-height: 1.3rem;
+}
+
+@media screen and (max-width: 750px) {
+    .bob-page-content section .col {
+        display: block;
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 990px) {
+    .overflow-hidden-tablet {
+        overflow: auto;
+    }
 }
 
 /* ------- Bobs menu page styles ------------- */
