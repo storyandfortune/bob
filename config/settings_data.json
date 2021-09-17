@@ -9,6 +9,10 @@
     "colors_background_2": "#f3f3f3",
     "type_header_font": "assistant_n4",
     "type_body_font": "assistant_n4",
+    "social_facebook_link": "https:\/\/www.facebook.com\/bobsburbank",
+    "social_pinterest_link": "https:\/\/www.pinterest.com\/bobsbigboy\/_created\/",
+    "social_instagram_link": "https:\/\/www.instagram.com\/bobsbigboyburbank\/",
+    "social_youtube_link": "https:\/\/www.youtube.com\/user\/bobsburbank\/videos",
     "favicon": "shopify:\/\/shop_images\/icon.png",
     "sections": {
       "announcement-bar": {
