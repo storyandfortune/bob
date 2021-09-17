@@ -17,6 +17,12 @@
 
 <style>
   
+
+  .map-wrapper{
+    position:relative;
+    overflow: hidden;
+  }
+
   .footer-map {
     display:flex;
     align-items: center;
@@ -27,6 +33,7 @@
     background-image: url({{ "map-graphic.svg" | asset_url }});
     background-position:center center;
     background-size:cover;
+
   }
  .map-overlay h4{
    font-size:22px;
@@ -35,29 +42,57 @@
 
   .map-overlay, 
   .coupon-code{
+    position:relative;
     line-height:14px;
     text-align:center;
   }
 
+  .coupon-code h1{
+    font-size:3rem;
+    font-weight:800;
+  }
+
+  .coupon-code h2{
+
+  }
+
+  .footer-big-boy{
+    position:absolute;
+    cursor:pointer;
+    z-index:10;
+    right:4rem;
+    bottom:-75px;
+    transition: all 1s ease;
+  }
+
+  .footer-big-boy:hover{
+    bottom:-300px;
+  }
+
+
+
 </style>
+<div class="map-wrapper">
+    <div class="footer-map">
 
-<div class="footer-map">
-  <div class="map-overlay">
-    <h4>BOB'S BIG BOY</h4>
-    <p>4211 W Riverside Drive</p>
-    <p>Burbank, CA 91505</p>
-    <p><a href="https://www.google.com/maps/dir/4211+W+Riverside+Drive+Burbank+CA+91505" target="_blank">Get Directions</a></p>		
-  </div>
-</div>
+      <div class="map-overlay">
+        <h4>BOB'S BIG BOY</h4>
+        <p>4211 W Riverside Drive</p>
+        <p>Burbank, CA 91505</p>
+        <p><a href="https://www.google.com/maps/dir/4211+W+Riverside+Drive+Burbank+CA+91505" target="_blank">Get Directions</a></p>		
+      </div>
+    </div>
 
-<div class="coupon-code">
-  <h1>SAVE 10% USING COUPON CODE</h1>
-  <h2>TAKE10%OF</h2>
+    <div class="coupon-code">
 
-  <div class="foottr-big-boy">
-    <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/bigboy.png?v=1631845141"> />
-  </div>
-  
+      <h1>SAVE 10% USING COUPON CODE</h1>
+      <h2>TAKE10%OF</h2>
+
+      <div id="" class="footer-big-boy">
+        <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/bigboy.png?v=1631845141">
+      </div>
+      
+    </div>
 </div>
 
 <footer class="footer color-{{ section.settings.color_scheme }} gradient">
