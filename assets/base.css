@@ -1736,8 +1736,8 @@ input[type="checkbox"] {
   justify-content: center;
   align-items: center;
   font-size: 0.9rem;
-  bottom: 0.8rem;
-  left: 2.2rem;
+  top: -0rem;
+  left: 3.1rem;
   line-height: 1.1;
 }
 
@@ -1870,9 +1870,8 @@ input[type="checkbox"] {
 
 .header__heading {
   position: absolute;
-  border: 1px solid red;
-  width: 300px;
-  top: -25px;
+  width: 250px;
+  top: -35px;
   margin: 0;
   line-height: 0;
 }
