@@ -1869,14 +1869,21 @@ input[type="checkbox"] {
 }
 
 .header__heading {
+  position: absolute;
+  border: 1px solid red;
+  width: 300px;
+  top: -25px;
   margin: 0;
   line-height: 0;
 }
 
 .header > .header__heading-link {
+  display: block;
+  width: 100%;
   line-height: 0;
 }
 
+/*
 .header__heading,
 .header__heading-link {
   grid-area: heading;
@@ -1898,6 +1905,7 @@ input[type="checkbox"] {
   line-height: 1;
   color: rgba(var(--color-foreground), 0.75);
 }
+*/
 
 .header__heading-logo {
   height: auto;
