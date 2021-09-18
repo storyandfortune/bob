@@ -151,6 +151,80 @@ h1.main-page-title.page-title.h0 {
     color: #ffffff;
 }
 
+.bob-page-content.menu h3 {
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 4rem;
+    padding: 0;
+    margin: 0 0 0 0;
+    text-align: center;
+}
+
+.bob-page-content.menu .menu-description {
+    font-style: italic;
+    padding: 0;
+    margin: 0;
+}
+
+.bob-page-content.menu ul {
+    vertical-align: top;
+}
+
+.bob-page-content.menu ul li {
+    display: inline-block;
+    width: 45%;
+    margin: 2rem;
+    line-height: 2.3rem;
+    font-weight: 700;
+}
+
+.bob-page-content.menu ul li h4 {
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 3rem;
+    padding: 0;
+    margin: 0 0 1rem 0;
+}
+
+.bob-page-content.menu ul li h4 sup {
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+}
+
+.bob-page-content.menu ul li p {
+    padding: 0;
+    margin: 0 0 0 0;
+    font-weight: 500;
+}
+
+.bob-page-content.menu .double-border {
+    margin-top: 5rem;
+    padding: 3rem;
+    border-top: 4px #b79668 solid;
+    border-bottom: 4px #b79668 solid;
+    vertical-align: middle;
+}
+
+.bob-page-content.menu .double-border li,
+.bob-page-content.menu .big-boy-box li {
+    width: auto;
+}
+
+.bob-page-content.menu .big-boy-box,
+.bob-page-content.menu .menu-box {
+    position: relative;
+    border: 4px #b79668 solid;
+}
+
+.bob-page-content.menu .big-boy-box .big-boy {
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: -3.5rem;
+    width: 24rem;
+}
+
 /* ------- mobile styles ------------- */
 
 @media screen and (max-width: 750px) {
