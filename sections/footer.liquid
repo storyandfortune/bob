@@ -70,6 +70,10 @@
     transform:scale(.9);
   }
 
+  .footer-logo{
+    width:200px;
+  }
+
  
 
 </style>
@@ -99,9 +103,20 @@
 <footer class="footer color-{{ section.settings.color_scheme }} gradient">
 
   {%- if section.blocks.size > 0 or section.settings.newsletter_enable or section.settings.show_social -%}
+   
     <div class="footer__content-top page-width">
 
-      <div class="footer-logo"> </div>
+      <div class="footer-logo">
+        <img 
+          src="{{ 'logo-white.svg' | asset_url }}"
+          loading="lazy"
+          class="header__heading-logo"
+          width="{{ section.settings.logo.width }}"
+          height="{{ section.settings.logo.height }}"
+          alt="{{ section.settings.logo.alt | default: shop.name | escape }}"
+        >
+      </div>
+
 
       {%- if section.blocks.size > 0 -%}
         {%- liquid
@@ -116,6 +131,7 @@
         
         
         <div class="footer__blocks-wrapper grid grid--1-col grid--2-col grid--4-col-tablet {{ footer_grid_class }}">
+
           {%- for block in section.blocks -%}
             <div class="footer-block grid__item{% if block.type == 'link_list' and block.settings.heading != blank %} footer-block--menu{% endif %}" {{ block.shopify_attributes }}>
               
@@ -158,6 +174,8 @@
                     {%- endif -%}
                   </div>
                 {%- endcase -%}
+
+
             </div>
           {%- endfor -%}
         </div>
@@ -297,6 +315,18 @@
   <div class="footer__content-bottom">
     <div class="footer__content-bottom-wrapper page-width">
 
+      {%- if block.settings.menu != blank -%}
+        <ul class="footer-block__details-content list-unstyled">
+          {%- for link in block.settings.menu.links -%}
+            <li>
+              <a href="{{ link.url }}" class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}">
+                {{ link.title }}
+              </a>
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+hi
        <!-- copyright -->
         <div class="footer__copyright caption">
           <small class="copyright__content">&copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: routes.root_url }}</small>
@@ -369,13 +399,6 @@
       "type": "link_list",
       "name": "t:sections.footer.blocks.link_list.name",
       "settings": [
-        {
-          "type": "text",
-          "id": "heading",
-          "default": "Quick links",
-          "label": "t:sections.footer.blocks.link_list.settings.heading.label",
-          "info": "t:sections.footer.blocks.link_list.settings.heading.info"
-        },
         {
           "type": "link_list",
           "id": "menu",
