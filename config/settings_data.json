@@ -22,9 +22,9 @@
             "type": "announcement",
             "disabled": true,
             "settings": {
-              "text": "Welcome to our store",
-              "color_scheme": "background-1",
-              "link": ""
+              "text": "Order Online!",
+              "color_scheme": "accent-1",
+              "link": "https:\/\/bobsbigboy.hrpos.heartland.us\/menu"
             }
           }
         },
@@ -49,14 +49,6 @@
       "footer": {
         "type": "footer",
         "blocks": {
-          "footer-1": {
-            "type": "text",
-            "disabled": true,
-            "settings": {
-              "heading": "Heading",
-              "subtext": "<p>Share store details, promotions, or brand content with your customers.<\/p>"
-            }
-          },
           "footer-0": {
             "type": "link_list",
             "settings": {
@@ -66,7 +58,6 @@
           }
         },
         "block_order": [
-          "footer-1",
           "footer-0"
         ],
         "settings": {
