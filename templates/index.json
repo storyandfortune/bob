@@ -100,7 +100,6 @@
     },
     "collage": {
       "type": "collage",
-      "disabled": true,
       "blocks": {
         "video": {
           "type": "video",
@@ -148,13 +147,6 @@
         "description": "",
         "full_width": false
       }
-    },
-    "163166388429fe7b08": {
-      "type": "page",
-      "disabled": true,
-      "settings": {
-        "page": "history"
-      }
     }
   },
   "order": [
@@ -162,7 +154,6 @@
     "multi_column",
     "featured_products",
     "collage",
-    "video",
-    "163166388429fe7b08"
+    "video"
   ]
 }
