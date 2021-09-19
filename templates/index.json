@@ -39,42 +39,6 @@
         "show_text_below": true
       }
     },
-    "rich_text": {
-      "type": "rich-text",
-      "disabled": true,
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Talk about your brand",
-            "heading_size": "h1"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>"
-          }
-        },
-        "button": {
-          "type": "button",
-          "settings": {
-            "button_label": "Button label",
-            "button_link": "",
-            "button_style_secondary": false
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "text",
-        "button"
-      ],
-      "settings": {
-        "color_scheme": "background-1",
-        "full_width": true
-      }
-    },
     "multi_column": {
       "type": "multicolumn",
       "blocks": {
@@ -185,43 +149,20 @@
         "full_width": false
       }
     },
-    "1631662467f6288af6": {
-      "type": "featured-blog",
-      "disabled": true,
-      "settings": {
-        "heading": "Blog posts",
-        "blog": "bobs-big-boy",
-        "post_limit": 3,
-        "show_image": true,
-        "show_date": true,
-        "show_author": false,
-        "soft_background": false,
-        "show_view_all": true
-      }
-    },
     "163166388429fe7b08": {
       "type": "page",
       "disabled": true,
       "settings": {
         "page": "history"
       }
-    },
-    "1631664006a3d618f6": {
-      "type": "powr-image-slider",
-      "disabled": true,
-      "settings": {
-      }
     }
   },
   "order": [
     "image_banner",
-    "rich_text",
     "multi_column",
     "featured_products",
     "collage",
     "video",
-    "1631662467f6288af6",
-    "163166388429fe7b08",
-    "1631664006a3d618f6"
+    "163166388429fe7b08"
   ]
 }
