@@ -22,9 +22,9 @@
             "type": "announcement",
             "disabled": true,
             "settings": {
-              "text": "Welcome to our store",
+              "text": "Order Online!",
               "color_scheme": "background-1",
-              "link": ""
+              "link": "https:\/\/bobsbigboy.hrpos.heartland.us\/menu"
             }
           }
         },
