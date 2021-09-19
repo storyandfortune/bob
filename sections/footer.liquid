@@ -315,9 +315,9 @@
   <div class="footer__content-bottom">
     <div class="footer__content-bottom-wrapper page-width">
 
-      {%- if block.settings.menu != blank -%}
+      {%- if section.blocks.settings.menu != blank -%}
         <ul class="footer-block__details-content list-unstyled">
-          {%- for link in block.settings.menu.links -%}
+          {%- for link in section.blocks.settings.menu.links -%}
             <li>
               <a href="{{ link.url }}" class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}">
                 {{ link.title }}
