@@ -285,20 +285,20 @@
       {
         "type": "text",
         "id": "reviews_yelp_link",
-        "label": "t:settings_schema.social-media.settings.reviews_yelp_link.label",
-        "info": "t:settings_schema.social-media.settings.reviews_yelp_link.info"
+        "label": "t:settings_schema.reviews.settings.reviews_yelp_link.label",
+        "info": "t:settings_schema.reviews.settings.reviews_yelp_link.info"
       },
       {
         "type": "text",
         "id": "reviews_tripadvisor_link",
-        "label": "t:settings_schema.social-media.settings.reviews_tripadvisor_link.label",
-        "info": "t:settings_schema.social-media.settings.reviews_tripadvisor_link.info"
+        "label": "t:settings_schema.reviews.settings.reviews_tripadvisor_link.label",
+        "info": "t:settings_schema.reviews.settings.reviews_tripadvisor_link.info"
       },
       {
         "type": "text",
         "id": "reviews_google_plus_link",
-        "label": "t:settings_schema.social-media.settings.reviews_google_plus_link.label",
-        "info": "t:settings_schema.social-media.settings.reviews_google_plus_link.info"
+        "label": "t:settings_schema.reviews.settings.reviews_google_plus_link.label",
+        "info": "t:settings_schema.reviews.settings.reviews_google_plus_link.info"
       }
     ]
   },
