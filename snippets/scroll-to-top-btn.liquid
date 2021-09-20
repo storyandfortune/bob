@@ -1,0 +1,9 @@
+<script>
+    var top_btn = document.getElementById('totop');
+    top_btn.addEventListener('click', function(e){
+        window.scrollTo(0, 0);
+        e.preventDefault();
+    });
+</script>
+
+<a id="totop" href="#" class="back-to-top"> {%- render 'icon-chevron-circle-up-solid'  -%} </a>

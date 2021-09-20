@@ -127,7 +127,9 @@
   list-style: none;
 }
 
-.flex-block {
+.flex-block h4 {
+  margin: 0;
+  padding: 0;
 }
 
 /* ---------------------------------------------------- */
@@ -299,13 +301,17 @@
   }
 }
 
+.footer__list-social {
+  margin-bottom: 2.5rem;
+}
+
 .footer__list-social:empty,
 .footer-block--newsletter:empty {
   display: none;
 }
 
 .footer__list-social.list-social:only-child {
-  justify-content: center;
+  justify-content: left;
 }
 
 .footer-block__newsletter {
@@ -337,7 +343,7 @@
 
 @media screen and (max-width: 749px) {
   .footer__list-social.list-social {
-    justify-content: center;
+    justify-content: left;
   }
 }
 
