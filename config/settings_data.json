@@ -52,7 +52,6 @@
           "footer-0": {
             "type": "link_list",
             "settings": {
-              "heading": "",
               "menu": "footer"
             }
           }
@@ -63,7 +62,7 @@
         "settings": {
           "color_scheme": "inverse",
           "newsletter_enable": true,
-          "newsletter_heading": "Subscribe to our emails",
+          "newsletter_heading": "BIG BOY® EMAIL CLUB",
           "show_social": true
         }
       }
