@@ -14,100 +14,22 @@
 <noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'disclosure.css' | asset_url | stylesheet_tag }}</noscript>
 
-
 <style>
-  
 
-  .map-wrapper{
-    position:relative;
-    overflow: hidden;
-  }
-
+  /* inline style so we can use liquid asset SVG doesn't wrk in the CDN */
   .footer-map {
-    display:flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     height: 500px;
     width: 100%;
-    border-bottom:1px solid #b6966b;
-    background-image: url({{ "map-graphic.svg" | asset_url }});
-    background-position:center center;
-    background-size:cover;
-
+    border-bottom: 1px solid #b6966b;
+    background-image: url({{"map-graphic.svg"|asset_url}});
+    background-position: center center;
+    background-size: cover;
   }
-
-  .map-overlay p{
-    margin:0 0 .75rem 0;
-    padding:0;
-  }
-
-  .map-overlay a{
-    color:#e62544;
-    font-weight:600;
-    font-size:1.4rem;
-    text-decoration:none;
-  }
-
- .map-overlay h4{
-   font-size:22px;
-   margin:0 0 .5rem 0;
-   padding:0;
-   font-weight: 800;
- }
-
-  .map-overlay, 
-  .coupon-code{
-    position:relative;
-    line-height:14px;
-    text-align:center;
-  }
-
-  .coupon-code h1{
-    font-size:2.5rem;
-    font-weight:800;
-    margin:3rem 0 1rem 0;
-  }
-
-  .coupon-code h2{
-    font-size:1.8rem;
-    margin:0 0 5rem 0;
-  }
-
-  .footer-b-boy{
-    position:absolute;
-    cursor:pointer;
-    z-index:10;
-    right:4rem;
-    bottom:-75px;
-    transition: all 1s ease;
-  }
-
-  .footer-b-boy:hover{
-    bottom:-300px;
-    transform:scale(.9);
-  }
-
-  .footer-logo{
-    width:200px;
-  }
-
-  .flex-block-container {
-    /* We first create a flex layout context */
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-  }
-
-  .flex-block {
-
-  }
-
- 
-
 </style>
+
 
 <div class="map-wrapper">
     <div class="footer-map">
@@ -139,7 +61,6 @@
 <footer class="footer color-{{ section.settings.color_scheme }} gradient">
   <div class="footer__content-top page-width">
 
-
       <div class="flex-block-container">
 
         <div class="footer-logo flex-block">
@@ -147,7 +68,6 @@
           <img 
             src="{{ 'logo-white.svg' | asset_url }}"
             loading="lazy"
-            class="header__heading-logo"
             width="{{ section.settings.logo.width }}"
             height="{{ section.settings.logo.height }}"
             alt="{{ section.settings.logo.alt | default: shop.name | escape }}">
@@ -237,11 +157,8 @@
 
         </div>
 
-        <div class="email flex-block"> 
-          <!-- email -->
-          <div class="footer-block--newsletter">
             {%- if section.settings.newsletter_enable -%}
-              <div class="footer-block__newsletter">
+              <div class="footer-block__newsletter flex-block">
                 {%- if section.settings.newsletter_heading != blank -%}
                   <h2 class="footer-block__heading">{{ section.settings.newsletter_heading | escape }}</h2>
                 {%- endif -%}
@@ -286,10 +203,9 @@
                 {%- endform -%}
               </div>
             {%- endif -%}
-          </div>
-          <!-- end email -->
-        </div>
-
+          
+         
+       
 
 
       {%- if section.blocks.size > 0 -%}
@@ -335,11 +251,14 @@
         </div>
       {%- endif -%}
       
+      <div class="back-to-top">
+        {%- render 'icon-chevron-circle-up-solid'  -%}
+      </div>
 
     </div>
     <!-- end flex block container -->
 
-    <div class="back-to-top"> [-- Back to Top --] </div>
+  
 
     </div>
 
@@ -353,7 +272,7 @@
           {%- case block.type -%}
             {%- when 'link_list' -%}
               {%- if block.settings.menu != blank -%}
-                <ul class="footer-block__details-content list-unstyled">
+                <ul class="footer-nav list-unstyled">
                   {%- for link in block.settings.menu.links -%}
                     <li>
                       <a href="{{ link.url }}" class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}">
@@ -367,7 +286,7 @@
       {%- endfor -%}
 
        <!-- copyright -->
-        <div class="footer__copyright caption">
+        <div class="copyright">
           <small class="copyright__content">&copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: routes.root_url }}</small>
           <small class="copyright__content">{{ powered_by_link }}</small>
         </div>

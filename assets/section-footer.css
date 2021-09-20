@@ -1,3 +1,112 @@
+/* ---- BOBS STYLES ----------------------- */
+
+.map-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.map-overlay p {
+  margin: 0 0 0.75rem 0;
+  padding: 0;
+}
+
+.map-overlay a {
+  color: #e62544;
+  font-weight: 600;
+  font-size: 1.4rem;
+  text-decoration: none;
+}
+
+.map-overlay h4 {
+  font-size: 22px;
+  margin: 0 0 0.5rem 0;
+  padding: 0;
+  font-weight: 800;
+}
+
+.map-overlay,
+.coupon-code {
+  position: relative;
+  line-height: 14px;
+  text-align: center;
+}
+
+.coupon-code h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin: 3rem 0 1rem 0;
+}
+
+.coupon-code h2 {
+  font-size: 1.8rem;
+  margin: 0 0 5rem 0;
+}
+
+.footer-b-boy {
+  position: absolute;
+  cursor: pointer;
+  z-index: 10;
+  right: 4rem;
+  bottom: -75px;
+  transition: all 1s ease;
+}
+
+.footer-b-boy:hover {
+  bottom: -300px;
+  transform: scale(0.9);
+}
+
+.footer-logo {
+  width: 200px;
+}
+
+.footer-nav {
+  display: inline-block;
+  margin-right: 1.5em;
+}
+
+.footer-nav li {
+  display: inline-block;
+  margin-right: 1em;
+}
+
+.footer-nav li a {
+  font-size: 1.3rem;
+  font-weight: 200;
+  text-decoration: none;
+}
+
+.copyright {
+  display: inline-block;
+}
+
+.back-to-top {
+  cursor: pointer;
+  color: #ffffff;
+  width: 5rem;
+  opacity: 0.45;
+  transition: all 0.5s ease;
+}
+
+.back-to-top:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.flex-block-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.flex-block {
+}
+
+/* ---------------------------------------------------- */
+
 .footer {
   border-top: 0.1rem solid rgba(var(--color-foreground), 0.08);
 }
@@ -29,6 +138,7 @@
   }
 
   .footer__content-top {
+    display: relative;
     padding-bottom: 3rem;
     padding-left: 4rem;
     padding-right: 4rem;
@@ -58,13 +168,12 @@
 }
 
 .footer__content-bottom-wrapper {
-  display: flex;
   width: 100%;
+  text-align: right;
 }
 
 @media screen and (max-width: 749px) {
   .footer__content-bottom {
-    flex-wrap: wrap;
     padding-top: 0;
     padding-left: 0;
     padding-right: 0;
@@ -72,7 +181,6 @@
   }
 
   .footer__content-bottom-wrapper {
-    flex-wrap: wrap;
     row-gap: 1.5rem;
   }
 }
