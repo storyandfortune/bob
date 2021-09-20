@@ -158,6 +158,26 @@
         }
       }
     },
+    "reviews": {
+      "name": "Restaurant Reviews",
+      "settings": {
+        "header": {
+          "content": "Review accounts"
+        },
+        "social_twitter_link": {
+          "label": "Yelp",
+          "info": "https://twitter.com/yelp"
+        },
+        "social_facebook_link": {
+          "label": "Trip Advisor",
+          "info": "https://facebook.com/tripadvisor"
+        },
+        "social_pinterest_link": {
+          "label": "Google Plus",
+          "info": "https://pinterest.com/googleplus"
+        }
+      }
+    },
     "search_input": {
       "name": "Search input",
       "settings": {
