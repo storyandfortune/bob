@@ -164,15 +164,15 @@
         "header": {
           "content": "Review accounts"
         },
-        "social_twitter_link": {
+        "reviews_yelp_link": {
           "label": "Yelp",
           "info": "https://twitter.com/yelp"
         },
-        "social_facebook_link": {
+        "reviews_tripadvisor_link": {
           "label": "Trip Advisor",
           "info": "https://facebook.com/tripadvisor"
         },
-        "social_pinterest_link": {
+        "reviews_google_plus_link": {
           "label": "Google Plus",
           "info": "https://pinterest.com/googleplus"
         }
