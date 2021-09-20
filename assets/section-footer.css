@@ -57,7 +57,33 @@
 }
 
 .footer-logo {
-  width: 200px;
+  display: inline-block;
+  vertical-align: top;
+  width: 175px;
+}
+
+.footer-logo img {
+  width: 100%;
+  height: auto;
+}
+
+.footer .xtra-info {
+  vertical-align: top;
+  display: inline-block;
+}
+
+.footer .xtra-info ul {
+  margin: 0 0 0 3rem;
+  padding: 0;
+  list-style: none;
+  line-height: 4rem;
+}
+
+.footer .xtra-info li a {
+  color: #ffffff;
+  font-weight: 800;
+  text-transform: uppercase;
+  text-decoration: none;
 }
 
 .footer-nav {

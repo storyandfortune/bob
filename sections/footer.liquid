@@ -63,18 +63,21 @@
 
       <div class="flex-block-container">
 
-        <div class="footer-logo flex-block">
+        <div class="flex-block">
           
+          <div class="footer-logo">
           <img 
             src="{{ 'logo-white.svg' | asset_url }}"
             loading="lazy"
             width="{{ section.settings.logo.width }}"
             height="{{ section.settings.logo.height }}"
             alt="{{ section.settings.logo.alt | default: shop.name | escape }}">
+          </div>
+
+            {% render 'xtra-info' %}
 
         </div>
 
-        <div class="info flex-block"> [-- info --] </div>
 
         <div class="social flex-block"> 
 
