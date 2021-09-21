@@ -1871,7 +1871,7 @@ input[type="checkbox"] {
 .header__heading {
   position: absolute;
   width: 250px;
-  top: -35px;
+  top: -70px;
   margin: 0;
   line-height: 0;
 }
