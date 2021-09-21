@@ -167,10 +167,10 @@ h1.main-page-title.page-title.h0 {
 }
 
 .bob-page-content.menu ul {
-    vertical-align: top;
 }
 
 .bob-page-content.menu ul li {
+    vertical-align: top;
     display: inline-block;
     width: 45%;
     margin: 2rem;
@@ -250,6 +250,53 @@ h1.main-page-title.page-title.h0 {
     width: 30%;
     padding: 0 0 0 3rem;
     margin: 0 0 0 12rem;
+}
+
+.bob-page-content.menu .double-border.famous-chili li {
+    width: 45%;
+}
+
+.bob-page-content.menu .disclaimer {
+    margin: 5rem 0 0 0;
+}
+
+.bob-page-content.menu .disclaimer p {
+    padding: 0;
+    margin: 0;
+    font-size: 1.5rem;
+    font-style: italic;
+}
+
+.bob-page-content.menu .disclaimer p:nth-child(1),
+.bob-page-content.menu .disclaimer p:nth-child(2) {
+    font-size: 2.3rem;
+    line-height: 3rem;
+    font-style: normal;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.bob-page-content.menu .disclaimer p:nth-child(2) {
+    color: #e62544;
+}
+
+.bob-page-content.menu .disclaimer ul li {
+    width: 25%;
+    font-weight: 200;
+}
+
+.bob-page-content.menu .disclaimer ul li:nth-child(2) {
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 2.5rem;
+}
+
+.bob-page-content.menu .disclaimer ul li:nth-child(2) sup {
+    color: #e62544;
+    font-size: 2.8rem;
+    padding: 0;
+    margin: 0;
+    vertical-align: top;
 }
 
 /* ------- mobile styles ------------- */
