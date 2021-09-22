@@ -1955,16 +1955,22 @@ input[type="checkbox"] {
 }
 
 .header__icon .icon {
-  height: 2rem;
-  width: 2rem;
+  height: 3rem;
+  width: 3rem;
   fill: none;
   vertical-align: middle;
 }
 
 .header__icon,
 .header__icon--cart .icon {
-  height: 4.4rem;
-  width: 4.4rem;
+  height: 3.5rem;
+  width: 3.5rem;
+}
+
+.header__icon .icon-search {
+  height: 3rem;
+  width: 3rem;
+  border: 1px soild red;
 }
 
 .header__icon--cart {
@@ -1995,6 +2001,7 @@ menu-drawer + .header__search {
 .header__search {
   display: inline-flex;
   line-height: 0;
+  margin-right: 2rem;
 }
 
 .header--top-center > .header__search {
@@ -2003,11 +2010,6 @@ menu-drawer + .header__search {
 
 .header--top-center * > .header__search {
   display: inline-flex;
-}
-
-.header__icons .icon-search {
-  width: 3rem;
-  border: solid red 1px;
 }
 
 @media screen and (min-width: 990px) {
