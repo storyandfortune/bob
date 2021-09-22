@@ -47,13 +47,14 @@
   cursor: pointer;
   z-index: 10;
   right: 4rem;
-  bottom: -75px;
+  bottom: -300px;
+  transform: scale(0.9);
   transition: all 1s ease;
 }
 
-.footer-b-boy:hover {
-  bottom: -300px;
-  transform: scale(0.9);
+.footer-b-boy.up {
+  bottom: -75px;
+  transform: scale(1);
 }
 
 .footer-logo {
