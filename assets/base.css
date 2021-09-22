@@ -2005,6 +2005,11 @@ menu-drawer + .header__search {
   display: inline-flex;
 }
 
+.icon-search {
+  width: 3rem;
+  border: solid red 1px;
+}
+
 @media screen and (min-width: 990px) {
   .header:not(.header--top-center) * > .header__search,
   .header--top-center > .header__search {
