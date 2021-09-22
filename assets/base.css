@@ -2005,7 +2005,7 @@ menu-drawer + .header__search {
   display: inline-flex;
 }
 
-.icon-search {
+.header__icons .icon-search {
   width: 3rem;
   border: solid red 1px;
 }

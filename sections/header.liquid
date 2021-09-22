@@ -255,18 +255,24 @@
     {%- endif -%}
 
     {%- if section.settings.logo_position == 'top-center' or section.settings.menu == blank -%}
+      
+      <!-- search -->
       <details-modal class="header__search">
         <details>
+
           <summary class="header__icon header__icon--search header__icon--summary link link--text focus-inset modal__toggle" aria-haspopup="dialog" aria-label="{{ 'general.search.search' | t }}">
-            <span>
+          
               <svg class="modal__toggle-open icon icon-search" aria-hidden="true" focusable="false" role="presentation">
                 <use href="#icon-search">
               </svg>
+
               <svg class="modal__toggle-close icon icon-close" aria-hidden="true" focusable="false" role="presentation">
                 <use href="#icon-close">
               </svg>
-            </span>
+      
           </summary>
+
+          <!-- predictive search -->
           <div class="search-modal modal__content" role="dialog" aria-modal="true" aria-label="{{ 'general.search.search' | t }}">
             <div class="modal-overlay"></div>
             <div class="search-modal__content" tabindex="-1">
@@ -346,6 +352,7 @@
       </h1>
       <!-- end logo -->
 
+      <!-- navigation -->
     {%- if section.settings.menu != blank -%}
       <nav class="header__inline-menu">
         <ul class="list-menu list-menu--inline" role="list">
@@ -397,7 +404,7 @@
         </ul>
       </nav>
     {%- endif -%}
-
+    
     <div class="header__icons">
       <details-modal class="header__search">
         <details>
