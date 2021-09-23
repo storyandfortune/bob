@@ -3,12 +3,16 @@
 h1.main-page-title.page-title.h0 {
     width: 100%;
     text-align: center;
-    font-size: 5rem;
+    font-size: 2rem;
+    text-transform: uppercase;
     color: #e62544;
+    margin: 0;
+    padding: 0.75rem;
+    border-bottom: #b79668 1px solid;
 }
 
 .bob-page-content section {
-    margin-bottom: 10rem;
+    margin: 10rem;
     text-align: center;
 }
 
@@ -116,6 +120,7 @@ h1.main-page-title.page-title.h0 {
 }
 
 /* ------- Bobs menu page styles ------------- */
+
 .bob-page-content .menu-header-lunch,
 .bob-page-content .menu-header-breakfast {
     display: flex;
@@ -158,6 +163,10 @@ h1.main-page-title.page-title.h0 {
     padding: 0;
     margin: 0 0 0 0;
     text-align: center;
+}
+
+.bob-page-content.menu h3 small {
+    font-size: 2rem;
 }
 
 .bob-page-content.menu .menu-description {
@@ -203,6 +212,26 @@ h1.main-page-title.page-title.h0 {
     border-top: 4px #b79668 solid;
     border-bottom: 4px #b79668 solid;
     vertical-align: middle;
+}
+
+.bob-page-content.menu .double-border.two-col li {
+    width: 45%;
+}
+
+.bob-page-content.menu .double-border.big-boy {
+    position: relative;
+    padding: 3rem 3rem 3rem 25rem;
+}
+
+.bob-page-content.menu .double-border.big-boy li:nth-child(1) {
+    position: absolute;
+    width: 25rem;
+    top: -8rem;
+    left: 5rem;
+}
+
+.bob-page-content.menu .double-border.big-boy li {
+    width: 30%;
 }
 
 .bob-page-content.menu .double-border li,
@@ -297,6 +326,22 @@ h1.main-page-title.page-title.h0 {
     padding: 0;
     margin: 0;
     vertical-align: top;
+}
+
+/* ----------------------------- footer link styles ----------------------------- */
+.bob-page-content.site-map section,
+.bob-page-content.privacy section,
+.bob-page-content.faq section {
+    text-align: left;
+}
+
+.bob-page-content.site-map ul {
+    list-style: none;
+}
+.bob-page-content.site-map ul li a {
+    color: #e62544;
+    font-size: 2.5rem;
+    text-decoration: none;
 }
 
 /* ------- mobile styles ------------- */
