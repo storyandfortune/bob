@@ -66,12 +66,26 @@
       "settings": {
         "page": "menus"
       }
+    },
+    "16324408963ac6a505": {
+      "type": "page",
+      "settings": {
+        "page": "events"
+      }
+    },
+    "16324409287fa12d3e": {
+      "type": "page",
+      "settings": {
+        "page": "photos-inside"
+      }
     }
   },
   "order": [
     "image_banner",
     "1632440292fb8ce2dd",
     "featured_products",
-    "16324403215baef854"
+    "16324403215baef854",
+    "16324408963ac6a505",
+    "16324409287fa12d3e"
   ]
 }
