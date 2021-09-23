@@ -331,6 +331,44 @@ h1.main-page-title.page-title.h0 {
     vertical-align: top;
 }
 
+/* ----------------------------- events styles ----------------------------- */
+.bob-page-content.events .big-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 450px;
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.bob-page-content.events .fundraising {
+    background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/Fundraise-With-Bobs-Big-Boy-Burbank.jpg?v=1631872814");
+}
+
+.bob-page-content.events .film {
+    background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/Heat-Filmed-At-Bobs-Big-Boy-Burbank.jpg?v=1631872814");
+}
+
+.bob-page-content .big-image h3 {
+    text-transform: uppercase;
+    font-size: 6rem;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+.bob-page-content .big-image p a {
+    text-decoration: none;
+    padding: 1rem 2rem 1rem 2rem;
+    background-color: #e62544;
+    border: solid red 1px;
+    color: #ffffff;
+}
+
 /* ----------------------------- footer link styles ----------------------------- */
 .bob-page-content.site-map section,
 .bob-page-content.privacy section,
