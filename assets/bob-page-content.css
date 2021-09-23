@@ -385,6 +385,18 @@ h1.main-page-title.page-title.h0 {
     text-decoration: none;
 }
 
+/* ----------------------------- swiper styles ----------------------------- */
+.swiper-container {
+    border: 1px solid red;
+}
+
+.swiper-container .swiper-wrapper {
+    display: block;
+}
+
+.swiper-container .swiper-wrapper .swiper-slide {
+}
+
 /* ------- mobile styles ------------- */
 
 @media screen and (max-width: 750px) {

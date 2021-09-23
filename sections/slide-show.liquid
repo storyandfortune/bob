@@ -15,6 +15,79 @@
   </div>
 </div>
 
+    <!-- scroll -->
+    <script src="{{ 'swiper-bundle.min.js' | asset_url }}"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".swiper-container", {
+        lazy: {
+          //  tell swiper to load images before they appear
+          loadPrevNext: true,
+          // amount of images to load
+          loadPrevNextAmount: 2,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+
+      console.log(swiper);
+    </script>
+
+    <style>
+      /* ----------------------------- swiper styles ----------------------------- */
+      .swiper-container {
+        width: 100%;
+        border:1px solid red;
+        margin:0;
+        padding:0;
+        overflow:hidden;
+        height: 600px;
+      }
+
+      .swiper-wrapper {
+        list-style:none;
+        margin:0;
+        padding:0;
+        height: 600px;
+      }
+      
+      .swiper-slide {
+        border:1px solid green;
+        margin:0;
+        padding:0;
+        text-align: center;
+        font-size: 18px;
+        height: 600px;
+      
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+      }
+      
+      .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 600px;
+        object-fit: cover;
+      }
+      </style>
+      
+
+
+
 {% schema %}
 {
   "name": "t:sections.main-page.name",
