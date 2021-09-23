@@ -50,6 +50,7 @@
     }
 
       .swiper-container {
+        position:relative;
         width: 100%;
         margin:0;
         padding:0;
@@ -96,6 +97,36 @@
         height: 100%;
         object-fit: cover;
       }
+
+      .swiper-button-next{
+          margin-right:3rem;
+      }
+
+      .swiper-button-prev{
+        margin-left:3rem;
+      }
+
+      .swiper-button-next,
+      .swiper-button-prev{
+        color:#FFF;
+        transition: all .25s ease;
+      }
+
+      .swiper-button-next:hover{
+        margin-right:2rem;
+    }
+
+    .swiper-button-prev:hover{
+      margin-left:2rem;
+    }
+
+
+      .swiper-button-next:hover,
+      .swiper-button-prev:hover{
+        transform:scale(1.4);
+      }
+
+
       </style>
       
 
