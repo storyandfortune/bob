@@ -55,6 +55,7 @@ h1.main-page-title.page-title.h0 {
     padding: 2rem 4rem;
     border: 4px solid #b79668;
     margin-bottom: 4rem;
+    list-style-type: none;
 }
 
 .bob-page-content section .col .bob-box h3 {
@@ -98,10 +99,12 @@ h1.main-page-title.page-title.h0 {
     padding: 0;
     text-align: center;
     list-style: none;
+    vertical-align: top;
 }
 
 .bob-page-content section .col ul.inline-list li {
     display: inline-block;
+    vertical-align: top;
     width: 49%;
 }
 
@@ -121,8 +124,8 @@ h1.main-page-title.page-title.h0 {
 
 /* ------- Bobs menu page styles ------------- */
 
-.bob-page-content .menu-header-lunch,
-.bob-page-content .menu-header-breakfast {
+.bob-page-content.menu-header .lunch,
+.bob-page-content.menu-header .breakfast {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -135,15 +138,14 @@ h1.main-page-title.page-title.h0 {
     background-position: center center;
 }
 
-.bob-page-content .menu-header-lunch {
+.bob-page-content.menu-header .lunch {
     background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/lunch.jpg?v=1631907771");
 }
-.bob-page-content .menu-header-breakfast {
+.bob-page-content.menu-header .breakfast {
     background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/breakfast.jpg?v=1631907771");
 }
 
-.bob-page-content .menu-header-lunch h3,
-.bob-page-content .menu-header-breakfast h3 {
+.bob-page-content.menu-header h3 {
     display: block;
     font-size: 6rem;
     color: #ffffff;
@@ -151,10 +153,11 @@ h1.main-page-title.page-title.h0 {
     padding: 0;
 }
 
-.bob-page-content .menu-header-lunch a,
-.bob-page-content .menu-header-breakfast a {
+.bob-page-content.menu-header a {
     color: #ffffff;
 }
+
+/* menus */
 
 .bob-page-content.menu h3 {
     text-transform: uppercase;
