@@ -15,7 +15,7 @@
   </div>
 </div>
 
-    <!-- scroll -->
+    <!-- swiper -->
     <script src="{{ 'swiper-bundle.min.js' | asset_url }}"></script>
 
     <!-- Initialize Swiper -->
@@ -74,6 +74,12 @@
         padding:0;
         text-align: center;
         font-size: 18px;
+
+        /* no select*/
+        -webkit-user-select: none;  /* Chrome all / Safari all */
+       -moz-user-select: none;     /* Firefox all */
+       -ms-user-select: none;      /* IE 10+ */
+       user-select: none;   
 
       
         /* Center slide text vertically */
