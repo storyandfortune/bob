@@ -78,6 +78,16 @@
       "settings": {
         "page": "photos-inside"
       }
+    },
+    "1632520771c8bb5fa0": {
+      "type": "video",
+      "settings": {
+        "heading": "Video",
+        "cover_image": "shopify:\/\/shop_images\/Screen_Shot_2021-09-24_at_3.00.54_PM.png",
+        "video_url": "https:\/\/www.youtube.com\/watch?v=vG7MRp5CiQk",
+        "description": "",
+        "full_width": false
+      }
     }
   },
   "order": [
@@ -86,6 +96,7 @@
     "16324403215baef854",
     "16324408963ac6a505",
     "featured_products",
-    "16324409287fa12d3e"
+    "16324409287fa12d3e",
+    "1632520771c8bb5fa0"
   ]
 }
