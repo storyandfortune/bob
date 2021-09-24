@@ -1,3 +1,8 @@
+<link rel="stylesheet" href="{{ 'section-main-page.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-rte.css' | asset_url }}" media="print" onload="this.media='all'">
+
+<noscript>{{ 'section-main-page.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
 
 
  
@@ -9,33 +14,6 @@
     {{ page.content }}
   </div>
 </div>
-
-<link rel="stylesheet" href="{{ 'section-main-page.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'component-rte.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'bob-swiper.css' | asset_url }}" media="print" onload="this.media='all'">
-
-<noscript>{{ 'section-main-page.css' | asset_url | stylesheet_tag }}</noscript>
-<noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
-<noscript>{{ 'bob-swiper.css' | asset_url | stylesheet_tag }}</noscript>
-
-  <!-- Initialize Swiper -->
-  <script>
-    var swiper = new Swiper(".swiper-container", {
-      lazy: {
-        //  tell swiper to load images before they appear
-        loadPrevNext: true,
-        // amount of images to load
-        loadPrevNextAmount: 2,
-      },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-    });
-  
-    console.log(swiper);
-  </script>
-
 
 {% schema %}
 {

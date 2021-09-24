@@ -132,24 +132,7 @@
       <link rel="stylesheet" href="{{ 'component-predictive-search.css' | asset_url }}" media="print" onload="this.media='all'">
     {%- endif -%}
 
-    <script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>
-
-    <!-- custom libs ------------------------------------------------------------------->
-
-    <!-- jquery -->
-    <script src="{{ 'jquery-3.6.0.min.js' | asset_url }}" defer="defer"></script>
-   
-    <!-- way points -->
-    <script src="{{ 'jquery.waypoints.min.js' | asset_url }}" defer="defer"></script>
-
-    <!-- scroll -->
-    <script src="{{ 'scroll.js' | asset_url }}" defer="defer"></script>
-
-    <!-- scroll -->
-    <script src="{{ 'swiper-bundle.min.js' | asset_url }}" ></script>
-
-
-  
+    <script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>  
 
   </head>
 
@@ -198,5 +181,24 @@
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
+
+    <!-- custom libs ------------------------------------------------------------------->
+
+    <!-- jquery -->
+    <script src="{{ 'jquery-3.6.0.min.js' | asset_url }}" defer="defer"></script>
+   
+    <!-- way points -->
+    <script src="{{ 'jquery.waypoints.min.js' | asset_url }}" defer="defer"></script>
+
+    <!-- Swiper -->
+    <script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer="defer"></script>
+
+    <!-- Swiper init-->
+    <script src="{{ 'swiper-init.js' | asset_url }}" defer="defer"></script>
+
+    <!-- scroll -->
+    <script src="{{ 'scroll.js' | asset_url }}" defer="defer"></script>
+
+
   </body>
 </html>
