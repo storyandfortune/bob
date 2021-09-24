@@ -6,6 +6,123 @@
 <noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
 
 
+ <!-- Initialize Swiper -->
+ <script>
+  var swiper = new Swiper(".swiper-container", {
+    lazy: {
+      //  tell swiper to load images before they appear
+      loadPrevNext: true,
+      // amount of images to load
+      loadPrevNextAmount: 2,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+
+  console.log(swiper);
+</script>
+
+<style>
+  /* ----------------------------- swiper styles ----------------------------- */
+  h1.main-page-title.page-title.h0 {
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+    text-transform: uppercase;
+    color: #e62544;
+    margin: 0;
+    padding: 0.75rem;
+    border-bottom: #b79668 1px solid;
+}
+
+  .swiper-container {
+    position:relative;
+    width: 100%;
+    margin:0;
+    padding:0;
+    overflow:hidden;
+ 
+  }
+
+  .rte ul.swiper-wrapper {
+    padding-left: 0rem;
+  }
+
+  .swiper-wrapper {
+    list-style:none;
+    margin:0;
+    padding:0;
+
+  }
+  
+  .swiper-slide {
+    margin:0;
+    padding:0;
+    text-align: center;
+    font-size: 18px;
+
+    /* no select*/
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+   -moz-user-select: none;     /* Firefox all */
+   -ms-user-select: none;      /* IE 10+ */
+   user-select: none;   
+
+  
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+  
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .swiper-button-next{
+      margin-right:3rem;
+  }
+
+  .swiper-button-prev{
+    margin-left:3rem;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev{
+    color:#FFF;
+    transition: all .25s ease;
+  }
+
+  .swiper-button-next:hover{
+    margin-right:2rem;
+}
+
+.swiper-button-prev:hover{
+  margin-left:2rem;
+}
+
+
+  .swiper-button-next:hover,
+  .swiper-button-prev:hover{
+    transform:scale(1.4);
+  }
+
+
+  </style>
+  
 <div>
   <h1 class="main-page-title page-title h0">
     {{ page.title | escape }}
@@ -14,126 +131,6 @@
     {{ page.content }}
   </div>
 </div>
-
-
-    <!-- Initialize Swiper -->
-    <script>
-      var swiper = new Swiper(".swiper-container", {
-        lazy: {
-          //  tell swiper to load images before they appear
-          loadPrevNext: true,
-          // amount of images to load
-          loadPrevNextAmount: 2,
-        },
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-      });
-
-      console.log(swiper);
-    </script>
-
-    <style>
-      /* ----------------------------- swiper styles ----------------------------- */
-      h1.main-page-title.page-title.h0 {
-        width: 100%;
-        text-align: center;
-        font-size: 2rem;
-        text-transform: uppercase;
-        color: #e62544;
-        margin: 0;
-        padding: 0.75rem;
-        border-bottom: #b79668 1px solid;
-    }
-
-      .swiper-container {
-        position:relative;
-        width: 100%;
-        margin:0;
-        padding:0;
-        overflow:hidden;
-     
-      }
-
-      .rte ul.swiper-wrapper {
-        padding-left: 0rem;
-      }
-
-      .swiper-wrapper {
-        list-style:none;
-        margin:0;
-        padding:0;
-  
-      }
-      
-      .swiper-slide {
-        margin:0;
-        padding:0;
-        text-align: center;
-        font-size: 18px;
-
-        /* no select*/
-        -webkit-user-select: none;  /* Chrome all / Safari all */
-       -moz-user-select: none;     /* Firefox all */
-       -ms-user-select: none;      /* IE 10+ */
-       user-select: none;   
-
-      
-        /* Center slide text vertically */
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        -webkit-justify-content: center;
-        justify-content: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        -webkit-align-items: center;
-        align-items: center;
-      }
-      
-      .swiper-slide img {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-
-      .swiper-button-next{
-          margin-right:3rem;
-      }
-
-      .swiper-button-prev{
-        margin-left:3rem;
-      }
-
-      .swiper-button-next,
-      .swiper-button-prev{
-        color:#FFF;
-        transition: all .25s ease;
-      }
-
-      .swiper-button-next:hover{
-        margin-right:2rem;
-    }
-
-    .swiper-button-prev:hover{
-      margin-left:2rem;
-    }
-
-
-      .swiper-button-next:hover,
-      .swiper-button-prev:hover{
-        transform:scale(1.4);
-      }
-
-
-      </style>
-      
-
 
 
 {% schema %}
