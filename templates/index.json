@@ -57,12 +57,6 @@
         "page": "events-home"
       }
     },
-    "16324409287fa12d3e": {
-      "type": "page",
-      "settings": {
-        "page": "photos-inside"
-      }
-    },
     "featured_products": {
       "type": "featured-collection",
       "settings": {
@@ -78,6 +72,12 @@
         "show_vendor": false,
         "show_rating": false
       }
+    },
+    "16324409287fa12d3e": {
+      "type": "page",
+      "settings": {
+        "page": "photos-inside"
+      }
     }
   },
   "order": [
@@ -85,7 +85,7 @@
     "1632440292fb8ce2dd",
     "16324403215baef854",
     "16324408963ac6a505",
-    "16324409287fa12d3e",
-    "featured_products"
+    "featured_products",
+    "16324409287fa12d3e"
   ]
 }
