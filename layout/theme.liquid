@@ -36,15 +36,57 @@
     {{ content_for_header }}
 
     {% comment %} 
+
     {%- liquid
 
       assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
       assign body_font_italic = settings.type_body_font | font_modify: 'style', 'italic'
       assign body_font_bold_italic = body_font_bold | font_modify: 'style', 'italic'
     %}
-         {% endcomment %} 
+
+    {% endcomment %} 
 
     {% style %}
+
+      @font-face {
+        font-family: "AvenirNextLTPro-Medium";
+        src: url( {{- 'font-avenir-next_light.eot' | asset_url -}} );
+        src: url( {{- 'font-avenir-next_light.eot?#iefix' | asset_url -}} ) format("embedded-opentype"),
+          url(  {{- 'font-avenir-next_light.woff2' | asset_url -}} ) format("woff2"), url( {{- 'font-avenir-next_light.woff' | asset_url -}} ) format("woff"),
+          url( {{- 'font-avenir-next_light.svg#OTS-derived-font' | asset_url -}} ) format("svg");
+        font-weight: normal;
+        font-style: normal;
+      }
+    
+      @font-face {
+        font-family: "AvenirNextLTPro-Bold";
+        src: url(  {{- 'font-avenir-next_medium.eot' | asset_url -}} );
+        src: url( {{- 'font-avenir-next_medium.eot?#iefix' | asset_url -}} ) format("embedded-opentype"),
+          url( {{- 'font-avenir-next_medium.woff2' | asset_url -}} ) format("woff2"), url(  {{- 'font-avenir-next_medium.woff' | asset_url -}} ) format("woff"),
+          url(    {{- 'font-avenir-next_medium.svg#OTS-derived-font' | asset_url -}} ) format("svg");
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: "RoadRadio-Black";
+        src: url(     {{- 'font-road-radio.eot' | asset_url -}} );
+        src: url(    {{- 'font-road-radio.eot?#iefix' | asset_url -}} ) format("embedded-opentype"), url(   {{- 'font-road-radio.woff2' | asset_url -}} ) format("woff2"),
+          url(  {{- 'font-road-radio.woff' | asset_url -}} ) format("woff"), url("font-road-radio.svg#RoadRadio-Black") format("svg");
+        font-weight: normal;
+        font-style: normal;
+      }
+
+     
+      @font-face {
+        font-family: "TradeGothicLTStd-Cn18";
+        src: url({{- 'font-trade-gothic.eot' | asset_url -}});
+        src: url(   {{- 'font-trade-gothic.eot?#iefix' | asset_url -}} ) format("embedded-opentype"), url(     {{- 'font-trade-gothic.woff2' | asset_url -}} ) format("woff2"),
+          url( {{- 'font-trade-gothic.woff' | asset_url -}} ) format("woff"), url("font-trade-gothic.svg#TradeGothicLTStd-Cn18") format("svg");
+        font-weight: normal;
+        font-style: normal;
+      }
+
       
       {% comment %} 
     
@@ -103,9 +145,9 @@
         font-size: 1.5rem;
         letter-spacing: 0.06rem;
         line-height: 1.8;
-        font-family: var(--font-body-family);
-        font-style: var(--font-body-style);
-        font-weight: var(--font-body-weight);
+        font-family: "AvenirNextLTPro-Medium";
+        font-style: normal;
+        font-weight: 200;
       }
 
       @media screen and (min-width: 750px) {
