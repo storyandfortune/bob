@@ -82,6 +82,7 @@
             <h1 class="product__title" {{ block.shopify_attributes }}>
               {{ product.title | escape }}
             </h1>
+
           {%- when 'price' -%}
             <div class="no-js-hidden" id="price-{{ section.id }}" {{ block.shopify_attributes }}>
               {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large' -%}
@@ -92,6 +93,7 @@
                 {{ form | payment_terms }}
               {%- endform -%}
             </div>
+            
           {%- when 'description' -%}
             {%- if product.description != blank -%}
               <div class="product__description rte">

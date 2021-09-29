@@ -491,6 +491,10 @@ h1.product__title {
     font-family: "AvenirNextLTPro-Bold";
 }
 
+.product__info-container .price-item {
+    font-size: 3rem;
+}
+
 /* ----------------------------- footer link styles ----------------------------- */
 .bob-page-content.site-map section,
 .bob-page-content.privacy section,
