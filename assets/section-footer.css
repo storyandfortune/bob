@@ -128,6 +128,37 @@
   list-style: none;
 }
 
+@media screen and (max-width: 990px) {
+  .flex-block-container {
+    position: relative;
+    flex-flow: column wrap;
+    align-items: center;
+  }
+
+  .footer-logo {
+    display: none;
+  }
+  .footer .xtra-info ul {
+    display: none;
+    margin: 0 0 0 0;
+    text-align: center;
+  }
+
+  .flex-block {
+    margin-bottom: 5rem;
+  }
+
+  .back-to-top {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+
+  .footer__content-bottom-wrapper {
+    text-align: center !important;
+  }
+}
+
 .flex-block h4 {
   margin: 0;
   padding: 0;
