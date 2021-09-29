@@ -480,6 +480,17 @@ h1.collection-hero__title {
     color: #ffffff;
 }
 
+/* ----------------------------- store styles ----------------------------- */
+.vendor {
+    font-family: "AvenirNextLTPro-Bold";
+    font-size: 2rem;
+    color: #e62544;
+}
+
+h1.product__title {
+    font-family: "AvenirNextLTPro-Bold";
+}
+
 /* ----------------------------- footer link styles ----------------------------- */
 .bob-page-content.site-map section,
 .bob-page-content.privacy section,
