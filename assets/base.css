@@ -2141,6 +2141,7 @@ details[open] > .header__icon--menu .icon-hamburger {
 }
 
 .header__menu-item {
+  font-family: AvenirNextLTPro-Bold;
   padding: 1.2rem;
   text-decoration: none;
   color: rgba(var(--color-foreground));
