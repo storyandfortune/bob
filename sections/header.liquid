@@ -16,7 +16,7 @@
 <style>
   header-drawer {
     justify-self: start;
-    margin-left: -1.2rem;
+    margin-left: 5rem;
   }
 
   @media screen and (min-width: 990px) {
@@ -339,15 +339,7 @@
       <!-- Logo - SVG Hardcoded -->
       <h1 class="header__heading">
         <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
-            <img 
-              src="{{ 'logo.svg' | asset_url }}"
-              loading="lazy"
-              class="header__heading-logo"
-              width="{{ section.settings.logo.width }}"
-              height="{{ section.settings.logo.height }}"
-              alt="{{ section.settings.logo.alt | default: shop.name | escape }}"
-
-            >
+          {{ 'logo.svg' | asset_url | img_tag }}
         </a>
       </h1>
       <!-- end logo -->
