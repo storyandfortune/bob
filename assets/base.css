@@ -2207,7 +2207,7 @@ details[open] > .header__icon--menu .icon-hamburger {
 }
 
 details-disclosure > details {
-  position: relative;
+  /*position: relative;*/
 }
 
 @keyframes animateMenuOpen {

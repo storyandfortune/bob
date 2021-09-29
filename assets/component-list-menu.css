@@ -4,9 +4,10 @@
 
 .list-menu--disclosure {
   position: absolute;
-  min-width: 100%;
-  width: 20rem;
-  border: 1px solid rgba(var(--color-foreground), 0.2);
+  top: 140px;
+  left: 0;
+  width: 100vw;
+  border: 1px solid #b79668;
   background-color: rgb(var(--color-background));
 }
 
