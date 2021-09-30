@@ -1,24 +1,109 @@
 /* ------ Bobs secondary page styles ------------ */
 
 /*
-
 AvenirNextLTPro-Medium
 AvenirNextLTPro-Bold
 RoadRadio-Black
 TradeGothicLTStd-Cn18
 Hudson
 
-
 @media screen and (min-width: 750px) {
 
 }
 
-@media screen and (min-width: 990px) {
+*/
+/*  -------------- secondary menu --------------------- */
 
+@media screen and (min-width: 990px) {
+    .header__submenu {
+        height: 35rem;
+        margin: 0;
+        padding: 0;
+    }
+
+    .header__submenu li {
+        margin-top: 5rem;
+        position: relative;
+        vertical-align: top;
+        width: 22vw;
+        margin: 5vw 1vw 1vw 1vw;
+        display: inline-block;
+    }
+
+    .header__submenu li .nav-image {
+        position: relative;
+        width: 22vw;
+        height: 15vw;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .header__submenu li a {
+        font-size: 1.8rem;
+    }
+
+    /* -------- images bg's if you rearrange the nav the order will change ----------------- */
+
+    /* history */
+    .list-menu li:nth-child(1) .header__submenu li:nth-child(1) .nav-image {
+        background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/history.jpg?v=1631569447");
+    }
+
+    .list-menu li:nth-child(1) .header__submenu li:nth-child(2) .nav-image {
+        background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/mcallister.jpg?v=1631569696");
+    }
+
+    .list-menu li:nth-child(1) .header__submenu li:nth-child(3) .nav-image {
+        background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/beatles.jpg?v=1631569766");
+    }
+
+    .list-menu li:nth-child(1) .header__submenu li:nth-child(4) .nav-image {
+        background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/Val-Kilmer-Robert-DeNiro-Bobs-Big-Boy-HEAT.jpg?v=1631569894");
+    }
+
+    /* menus */
+    .list-menu li:nth-child(2) .header__submenu li:nth-child(1) .nav-image {
+        background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/burger.jpg?v=1633037381");
+        background-size: contain;
+    }
+
+    .list-menu li:nth-child(2) .header__submenu li:nth-child(2) .nav-image {
+        background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/milkshake.jpg?v=1633037393");
+        background-size: contain;
+    }
+
+    /* events */
+    .list-menu li:nth-child(3) .header__submenu li:nth-child(1) .nav-image {
+        background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/Bobs-Big-Boy-Hot-Rod.jpg?v=1631872538");
+    }
+
+    /* photos */
+    .list-menu li:nth-child(4) .header__submenu li:nth-child(1) .nav-image {
+        background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/outside.jpg?v=1633039885");
+    }
+
+    .list-menu li:nth-child(4) .header__submenu li:nth-child(2) .nav-image {
+        background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/food.jpg?v=1633039899");
+    }
+
+    .list-menu li:nth-child(4) .header__submenu li:nth-child(3) .nav-image {
+        background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/inside.jpg?v=1633039872");
+    }
+
+    /* shop */
+    .list-menu li:nth-child(5) .header__submenu li:nth-child(1) .nav-image {
+        background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/salt.jpg?v=1633039926");
+        background-size: contain;
+    }
+
+    .list-menu li:nth-child(5) .header__submenu li:nth-child(2) .nav-image {
+        background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/plushie.jpg?v=1633039913");
+        background-size: contain;
+    }
 }
 
-
-*/
+/*  -------------------------------------------------- */
 
 h1.main-page-title.page-title.h0,
 h1.collection-hero__title {
