@@ -35,7 +35,6 @@
 
     {{ content_for_header }}
 
-    {% comment %} 
 
     {%- liquid
 
@@ -44,7 +43,7 @@
       assign body_font_bold_italic = body_font_bold | font_modify: 'style', 'italic'
     %}
 
-    {% endcomment %} 
+ 
 
     {% style %}
 
@@ -100,7 +99,7 @@
       }
 
       
-      {% comment %} 
+    
     
       {{ settings.type_body_font | font_face: font_display: 'swap' }}
       {{ body_font_bold | font_face: font_display: 'swap' }}
@@ -108,7 +107,7 @@
       {{ body_font_bold_italic | font_face: font_display: 'swap' }}
       {{ settings.type_header_font | font_face: font_display: 'swap' }}
 
-      {% endcomment %} 
+  
 
       :root {
         --font-body-family: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
