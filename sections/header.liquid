@@ -344,12 +344,12 @@
       </h1>
       <!-- end logo -->
 
-      <!-- navigation -->
+    <!-- navigation -->
     {%- if section.settings.menu != blank -%}
       <nav class="header__inline-menu">
         <ul class="list-menu list-menu--inline" role="list">
           {%- for link in section.settings.menu.links -%}
-            <li>
+            <li class="nav-{{link.title | handleize}}">
               {%- if link.links != blank -%}
                 <details-disclosure>
                   <details>
@@ -359,28 +359,28 @@
                     </summary>
                     <ul class="header__submenu list-menu list-menu--disclosure caption-large motion-reduce" role="list" tabindex="-1">
                       {%- for childlink in link.links -%}
-                        <li>
+                        <li class="nav-{{ childlink.title | handleize }}">
                           {%- if childlink.links == blank -%}
-                            <div class="nav-image"></div>
                             <a href="{{ childlink.url }}" class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if childlink.current %} list-menu__item--active{% endif %}"{% if childlink.current %} aria-current="page"{% endif %}>
-                              {{ childlink.title | escape }}
+                              <div class="nav-image"></div>
+                              <div class="nav-title">{{ childlink.title | escape }}</div>
                             </a>
                           {%- else -%}
-                            <details>
-                              <summary class="header__menu-item link link--text list-menu__item focus-inset caption-large">
+                          <!--  <details class="open"> -->
+                              <summary class="header__menu-item link link--text list-menu__item">
                                 {{ childlink.title | escape }}
                                 {% render 'icon-caret' %}
                               </summary>
                               <ul class="header__submenu list-menu motion-reduce">
                                 {%- for grandchildlink in childlink.links -%}
-                                  <li>
+                                  <li class="nav-{{ grandchildlink.title | handleize }}">
                                     <a href="{{ grandchildlink.url }}" class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if grandchildlink.current %} list-menu__item--active{% endif %}"{% if grandchildlink.current %} aria-current="page"{% endif %}>
                                       {{ grandchildlink.title | escape }}
                                     </a>
                                   </li>
                                 {%- endfor -%}
                               </ul>
-                            </details>
+                           <!--   </details> -->
                           {%- endif -%}
                         </li>
                       {%- endfor -%}
