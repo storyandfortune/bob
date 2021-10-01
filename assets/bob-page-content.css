@@ -13,11 +13,11 @@ Hudson
 }
 
 */
-/*  -------------- secondary menu --------------------- */
+/*  -------------- secondary navigation --------------------- */
 
 @media screen and (min-width: 990px) {
     .header__submenu {
-        height: 35rem;
+        height: 40rem;
         margin: 0;
         padding: 0;
     }
@@ -29,7 +29,7 @@ Hudson
         max-width: 25rem;
         max-height: 35rem;
         padding: 0;
-        margin: 0 1vw 1vw 1vw;
+        margin: 1rem 1rem 1rem 1rem;
         vertical-align: top;
         display: inline-block;
     }
@@ -89,6 +89,11 @@ Hudson
     /* -------- images bg's if you rearrange the nav the order will change ----------------- */
 
     /* history -------------------------------------------------------------------- */
+
+    .list-menu li.nav-history .header__submenu li {
+        margin: 4.5rem 1rem 1rem 1rem;
+    }
+
     .list-menu li.nav-history .header__submenu li.nav-opening .nav-image {
         background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/history.jpg?v=1631569447");
     }
@@ -109,26 +114,50 @@ Hudson
     .list-menu li.nav-menus .header__submenu li.nav-burgers .nav-image {
         background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/burger.jpg?v=1633037381");
         background-size: contain;
+        margin: 5rem 1rem 1rem 1rem;
     }
 
     .list-menu li.nav-menus .header__submenu li.nav-milkshakes .nav-image {
         background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/milkshake.jpg?v=1633037393");
         background-size: contain;
-        height: 27rem;
+        height: 25rem;
+        margin: 0 1rem 1rem 1rem;
     }
 
+    .list-menu li.nav-menus .header__submenu li.nav-breakfast,
+    .list-menu li.nav-menus .header__submenu li.nav-lunch-dinner {
+        margin: 2.5rem 1rem 1rem 1rem;
+    }
     .list-menu li.nav-menus .header__submenu li.nav-breakfast li:last-child a,
     .list-menu li.nav-menus .header__submenu li.nav-lunch-dinner li:last-child a {
         margin-top: 1rem;
         color: #e62544;
     }
 
-    /* events */
-    .list-menu li.nav-events .header__submenu li:nth-child(1) .nav-image {
+    /* events -------------------------------------------------------------------- */
+
+    .list-menu li.nav-events .header__submenu li.nav-classic-car-show .nav-image {
         background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/Bobs-Big-Boy-Hot-Rod.jpg?v=1631872538");
     }
 
+    .list-menu li.nav-events .header__submenu li.nav-classic-car-show,
+    .list-menu li.nav-events .header__submenu li.nav-fundraising,
+    .list-menu li.nav-events .header__submenu li.nav-filming,
+    .list-menu li.nav-events .header__submenu li.nav-big-boy-blog {
+        /*display: block;
+        float: left;*/
+    }
+
+    .list-menu li.nav-events .header__submenu li.nav-big-boy-blog li:last-child a {
+        margin-top: 1rem;
+        color: #e62544;
+    }
+
     /* photos */
+
+    .list-menu li.nav-photos .header__submenu li {
+        margin: 6rem;
+    }
     .list-menu li.nav-photos .header__submenu li.nav-outside .nav-image {
         background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/outside.jpg?v=1633039885");
     }
@@ -160,6 +189,11 @@ Hudson
         background-size: contain;
         height: 27rem;
     }
+
+    .list-menu li.nav-shop .header__submenu li.nav-apparel,
+    .list-menu li.nav-shop .header__submenu li.nav-merchandise {
+        margin-top: 7rem;
+    }
 }
 
 /*  -------------------------------------------------- */
@@ -177,8 +211,12 @@ h1.collection-hero__title {
     border-bottom: #b79668 1px solid;
 }
 
+section.shopify-section {
+    margin: 0;
+}
+
 .bob-page-content section {
-    margin: 10rem;
+    margin-top: 10rem;
     text-align: center;
 }
 
@@ -235,7 +273,8 @@ h1.collection-hero__title {
     list-style-type: none;
 }
 
-.bob-page-content section .col .bob-box h3 {
+.bob-page-content section .col .bob-box h3,
+.bob-page-content section h4 {
     font-family: "AvenirNextLTPro-Bold";
     text-align: left;
     font-size: 2.5rem;
@@ -270,6 +309,10 @@ h1.collection-hero__title {
     border-top: 1px solid black;
     border-bottom: 1px solid black;
     margin: 0 0 2rem 0;
+}
+
+.bob-page-content section .col .pull-quote strong {
+    font-family: "AvenirNextLTPro-Bold";
 }
 
 .bob-page-content section .col ul.inline-list {
@@ -324,6 +367,11 @@ h1.collection-hero__title {
     background-position: center center;
 }
 
+.bob-page-content.menu-header h3 {
+    font-family: "Hudson";
+    font-size: 6rem;
+}
+
 .bob-page-content.menu-header .lunch {
     background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/lunch.jpg?v=1631907771");
 }
@@ -333,7 +381,7 @@ h1.collection-hero__title {
 
 .bob-page-content.menu-header h3 {
     display: block;
-    font-size: 6rem;
+    font-size: 10rem;
     color: #ffffff;
     margin: 0;
     padding: 0;
@@ -345,9 +393,13 @@ h1.collection-hero__title {
 
 /* menus */
 
+.bob-page-content.menu section {
+    padding-top: 20rem;
+    margin: 0 10rem 0 10rem;
+}
+
 .bob-page-content.menu h3 {
     font-family: "RoadRadio-Black";
-    display: block;
     text-transform: uppercase;
     font-weight: 800;
     font-size: 6.5rem;
@@ -379,6 +431,12 @@ h1.collection-hero__title {
     margin: 2rem;
     line-height: 2.3rem;
     font-weight: 700;
+}
+
+.bob-page-content.menu ul li h4 {
+    text-align: center;
+    font-size: 2.6rem !important;
+    line-height: 3.5rem;
 }
 
 @media screen and (max-width: 990px) {
