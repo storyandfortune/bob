@@ -11,6 +11,9 @@ Hudson
 @media screen and (min-width: 750px) {
 
 }
+@media screen and (min-width: 990px) {
+    
+}
 
 */
 /*  -------------- secondary navigation --------------------- */
@@ -140,13 +143,15 @@ Hudson
         background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/Bobs-Big-Boy-Hot-Rod.jpg?v=1631872538");
     }
 
+    /*
     .list-menu li.nav-events .header__submenu li.nav-classic-car-show,
     .list-menu li.nav-events .header__submenu li.nav-fundraising,
     .list-menu li.nav-events .header__submenu li.nav-filming,
     .list-menu li.nav-events .header__submenu li.nav-big-boy-blog {
-        /*display: block;
-        float: left;*/
+        display: block;
+        float: left;
     }
+    */
 
     .list-menu li.nav-events .header__submenu li.nav-big-boy-blog li:last-child a {
         margin-top: 1rem;
@@ -540,9 +545,7 @@ section.shopify-section {
     width: auto;
 }
 
-.bob-page-content.menu .big-boy-title span:nth-child(1) {
-}
-.bob-page-content.menu .big-boy-title span.menus {
+.bob-page-content.menu .big-boy-title span:nth-child(2) {
     margin-left: 12rem;
 }
 
@@ -568,7 +571,7 @@ section.shopify-section {
 }
 
 @media screen and (max-width: 990px) {
-    .bob-page-content.menu .big-boy-title span.menus {
+    .bob-page-content.menu .big-boy-title span:nth-child(2) {
         margin-left: 3rem;
     }
 
@@ -611,7 +614,7 @@ section.shopify-section {
 }
 
 .bob-page-content.menu .disclaimer p:nth-child(1),
-.bob-page-content.menu .disclaimer p.menus {
+.bob-page-content.menu .disclaimer p:nth-child(2) {
     font-size: 2.3rem;
     line-height: 3rem;
     font-style: normal;
@@ -619,7 +622,7 @@ section.shopify-section {
     text-transform: uppercase;
 }
 
-.bob-page-content.menu .disclaimer p.menus {
+.bob-page-content.menu .disclaimer p:nth-child(2) {
     color: #e62544;
 }
 
@@ -628,13 +631,13 @@ section.shopify-section {
     font-weight: 200;
 }
 
-.bob-page-content.menu .disclaimer ul li.menus {
+.bob-page-content.menu .disclaimer ul li:nth-child(2) {
     font-weight: 800;
     text-transform: uppercase;
     font-size: 2.5rem;
 }
 
-.bob-page-content.menu .disclaimer ul li.menus sup {
+.bob-page-content.menu .disclaimer ul li:nth-child(2) sup {
     color: #e62544;
     font-size: 2.8rem;
     padding: 0;
