@@ -129,22 +129,30 @@ Hudson
     }
 
     /* photos */
-    .list-menu li.nav-photos .header__submenu li:nth-child(1) .nav-image {
+    .list-menu li.nav-photos .header__submenu li.nav-outside .nav-image {
         background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/outside.jpg?v=1633039885");
     }
 
-    .list-menu li.nav-photos .header__submenu li.menus .nav-image {
+    .list-menu li.nav-photos .header__submenu li.nav-food .nav-image {
         background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/food.jpg?v=1633039899");
     }
 
-    .list-menu li.nav-photos .header__submenu li:nth-child(3) .nav-image {
+    .list-menu li.nav-photos .header__submenu li.nav-inside .nav-image {
         background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/inside.jpg?v=1633039872");
     }
 
     /* shop */
+
+    .list-menu li.nav-shop .header__submenu li.nav-apparel li:last-child a,
+    .list-menu li.nav-shop .header__submenu li.nav-merchandise li:last-child a {
+        margin-top: 1rem;
+        color: #e62544;
+    }
+
     .list-menu li.nav-shop .header__submenu li.nav-seasoning-salt .nav-image {
         background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/salt.jpg?v=1633039926");
         background-size: contain;
+        margin-top: 7rem;
     }
 
     .list-menu li.nav-shop .header__submenu li.nav-11-plushie .nav-image {
