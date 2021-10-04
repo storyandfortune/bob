@@ -3,6 +3,8 @@
 <link rel="stylesheet" href="{{ 'component-menu-drawer.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-cart-notification.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'xtra-info-header.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'section-header.css' | asset_url }}" media="print" onload="this.media='all'">
+
 {%- if settings.predictive_search_enabled -%}
   <link rel="stylesheet" href="{{ 'component-price.css' | asset_url }}" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="{{ 'component-loading-overlay.css' | asset_url }}" media="print" onload="this.media='all'">
@@ -12,59 +14,7 @@
 <noscript>{{ 'component-search.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'component-menu-drawer.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'component-cart-notification.css' | asset_url | stylesheet_tag }}</noscript>
-
-<style>
-  header-drawer {
-    justify-self: start;
-    margin-left: 5rem;
-  }
-
-  @media screen and (min-width: 990px) {
-    header-drawer {
-      display: none;
-    }
-  }
-
-  .menu-drawer-container {
-    display: flex;
-  }
-
-  .list-menu {
-    list-style: none;
-    padding: 0 0 0 0;
-    margin: 0;
-  }
-
-  .list-menu--inline {
-    display: inline-flex;
-    flex-wrap: wrap;
-  }
-
-  summary.list-menu__item {
-    padding-right: 2.7rem;
-  }
-
-  .list-menu__item {
-    display: flex;
-    align-items: center;
-    line-height: 1.3;
-  }
-
-  .list-menu__item--link {
-    text-decoration: none;
-    padding-bottom: 1rem;
-    padding-top: 1rem;
-    line-height: 1.8;
-  }
-
-
-  @media screen and (min-width: 750px) {
-    .list-menu__item--link {
-      padding-bottom: 0.5rem;
-      padding-top: 0.5rem;
-    }
-  }
-</style>
+<noscript>{{ 'section-header.css.css' | asset_url | stylesheet_tag }}</noscript>
 
 <script src="{{ 'details-disclosure.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'details-modal.js' | asset_url }}" defer="defer"></script>
@@ -86,6 +36,9 @@
 
 
 <{% if section.settings.enable_sticky_header %}sticky-header{% else %}div{% endif %} class="header-wrapper color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}">
+  
+  <div class="hero-scroll"></div>
+
   <div class="header-top">
     {% render 'xtra-info' %}
   </div>
