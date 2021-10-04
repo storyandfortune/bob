@@ -24,22 +24,21 @@ $(document).ready(function () {
 
 
 
-    /* big boy hides 
+    /* big boy hides */
 
     var BigBoyHides = $('#big-boy-header').waypoint(function (direction) {
 
-        if (direction === "up") {
-            $('#big-boy-footer').addClass('hide');
+        if (direction === "down") {
+            $('#big-boy-header').addClass('hide');
         }
         else {
-            $('#big-boy-footer').removeClass('hide');
+            $('#big-boy-header').removeClass('hide');
         }
 
     }, {
-        offset: 'bottom-in-view'
+        offset: '65%'
     });
 
-    */
 
 
 
