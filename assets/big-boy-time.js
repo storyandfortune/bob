@@ -3,6 +3,46 @@
 
 $(document).ready(function () {
 
+
+
+    /* Waypoints --------------------------------------------------------- */
+
+    /* sticky header */
+    var StickyHeader = $('#header-top').waypoint(function (direction) {
+
+
+        if (direction === "down") {
+            console.log('add sticky');
+            $('#shopify-section-header').addClass('sticky');
+        }
+        else {
+            console.log('remove sticky');
+            $('#shopify-section-header').removeClass('sticky');
+        }
+
+    });
+
+
+
+    /* big boy hides 
+
+    var BigBoyHides = $('#big-boy-header').waypoint(function (direction) {
+
+        if (direction === "up") {
+            $('#big-boy-footer').addClass('hide');
+        }
+        else {
+            $('#big-boy-footer').removeClass('hide');
+        }
+
+    }, {
+        offset: 'bottom-in-view'
+    });
+
+    */
+
+
+
     /* footer big boy coming up */
     var BigBoyBottom = $('#big-boy-footer').waypoint(function (direction) {
 
@@ -16,6 +56,13 @@ $(document).ready(function () {
     }, {
         offset: 'bottom-in-view'
     });
+
+
+
+
+
+
+
 
     $('#big-boy-footer').bind('click', function () {
         $('#big-boy-footer').toggleClass('up');

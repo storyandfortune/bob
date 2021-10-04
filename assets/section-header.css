@@ -1,4 +1,45 @@
 .hero-scroll {
+    position: relative;
+    width: 100vw;
+    height: 90vh;
+}
+
+.hero-scroll .frame {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 90vh;
+
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.hero-scroll .frame-1 {
+    background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/frame1.jpg?v=1633366829");
+    z-index: 5;
+}
+.hero-scroll .frame-2 {
+    background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/frame2.jpg?v=1633366845");
+    z-index: 4;
+}
+.hero-scroll .frame-3 {
+    background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/frame3.jpg?v=1633366862");
+    z-index: 3;
+}
+.hero-scroll .frame-4 {
+    background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/frame4.jpg?v=1633366882");
+    z-index: 2;
+}
+.hero-scroll .frame-5 {
+    background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/frame5.jpg?v=1633366903");
+    z-index: 1;
+}
+.hero-scroll .frame-6 {
+    background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/frame6.jpg?v=1633366916");
+    z-index: 0;
 }
 
 header-drawer {
@@ -53,10 +94,14 @@ summary.list-menu__item {
 
 /* section-header */
 #shopify-section-header {
-    position: sticky;
+    position: relative;
+    width: 100%;
+}
+
+#shopify-section-header.sticky {
+    position: sticky !important;
     top: 0;
     left: 0;
-    width: 100%;
     z-index: 3;
 }
 

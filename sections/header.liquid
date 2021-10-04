@@ -36,10 +36,9 @@
 
 
 <{% if section.settings.enable_sticky_header %}sticky-header{% else %}div{% endif %} class="header-wrapper color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}">
-  
-  <div class="hero-scroll"></div>
 
-  <div class="header-top">
+
+  <div id="header-top" class="header-top">
     {% render 'xtra-info' %}
   </div>
   <header class="header header--{{ section.settings.logo_position }} {% if section.settings.menu != blank %} header--has-menu{% endif %}">
