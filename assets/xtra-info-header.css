@@ -59,11 +59,20 @@
 }
 
 @media screen and (max-width: 990px) {
-    .header-top .xtra-info ul li.logo {
+    #shopify-section-header .header-top .xtra-info ul li.logo {
+        position: relative;
+        display: inline-block;
+        width: 200px;
+        margin-top: -250px;
+        opacity: 0;
+        transition: all 0.5s ease;
+    }
+
+    #shopify-section-header.sticky .header-top .xtra-info ul li.logo {
         position: relative;
         display: inline-block;
         width: 200px;
         margin-top: -55px;
-        border: 1px solid red;
+        opacity: 1;
     }
 }
