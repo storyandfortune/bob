@@ -198,7 +198,12 @@
       {{ "accessibility.skip_to_text" | t }}
     </a>
 
+    
+    
+    {% if template == 'index' %}
     {% section 'hero-scroll' %}
+    {% endif %}
+
     {% section 'announcement-bar' %}
     {% section 'header' %}
 

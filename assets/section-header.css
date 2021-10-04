@@ -9,18 +9,30 @@
 .hero-scroll .header-b-boy {
     position: absolute;
     width: 30rem;
-    left: 5rem;
-    bottom: -22rem;
+    height: 35rem;
+    left: 2rem;
+    bottom: -13.6rem;
+    overflow: hidden;
     z-index: 7;
-    transition: all 0.75s ease;
+    transition: all 1s ease;
+}
+
+@media screen and (max-width: 1250px) {
+    .hero-scroll .header-b-boy {
+        left: -5rem;
+        width: 25rem;
+        height: 30rem;
+    }
+}
+
+.hero-scroll .header-b-boy .big-boy-container {
+    position: absolute;
+    width: 100%;
+    height: 50rem;
 }
 
 .hero-scroll .header-b-boy.hide {
-    position: absolute;
-    width: 45rem;
-    left: 5rem;
-    opacity: 0;
-    bottom: -200rem;
+    height: 0rem;
 }
 
 .hero-scroll .header-b-boy img {
