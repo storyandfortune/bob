@@ -7,6 +7,7 @@ AvenirNextLTPro-Bold
 RoadRadio-Black
 TradeGothicLTStd-Cn18
 Hudson
+Harvard
 
 @media screen and (min-width: 750px) {
 
@@ -226,7 +227,7 @@ section.shopify-section {
 }
 
 .bob-page-content section h3 {
-    font-family: "Hudson";
+    font-family: "Harvard";
     width: 100%;
     text-align: center;
     font-size: 7rem;
