@@ -48,11 +48,7 @@
       <h2>TAKE10%OF</h2>
 
       <div id="big-boy-footer" class="footer-b-boy">
-        <img 
-          src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/bigboy.png?v=1631845141" 
-          height="296"
-          width="267"
-          loading="lazy">
+            {{ 'big-boy-full.png' | asset_url | img_tag }}
       </div>
       
     </div>
@@ -86,7 +82,7 @@
           <ul class="footer__list-social list-unstyled list-social" role="list">
             {%- if settings.social_twitter_link != blank -%}
               <li class="list-social__item">
-                <a href="{{ settings.social_twitter_link }}" class="link link--text list-social__link" >
+                <a href="{{ settings.social_twitter_link }}" target="_blank" class="link link--text list-social__link" >
                   {%- render 'icon-twitter' -%}
                   <span class="visually-hidden">{{ 'general.social.links.twitter' | t }}</span>
                 </a>
@@ -94,7 +90,7 @@
             {%- endif -%}
             {%- if settings.social_facebook_link != blank -%}
               <li class="list-social__item">
-                <a href="{{ settings.social_facebook_link }}" class="link link--text list-social__link" >
+                <a href="{{ settings.social_facebook_link }}" target="_blank" class="link link--text list-social__link" >
                   {%- render 'social-icon-facebook' -%}
                   <span class="visually-hidden">{{ 'general.social.links.facebook' | t }}</span>
                 </a>
@@ -102,7 +98,7 @@
             {%- endif -%}
             {%- if settings.social_pinterest_link != blank -%}
               <li class="list-social__item">
-                <a href="{{ settings.social_pinterest_link }}" class="link link--text list-social__link" >
+                <a href="{{ settings.social_pinterest_link }}" target="_blank" class="link link--text list-social__link" >
                   {%- render 'social-icon-pinterest' -%}
                   <span class="visually-hidden">{{ 'general.social.links.pinterest' | t }}</span>
                 </a>
@@ -110,7 +106,7 @@
             {%- endif -%}
             {%- if settings.social_instagram_link != blank -%}
               <li class="list-social__item">
-                <a href="{{ settings.social_instagram_link }}" class="link link--text list-social__link" >
+                <a href="{{ settings.social_instagram_link }}" target="_blank" class="link link--text list-social__link" >
                   {%- render 'social-icon-instagram' -%}
                   <span class="visually-hidden">{{ 'general.social.links.instagram' | t }}</span>
                 </a>
@@ -118,7 +114,7 @@
             {%- endif -%}
             {%- if settings.social_tiktok_link != blank -%}
               <li class="list-social__item">
-                <a href="{{ settings.social_tiktok_link }}" class="link link--text list-social__link" >
+                <a href="{{ settings.social_tiktok_link }}" target="_blank" class="link link--text list-social__link" >
                   {%- render 'icon-tiktok' -%}
                   <span class="visually-hidden">{{ 'general.social.links.tiktok' | t }}</span>
                 </a>
@@ -126,7 +122,7 @@
             {%- endif -%}
             {%- if settings.social_tumblr_link != blank -%}
               <li class="list-social__item">
-                <a href="{{ settings.social_tumblr_link }}" class="link link--text list-social__link" >
+                <a href="{{ settings.social_tumblr_link }}" target="_blank" class="link link--text list-social__link" >
                   {%- render 'icon-tumblr' -%}
                   <span class="visually-hidden">{{ 'general.social.links.tumblr' | t }}</span>
                 </a>
@@ -134,7 +130,7 @@
             {%- endif -%}
             {%- if settings.social_snapchat_link != blank -%}
               <li class="list-social__item">
-                <a href="{{ settings.social_snapchat_link }}" class="link link--text list-social__link" >
+                <a href="{{ settings.social_snapchat_link }}" target="_blank" class="link link--text list-social__link" >
                   {%- render 'icon-snapchat' -%}
                   <span class="visually-hidden">{{ 'general.social.links.snapchat' | t }}</span>
                 </a>
@@ -142,7 +138,7 @@
             {%- endif -%}
             {%- if settings.social_youtube_link != blank -%}
               <li class="list-social__item">
-                <a href="{{ settings.social_youtube_link }}" class="link link--text list-social__link" >
+                <a href="{{ settings.social_youtube_link }}" target="_blank" class="link link--text list-social__link" >
                   {%- render 'social-icon-youtube' -%}
                   <span class="visually-hidden">{{ 'general.social.links.youtube' | t }}</span>
                 </a>
@@ -150,7 +146,7 @@
             {%- endif -%}
             {%- if settings.social_vimeo_link != blank -%}
               <li class="list-social__item">
-                <a href="{{ settings.social_vimeo_link }}" class="link link--text list-social__link" >
+                <a href="{{ settings.social_vimeo_link }}" target="_blank" class="link link--text list-social__link" >
                   {%- render 'icon-vimeo' -%}
                   <span class="visually-hidden">{{ 'general.social.links.vimeo' | t }}</span>
                 </a>
@@ -165,7 +161,7 @@
           <ul class="footer__list-social list-unstyled list-social" role="list">
             {%- if settings.reviews_yelp_link != blank -%}
               <li class="list-social__item">
-                <a href="{{ settings.reviews_yelp_link }}" class="link link--text list-social__link" >
+                <a href="{{ settings.reviews_yelp_link }}" target="_blank" class="link link--text list-social__link" >
                   {%- render 'social-icon-yelp' -%}
 
                 </a>
@@ -173,14 +169,14 @@
             {%- endif -%}
             {%- if settings.reviews_tripadvisor_link != blank -%}
               <li class="list-social__item">
-                <a href="{{ settings.reviews_tripadvisor_link }}" class="link link--text list-social__link" >
+                <a href="{{ settings.reviews_tripadvisor_link }}" target="_blank" class="link link--text list-social__link" >
                   {%- render 'social-icon-tripadvisor' -%}
                 </a>
               </li>
             {%- endif -%}
             {%- if settings.reviews_google_plus_link != blank -%}
               <li class="list-social__item">
-                <a href="{{ settings.reviews_google_plus_link }}" class="link link--text list-social__link" >
+                <a href="{{ settings.reviews_google_plus_link }}" target="_blank" class="link link--text list-social__link" >
                   {%- render 'social-icon-google-plus' -%}
 
                 </a>

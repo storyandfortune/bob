@@ -47,13 +47,19 @@
   cursor: pointer;
   z-index: 10;
   right: 4rem;
-  bottom: -300px;
+  bottom: -45rem;
+  width: 28rem;
   transform: scale(0.9);
   transition: all 1s ease;
 }
 
+.footer-b-boy img {
+  width: 100%;
+  height: auto;
+}
+
 .footer-b-boy.up {
-  bottom: -75px;
+  bottom: -15rem;
   transform: scale(1);
 }
 
