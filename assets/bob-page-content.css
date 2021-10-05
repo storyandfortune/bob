@@ -228,6 +228,7 @@ section.shopify-section {
 .bob-page-content section:first-child {
     border: 1px solid transparent;
     margin-top: 10rem;
+    margin-bottom: 10rem;
 }
 
 .bob-page-content section h3 {
@@ -260,6 +261,10 @@ section.shopify-section {
     margin: 0 0 2rem 0;
     font-size: 1.8rem;
     line-height: 2.3rem;
+}
+
+.bob-page-content section .col p strong {
+    font-family: "AvenirNextLTPro-Bold";
 }
 
 .bob-page-content section .col a {
@@ -318,7 +323,7 @@ section.shopify-section {
     display: block;
     padding: 3rem;
     font-style: normal;
-    font-weight: 800;
+    font-family: "AvenirNextLTPro-Bold";
     text-align: left;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
