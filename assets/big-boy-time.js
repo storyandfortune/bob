@@ -53,12 +53,27 @@ $(document).ready(function () {
     /* -- bind -------------------------------- */
 
 
-    $("#shopify-section-header nav .list-menu li").bind('click', function () {
-        if ($("#shopify-section-header:not(.sticky)")) {
-            console.log($('#header-top').position().top);
-            $("html, body").animate({ scrollTop: 1200 }, "slow").finish(function () {
-                console.log('finished');
+    $("#shopify-section-header nav .list-menu li").bind('click', function (e) {
+
+        var element = $(this);
+
+        if (!$("#shopify-section-header").hasClass('sticky')) {
+
+            e.preventDefault();
+
+            $("html, body").animate({
+                scrollTop: 1200
+            }, {
+                duration: 1100,
+                complete: function () {
+                    var d = $(element).find('details');
+                    $(d).prop('open', true);
+                    console.log(d);
+                }
             });
+        }
+        else {
+            console.log('normal');
         }
     });
 
