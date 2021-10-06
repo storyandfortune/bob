@@ -301,7 +301,7 @@
       <nav class="header__inline-menu">
         <ul class="list-menu list-menu--inline" role="list">
           {%- for link in section.settings.menu.links -%}
-            <li class="nav-{{link.title | handleize}}">
+            <li class="nav-{{link.title | handleize}}" data-link="{{link.url}}" >
               {%- if link.links != blank -%}
                 <details-disclosure>
                   <details>

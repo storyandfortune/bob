@@ -50,17 +50,37 @@ $(document).ready(function () {
     });
 
 
+    /* -- bind -------------------------------- */
+
+    $(window).on('scroll', function () {
+        console.log($(this).scrollTop());
+    });
+
+    $("#shopify-section-header nav .list-menu li").bind('click', function () {
+        if ($("#shopify-section-header:not(.sticky)")) {
+            console.log($('#header-top').position().top);
+            $("html, body").animate({ scrollTop: 1200 }, "slow");
+            return false;
+        }
+    });
+
+    $("#shopify-section-header nav .list-menu li").bind('dblclick', function () {
+        window.location.href = $(this).data("link");
+    });
+
+
     $('#big-boy-footer').bind('click', function () {
         $('#big-boy-footer').toggleClass('up');
     });
-
-    /* ------------------------------------------ */
 
     /*-- scroll to top ---*/
     $("#totop").click(function () {
         $("html, body").animate({ scrollTop: 0 }, "slow");
         return false;
     });
+
+
+
 
 });
 
