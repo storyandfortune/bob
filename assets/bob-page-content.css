@@ -204,7 +204,8 @@ Harvard
 /*  -------------------------------------------------- */
 
 h1.main-page-title.page-title.h0,
-h1.collection-hero__title {
+h1.collection-hero__title,
+.main-blog h1.title--primary {
     font-family: "TradeGothicLTStd-Cn18";
     font-size: 1.8rem;
     text-transform: uppercase;
@@ -706,6 +707,12 @@ section.shopify-section {
     background-color: #e62544;
     border: solid red 1px;
     color: #ffffff;
+}
+
+/* ----------------------------- blog styles ----------------------------- */
+
+article.article-template {
+    margin: 0 5rem;
 }
 
 /* ----------------------------- store styles ----------------------------- */

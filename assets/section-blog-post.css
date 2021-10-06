@@ -3,7 +3,6 @@
 }
 
 .article-template__hero-container {
-  max-width: 130rem;
   margin: 0 auto;
 }
 
@@ -83,7 +82,8 @@
   margin-top: 3rem;
 }
 
-.article-template__social-sharing + header, .article-template__social-sharing + .article-template__content {
+.article-template__social-sharing + header,
+.article-template__social-sharing + .article-template__content {
   margin-top: 1.5rem;
 }
 

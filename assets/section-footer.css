@@ -2,6 +2,7 @@
 
 .map-wrapper {
   position: relative;
+  border-top: 1px solid #b79668;
   overflow: hidden;
 }
 
@@ -47,7 +48,7 @@
   cursor: pointer;
   z-index: 10;
   right: 4rem;
-  bottom: -45rem;
+  bottom: -36rem;
   width: 28rem;
   transform: scale(0.9);
   transition: all 1s ease;
