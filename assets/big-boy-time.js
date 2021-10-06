@@ -81,6 +81,14 @@ $(document).ready(function () {
         window.location.href = $(this).data("link");
     });
 
+    $('#big-boy-header').bind('click', function () {
+        $("html, body").animate({
+            scrollTop: 1200
+        }, {
+            duration: 1100
+        });
+    });
+
 
     $('#big-boy-footer').bind('click', function () {
         $('#big-boy-footer').toggleClass('up');
