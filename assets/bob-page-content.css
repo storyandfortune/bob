@@ -251,10 +251,13 @@ section.shopify-section {
 }
 
 @media screen and (max-width: 990px) {
+    .bob-page-content section {
+        margin: 5rem;
+    }
     .bob-page-content section .col {
         display: block;
         width: 100%;
-        margin: 0 0 1.5rem 0;
+        margin: 0;
     }
 }
 
@@ -752,6 +755,7 @@ h1.product__title {
     .bob-page-content section .col {
         display: block;
         width: 100%;
+        margin: 5rem;
     }
 }
 
