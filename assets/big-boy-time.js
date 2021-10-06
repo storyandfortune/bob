@@ -20,7 +20,6 @@ $(document).ready(function () {
         });
 
         /* big boy hides */
-
         var BigBoyHides = $('#big-boy-header').waypoint(function (direction) {
 
             if (direction === "down") {
@@ -51,13 +50,11 @@ $(document).ready(function () {
 
 
     /* -- bind -------------------------------- */
-
-
     $("#shopify-section-header nav .list-menu li").bind('click', function (e) {
 
         var element = $(this);
 
-        if (!$("#shopify-section-header").hasClass('sticky')) {
+        if ($('body').hasClass('home-page') && !$("#shopify-section-header").hasClass('sticky')) {
 
             e.preventDefault();
 
@@ -75,12 +72,6 @@ $(document).ready(function () {
             console.log('normal');
         }
     });
-
-    /*
-    $("#shopify-section-header nav .list-menu li").bind('dblclick', function () {
-        window.location.href = $(this).data("link");
-    });
-    */
 
     $('#big-boy-header').bind('click', function () {
         $("html, body").animate({
