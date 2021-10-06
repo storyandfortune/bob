@@ -64,13 +64,12 @@ $(document).ready(function () {
             $("html, body").animate({
                 scrollTop: 1200
             }, {
-                duration: 1100,
-                complete: function () {
-                    var d = $(element).find('details');
-                    $(d).prop('open', true);
-                    console.log(d);
-                }
-            });
+                duration: 1100
+            }).promise().done(function () {
+                var d = $(element).find('details');
+                $(d).prop('open', true);
+                console.log(d);
+            });;
         }
         else {
             console.log('normal');
