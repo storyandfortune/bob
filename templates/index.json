@@ -6,16 +6,6 @@
         "page": "history-home"
       }
     },
-    "1632520771c8bb5fa0": {
-      "type": "video",
-      "settings": {
-        "heading": "",
-        "cover_image": "shopify:\/\/shop_images\/Screen_Shot_2021-09-24_at_3.00.54_PM.png",
-        "video_url": "https:\/\/www.youtube.com\/watch?v=vG7MRp5CiQk",
-        "description": "",
-        "full_width": true
-      }
-    },
     "16324403215baef854": {
       "type": "page",
       "settings": {
@@ -26,6 +16,12 @@
       "type": "page",
       "settings": {
         "page": "events-home"
+      }
+    },
+    "16324409287fa12d3e": {
+      "type": "page",
+      "settings": {
+        "page": "photos-outside"
       }
     },
     "featured_products": {
@@ -43,20 +39,13 @@
         "show_vendor": false,
         "show_rating": false
       }
-    },
-    "16324409287fa12d3e": {
-      "type": "page",
-      "settings": {
-        "page": "photos-inside"
-      }
     }
   },
   "order": [
     "1632440292fb8ce2dd",
-    "1632520771c8bb5fa0",
     "16324403215baef854",
     "16324408963ac6a505",
-    "featured_products",
-    "16324409287fa12d3e"
+    "16324409287fa12d3e",
+    "featured_products"
   ]
 }
