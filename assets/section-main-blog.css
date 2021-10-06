@@ -1,13 +1,11 @@
 .blog-articles {
   display: grid;
   grid-gap: 5rem;
-  text-align: left;
 }
 
 @media screen and (min-width: 750px) {
   .blog-articles {
     grid-template-columns: 1fr;
-    text-align: left;
   }
 
   /*
