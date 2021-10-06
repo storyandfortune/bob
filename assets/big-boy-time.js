@@ -52,15 +52,13 @@ $(document).ready(function () {
 
     /* -- bind -------------------------------- */
 
-    $(window).on('scroll', function () {
-        console.log($(this).scrollTop());
-    });
 
     $("#shopify-section-header nav .list-menu li").bind('click', function () {
         if ($("#shopify-section-header:not(.sticky)")) {
             console.log($('#header-top').position().top);
-            $("html, body").animate({ scrollTop: 1200 }, "slow");
-            return false;
+            $("html, body").animate({ scrollTop: 1200 }, "slow").finish(function () {
+                console.log('finished');
+            });
         }
     });
 
