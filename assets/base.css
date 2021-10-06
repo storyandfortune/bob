@@ -217,7 +217,7 @@ html.no-js .no-js-hidden {
 }
 
 .spaced-section:last-child {
-  /*margin-bottom: 5rem;*/
+  margin-bottom: 5rem;
 }
 
 .spaced-section--full-width + .spaced-section--full-width {
@@ -1166,8 +1166,9 @@ deferred-media {
 .shopify-challenge__button,
 .customer button {
   font-size: 1.5rem;
-  letter-spacing: 0.1rem;
-  line-height: 1.2;
+  letter-spacing: 0.35rem;
+  text-transform: uppercase;
+  font-family: "AvenirNextLTPro-Bold";
 }
 
 .button--tertiary {
