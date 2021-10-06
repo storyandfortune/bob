@@ -688,6 +688,14 @@ section.shopify-section {
     background-position: center center;
 }
 
+.bob-page-content.events h4 {
+    color: #e62544;
+}
+
+.bob-page-content.events h4 sup {
+    font-size: 1rem;
+}
+
 .bob-page-content.events .fundraising {
     background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/Fundraise-With-Bobs-Big-Boy-Burbank.jpg?v=1631872814");
 }
