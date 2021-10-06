@@ -15,7 +15,7 @@
     bottom: -13.6rem;
     overflow: hidden;
     z-index: 7;
-    transition: all 1s ease;
+    transition: all 0.75s ease;
 }
 
 @media screen and (max-width: 1250px) {

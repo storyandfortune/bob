@@ -77,9 +77,11 @@ $(document).ready(function () {
         }
     });
 
+    /*
     $("#shopify-section-header nav .list-menu li").bind('dblclick', function () {
         window.location.href = $(this).data("link");
     });
+    */
 
     $('#big-boy-header').bind('click', function () {
         $("html, body").animate({
