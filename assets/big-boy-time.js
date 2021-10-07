@@ -58,7 +58,7 @@ $(document).ready(function () {
             e.preventDefault();
 
             $("html, body").animate({
-                scrollTop: 1200
+                scrollTop: ($(id).offset().top - 125)
             }, {
                 duration: 1100
             }).promise().done(function () {
@@ -76,7 +76,7 @@ $(document).ready(function () {
     });
 
     $("#shopify-section-header nav .list-menu li.nav-menus").bind('click', function (e) {
-        scrollToID("#menu", e);
+        scrollToID("#menus", e);
     });
 
     $("#shopify-section-header nav .list-menu li.nav-events").bind('click', function (e) {
@@ -90,7 +90,6 @@ $(document).ready(function () {
     $("#shopify-section-header nav .list-menu li.nav-shop").bind('click', function (e) {
         scrollToID("#shopify-section-template--15045906759831__featured_products", e);
     });
-
 
 
     $('#big-boy-header').bind('click', function () {
