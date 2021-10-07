@@ -50,9 +50,8 @@ $(document).ready(function () {
 
 
     /* -- bind -------------------------------- */
-    $("#shopify-section-header nav .list-menu li").bind('click', function (e) {
 
-        var element = $(this);
+    var scrollToID = function (id, e) {
 
         if ($('body').hasClass('home-page') && !$("#shopify-section-header").hasClass('sticky')) {
 
@@ -63,15 +62,36 @@ $(document).ready(function () {
             }, {
                 duration: 1100
             }).promise().done(function () {
-                var d = $(element).find('details');
-                $(d).prop('open', true);
-                console.log(d);
+
             });;
         }
         else {
             console.log('normal');
         }
+    }
+
+
+    $("#shopify-section-header nav .list-menu li.nav-history").bind('click', function (e) {
+        scrollToID("#history", e);
     });
+
+    $("#shopify-section-header nav .list-menu li.nav-menus").bind('click', function (e) {
+        scrollToID("#menu", e);
+    });
+
+    $("#shopify-section-header nav .list-menu li.nav-events").bind('click', function (e) {
+        scrollToID("#events", e);
+    });
+
+    $("#shopify-section-header nav .list-menu li.nav-photos").bind('click', function (e) {
+        scrollToID("#photos", e);
+    });
+
+    $("#shopify-section-header nav .list-menu li.nav-shop").bind('click', function (e) {
+        scrollToID("#shopify-section-template--15045906759831__featured_products", e);
+    });
+
+
 
     $('#big-boy-header').bind('click', function () {
         $("html, body").animate({
