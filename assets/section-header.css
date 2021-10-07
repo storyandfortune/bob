@@ -179,11 +179,6 @@ header-drawer {
     flex-wrap: wrap;
 }
 
-summary.list-menu__item {
-    padding-right: 4rem;
-    font-size: 2.65rem;
-}
-
 .list-menu__item {
     display: flex;
     align-items: center;
@@ -517,15 +512,21 @@ menu-drawer + .header__search {
     padding: 0 1rem;
 }
 
-.header__menu-item {
+summary.header__menu-item {
     font-family: AvenirNextLTPro-Bold;
-    padding: 1.2rem;
+    padding: 1.2rem 0 1.2rem 0;
     text-decoration: none;
+    margin-right: 4rem;
+    font-size: 2.65rem;
     color: rgba(var(--color-foreground));
+    border-bottom: 5px solid white;
+    height: 80px;
+    transition: all 0.5s ease;
 }
 
-.header__menu-item:hover {
+summary.header__menu-item:hover {
     color: #b79668;
+    border-bottom: 5px solid #b79668;
 }
 
 .header__menu-item span {
@@ -543,10 +544,7 @@ menu-drawer + .header__search {
 }
 
 .header__active-menu-item {
-    transition: text-decoration-thickness var(--duration-short) ease;
-    color: rgb(var(--color-foreground));
-    text-decoration: underline;
-    text-underline-offset: 0.3rem;
+    color: #e42948;
 }
 
 .header__menu-item:hover .header__active-menu-item {
@@ -555,6 +553,23 @@ menu-drawer + .header__search {
 
 .header__submenu {
     transition: opacity var(--duration-default) ease, transform var(--duration-default) ease;
+}
+
+.header__submenu summary.header__menu-item {
+    height: auto;
+    font-size: 2rem;
+    border-bottom: none;
+}
+
+.header__submenu summary.header__menu-item:hover {
+    color: #000000;
+}
+
+.header__submenu .header__menu-item {
+    font-family: AvenirNextLTPro-Bold;
+    text-decoration: none;
+    font-size: 1.4rem;
+    padding: 0;
 }
 
 .header__submenu.list-menu {
