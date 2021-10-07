@@ -217,6 +217,10 @@ h1.collection-hero__title,
     border-bottom: #b79668 1px solid;
 }
 
+.home-page section {
+    min-height: calc(100vh - 117px);
+}
+
 section.shopify-section {
     margin: 0;
 }
@@ -386,7 +390,7 @@ section.shopify-section {
     align-items: center;
     justify-content: center;
     text-align: center;
-    height: 550px;
+    height: calc((100vh - 117px) / 2);
     margin: 0;
     padding: 0;
     background-size: cover;

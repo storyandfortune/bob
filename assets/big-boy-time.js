@@ -1,7 +1,6 @@
 $(document).ready(function () {
 
     /* Waypoints --------------------------------------------------------- */
-
     if ($('body').hasClass('home-page')) {
 
         /* sticky header */
@@ -48,6 +47,7 @@ $(document).ready(function () {
 
     /* -- bind -------------------------------- */
 
+    // scroll to jigger-rig should update admin with the ability to assign id's to sections
     var scrollToID = function (id, e) {
 
         if ($('body').hasClass('home-page') && !$("#shopify-section-header").hasClass('sticky')) {
@@ -55,7 +55,7 @@ $(document).ready(function () {
             e.preventDefault();
 
             $("html, body").animate({
-                scrollTop: ($(id).offset().top - 125)
+                scrollTop: ($(id).offset().top - 117)
             }, {
                 duration: 1100
             }).promise().done(function () {
@@ -92,6 +92,7 @@ $(document).ready(function () {
     });
 
 
+    // trigger scroll up on big boy click
     $('#big-boy-header').bind('click', function () {
         $("html, body").animate({
             scrollTop: ($("#history").offset().top - 125)
@@ -101,7 +102,7 @@ $(document).ready(function () {
         return false;
     });
 
-
+    // toggle big boy hiding
     $('#big-boy-footer').bind('click', function () {
         $('#big-boy-footer').toggleClass('up');
     });

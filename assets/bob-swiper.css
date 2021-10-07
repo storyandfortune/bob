@@ -25,7 +25,7 @@ h1.main-page-title.page-title.h0 {
     list-style: none;
     margin: 0;
     padding: 0;
-    height: 80vh;
+    height: calc(100vh - 117px);
 }
 
 .swiper-slide {
