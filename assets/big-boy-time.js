@@ -1,6 +1,3 @@
-/* here's where we use waypoints */
-
-
 $(document).ready(function () {
 
     /* Waypoints --------------------------------------------------------- */
@@ -68,6 +65,8 @@ $(document).ready(function () {
         else {
             console.log('normal');
         }
+
+        return false;
     }
 
 
@@ -88,16 +87,18 @@ $(document).ready(function () {
     });
 
     $("#shopify-section-header nav .list-menu li.nav-shop").bind('click', function (e) {
-        scrollToID("#shopify-section-template--15045906759831__featured_products", e);
+        var id = $("section[id*='featured_products']");
+        scrollToID(id, e);
     });
 
 
     $('#big-boy-header').bind('click', function () {
         $("html, body").animate({
-            scrollTop: 1200
+            scrollTop: ($("#history").offset().top - 125)
         }, {
             duration: 1100
         });
+        return false;
     });
 
 
@@ -110,9 +111,6 @@ $(document).ready(function () {
         $("html, body").animate({ scrollTop: 0 }, "slow");
         return false;
     });
-
-
-
 
 });
 
