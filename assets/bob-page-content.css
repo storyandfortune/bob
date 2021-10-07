@@ -176,7 +176,6 @@ Harvard
     }
 
     /* shop */
-
     .list-menu li.nav-shop .header__submenu li.nav-apparel li:last-child a,
     .list-menu li.nav-shop .header__submenu li.nav-merchandise li:last-child a {
         margin-top: 1rem;
@@ -425,7 +424,7 @@ section.shopify-section {
 /* menus */
 
 .bob-page-content.menu section {
-    padding-top: 20rem;
+    padding-top: 175px;
     margin: 0 10rem 0 10rem;
 }
 
