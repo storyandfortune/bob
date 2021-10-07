@@ -18,6 +18,10 @@ Harvard
 */
 /*  -------------- secondary navigation --------------------- */
 
+header {
+    height: 80px;
+}
+
 @media screen and (min-width: 990px) {
     .header__submenu {
         height: 40rem;
@@ -81,14 +85,6 @@ Harvard
         margin: 0;
         padding: 0 0 0.5rem 0;
     }
-    /*
-    .list-menu .list-menu .list-menu.header__submenu li a {
-        margin: 0 0 0 0.5rem;
-        padding: 0;
-        line-height: auto;
-        font-size: 1.5rem;
-    }
-    */
 
     /* -------- images bg's if you rearrange the nav the order will change ----------------- */
 
@@ -144,23 +140,12 @@ Harvard
         background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/Bobs-Big-Boy-Hot-Rod.jpg?v=1631872538");
     }
 
-    /*
-    .list-menu li.nav-events .header__submenu li.nav-classic-car-show,
-    .list-menu li.nav-events .header__submenu li.nav-fundraising,
-    .list-menu li.nav-events .header__submenu li.nav-filming,
-    .list-menu li.nav-events .header__submenu li.nav-big-boy-blog {
-        display: block;
-        float: left;
-    }
-    */
-
     .list-menu li.nav-events .header__submenu li.nav-big-boy-blog li:last-child a {
         margin-top: 1rem;
         color: #e62544;
     }
 
     /* photos */
-
     .list-menu li.nav-photos .header__submenu li {
         margin: 6rem;
     }
@@ -722,6 +707,41 @@ section.shopify-section {
     background-color: #e62544;
     border: solid red 1px;
     color: #ffffff;
+}
+
+/* forms ---------------------- */
+
+.bob-page-content.events.form section {
+    width: 90vw;
+    margin: 0 auto;
+}
+
+.bob-page-content.events.form section h3 {
+    font-family: "RoadRadio-Black";
+    font-size: 8rem;
+    line-height: 7rem;
+    display: block;
+}
+
+.bob-page-content.events.form section fieldset {
+    text-align: left;
+    margin-bottom: 5rem;
+    border: none;
+}
+
+.bob-page-content.events.form section legend label {
+    font-family: "AvenirNextLTPro-Bold";
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+.bob-page-content.events.form section input {
+    padding: 1.5rem;
+    width: 100%;
+}
+
+.bob-page-content.events.form section label span {
+    display: block;
 }
 
 /* ----------------------------- blog styles ----------------------------- */
