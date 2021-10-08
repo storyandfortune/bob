@@ -758,6 +758,10 @@ section.shopify-section {
     width: 100%;
 }
 
+.bob-page-content.events.form section textarea {
+    height: 20rem;
+}
+
 .bob-page-content.events.form section select {
     padding: 1.5rem;
     font-size: 1.8rem;
