@@ -1,21 +1,14 @@
 /* ------ Bobs secondary page styles ------------ */
 
-/*
-
+/* Fonts --------------------
 AvenirNextLTPro-Medium
 AvenirNextLTPro-Bold
 RoadRadio-Black
 TradeGothicLTStd-Cn18
 Harvard
-
-@media screen and (min-width: 750px) {
-
-}
-@media screen and (min-width: 990px) {
-    
-}
-
+-----------------------------
 */
+
 /*  -------------- secondary navigation --------------------- */
 
 header {
@@ -404,6 +397,9 @@ section.shopify-section {
 }
 
 .bob-page-content.menu-header a {
+    color: #ffffff;
+}
+.bob-page-content.menu-header a:hover {
     color: #ffffff;
 }
 
