@@ -214,6 +214,10 @@ section.shopify-section {
     margin-bottom: 10rem;
 }
 
+.bob-page-content a {
+    text-decoration: none;
+}
+
 .bob-page-content section h3 {
     font-family: "Harvard";
     width: 100%;
@@ -326,6 +330,10 @@ section.shopify-section {
     text-align: left;
     list-style: none;
     vertical-align: top;
+}
+
+.bob-page-content section .col ul.inline-list a {
+    color: #000000;
 }
 
 .bob-page-content section .col ul.inline-list li:first-child {
@@ -702,6 +710,11 @@ section.shopify-section {
     padding: 1rem 2rem 1rem 2rem;
     background-color: #e62544;
     color: #ffffff;
+}
+
+.bob-page-content section .col a.blog-post {
+    color: #e62544;
+    font-family: "AvenirNextLTPro-Bold";
 }
 
 /* forms ---------------------- */
