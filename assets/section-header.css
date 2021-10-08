@@ -240,14 +240,6 @@ header-drawer {
     z-index: 10;
 }
 
-#shopify-section-header.sticky .header__heading {
-}
-
-@media screen and (max-width: 1300px) {
-    #shopify-section-header.sticky .header__heading {
-    }
-}
-
 /* section-header secondary page ---------------------------------- */
 
 #shopify-section-header {
@@ -343,6 +335,7 @@ header-drawer {
     outline: none;
 }
 
+/* moving logo to left to prvent overlap */
 @media screen and (max-width: 1500px) {
     .header__heading {
         left: -10rem !important;
@@ -520,6 +513,7 @@ menu-drawer + .header__search {
     padding: 0 1rem;
 }
 
+/* main nav styles */
 summary.header__menu-item {
     font-family: AvenirNextLTPro-Bold;
     padding: 1.2rem 0 1.2rem 0;
@@ -530,6 +524,13 @@ summary.header__menu-item {
     border-bottom: 5px solid white;
     height: 80px;
     transition: all 0.5s ease;
+}
+
+@media screen and (max-width: 1200px) {
+    summary.header__menu-item {
+        margin-right: 2.5rem;
+        font-size: 2.3rem;
+    }
 }
 
 summary.header__menu-item:hover {
