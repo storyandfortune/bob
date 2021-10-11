@@ -45,6 +45,29 @@ $(document).ready(function () {
     });
 
 
+    /* forms ------------------------------------ */
+
+    var formsData = function () {
+
+        console.log('return forms data');
+
+        $.each($('.data'), function (key, value) {
+            console.log($(value).attr("name") + " | " + $(value).val());
+        });
+
+    }
+
+
+    if ($(".bob-page-content").hasClass("form")) {
+
+        $('button').bind('click', function (e) {
+            e.preventDefault();
+            formsData();
+        });
+
+    }
+
+
     /* -- bind -------------------------------- */
 
     // scroll to jigger-rig should update admin with the ability to assign id's to sections
