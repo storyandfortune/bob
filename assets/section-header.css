@@ -221,6 +221,12 @@ details.menu-drawer-container[open] .close-icon{
     width: 100%;
 }
 
+
+#shopify-section-header a img{
+    width:100%;
+    height:auto;
+}
+
 .home-page #shopify-section-header.sticky {
     position: sticky !important;
     top: 0;
@@ -352,14 +358,17 @@ details.menu-drawer-container[open] .close-icon{
 
 /* moving logo to left to prvent overlap */
 @media screen and (max-width: 1500px) {
-    .header__heading {
+    #shopify-section-header .header__heading {
         left: -10rem !important;
     }
 }
 
 @media screen and (max-width: 990px) {
-    .header__heading {
-        display: none;
+    #shopify-section-header .header__heading {
+       width:200px;
+       left:0 !important;
+       right:0;
+       margin:0 auto;
     }
 }
 

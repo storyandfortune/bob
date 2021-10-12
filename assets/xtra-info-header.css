@@ -18,6 +18,7 @@
 }
 
 .header-top .xtra-info ul li {
+    position:relative;
     display: inline-block;
     margin-right: 5rem;
     text-transform: uppercase;
@@ -26,52 +27,66 @@
     vertical-align: top;
 }
 
-.header-top .xtra-info ul li:nth-child(1) {
+
+.header-top .xtra-info ul li a{
+    display: block;
+    width:100%;
+    height:100%;
+    color:transparent;
+}
+
+.header-top .xtra-info ul li.location {
     width: 86px;
     background-image: url(https://cdn.shopify.com/s/files/1/0593/5942/8759/files/location.png?v=1631750323);
 }
-.header-top .xtra-info ul li:nth-child(2) {
+.header-top .xtra-info ul li.phone {
     width: 112px;
     background-image: url(https://cdn.shopify.com/s/files/1/0593/5942/8759/files/phone.png?v=1631750323);
 }
-.header-top .xtra-info ul li:nth-child(4) {
+
+.header-top .xtra-info ul li.space{
+    margin-right: 0rem !important;
+    width:0;
+}
+
+.header-top .xtra-info ul li.num{
     width: 102px;
     background-image: url(https://cdn.shopify.com/s/files/1/0593/5942/8759/files/num.png?v=1631750323);
 }
-.header-top .xtra-info ul li:nth-child(5) {
+
+.header-top .xtra-info ul li.hours{
     width: 97px;
     background-image: url(https://cdn.shopify.com/s/files/1/0593/5942/8759/files/hours.png?v=1631750323);
 }
 
-.header-top .xtra-info ul li a {
-    color: transparent;
-    text-decoration: none;
-}
-
-.xtra-info ul li.logo {
-    display: none;
-    width: 200px;
-}
-.xtra-info ul li.logo img {
-    width: 100%;
-    height: auto;
-}
 
 @media screen and (max-width: 990px) {
-    #shopify-section-header .header-top .xtra-info ul li.logo {
-        position: relative;
-        display: inline-block;
-        width: 200px;
-        margin-top: -250px;
-        opacity: 0;
-        transition: all 0.5s ease;
+
+    .header-top .xtra-info ul li {
+        margin-right: 3rem;
     }
 
-    #shopify-section-header.sticky .header-top .xtra-info ul li.logo {
-        position: relative;
-        display: inline-block;
+    .header-top .xtra-info ul li.space {
+        margin-right: 3rem;
         width: 200px;
-        margin-top: -55px;
-        opacity: 1;
+    }
+}
+
+@media screen and (max-width: 820px) {
+
+    .header-top .xtra-info ul li {
+        margin-right: .25rem;
+    }
+}
+
+@media screen and (max-width: 680px) {
+
+    .header-top .xtra-info ul li {
+        margin-right: 1rem;
+    }
+
+    .header-top .xtra-info ul li.location,
+    .header-top .xtra-info ul li.hours{
+        display:none;
     }
 }
