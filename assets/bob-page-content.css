@@ -736,6 +736,18 @@ section.shopify-section {
     margin: 5rem 0 10rem 0;
 }
 
+.bob-page-content.events.form section form.error .error{
+    display:block;
+}
+.bob-page-content.events.form section form .error{
+    display:none;;
+    text-transform: uppercase;
+    font-size: 3rem;
+    margin-bottom:5rem;
+    color:#e62544;
+}
+
+
 .bob-page-content.events.form section fieldset {
     display: block;
     text-align: left;
@@ -758,6 +770,13 @@ section.shopify-section {
     border: 1px solid #cccccc;
     width: 100%;
 }
+
+.bob-page-content.events.form section .data.inc{
+    border: 3px solid #e62544;
+ }
+ .bob-page-content.events.form section .data.inc::placeholder{
+     color:#e62544;
+ }
 
 .bob-page-content.events.form section textarea {
     height: 20rem;

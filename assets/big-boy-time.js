@@ -49,42 +49,71 @@ $(document).ready(function () {
 
     var formsData = function () {
 
-        encodeURIComponent()
+        $("form").removeClass("error");
+        $(".data").removeClass("inc");  
+
         var d = {
-            "form": $("h3.title").text(),
+            "form": $("h3.title").text().trim(),
             "fields": []
         };
+
+        var post = false;
+        var check = 0;
 
         $.each($('.data'), function (key, value) {
             var v = { "name": "", "value": "" };
             v.name = $(value).attr("name");
             v.value = $(value).val().trim();
+
+            if( v.value.length ){
+                check++;
+            }else{
+                $(this).addClass('inc');
+            }
+
             d.fields.push(v);
-
             delete v;
-        });
-
-
-        $.ajax({
-            method: "POST",
-            url: "https://mysql.storyandfortune.com/bobs/",
-            data: { "data": d }
-        }).done(function (msg) {
-
-            m = JSON.parse(msg);
-            if (m.message === "success") {
-                // submit --------------------------------------------
-                console.log(msg);
-                $("form").addClass("complete");
-                $("html, body").animate({ scrollTop: 0 }, "fast");
-            }
-            else {
-                console.log(msg);
-            }
 
         });
+
+        console.log(check + " | "+ $('.data').length);
+
+        if(check === $('.data').length){
+            post = true;
+        }
+
+        if(post){
+            $.ajax({
+                method: "POST",
+                url: "https://mysql.storyandfortune.com/bobs/",
+                data: { "data": d }
+            }).done(function (msg) {
+
+                m = JSON.parse(msg);
+                if (m.message === "success") {
+                    // submit --------------------------------------------
+                    console.log(msg);
+                    $("form").removeClass("error");
+                    $(".data").removeClass("inc");  
+                    $("form").addClass("complete");
+                }
+                else {
+                    console.log(msg);
+                }
+
+            });
+        }
+        else{
+          $("form").addClass("error"); 
+        }
+
+        $("html, body").animate({ scrollTop: 0 }, "fast");
 
     }
+
+    $('.data').bind('focus', function(){
+        $(this).removeClass('inc');
+    });
 
 
     if ($(".bob-page-content").hasClass("form")) {
