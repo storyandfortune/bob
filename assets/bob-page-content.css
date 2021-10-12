@@ -733,7 +733,7 @@ section.shopify-section {
 }
 
 .bob-page-content.events.form section form {
-    margin-top: 5rem;
+    margin: 5rem 0 10rem 0;
 }
 
 .bob-page-content.events.form section fieldset {
@@ -775,26 +775,24 @@ section.shopify-section {
     font-size: 1.8rem;
     border-radius: 0.5rem;
     text-transform: uppercase;
-    background-color: #e62544;
+    background-color: #000000;
+    cursor: pointer;
     color: #ffffff;
     border: 1px solid #cccccc;
     width: 100%;
+    transition: all 0.5s ease;
 }
 
-.bob-page-content.events.form section fieldset.contact input {
+.bob-page-content.events.form section button:hover {
+    background-color: #e62544;
+}
+
+.bob-page-content.events.form section .two input {
     width: calc(50% - 0.5rem);
 }
 
-.bob-page-content.events.form section fieldset.phone input {
+.bob-page-content.events.form section .three input {
     width: calc(33% - 0.5rem);
-}
-
-.bob-page-content.events.form section .city-state input {
-    width: calc(50% - 0.5rem);
-}
-
-.bob-page-content.events.form section fieldset.time input {
-    width: calc(30% - 0.5rem);
 }
 
 .bob-page-content.events.form section label span {

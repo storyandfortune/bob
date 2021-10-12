@@ -58,7 +58,7 @@ $(document).ready(function () {
         $.each($('.data'), function (key, value) {
             var v = { "name": "", "value": "" };
             v.name = $(value).attr("name");
-            v.value = $(value).val();
+            v.value = $(value).val().trim();
             d.fields.push(v);
 
             delete v;
