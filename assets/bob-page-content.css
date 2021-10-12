@@ -828,16 +828,17 @@ section.shopify-section {
     padding: 0;
     list-style: none;
     width: 50vw;
-
     transition: all 1s ease;
 }
 
 .bob-page-content.events.form section .conformation li {
     width: 45%;
+    padding:1.5rem;
     display: inline-block;
     vertical-align: top;
     text-align: center;
     font-size: 2rem;
+    line-height: 2.5rem;
 }
 
 .bob-page-content.events.form section .conformation li.big-boy {
@@ -846,7 +847,8 @@ section.shopify-section {
 
 .bob-page-content.events.form section .conformation li h3 {
     font-size: 3.5rem;
-    line-height: 3.5rem;
+    line-height: 2rem;
+
 }
 
 /* form submitted ------------------------- */

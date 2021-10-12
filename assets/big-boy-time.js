@@ -65,10 +65,13 @@ $(document).ready(function () {
             v.name = $(value).attr("name");
             v.value = $(value).val().trim();
 
-            if( v.value.length ){
-                check++;
-            }else{
-                $(this).addClass('inc');
+            if( $(this).hasClass('required') ){
+                if(v.value.length){
+                    check++;
+                }
+                else{
+                    $(this).addClass('inc');
+                }
             }
 
             d.fields.push(v);
@@ -76,13 +79,17 @@ $(document).ready(function () {
 
         });
 
-        console.log(check + " | "+ $('.data').length);
+        console.log(check + " | "+ $('.required').length);
 
-        if(check === $('.data').length){
+        if(check === $('.required').length){
             post = true;
         }
 
         if(post){
+            $("form").addClass("complete");
+            $(".conformation h3").html("Connecting...");
+            $(".conformation p").html("One moment please.");
+
             $.ajax({
                 method: "POST",
                 url: "https://mysql.storyandfortune.com/bobs/",
@@ -94,11 +101,17 @@ $(document).ready(function () {
                     // submit --------------------------------------------
                     console.log(msg);
                     $("form").removeClass("error");
-                    $(".data").removeClass("inc");  
-                    $("form").addClass("complete");
+                    $(".data").removeClass("inc");
+
+                    $(".conformation h3").html("Thanks !");
+                    $(".conformation p").html("We will be contacting you shortly.");
+
+              
                 }
                 else {
                     console.log(msg);
+                    $(".conformation h3").html("Opps !");
+                    $(".conformation p").html("Something went wrong.");
                 }
 
             });
