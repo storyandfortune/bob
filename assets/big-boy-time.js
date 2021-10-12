@@ -79,7 +79,6 @@ $(document).ready(function () {
 
         });
 
-        console.log(check + " | "+ $('.required').length);
 
         if(check === $('.required').length){
             post = true;
@@ -99,7 +98,7 @@ $(document).ready(function () {
                 m = JSON.parse(msg);
                 if (m.message === "success") {
                     // submit --------------------------------------------
-                    console.log(msg);
+                    //console.log(msg);
                     $("form").removeClass("error");
                     $(".data").removeClass("inc");
 
@@ -109,7 +108,7 @@ $(document).ready(function () {
               
                 }
                 else {
-                    console.log(msg);
+                    //console.log(msg);
                     $(".conformation h3").html("Opps !");
                     $(".conformation p").html("Something went wrong.");
                 }
