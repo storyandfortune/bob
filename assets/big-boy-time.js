@@ -49,10 +49,39 @@ $(document).ready(function () {
 
     var formsData = function () {
 
-        console.log('return forms data');
+        encodeURIComponent()
+        var d = {
+            "form": $("h3.title").text(),
+            "fields": []
+        };
 
         $.each($('.data'), function (key, value) {
-            console.log($(value).attr("name") + " | " + $(value).val());
+            var v = { "name": "", "value": "" };
+            v.name = $(value).attr("name");
+            v.value = $(value).val();
+            d.fields.push(v);
+
+            delete v;
+        });
+
+
+        $.ajax({
+            method: "POST",
+            url: "https://mysql.storyandfortune.com/bobs/",
+            data: { "data": d }
+        }).done(function (msg) {
+
+            m = JSON.parse(msg);
+            if (m.message === "success") {
+                // submit --------------------------------------------
+                console.log(msg);
+                $("form").addClass("complete");
+                $("html, body").animate({ scrollTop: 0 }, "fast");
+            }
+            else {
+                console.log(msg);
+            }
+
         });
 
     }

@@ -737,6 +737,7 @@ section.shopify-section {
 }
 
 .bob-page-content.events.form section fieldset {
+    display: block;
     text-align: left;
     margin-bottom: 2rem;
     border: none;
@@ -798,6 +799,48 @@ section.shopify-section {
 
 .bob-page-content.events.form section label span {
     display: block;
+}
+
+.bob-page-content.events.form section .conformation {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10rem auto;
+    padding: 0;
+    list-style: none;
+    width: 50vw;
+
+    transition: all 1s ease;
+}
+
+.bob-page-content.events.form section .conformation li {
+    width: 45%;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.bob-page-content.events.form section .conformation li.big-boy {
+    width: 33%;
+}
+
+.bob-page-content.events.form section .conformation li h3 {
+    font-size: 3.5rem;
+    line-height: 3.5rem;
+}
+
+/* form submitted ------------------------- */
+.bob-page-content.events.form section form.complete .conformation {
+    display: flex;
+    visibility: visible;
+    opacity: 1;
+}
+
+.bob-page-content.events.form section form.complete fieldset {
+    display: none;
 }
 
 /* ----------------------------- blog styles ----------------------------- */
