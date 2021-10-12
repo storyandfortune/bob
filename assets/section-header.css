@@ -168,6 +168,21 @@ header-drawer {
     display: flex;
 }
 
+details.menu-drawer-container .menu-icon {
+    display:block;
+}
+details.menu-drawer-container .close-icon {
+    display:none;
+}
+
+details.menu-drawer-container[open] .menu-icon{
+    display:none;
+}
+details.menu-drawer-container[open] .close-icon{
+    display:block;
+}
+
+
 .list-menu {
     list-style: none;
     padding: 0 0 0 0;
@@ -491,6 +506,8 @@ menu-drawer + .header__search {
 }
 
 @media screen and (min-width: 990px) {
+
+ 
     .header__inline-menu {
         display: block;
         text-align: center;

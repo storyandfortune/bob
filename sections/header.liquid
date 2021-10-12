@@ -48,10 +48,8 @@
 
         <details class="menu-drawer-container">
           <summary class="header__icon header__icon--menu header__icon--summary link link--text focus-inset" aria-label="{{ 'sections.header.menu' | t }}">
-            <span>
-              {% render 'icon-hamburger-solid' %}
-              {% render 'icon-close' %}
-            </span>
+              <span class="menu-icon"> {% render 'icon-bars-solid' %} </span>
+              <span class="close-icon"> {% render 'icon-times-solid' %} </span>
           </summary>
           <div id="menu-drawer" class="menu-drawer motion-reduce" tabindex="-1">
             <div class="menu-drawer__inner-container">
