@@ -534,6 +534,23 @@ a.product__text {
   overflow: auto;
 }
 
+.product-modal-information{
+  position:absolute;
+  left:5rem;
+  top:3rem;
+}
+
+.product-modal-information h3{
+  font-size: 3.5rem;
+  font-family: "AvenirNextLTPro-Bold";
+  margin:0;
+}
+
+.product-modal-information .price.price--large .price-item{
+  font-size: 3rem;
+}
+
+
 .product-media-modal__content > *:not(.active),
 .product__media-list .deferred-media {
   display: none;

@@ -19,7 +19,10 @@
 
 <section class="page-width">
   <div class="product grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
+
+  <!-- ////////////////////////////////// Product /////////////////////////////////////////////-->
     <div class="grid__item product__media-wrapper">
+
       <slider-component class="slider-mobile-gutter">
         <a class="skip-to-content-link button visually-hidden" href="#ProductInfo-{{ section.id }}">
           {{ "accessibility.skip_to_product_info" | t }}
@@ -66,6 +69,8 @@
         </button>
       {%- endif -%}
     </div>
+  <!-- ////////////////////////////////// End Product /////////////////////////////////////////////-->
+
     <div class="product__info-wrapper grid__item">
       <div id="ProductInfo-{{ section.id }}" class="product__info-container{% if section.settings.enable_sticky_info %} product__info-container--sticky{% endif %}">
         {%- assign product_form_id = 'product-form-' | append: section.id -%}
@@ -82,8 +87,6 @@
             <h1 class="product__title" {{ block.shopify_attributes }}>
               {{ product.title | escape }}
             </h1>
-
-            
 
           {%- when 'price' -%}
             <div class="no-js-hidden" id="price-{{ section.id }}" {{ block.shopify_attributes }}>
@@ -345,7 +348,13 @@
     </div>
   </div>
 
+   <!-- ///////////////////////////////////////////// Product Modal /////////////////////////////////////////////  -->
   <product-modal id="ProductModal-{{ section.id }}" class="product-media-modal media-modal">
+
+    <div class="product-modal-information">
+        <h3> {{ product.title | escape }}</h3>
+        {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large' -%}
+    </div>
     <div class="product-media-modal__dialog" role="dialog" aria-label="{{ 'products.modal.label' | t }}" aria-modal="true" tabindex="-1">
       <button id="ModalClose-{{ section.id }}" type="button" class="product-media-modal__toggle" aria-label="{{ 'accessibility.close' | t }}">{% render 'icon-close' %}</button>
 
