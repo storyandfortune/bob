@@ -676,7 +676,7 @@ section.shopify-section {
     align-items: center;
     justify-content: center;
     text-align: center;
-    height: 450px;
+    height: calc((100vh - 117px) / 2);
     margin: 0;
     padding: 0;
     background-size: cover;
@@ -710,9 +710,10 @@ section.shopify-section {
 
 .bob-page-content .big-image p a {
     text-decoration: none;
-    padding: 1rem 2rem 1rem 2rem;
+    padding: 2rem;
     background-color: #e62544;
     color: #ffffff;
+    text-transform: uppercase;
 }
 
 .bob-page-content section .col a.blog-post {
