@@ -3,26 +3,17 @@ $(document).ready(function () {
     /* Waypoints --------------------------------------------------------- */
     if ($('body').hasClass('home-page')) {
 
-        /* sticky header */
-        var StickyHeader = $('#header-top').waypoint(function (direction) {
-
-            if (direction === "down") {
-                $('#shopify-section-header').addClass('sticky');
-            }
-            else {
-                $('#shopify-section-header').removeClass('sticky');
-            }
-
-        });
 
         /* big boy hides */
         var BigBoyHides = $('#big-boy-header').waypoint(function (direction) {
 
             if (direction === "down") {
                 $('#big-boy-header').addClass('hide');
+                $('#shopify-section-header').addClass('sticky');
             }
             else {
                 $('#big-boy-header').removeClass('hide');
+                $('#shopify-section-header').removeClass('sticky');
             }
 
         }, {
@@ -44,7 +35,7 @@ $(document).ready(function () {
         offset: 'bottom-in-view'
     });
 
-     /* disable waypoints on resize enable & refresh when finished */
+     /* disable waypoints on resize, enable & refresh when finished */
      var resizing;
 
      var endResize = function(){
