@@ -221,10 +221,12 @@ section.shopify-section {
 .bob-page-content section h3 {
     font-family: "Harvard";
     width: 100%;
+    padding:0;
+    margin:0 0 5rem 0;
     text-align: center;
     font-size: 8.5rem;
     letter-spacing: 0rem;
-    line-height: 0;
+    line-height: 8.5rem;
     color: #e62544;
 }
 
@@ -240,6 +242,7 @@ section.shopify-section {
     .bob-page-content section {
         margin: 5rem;
     }
+
     .bob-page-content section .col {
         display: block;
         width: 100%;
@@ -900,14 +903,6 @@ h1.product__title {
 }
 
 /* ------- mobile styles ------------- */
-
-@media screen and (max-width: 750px) {
-    .bob-page-content section .col {
-        display: block;
-        width: 100%;
-        margin: 5rem;
-    }
-}
 
 @media screen and (min-width: 990px) {
     .overflow-hidden-tablet {
