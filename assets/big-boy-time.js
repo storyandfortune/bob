@@ -44,6 +44,21 @@ $(document).ready(function () {
         offset: 'bottom-in-view'
     });
 
+     /* disable waypoints on resize enable & refresh when finished */
+     var resizing;
+
+     var endResize = function(){
+        Waypoint.enableAll()
+        Waypoint.refreshAll();
+     }
+     
+     window.onresize = function(){
+       Waypoint.disableAll()
+       clearTimeout(resizing);
+       resizing = setTimeout(endResize, 100);
+     };
+  
+
 
     /* forms ------------------------------------ */
 
@@ -137,11 +152,6 @@ $(document).ready(function () {
 
     }
 
-    // refresh waypoints on resize
-    $(window).resize(function() {
-        Waypoint.refreshAll()
-    });
- 
     /* -- bind -------------------------------- */
 
     // scroll to jigger-rig should update admin with the ability to assign id's to sections
