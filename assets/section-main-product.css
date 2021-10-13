@@ -149,15 +149,15 @@ fieldset.product-form__input .form__label {
 }
 
 .product-form__input input[type="radio"] + label {
-  border: 0.1rem solid rgba(var(--color-foreground), 0.55);
-  border-radius: 4rem;
+  border: 0.25rem solid rgba(var(--color-foreground), 0.55);
+  /*border-radius: 4rem;*/
   color: rgb(var(--color-foreground));
   display: inline-block;
-  margin: 0.7rem 0.5rem 0.2rem 0;
-  padding: 1rem 2rem;
+  margin: 0.5rem;
+  padding: 2rem;
   font-size: 1.4rem;
   letter-spacing: 0.1rem;
-  line-height: 1;
+  line-height: .25;
   text-align: center;
   transition: border var(--duration-short) ease;
   cursor: pointer;
@@ -231,6 +231,12 @@ fieldset.product-form__input .form__label {
   margin: 2.5rem 0;
 }
 
+.product__description {
+  padding: 2rem 0 2rem 0;
+  border-top: 1px solid #b79668;
+  border-bottom:1px solid #b79668;
+}
+
 .product__text {
   margin-bottom: 0;
 }
@@ -247,7 +253,7 @@ a.product__text {
 
 .product__title {
   word-break: break-word;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0rem;
 }
 
 .product__title + .product__text.caption-with-letter-spacing {

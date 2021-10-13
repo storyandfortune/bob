@@ -427,7 +427,7 @@ section.shopify-section {
     font-weight: 800;
     font-size: 6.5rem;
     padding: 0;
-    margin: 0 0 5rem 0;
+    margin: 0 0 0 0;
     text-align: center;
     width: 100%;
 }
@@ -443,7 +443,7 @@ section.shopify-section {
 }
 
 .bob-page-content.menu ul {
-    margin: 0;
+    margin: 5rem 0 0 0;
     padding: 0;
 }
 
@@ -572,8 +572,8 @@ section.shopify-section {
     margin: 0 auto;
     left: -5rem;
     right: 0;
-    top: -8.5rem;
-    width: 20rem;
+    top: -11.5rem;
+    width: 25rem;
 }
 
 .bob-page-content.menu .big-boy-box li:first-child {
