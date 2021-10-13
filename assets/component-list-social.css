@@ -10,16 +10,23 @@
   }
 }
 
-.list-social__item .icon {
-  height: 2.5rem;
-  width: 2.5rem;
-}
 
 .list-social__link {
   align-items: left;
   display: flex;
+  transition: all .25s ease;
 }
 
-.list-social__link:hover .icon {
+.list-social__link:hover {
   transform: scale(1.1);
+}
+
+.list-social__item .icon {
+  height: 2.5rem;
+  width: 2.5rem;
+  transition: all .25s ease;
+}
+
+.list-social__item .icon:hover {
+  color: #e62544;
 }
