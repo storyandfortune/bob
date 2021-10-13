@@ -154,7 +154,9 @@ fieldset.product-form__input .form__label {
   color: rgb(var(--color-foreground));
   display: inline-block;
   margin: 0.5rem;
-  padding: 2rem;
+  padding-top: 2rem;
+  width: 5rem;
+  height: 5rem;
   font-size: 1.4rem;
   letter-spacing: 0.1rem;
   line-height: .25;
