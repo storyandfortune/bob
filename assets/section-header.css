@@ -247,7 +247,7 @@ details.menu-drawer-container[open] .close-icon{
     line-height: 0;
     z-index: 10;
 
-    transition: all 0.5s ease;
+    transition: all 0.25s ease;
 }
 
 
@@ -261,6 +261,7 @@ details.menu-drawer-container[open] .close-icon{
     margin: 0;
     line-height: 0;
     z-index: 10;
+  
 }
 
 
@@ -313,6 +314,7 @@ details.menu-drawer-container[open] .close-icon{
         margin:0 auto;
         line-height: 0;
         z-index: 10;
+        
     }
 
     /* secondary */

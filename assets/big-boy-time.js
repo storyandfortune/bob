@@ -9,17 +9,31 @@ $(document).ready(function () {
 
             if (direction === "down") {
                 $('#big-boy-header').addClass('hide');
-                $('#shopify-section-header').addClass('sticky');
             }
             else {
                 $('#big-boy-header').removeClass('hide');
-                $('#shopify-section-header').removeClass('sticky');
             }
 
         }, {
             offset: '65%'
         });
+
+        /* Logo hides */
+        var BigBoyHides = $('#MainContent').waypoint(function (direction) {
+
+            if (direction === "down") {
+                $('#shopify-section-header').addClass('sticky');
+            }
+            else {
+                $('#shopify-section-header').removeClass('sticky');
+            }
+
+        }, {
+            offset: '15%'
+        });
+
     }
+    
 
     /* footer big boy coming up */
     var BigBoyBottom = $('#big-boy-footer').waypoint(function (direction) {
