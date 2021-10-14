@@ -31,7 +31,7 @@
             endif
           -%}
 
-          <div{% if add_image_padding %} class="card__media-full-spacer"{% endif %}>
+          <div {% if add_image_padding %} class="card__media-full-spacer"{% endif %}>
             <div class="media media--transparent media--{{ media_size }} media--hover-effect"
               {% if media_size == 'adapt' and product_card_product.featured_media %} style="padding-bottom: {{ 1 | divided_by: featured_media_aspect_ratio | times: 100 }}%;"{% endif %}
             >
@@ -92,7 +92,7 @@
         {%- endif -%}
 
         {%- if product_card_product.featured_media -%}
-          <span class="card-information__text h5">
+          <span class="card-information__text">
             {{ product_card_product.title | escape }}
           </span>
         {%- endif -%}

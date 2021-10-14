@@ -6,6 +6,15 @@
   position: relative;
 }
 
+.card-information__text{
+  font-size: 2rem;
+  text-align: center;
+}
+
+.grid__item .card-information .price {
+
+}
+
 @media screen and (max-width: 749px) {
   .collection .grid__item:only-child {
     flex: 0 0 100%;
@@ -70,7 +79,7 @@
 }
 
 .collection-product-count__text {
-  font-size: 1.4rem;
+  font-size: 2rem;
   line-height: 1.5;
   margin: 0;
 }
@@ -110,7 +119,8 @@
 .collection-filters__label {
   display: block;
   color: var(--color-foreground-85);
-  font-size: 1.4rem;
+  font-size: 2rem;
+  text-transform: uppercase;
   margin-right: 2rem;
 }
 
@@ -178,7 +188,7 @@
 }
 
 .collection-filters__sort {
-  font-size: 1.4rem;
+  font-size: 2rem;
   height: auto;
   line-height: 1.5;
   margin: 0;
@@ -243,7 +253,8 @@
 .facets__heading {
   display: block;
   color: rgba(var(--color-foreground), 0.85);
-  font-size: 1.4rem;
+  font-size: 2rem;
+  text-transform: uppercase;
   margin: -1.5rem 2rem 0 0;
 }
 
@@ -257,7 +268,7 @@
 
 .facets__summary {
   color: rgba(var(--color-foreground), 0.75);
-  font-size: 1.4rem;
+  font-size: 2rem;
   margin-bottom: 1.5rem;
   padding: 0 1.75rem 0 0;
 }
@@ -333,7 +344,7 @@
   padding: 1rem 2rem 1rem 0;
   flex-grow: 1;
   position: relative;
-  font-size: 1.4rem;
+  font-size: 2rem;
   display: flex;
   word-break: break-word;
 }
@@ -429,7 +440,7 @@ span.active-facets__button-inner {
   color: rgb(var(--color-foreground));
   box-shadow: 0 0 0 0.1rem rgb(var(--color-foreground));
   border-radius: 2.6rem;
-  font-size: 1rem;
+  font-size: 1.5rem;
   min-height: 0;
   min-width: 0;
   padding: 0.5rem 1rem;
@@ -554,7 +565,7 @@ a.active-facets__button.focused .active-facets__button-inner,
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 0.9rem;
+  font-size: 1rem;
   width: 1.7rem;
   height: 1.7rem;
   border-radius: 50%;
@@ -647,7 +658,7 @@ a.active-facets__button.focused .active-facets__button-inner,
 }
 
 .mobile-facets__heading {
-  font-size: 1.4rem;
+  font-size: 2rem;
   margin: 0;
 }
 
@@ -734,7 +745,7 @@ details.menu-opening .mobile-facets__close svg {
   align-items: center;
   background-color: transparent;
   display: flex;
-  font-size: 1.4rem;
+  font-size: 2rem;
   font: inherit;
   letter-spacing: inherit;
   margin-top: 1.5rem;

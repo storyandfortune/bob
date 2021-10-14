@@ -64,6 +64,45 @@
   transform: scale(1);
 }
 
+@media screen and (max-width: 990px) {
+
+  .coupon-code {
+    width:55vw;
+    position: relative;
+    line-height: 14px;
+    text-align: center;
+  }
+
+  .coupon-code h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin: 3rem 0 1rem 0;
+  }
+  
+  .coupon-code h2 {
+    font-size: 1.8rem;
+    margin: 0 0 5rem 0;
+  }
+
+  .footer-b-boy {
+    position: absolute;
+    cursor: pointer;
+    z-index: 10;
+    right: -45vw;
+    bottom: -30rem;
+    width: 24rem;
+    transform: scale(0.9);
+    transition: all 1s ease;
+  }
+
+  .footer-b-boy.up {
+    bottom: -15rem;
+    transform: scale(1);
+  }
+
+}
+
+
 .footer-logo {
   display: inline-block;
   vertical-align: top;
@@ -142,6 +181,7 @@
 }
 
 @media screen and (max-width: 990px) {
+
   .flex-block-container {
     position: relative;
     flex-flow: column wrap;
@@ -170,6 +210,7 @@
   .footer__content-bottom-wrapper {
     text-align: center !important;
   }
+
 }
 
 .flex-block h4 {
