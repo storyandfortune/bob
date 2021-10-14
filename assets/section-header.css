@@ -321,6 +321,7 @@ details.menu-drawer-container[open] .close-icon{
     #shopify-section-header .header__heading {
        width:200px;
        left:0 !important;
+       top: -55px;
        right:0;
        margin:0 auto;
     }
@@ -660,9 +661,6 @@ summary.header__menu-item:hover {
     right: 2rem;
 }
 
-details-disclosure > details {
-    /*position: relative;*/
-}
 
 @keyframes animateMenuOpen {
     0% {

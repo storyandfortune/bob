@@ -239,6 +239,24 @@ section.shopify-section {
 }
 
 @media screen and (max-width: 990px) {
+
+    h1.main-page-title.page-title.h0,
+    h1.collection-hero__title,
+    .main-blog h1.title--primary {
+        display:none;
+    }
+
+    .bob-page-content section h3 {
+        font-size: 6.5rem;
+        line-height: 6.5rem;
+        margin:0 0 1.5rem 0;
+    }
+
+    .bob-page-content section:first-child {
+        margin-top: 5rem;
+        margin-bottom: 5rem;
+    }
+
     .bob-page-content section {
         margin: 5rem;
     }
@@ -702,7 +720,9 @@ section.shopify-section {
 
 .bob-page-content .big-image h3 {
     text-transform: uppercase;
+    font-family: "RoadRadio-Black";
     font-size: 6rem;
+    letter-spacing: .25rem;
     color: #ffffff;
     margin: 0;
     padding: 0;
@@ -870,6 +890,7 @@ section.shopify-section {
 
 article.article-template {
     margin: 0 5rem;
+    padding-bottom: 5rem;
 }
 
 /* ----------------------------- store styles ----------------------------- */
