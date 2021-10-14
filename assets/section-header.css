@@ -749,9 +749,6 @@ header {
 
     /* history -------------------------------------------------------------------- */
 
-    .list-menu li.nav-history .header__submenu li {
-  
-    }
 
     .list-menu li.nav-history .header__submenu li.nav-opening .nav-image {
         background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/history.jpg?v=1631569447");
