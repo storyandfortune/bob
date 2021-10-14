@@ -349,12 +349,14 @@
   </div>
 
    <!-- ///////////////////////////////////////////// Product Modal /////////////////////////////////////////////  -->
+   
   <product-modal id="ProductModal-{{ section.id }}" class="product-media-modal media-modal">
 
     <div class="product-modal-information">
         <h3> {{ product.title | escape }}</h3>
         {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large' -%}
     </div>
+
     <div class="product-media-modal__dialog" role="dialog" aria-label="{{ 'products.modal.label' | t }}" aria-modal="true" tabindex="-1">
       <button id="ModalClose-{{ section.id }}" type="button" class="product-media-modal__toggle" aria-label="{{ 'accessibility.close' | t }}">{% render 'icon-close' %}</button>
 
