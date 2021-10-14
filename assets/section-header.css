@@ -749,9 +749,43 @@ header {
 
     /* history -------------------------------------------------------------------- */
 
-
     .list-menu li.nav-history .header__submenu li.nav-opening .nav-image {
         background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/history.jpg?v=1631569447");
+    }
+
+    .list-menu li.nav-history .header__submenu li.nav-opening .nav-title,
+    .list-menu li.nav-history .header__submenu li.nav-architecture .nav-title,
+    .list-menu li.nav-history .header__submenu li.nav-the-beatles-booth .nav-title,
+    .list-menu li.nav-history .header__submenu li.nav-filming-heat .nav-title  {
+        text-align:left;
+
+    }
+    .list-menu li.nav-history .header__submenu li.nav-opening .nav-title:after,
+    .list-menu li.nav-history .header__submenu li.nav-architecture .nav-title:after,
+    .list-menu li.nav-history .header__submenu li.nav-the-beatles-booth .nav-title:after,
+    .list-menu li.nav-history .header__submenu li.nav-filming-heat .nav-title:after  {
+        color:#000;
+        display:block;
+        font-size:1.6rem;
+        padding-top:1rem;
+        font-family: "AvenirNextLTPro-Medium";
+        text-transform: none;
+    }
+
+    .list-menu li.nav-history .header__submenu li.nav-opening .nav-title:after {
+        content:"Bob Wian and how the Big Boy® became an American icon.";
+    }
+
+    .list-menu li.nav-history .header__submenu li.nav-architecture .nav-title:after {
+        content:"Wayne McAllister is known for his drive-ins and Las Vegas hotels.";
+    }
+
+    .list-menu li.nav-history .header__submenu li.nav-the-beatles-booth .nav-title:after {
+        content:"John, Paul, George and Ringo ate here one night in 1965.";
+    }
+
+    .list-menu li.nav-history .header__submenu li.nav-filming-heat .nav-title:after {
+        content:"Michael Mann's movie staring Deniro, Pacino, and Val Kilmer.";
     }
 
     .list-menu li.nav-history .header__submenu li.nav-architecture .nav-image {
@@ -769,15 +803,23 @@ header {
     /* menus -------------------------------------------------------------------- */
     .list-menu li.nav-menus .header__submenu li.nav-burgers .nav-image {
         background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/burger.jpg?v=1633037381");
-        background-size: contain;
+        background-size: 70%;
+        background-position: bottom center;
+        height: 30rem;
+  
        
     }
+
+    .list-menu li.nav-menus .header__submenu li.nav-milkshakes, 
+    .list-menu li.nav-menus .header__submenu li.nav-burgers {
+        padding: 0 2rem 2rem 2rem;
+    }
+
 
     .list-menu li.nav-menus .header__submenu li.nav-milkshakes .nav-image {
         background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/milkshake.jpg?v=1633037393");
         background-size: contain;
-       
-      
+        height: 30rem;
     }
 
    
@@ -816,9 +858,6 @@ header {
     }
 
     /* photos */
-    .list-menu li.nav-photos .header__submenu li {
-     
-    }
     .list-menu li.nav-photos .header__submenu li.nav-outside .nav-image {
         background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/outside.jpg?v=1633039885");
     }
@@ -838,16 +877,25 @@ header {
         color: #e62544;
     }
 
+    .list-menu li.nav-shop  .header__submenu li.nav-seasoning-salt , 
+    .list-menu li.nav-shop .header__submenu li.nav-11-plushie  {
+        padding: 0 2rem 2rem 2rem;
+    }
+
+
     .list-menu li.nav-shop .header__submenu li.nav-seasoning-salt .nav-image {
         background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/salt.jpg?v=1633039926");
-        background-size: contain;
+        background-size: 70%;
+        background-position: bottom center;
+        height: 30rem;
+  
      
     }
 
     .list-menu li.nav-shop .header__submenu li.nav-11-plushie .nav-image {
         background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/plushie.jpg?v=1633039913");
         background-size: contain;
-       
+        height: 30rem;
     }
 
  
