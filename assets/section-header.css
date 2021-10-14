@@ -791,9 +791,21 @@ header {
 
     /* events -------------------------------------------------------------------- */
 
+    .list-menu li.nav-events .header__submenu li.nav-classic-car-show{
+        flex-grow: 2;
+    }
+
     .list-menu li.nav-events .header__submenu li.nav-classic-car-show .nav-image {
         background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/cars.jpg?v=1634247469");
         background-size: contain;
+    }
+
+    .list-menu li.nav-events .header__submenu li.nav-fundraising li:nth-child(3) a{
+        font-family: "AvenirNextLTPro-Bold";
+        margin: 2rem 0 1rem 0;
+        font-size: 2.5rem;
+        text-transform: uppercase;
+        color:#e42948;
     }
 
     .list-menu li.nav-events .header__submenu li.nav-big-boy-blog li:last-child a {
