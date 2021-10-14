@@ -632,7 +632,7 @@ summary.header__menu-item:hover {
 }
 
 .header__submenu.list-menu {
-    padding: 2rem 0;
+    padding: 5rem;
 }
 
 .header__submenu .header__submenu {
@@ -660,6 +660,190 @@ summary.header__menu-item:hover {
 .header__submenu .icon-caret {
     right: 2rem;
 }
+
+header {
+    height: 80px;
+}
+
+/*  -------------- secondary navigation --------------------- */
+
+
+@media screen and (min-width: 990px) {
+
+    .header__submenu {
+        display:flex;
+        flex-direction: row;
+        height: 50rem;
+        margin: 0;
+        padding: 0;
+    }
+ 
+    .header__submenu li {
+        display:flex;
+        flex: 1;
+        position: relative;
+        padding:2rem;
+        
+    }
+
+    .header__submenu li a {
+        position: relative;
+        display: block;
+        width: 100%;;
+        padding: 0 !important;
+        margin: 0;
+    }
+
+    .header__submenu .header__menu-item {
+        padding: 0;
+    }
+
+    .header__submenu li a .nav-image {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 25rem;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .header__submenu li a .nav-title {
+        position: relative;
+        display: block;
+        margin-top: 1rem;
+        width: 100%;
+        font-size: 2.2rem;
+        color:#e42948;
+    }
+
+    .header__submenu summary.header__menu-item {
+        margin: 0 0 1rem 0;
+        font-size: 2.5rem;
+        color:#e42948;
+    }
+
+    .list-menu .list-menu .list-menu.header__submenu {
+        display:block;
+        text-align: left;
+        background-color: transparent;
+        margin: 0;
+        padding: 0;
+ 
+    }
+
+    .list-menu .list-menu .list-menu.header__submenu li {
+        display:block;
+        font-size: 1.8rem;
+        margin: 0;
+        padding: 0 0 0.5rem 0;
+    }
+
+    .list-menu .list-menu .list-menu.header__submenu li a.header__menu-item{
+        text-transform: capitalize;
+        font-family: "AvenirNextLTPro-Medium";
+        font-size: 1.8rem;
+    }
+
+    /* -------- images bg's if you rearrange the nav the order will change ----------------- */
+
+    /* history -------------------------------------------------------------------- */
+
+    .list-menu li.nav-history .header__submenu li {
+  
+    }
+
+    .list-menu li.nav-history .header__submenu li.nav-opening .nav-image {
+        background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/history.jpg?v=1631569447");
+    }
+
+    .list-menu li.nav-history .header__submenu li.nav-architecture .nav-image {
+        background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/mcallister.jpg?v=1631569696");
+    }
+
+    .list-menu li.nav-history .header__submenu li.nav-the-beatles-booth .nav-image {
+        background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/beatles.jpg?v=1631569766");
+    }
+
+    .list-menu li.nav-history .header__submenu li.nav-filming-heat .nav-image {
+        background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/Val-Kilmer-Robert-DeNiro-Bobs-Big-Boy-HEAT.jpg?v=1631569894");
+    }
+
+    /* menus -------------------------------------------------------------------- */
+    .list-menu li.nav-menus .header__submenu li.nav-burgers .nav-image {
+        background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/burger.jpg?v=1633037381");
+        background-size: contain;
+       
+    }
+
+    .list-menu li.nav-menus .header__submenu li.nav-milkshakes .nav-image {
+        background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/milkshake.jpg?v=1633037393");
+        background-size: contain;
+       
+      
+    }
+
+   
+    .list-menu li.nav-menus .header__submenu li.nav-breakfast li:last-child a,
+    .list-menu li.nav-menus .header__submenu li.nav-lunch-dinner li:last-child a {
+        margin-top: 2rem;
+        font-family: "AvenirNextLTPro-Bold";
+        text-transform: capitalize;
+        color: #e62544;
+    }
+
+    /* events -------------------------------------------------------------------- */
+
+    .list-menu li.nav-events .header__submenu li.nav-classic-car-show .nav-image {
+        background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/cars.jpg?v=1634247469");
+        background-size: contain;
+    }
+
+    .list-menu li.nav-events .header__submenu li.nav-big-boy-blog li:last-child a {
+        margin-top: 2rem;
+        font-family: "AvenirNextLTPro-Bold";
+        text-transform: capitalize;
+        color: #e62544;
+    }
+
+    /* photos */
+    .list-menu li.nav-photos .header__submenu li {
+     
+    }
+    .list-menu li.nav-photos .header__submenu li.nav-outside .nav-image {
+        background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/outside.jpg?v=1633039885");
+    }
+
+    .list-menu li.nav-photos .header__submenu li.nav-food .nav-image {
+        background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/food.jpg?v=1633039899");
+    }
+
+    .list-menu li.nav-photos .header__submenu li.nav-inside .nav-image {
+        background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/inside.jpg?v=1633039872");
+    }
+
+    /* shop */
+    .list-menu li.nav-shop .header__submenu li.nav-apparel li:last-child a,
+    .list-menu li.nav-shop .header__submenu li.nav-merchandise li:last-child a {
+        margin-top: 1rem;
+        color: #e62544;
+    }
+
+    .list-menu li.nav-shop .header__submenu li.nav-seasoning-salt .nav-image {
+        background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/salt.jpg?v=1633039926");
+        background-size: contain;
+     
+    }
+
+    .list-menu li.nav-shop .header__submenu li.nav-11-plushie .nav-image {
+        background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/plushie.jpg?v=1633039913");
+        background-size: contain;
+       
+    }
+
+ 
+
+/*  -------------------------------------------------- */
 
 
 @keyframes animateMenuOpen {

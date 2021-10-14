@@ -317,6 +317,7 @@
                             </a>
                           {%- else -%}
                           <!--  <details class="open"> -->
+                          <div>
                               <summary class="header__menu-item link link--text list-menu__item">
                                 {{ childlink.title | escape }}
                                 {% render 'icon-caret' %}
@@ -330,6 +331,7 @@
                                   </li>
                                 {%- endfor -%}
                               </ul>
+                            </div>
                            <!--   </details> -->
                           {%- endif -%}
                         </li>
