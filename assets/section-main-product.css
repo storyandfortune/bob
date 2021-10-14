@@ -531,9 +531,19 @@ a.product__text {
 }
 
 .product-media-modal__content {
+  display: relative;
   max-height: 100vh;
   width: 100%;
+  max-width: 1200px;
   overflow: auto;
+  padding:0;
+  margin: 0 auto;
+}
+
+.product-media-modal__content img{
+  position: inherit;
+  margin:0;
+  
 }
 
 .product-modal-information{

@@ -164,7 +164,7 @@
 
 .card-information__text {
   display: block;
-  padding-right: 1.2rem;
+  text-align: center;
 }
 
 
@@ -264,7 +264,7 @@
 
   .card:hover .media.media--hover-effect > img:first-child:only-child,
   .card-wrapper:hover .media.media--hover-effect > img:first-child:only-child {
-    transform: scale(1.03);
+    transform: scale(1.2);
   }
 
   .card-wrapper:hover
@@ -280,8 +280,7 @@
   }
 
   .card-wrapper:hover .card-information__text {
-    text-decoration: underline;
-    text-underline-offset: 0.3rem;
+    text-decoration: none;
   }
 
   .card-wrapper:hover .card--search img {

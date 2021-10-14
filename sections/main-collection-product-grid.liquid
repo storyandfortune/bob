@@ -460,7 +460,7 @@
 <div id="CollectionProductGrid">
   {%- paginate collection.products by section.settings.products_per_page -%}
     {%- if collection.products.size == 0 -%}
-      <div class="collection collection--empty page-width" id="main-collection-product-grid" data-id="{{ section.id }}">
+      <div class="collection collection--empty page-width" id="" data-id="{{ section.id }}">
         <div class="loading-overlay gradient"></div>
 
         <p class="collection-product-count light" role="status">
@@ -482,8 +482,8 @@
       <div class="collection page-width">
         <div class="loading-overlay gradient"></div>
 
-        <ul id="main-collection-product-grid" data-id="{{ section.id }}" class="
-          grid grid--2-col negative-margin product-grid
+        <ul id="" data-id="{{ section.id }}" class="
+          grid grid--2-col product-grid
           {% if collection.products_count < 4 %} grid--{{ collection.products_count }}-col-tablet{% else %}
             {% if collection.products_count == 4 %} grid--4-col-desktop{% else %} grid--3-col-tablet grid--one-third-max grid--4-col-desktop grid--quarter-max{% endif %}
           {% endif %}">
@@ -511,7 +511,7 @@
 
 {% schema %}
 {
-  "name": "t:sections.main-collection-product-grid.name",
+  "name": "t:sections..name",
   "class": "spaced-section collection-grid-section",
   "settings": [
     {
@@ -521,11 +521,11 @@
       "max": 48,
       "step": 4,
       "default": 48,
-      "label": "t:sections.main-collection-product-grid.settings.products_per_page.label"
+      "label": "t:sections..settings.products_per_page.label"
     },
     {
       "type": "header",
-      "content": "t:sections.main-collection-product-grid.settings.header__3.content"
+      "content": "t:sections..settings.header__3.content"
     },
     {
       "type": "select",
@@ -533,73 +533,73 @@
       "options": [
         {
           "value": "adapt",
-          "label": "t:sections.main-collection-product-grid.settings.image_ratio.options__1.label"
+          "label": "t:sections..settings.image_ratio.options__1.label"
         },
         {
           "value": "portrait",
-          "label": "t:sections.main-collection-product-grid.settings.image_ratio.options__2.label"
+          "label": "t:sections..settings.image_ratio.options__2.label"
         },
         {
           "value": "square",
-          "label": "t:sections.main-collection-product-grid.settings.image_ratio.options__3.label"
+          "label": "t:sections..settings.image_ratio.options__3.label"
         }
       ],
       "default": "adapt",
-      "label": "t:sections.main-collection-product-grid.settings.image_ratio.label"
+      "label": "t:sections..settings.image_ratio.label"
     },
     {
       "type": "checkbox",
       "id": "show_secondary_image",
       "default": false,
-      "label": "t:sections.main-collection-product-grid.settings.show_secondary_image.label"
+      "label": "t:sections..settings.show_secondary_image.label"
     },
     {
       "type": "checkbox",
       "id": "add_image_padding",
       "default": false,
-      "label": "t:sections.main-collection-product-grid.settings.add_image_padding.label"
+      "label": "t:sections..settings.add_image_padding.label"
     },
     {
       "type": "checkbox",
       "id": "show_image_outline",
       "default": true,
-      "label": "t:sections.main-collection-product-grid.settings.show_image_outline.label"
+      "label": "t:sections..settings.show_image_outline.label"
     },
     {
       "type": "checkbox",
       "id": "show_vendor",
       "default": false,
-      "label": "t:sections.main-collection-product-grid.settings.show_vendor.label"
+      "label": "t:sections..settings.show_vendor.label"
     },
     {
       "type": "checkbox",
       "id": "show_rating",
       "default": false,
-      "label": "t:sections.main-collection-product-grid.settings.show_rating.label",
-      "info": "t:sections.main-collection-product-grid.settings.show_rating.info"
+      "label": "t:sections..settings.show_rating.label",
+      "info": "t:sections..settings.show_rating.info"
     },
     {
       "type": "header",
-      "content": "t:sections.main-collection-product-grid.settings.header__1.content"
+      "content": "t:sections..settings.header__1.content"
     },
     {
       "type": "checkbox",
       "id": "enable_filtering",
       "default": true,
-      "label": "t:sections.main-collection-product-grid.settings.enable_filtering.label",
-      "info": "t:sections.main-collection-product-grid.settings.enable_filtering.info"
+      "label": "t:sections..settings.enable_filtering.label",
+      "info": "t:sections..settings.enable_filtering.info"
     },
     {
       "type": "checkbox",
       "id": "enable_sorting",
       "default": true,
-      "label": "t:sections.main-collection-product-grid.settings.enable_sorting.label"
+      "label": "t:sections..settings.enable_sorting.label"
     },
     {
       "type": "checkbox",
       "id": "collapse_on_larger_devices",
       "default": false,
-      "label": "t:sections.main-collection-product-grid.settings.collapse_on_larger_devices.label"
+      "label": "t:sections..settings.collapse_on_larger_devices.label"
     }
   ]
 }

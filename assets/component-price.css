@@ -42,6 +42,7 @@
   font-size: 1.6rem;
   line-height: 1.5;
   letter-spacing: 0.13rem;
+  justify-content: left !important;
 }
 
 @media screen and (min-width: 750px) {
