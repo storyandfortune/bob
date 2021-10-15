@@ -37,6 +37,10 @@ section.shopify-section {
     text-align: center;
 }
 
+.bob-page-content section:last-child {
+    margin-bottom: 5rem;
+}
+
 .bob-page-content section:first-child {
     border: 1px solid transparent;
     margin-top: 10rem;
@@ -93,7 +97,7 @@ section.shopify-section {
     .bob-page-content section .col {
         display: block;
         width: 100%;
-        margin: 0;
+        margin: 0 0 5rem 0;
     }
 }
 
@@ -147,11 +151,21 @@ section.shopify-section {
     list-style: none;
 }
 
+.bob-page-content section .col .bob-box ul li {
+    margin: 0 0 .75rem 0;
+ }
+
 .bob-page-content section .col .bob-box ul li a {
     display: block;
     font-size: 1.8rem;
     line-height: 2.2rem;
     color: #000000;
+}
+
+@media screen and (max-width: 990px) {
+    .bob-page-content section .col .bob-box {
+        padding: 2rem 3rem;
+    }
 }
 
 .bob-page-content section .col .pull-quote {
@@ -279,6 +293,13 @@ section.shopify-section {
     width: 100%;
 }
 
+@media screen and (max-width: 990px) {
+    .bob-page-content.menu h3 {
+        font-size: 4.5rem;
+        line-height: 4.5rem;
+    }
+}
+
 .bob-page-content.menu h3 small {
     font-size: 2rem;
 }
@@ -300,7 +321,7 @@ section.shopify-section {
     width: 45%;
     margin: 2rem;
     line-height: 2.3rem;
-    font-weight: 700;
+    font-family: "AvenirNextLTPro-Bold";
 }
 
 .bob-page-content.menu ul li h4 {
@@ -334,7 +355,7 @@ section.shopify-section {
     padding: 0;
     margin: 0 0 0 0;
     font-size: 1.7rem;
-    font-weight: 500;
+    font-family: "AvenirNextLTPro-Medium";
 }
 
 .bob-page-content.menu .double-border {
@@ -412,6 +433,23 @@ section.shopify-section {
 
 .bob-page-content.menu .big-boy-title span:nth-child(2) {
     margin-left: 12rem;
+}
+
+@media screen and (max-width: 990px) {
+    .bob-page-content.menu .big-boy-title {
+        display:block;
+    }
+
+    .bob-page-content.menu .big-boy-title span:nth-child(2) {
+        margin: 0 1rem 0 0;
+        padding: 0 0 0 0;
+    }
+
+    .bob-page-content.menu .big-boy-title span:nth-child(1) {
+        display:block;
+        margin: 0 0 0 0;
+        padding: 0 0 0 0;
+    }
 }
 
 .bob-page-content.menu .big-boy-box .big-boy {
@@ -744,12 +782,41 @@ h1.product__title {
     text-align: left;
 }
 
+.bob-page-content.site-map section,
+.bob-page-content.privacy section,
+.bob-page-content.faq section {
+    margin:0 10rem 5rem 10rem;
+  
+}
+
+.bob-page-content.site-map h3,
+.bob-page-content.privacy section h3,
+.bob-page-content.faq section h3{
+    color:#e62544;
+    margin:5rem 0 0 0;
+    font-family: "RoadRadio-Black";
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 6.5rem;
+    padding: 0;
+    text-align: center;
+    width: 100%;
+}
+
+
+@media screen and (max-width: 990px) {
+    .bob-page-content.site-map h3 {
+        margin:5rem 0 0 0;
+    }
+}
 .bob-page-content.site-map ul {
     list-style: none;
 }
 .bob-page-content.site-map ul li a {
-    color: #e62544;
-    font-size: 2.5rem;
+    color: #b79668;
+    font-family: "AvenirNextLTPro-Bold";
+    font-size: 1.8rem;
+    line-height: .01rem;
     text-decoration: none;
 }
 
