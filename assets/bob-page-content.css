@@ -828,6 +828,18 @@ h1.product__title {
     text-decoration: none;
 }
 
+
+/* ---------- 404 ---------------------*/
+.not-found{ 
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.not-found svg.original-big-boy{ 
+    width:45vw;
+}
+
+
 /* ------- mobile styles ------------- */
 
 @media screen and (min-width: 990px) {
