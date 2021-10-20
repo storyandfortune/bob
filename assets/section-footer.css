@@ -32,15 +32,29 @@
   text-align: center;
 }
 
+
+
+
 .coupon-code h1 {
   font-size: 2.5rem;
+  line-height: 2.8rem;;
   font-weight: 800;
-  margin: 3rem 0 1rem 0;
+  margin: 3rem auto;
+  padding:0;
+  width:30vw;
+}
+
+.coupon-code div {
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0 0 2rem 0;
+  color:#e62544;
 }
 
 .coupon-code h2 {
   font-size: 1.8rem;
   margin: 0 0 5rem 0;
+  font-family: "AvenirNextLTPro-Bold";
 }
 
 .footer-b-boy {
@@ -68,15 +82,18 @@
 
   .coupon-code {
     width:55vw;
+    padding-left:5rem;
     position: relative;
     line-height: 14px;
     text-align: center;
+    
   }
 
   .coupon-code h1 {
     font-size: 2.5rem;
     font-weight: 800;
     margin: 3rem 0 1rem 0;
+    width:100%;
   }
   
   .coupon-code h2 {
