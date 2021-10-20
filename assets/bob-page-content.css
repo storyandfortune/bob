@@ -53,7 +53,8 @@ section.shopify-section {
     text-decoration: none;
 }
 
-.bob-page-content section h3 {
+.bob-page-content section h3,
+section.shopify-section h2 {
     font-family: "Harvard";
     width: 100%;
     padding:5rem 0 0 0;
