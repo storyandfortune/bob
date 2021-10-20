@@ -63,8 +63,6 @@ $(document).ready(function () {
        resizing = setTimeout(endResize, 100);
      };
   
-
-
     /* forms ------------------------------------ */
 
     var formsData = function () {
@@ -182,6 +180,13 @@ $(document).ready(function () {
     }
 
 
+    // double click go to page.
+    $("#shopify-section-header nav .list-menu li").bind('dblclick', function (e) {
+        window.location.href = $(this).data('link');
+    });
+
+
+    // scroll to homepage
     $("#shopify-section-header nav .list-menu li.nav-history").bind('click', function (e) {
         scrollToID("#history", e);
     });
