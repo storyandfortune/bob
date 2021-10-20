@@ -1,5 +1,5 @@
 .article-template > *:first-child:not(.article-template__hero-container) {
-  margin-top: 5rem;
+  margin-top: 10rem;
 }
 
 .article-template__hero-container {
@@ -8,7 +8,7 @@
 
 @media screen and (min-width: 1320px) {
   .article-template__hero-container:first-child {
-    margin-top: 5rem;
+    margin-top: 10rem;
   }
 }
 

@@ -625,7 +625,8 @@ summary.header__menu-item:hover {
 }
 
 .header__submenu .header__menu-item {
-    font-family: AvenirNextLTPro-Bold;
+    font-family: "AvenirNextLTPro-Bold";
+    text-align:left;
     text-decoration: none;
     font-size: 1.4rem;
     padding: 0;
@@ -821,6 +822,12 @@ header {
     }
 
 
+    .list-menu li.nav-menus .header__submenu li.nav-milkshakes .nav-title, 
+    .list-menu li.nav-menus .header__submenu li.nav-burgers .nav-title{
+        text-align:center;
+    }
+
+
     .list-menu li.nav-menus .header__submenu li.nav-milkshakes .nav-image {
         background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/milkshake.jpg?v=1633037393");
         background-size: contain;
@@ -841,6 +848,11 @@ header {
     .list-menu li.nav-events .header__submenu li.nav-classic-car-show{
         flex-grow: 2;
     }
+
+    .list-menu li.nav-events .header__submenu li.nav-classic-car-show .nav-title{
+        text-align:center;
+    }
+
 
     .list-menu li.nav-events .header__submenu li.nav-classic-car-show .nav-image {
         background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/cars.jpg?v=1634247469");
@@ -865,6 +877,11 @@ header {
     }
 
     /* photos */
+
+    .list-menu li.nav-photos .header__submenu li .nav-title {
+        text-align:center;
+    }
+
     .list-menu li.nav-photos .header__submenu li.nav-outside .nav-image {
         background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/outside.jpg?v=1633039885");
     }
@@ -878,6 +895,15 @@ header {
     }
 
     /* shop */
+
+
+    .list-menu li.nav-shop .header__submenu li.nav-seasoning-salt .nav-title, 
+    .list-menu li.nav-shop .header__submenu li.nav-11-plushie .nav-title{
+        text-align:center;
+    }
+
+
+
     .list-menu li.nav-shop .header__submenu li.nav-apparel li:last-child a,
     .list-menu li.nav-shop .header__submenu li.nav-merchandise li:last-child a {
         margin-top: 1rem;

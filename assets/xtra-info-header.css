@@ -47,6 +47,7 @@
 .header-top .xtra-info ul li.space{
     margin: 0rem;
     width:0;
+    display:none;
 }
 
 .header-top .xtra-info ul li.num{
@@ -67,6 +68,7 @@
     }
 
     .header-top .xtra-info ul li.space {
+        display:inline-block !important;
         margin: 0 1.5rem 0 1.5rem;
         width: 200px;
     }
