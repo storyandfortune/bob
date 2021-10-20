@@ -5,4 +5,8 @@
 .product-recommendations__heading {
   margin: 0;
   margin-bottom: 3rem;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 3rem;
+  font-family: "AvenirNextLTPro-Bold";
 }

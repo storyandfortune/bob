@@ -81,10 +81,16 @@
   display: block;
 }
 
-.article-card__title {
-  text-decoration: none;
+.article-card__header h2.article-card__title {
+  font-family: "AvenirNextLTPro-Bold";
+  padding:0;
+  margin:0;
+  color:black;
+  text-align:left;
   word-break: break-word;
   font-size:4rem;
+  line-height: 4rem;;
+
 }
 
 .article-card__link.link {
@@ -99,13 +105,10 @@
   text-decoration-thickness: 0.2rem;
 }
 
-.article-card__header {
-  line-height: 0.8;
-  margin-bottom: 1.2rem;
-}
+
 
 .article-card__header h2 {
-  margin: 0 0 0.2rem;
+  margin: 0 0 0 0;
 }
 
 .article-card__header h2:only-child {

@@ -54,6 +54,7 @@
 
 .article-template__title {
   margin: 0;
+  font-family: "AvenirNextLTPro-Bold";
 }
 
 .article-template__title:not(:only-child) {

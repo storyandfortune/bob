@@ -438,6 +438,7 @@ a.product__text {
 .product__media-icon .icon {
   width: 1.2rem;
   height: 1.4rem;
+  display:none;
 }
 
 .product__media-icon {
@@ -458,7 +459,7 @@ a.product__text {
 }
 
 .product__media-video .product__media-icon {
-  opacity: 1;
+  opacity: 0;
 }
 
 .product__modal-opener--image .product__media-toggle:hover {

@@ -32,6 +32,7 @@ h1.collection-hero__title,
 }
 
 section.shopify-section {
+    max-width: 1500px;
     margin: 0 auto;
 }
 
@@ -54,7 +55,8 @@ section.shopify-section {
 }
 
 .bob-page-content section h3,
-section.shopify-section h2 {
+section.shopify-section h2,
+h3.cart-title {
     font-family: "Harvard";
     width: 100%;
     padding:5rem 0 0 0;
