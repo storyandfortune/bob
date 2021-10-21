@@ -39,9 +39,10 @@ section.shopify-section {
     text-align: center;
 }
 
-.bob-page-content #history,
-.bob-page-content #events{
+.bob-page-content.history,
+.bob-page-content.events{
     max-width: 1500px;
+    margin: 10rem auto;
 }
 
 .bob-page-content section:last-child {
