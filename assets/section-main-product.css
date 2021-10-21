@@ -377,6 +377,7 @@ a.product__text {
 .new-media .product__media-thumb-list li{
   cursor:pointer;
   width:20vw;
+  max-width: 200px;
   transition: all .25s ease;
 }
 .new-media .product__media-thumb-list li:hover{
