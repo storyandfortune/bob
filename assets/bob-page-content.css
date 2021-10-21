@@ -27,18 +27,21 @@ h1.collection-hero__title,
 .home-page section {
     position:relative;
     min-height: calc(100vh - 117px);
-    max-width: 1500px;
     margin: 0 auto;
 }
 
 section.shopify-section {
-    max-width: 1500px;
     margin: 0 auto;
 }
 
 .bob-page-content section {
     margin: 10rem auto;
     text-align: center;
+}
+
+.bob-page-content #history,
+.bob-page-content #events{
+    max-width: 1500px;
 }
 
 .bob-page-content section:last-child {
