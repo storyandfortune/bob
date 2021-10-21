@@ -18,6 +18,12 @@
     "reviews_google_plus_link": "https:\/\/www.google.com\/maps\/place\/Bob's+Big+Boy\/@34.1524797,-118.3482922,17z\/data=!3m1!4b1!4m5!3m4!1s0x0:0x8d2acdfb878a2f0a!8m2!3d34.1524797!4d-118.3461035",
     "favicon": "shopify:\/\/shop_images\/icon.png",
     "currency_code_enabled": false,
+    "checkout_header_image": "shopify:\/\/shop_images\/Bobs-Big-Boy-Patio-Tower_fe59be17-d8a4-454f-b16a-683d7d680508.jpg",
+    "checkout_logo_image": "shopify:\/\/shop_images\/logo_b2ce50fd-91eb-48a2-ab71-46071bcff79d.png",
+    "checkout_logo_size": "large",
+    "checkout_accent_color": "#b79668",
+    "checkout_button_color": "#e62544",
+    "checkout_error_color": "#121212",
     "sections": {
       "announcement-bar": {
         "type": "announcement-bar",
@@ -68,6 +74,11 @@
           "newsletter_enable": true,
           "newsletter_heading": "BIG BOY® EMAIL CLUB",
           "show_social": true
+        }
+      },
+      "hero-scroll": {
+        "type": "hero-scroll",
+        "settings": {
         }
       }
     },
