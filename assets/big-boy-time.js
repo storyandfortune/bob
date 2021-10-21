@@ -230,6 +230,32 @@ $(document).ready(function () {
         return false;
     });
 
+    // new product media ------------------------------- */
+    if($('.new-media').length){
+
+        // switch detail image.
+        $('.new-media .product__media-thumb-list li').bind('click', function(){
+            var media = $(this).data('src');
+            $('.new-media .product_media-detail').data('src', media);
+            $('.new-media .product_media-detail img').attr('src', media);
+
+        })
+        
+        // open modal
+        $('.new-media .product_media-detail').bind('click', function(){
+            var media = $(this).data('src');
+            $('.new-product-modal .product-modal-image').css("background-image", "url(" + media + ")");
+            $('html').addClass('modal');
+        })
+
+        //close modal
+        $('.new-product-modal .close-product').bind('click', function(){
+            $('html').removeClass('modal');
+        })
+
+   
+    }
+
 });
 
 

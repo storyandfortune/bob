@@ -21,12 +21,38 @@
   <div class="product grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
 
   <!-- ////////////////////////////////// Product /////////////////////////////////////////////-->
-    <div class="grid__item product__media-wrapper">
 
+  <div class="grid__item product__media-wrapper"> 
+     <div class="new-media">
+      <ul class="product__media-thumb-list list-unstyled " role="list">
+        {%- for image in product.media -%}
+            <li class="product__media-item" data-media-id="{{ section.id }}-{{ media.id }}" data-src="{{image | img_url:'1200x' }}">
+              {{ image | img_url:'1200x' | img_tag }}
+            </li>
+        {%- endfor -%}
+      </ul>
+
+      {%- assign first = product.media[0] -%}
+      <div class="product_media-detail" data-src="{{first | img_url:'1200x' }}">
+        <div class="product-information">
+      </div>
+         {{ first | img_url:'1200x' | img_tag }}
+      </div>
+
+    </div>
+ </div>
+  
+  <!-- old product images ----------------------------------------------------------------------------
+  <div class="grid__item product__media-wrapper">
+
+   
       <slider-component class="slider-mobile-gutter">
+
         <a class="skip-to-content-link button visually-hidden" href="#ProductInfo-{{ section.id }}">
           {{ "accessibility.skip_to_product_info" | t }}
         </a>
+
+
         <ul class="product__media-list grid grid--peek list-unstyled slider slider--mobile" role="list">
           {%- assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' -%}
           {%- if product.selected_or_first_available_variant.featured_media != null -%}
@@ -69,6 +95,9 @@
         </button>
       {%- endif -%}
     </div>
+  -->
+
+
   <!-- ////////////////////////////////// End Product /////////////////////////////////////////////-->
 
     <div class="product__info-wrapper grid__item">
@@ -385,6 +414,8 @@
     </div>
   </product-modal>
 
+  
+
   {% assign popups = section.blocks | where: "type", "popup" %}
   {%- for block in popups -%}
     <modal-dialog id="PopupModal-{{ block.id }}" class="product-popup-modal" {{ block.shopify_attributes }}>
@@ -398,6 +429,19 @@
     </modal-dialog>
   {%- endfor -%}
 </section>
+
+
+  <!-- ///////////////////////////////////////////// New Product Modal /////////////////////////////////////////////  -->
+  <div class="new-product-modal hide">
+    <div class="product-modal-information">
+      <h3> {{ product.title | escape }}</h3>
+      {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large' -%}
+    </div>
+    <div class="close-product">
+      {%- render 'icon-times-solid' %}
+    </div>
+    <div class="product-modal-image"></div>
+  </div>
 
 {% javascript %}
   class ProductModal extends ModalDialog {

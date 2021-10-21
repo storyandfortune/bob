@@ -360,10 +360,83 @@ a.product__text {
   padding-left: 0;
 }
 
+
+/* NEw Pr0ducT media$ */
+.new-media{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.new-media img{
+  width:100%;
+  height:auto;
+}
+
+.new-media .product__media-thumb-list li{
+  cursor:pointer;
+  width:200px;
+  transition: all .25s ease;
+}
+.new-media .product__media-thumb-list li:hover{
+  transform: scale(1.075);
+}
+
+.new-media .product_media-detail{
+  cursor: zoom-in;
+}
+
+.new-media .product_media-detail .product-information{
+  display:none;
+}
+
+html.modal{
+  height:100vh;
+  overflow: hidden;
+}
+
+.new-product-modal{
+  display:none;
+  position:absolute;
+  top:0;
+  left:0;
+  width:0px;
+  height:0px;
+  z-index:100;
+  overflow:hidden;
+  background-color: transparent;
+}
+
+.modal .new-product-modal{
+  display:block;
+  background-color: white;
+  width:100vw;
+  height:100vh;
+}
+
+.new-product-modal .close-product{
+  position:absolute;
+  cursor: pointer;
+  top:3rem;
+  right:5rem;
+  width:3rem;
+  height:auto;
+}
+
+.new-product-modal .product-modal-image{
+  width:100vw;
+  height:100vh;
+  background-image:url(https://cdn.shopify.com/s/files/1/0593/5942/8759/products/Bobs-Big-Boy-Starburst-Shirt-Back_1200x.jpg?v=1631461489);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+}
+
+
 /* Product media */
 
 @media screen and (max-width: 749px) {
-  .product__media-list {
+  . {
     margin-left: -2.5rem;
     padding-bottom: 2rem;
     margin-bottom: 3rem;
@@ -373,11 +446,13 @@ a.product__text {
   .product__media-wrapper slider-component {
     margin-left: -1.5rem;
     margin-right: -1.5rem;
+
   }
 
   .slider.slider--mobile.product__media-list {
     padding-bottom: 0;
     margin-bottom: 0.5rem;
+
   }
 
   .slider.product__media-list::-webkit-scrollbar {
@@ -400,6 +475,7 @@ a.product__text {
   .slider.product__media-list .product__media-item:first-of-type {
     padding-left: 1.5rem;
   }
+
 }
 
 @media screen and (min-width: 750px) {
@@ -507,6 +583,8 @@ a.product__text {
   width: 100%;
 }
 
+
+/*--------------------------------------- modal -----------------------------------------------*/
 .product-media-modal {
   background-color: rgb(var(--color-background));
   height: 100%;
