@@ -2,6 +2,8 @@
 
 <html class="no-js" lang="{{ request.locale.iso_code }}">
   <head>
+    {% if template == '404' %}<meta http-equiv="refresh" content="0;URL={{ shop.url }}" />{% endif %}
+
     {% render 'ascii-art' %}
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
