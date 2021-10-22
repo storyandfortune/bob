@@ -6,6 +6,7 @@ $(document).ready(function () {
     var setHero = function(){
         if ($('body').hasClass('home-page')) {
             $('.hero-scroll').css('height', (window.innerHeight - 117));
+            $(window).scrollTop(0); 
         }
     }
 

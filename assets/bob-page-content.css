@@ -290,7 +290,7 @@ h3.cart-title,
 /* menus */
 
 .bob-page-content.menu section {
-    padding: 15rem 10rem;
+    padding: 15rem 5rem;
 }
 
 .bob-page-content.menu h3 {
@@ -404,13 +404,24 @@ h3.cart-title,
 }
 
 @media screen and (max-width: 990px) {
+
     .bob-page-content.menu .double-border.big-boy {
         position: relative;
         padding: 3rem;
     }
 
     .bob-page-content.menu .double-border.big-boy li:nth-child(1) {
-        display: none;
+        position:relative;
+        display: block;
+        width: 15rem;
+        top: -5rem;
+        left: 0;
+        right: 0;
+        margin:0 auto;
+    }
+
+    .bob-page-content.menu .double-border.big-boy li:nth-child(2) {
+        margin-top:-3rem;
     }
 
     .bob-page-content.menu .double-border.big-boy li {
@@ -457,8 +468,7 @@ h3.cart-title,
     }
 
     .bob-page-content.menu .big-boy-title span:nth-child(1) {
-        display:block;
-        margin: 0 0 0 0;
+        margin: 0 2rem 0 0;
         padding: 0 0 0 0;
     }
 }
@@ -485,12 +495,19 @@ h3.cart-title,
 }
 
 @media screen and (max-width: 990px) {
+
     .bob-page-content.menu .big-boy-title span:nth-child(2) {
-        margin-left: 3rem;
+        
     }
 
     .bob-page-content.menu .big-boy-box .big-boy {
-        display: none;
+        position: relative;
+        display:block;
+        left: 0;
+        right: 0;
+        top: 0;
+        width: 15rem;
+    }
     }
 
     .bob-page-content.menu .big-boy-box li:first-child {
