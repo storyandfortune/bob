@@ -308,7 +308,7 @@ details.menu-drawer-container[open] .close-icon{
     
     .home-page #shopify-section-header.sticky .header__heading {
         position: absolute;
-        width:188px;
+        width:228px;
         visibility: visible;
         opacity: 1;
         top: -55px;
@@ -321,7 +321,7 @@ details.menu-drawer-container[open] .close-icon{
 
     /* secondary */
     #shopify-section-header .header__heading {
-       width:200px;
+       width:228px;
        left:0 !important;
        top: -55px;
        right:0;

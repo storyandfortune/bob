@@ -61,7 +61,8 @@ section.shopify-section {
 .bob-page-content section h3,
 section.shopify-section h2,
 h3.cart-title,
-.home-page .featured-recommendations__heading {
+.home-page .featured-recommendations__heading,
+.template-search h1.h2{
     font-family: "Harvard";
     text-transform: capitalize;
     width: 100%;
@@ -496,9 +497,6 @@ h3.cart-title,
 
 @media screen and (max-width: 990px) {
 
-    .bob-page-content.menu .big-boy-title span:nth-child(2) {
-        
-    }
 
     .bob-page-content.menu .big-boy-box .big-boy {
         position: relative;
