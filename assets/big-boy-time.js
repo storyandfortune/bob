@@ -1,15 +1,12 @@
 $(document).ready(function () {
 
-    
     /* disable waypoints on resize, enable & refresh when finished */
     var resizing;
 
     var setHero = function(){
-        /*
         if ($('body').hasClass('home-page')) {
             $('.hero-scroll').css('height', (window.innerHeight - 117));
         }
-        */
     }
 
     var endResize = function(){
@@ -23,11 +20,12 @@ $(document).ready(function () {
         clearTimeout(resizing);
         resizing = setTimeout(endResize, 100);
     }
+
+    setHero();
     
     /* Waypoints --------------------------------------------------------- */
     if ($('body').hasClass('home-page')) {
 
-       // setHero();
 
          // set hero height
          $('.hero-scroll').css('height', (window.innerHeight - 117));
@@ -71,7 +69,6 @@ $(document).ready(function () {
 
     }
     
-
     /* footer big boy coming up */
     var BigBoyBottom = $('#big-boy-footer').waypoint(function (direction) {
 
