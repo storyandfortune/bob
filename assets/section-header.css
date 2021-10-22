@@ -1,9 +1,13 @@
 /* hero ----------------------------------------------------- */
 
+#shopify-section-hero-scroll{
+    height:100%;  
+}
+
 .hero-scroll {
     position: relative;
     width: 100vw;
-    height: calc(100vh - 117px);
+    height: 100vh;
 }
 
 .hero-scroll .header-b-boy {

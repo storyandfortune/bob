@@ -1,4 +1,6 @@
-<!doctype html>
+<!DOCTYPE svg PUBLIC “-//W3C//DTD SVG 1.1//EN”
+  “http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd”> 
+
 <html class="no-js" lang="{{ request.locale.iso_code }}">
   <head>
     {% render 'ascii-art' %}
@@ -36,7 +38,6 @@
 
 
     {%- liquid
-
       assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
       assign body_font_italic = settings.type_body_font | font_modify: 'style', 'italic'
       assign body_font_bold_italic = body_font_bold | font_modify: 'style', 'italic'

@@ -1,8 +1,36 @@
 $(document).ready(function () {
 
+    
+    /* disable waypoints on resize, enable & refresh when finished */
+    var resizing;
+
+    var setHero = function(){
+        /*
+        if ($('body').hasClass('home-page')) {
+            $('.hero-scroll').css('height', (window.innerHeight - 117));
+        }
+        */
+    }
+
+    var endResize = function(){
+       Waypoint.enableAll()
+       Waypoint.refreshAll();
+    }
+
+    var resize = function(){
+        setHero();
+        Waypoint.disableAll()
+        clearTimeout(resizing);
+        resizing = setTimeout(endResize, 100);
+    }
+    
     /* Waypoints --------------------------------------------------------- */
     if ($('body').hasClass('home-page')) {
 
+       // setHero();
+
+         // set hero height
+         $('.hero-scroll').css('height', (window.innerHeight - 117));
 
         /* big boy hides */
         var BigBoyHides = $('#big-boy-header').waypoint(function (direction) {
@@ -32,6 +60,15 @@ $(document).ready(function () {
             offset: '15%'
         });
 
+
+        screen.orientation.addEventListener('change', function() {
+            resize();
+        });
+    
+         window.onresize = function(){
+            resize();
+         };
+
     }
     
 
@@ -48,20 +85,7 @@ $(document).ready(function () {
     }, {
         offset: 'bottom-in-view'
     });
-
-     /* disable waypoints on resize, enable & refresh when finished */
-     var resizing;
-
-     var endResize = function(){
-        Waypoint.enableAll()
-        Waypoint.refreshAll();
-     }
      
-     window.onresize = function(){
-       Waypoint.disableAll()
-       clearTimeout(resizing);
-       resizing = setTimeout(endResize, 100);
-     };
   
     /* forms ------------------------------------ */
 
