@@ -238,7 +238,6 @@ $(document).ready(function () {
             var media = $(this).data('src');
             $('.new-media .product_media-detail').data('src', media);
             $('.new-media .product_media-detail img').attr('src', media);
-
         })
         
         // open modal
