@@ -175,7 +175,10 @@ header-drawer {
 
 details.menu-drawer-container .menu-icon {
     display:block;
+    width:2.9rem;
 }
+
+
 details.menu-drawer-container .close-icon {
     display:none;
 }
@@ -285,7 +288,7 @@ details.menu-drawer-container[open] .close-icon{
 /* moving logo to left to prvent overlap */
 @media screen and (max-width: 1250px) {
     #shopify-section-header .header__heading {
-        left: -6.5rem !important;
+        left: -3.5rem !important;
     }
 }
 
@@ -536,7 +539,7 @@ menu-drawer + .header__search {
 }
 
 .header__inline-menu {
-    padding-left: 9rem;
+    padding-left: 165px;
     grid-area: navigation;
     display: none;
 }
