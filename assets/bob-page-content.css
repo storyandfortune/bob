@@ -102,7 +102,7 @@ h3.cart-title,
     }
 
     .bob-page-content section {
-        margin: 5rem;
+        padding: 5rem;
     }
 
     .bob-page-content section .col {
@@ -262,7 +262,7 @@ h3.cart-title,
 
 .bob-page-content.menu-header h3 {
     font-family: "Harvard";
-    font-size: 5.2rem;
+     font-size: 8.5rem;
 }
 
 .bob-page-content.menu-header .lunch {
@@ -274,7 +274,7 @@ h3.cart-title,
 
 .bob-page-content.menu-header h3 {
     display: block;
-    font-size: 10rem;
+    font-size: 8.5rem;
     color: #ffffff;
     margin: 0;
     padding: 0;

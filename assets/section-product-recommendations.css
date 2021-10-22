@@ -1,4 +1,5 @@
 .product-recommendations {
+  margin-top: 10rem;
   display: block;
 }
 
@@ -9,4 +10,11 @@
   text-transform: uppercase;
   font-size: 3rem;
   font-family: "AvenirNextLTPro-Bold";
+}
+
+@media screen and (max-width: 990px) {
+  .product-recommendations {
+    margin-top: 5rem;
+  }
+  
 }
