@@ -41,7 +41,7 @@ $(document).ready(function () {
             }
 
         }, {
-            offset: '65%'
+            offset: '45%'
         });
 
         /* Logo hides */
