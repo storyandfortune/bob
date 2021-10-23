@@ -56,7 +56,7 @@
               <span class="close-icon"> {% render 'icon-times-solid' %} </span>
           </summary>
           <div id="menu-drawer" class="menu-drawer motion-reduce" tabindex="-1">
-            <div class="menu-drawer__inner-container">
+            <div class="">
               <div class="menu-drawer__navigation-container">
                 <nav class="menu-drawer__navigation">
                   <ul class="menu-drawer__menu list-menu" role="list">
@@ -137,7 +137,7 @@
                   <ul class="list list-social list-unstyled" role="list">
                     {%- if settings.social_twitter_link != blank -%}
                       <li class="list-social__item">
-                        <a href="{{ settings.social_twitter_link }}" class="link link--text list-social__link" aria-describedby="a11y-external-message">
+                        <a href="{{ settings.social_twitter_link }}" class="link link--text list-social__link" target="_blank" rel="external" aria-describedby="a11y-external-message">
                           {%- render 'icon-twitter' -%}
                           <span class="visually-hidden">{{ 'general.social.links.twitter' | t }}</span>
                         </a>
@@ -145,7 +145,7 @@
                     {%- endif -%}
                     {%- if settings.social_facebook_link != blank -%}
                       <li class="list-social__item">
-                        <a href="{{ settings.social_facebook_link }}" class="link link--text list-social__link" aria-describedby="a11y-external-message">
+                        <a href="{{ settings.social_facebook_link }}" class="link link--text list-social__link" target="_blank" rel="external" aria-describedby="a11y-external-message">
                           {%- render 'icon-facebook' -%}
                           <span class="visually-hidden">{{ 'general.social.links.facebook' | t }}</span>
                         </a>
@@ -153,7 +153,7 @@
                     {%- endif -%}
                     {%- if settings.social_pinterest_link != blank -%}
                       <li class="list-social__item">
-                        <a href="{{ settings.social_pinterest_link }}" class="link link--text list-social__link" aria-describedby="a11y-external-message">
+                        <a href="{{ settings.social_pinterest_link }}" class="link link--text list-social__link" target="_blank" rel="external" aria-describedby="a11y-external-message">
                           {%- render 'icon-pinterest' -%}
                           <span class="visually-hidden">{{ 'general.social.links.pinterest' | t }}</span>
                         </a>
@@ -161,7 +161,7 @@
                     {%- endif -%}
                     {%- if settings.social_instagram_link != blank -%}
                       <li class="list-social__item">
-                        <a href="{{ settings.social_instagram_link }}" class="link link--text list-social__link" aria-describedby="a11y-external-message">
+                        <a href="{{ settings.social_instagram_link }}" class="link link--text list-social__link" target="_blank" rel="external" aria-describedby="a11y-external-message">
                           {%- render 'icon-instagram' -%}
                           <span class="visually-hidden">{{ 'general.social.links.instagram' | t }}</span>
                         </a>
@@ -169,7 +169,7 @@
                     {%- endif -%}
                     {%- if settings.social_tumblr_link != blank -%}
                       <li class="list-social__item">
-                        <a href="{{ settings.social_tumblr_link }}" class="link link--text list-social__link" aria-describedby="a11y-external-message">
+                        <a href="{{ settings.social_tumblr_link }}" class="link link--text list-social__link" target="_blank" rel="external" aria-describedby="a11y-external-message">
                           {%- render 'icon-tumblr' -%}
                           <span class="visually-hidden">{{ 'general.social.links.tumblr' | t }}</span>
                         </a>
@@ -177,7 +177,7 @@
                     {%- endif -%}
                     {%- if settings.social_snapchat_link != blank -%}
                       <li class="list-social__item">
-                        <a href="{{ settings.social_snapchat_link }}" class="link link--text list-social__link" aria-describedby="a11y-external-message">
+                        <a href="{{ settings.social_snapchat_link }}" class="link link--text list-social__link" target="_blank" rel="external" aria-describedby="a11y-external-message">
                           {%- render 'icon-snapchat' -%}
                           <span class="visually-hidden">{{ 'general.social.links.snapchat' | t }}</span>
                         </a>
@@ -185,7 +185,7 @@
                     {%- endif -%}
                     {%- if settings.social_youtube_link != blank -%}
                       <li class="list-social__item">
-                        <a href="{{ settings.social_youtube_link }}" class="link link--text list-social__link" aria-describedby="a11y-external-message">
+                        <a href="{{ settings.social_youtube_link }}" class="link link--text list-social__link" target="_blank" rel="external" aria-describedby="a11y-external-message">
                           {%- render 'icon-youtube' -%}
                           <span class="visually-hidden">{{ 'general.social.links.youtube' | t }}</span>
                         </a>
@@ -193,7 +193,7 @@
                     {%- endif -%}
                     {%- if settings.social_vimeo_link != blank -%}
                       <li class="list-social__item">
-                        <a href="{{ settings.social_vimeo_link }}" class="link link--text list-social__link" aria-describedby="a11y-external-message">
+                        <a href="{{ settings.social_vimeo_link }}" class="link link--text list-social__link" target="_blank" rel="external" aria-describedby="a11y-external-message">
                           {%- render 'icon-vimeo' -%}
                           <span class="visually-hidden">{{ 'general.social.links.vimeo' | t }}</span>
                         </a>
