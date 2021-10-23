@@ -181,6 +181,7 @@ details.menu-drawer-container .menu-icon {
 
 details.menu-drawer-container .close-icon {
     display:none;
+    width:2.5rem;
 }
 
 details.menu-drawer-container[open] .menu-icon{
