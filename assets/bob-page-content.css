@@ -288,10 +288,21 @@ h3.cart-title,
     color: #ffffff;
 }
 
-/* menus */
+/* menus ----------------------------------------------------------------*/
 
 .bob-page-content.menu section {
-    padding: 15rem 5rem;
+    position:relative;
+    padding: 0 5rem 0 5rem;
+}
+
+/* offset anchor for fixed header */
+.bob-page-content.menu a.anchor{
+    position:absolute;
+    display:block;
+    width:100px;
+    height: 1px;
+    left:0;
+    top: -20rem;
 }
 
 .bob-page-content.menu h3 {
