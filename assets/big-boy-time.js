@@ -27,7 +27,6 @@ $(document).ready(function () {
     /* Waypoints --------------------------------------------------------- */
     if ($('body').hasClass('home-page')) {
 
-
          // set hero height
          $('.hero-scroll').css('height', (window.innerHeight - 117));
 
@@ -42,7 +41,7 @@ $(document).ready(function () {
             }
 
         }, {
-            offset: '45%'
+            offset: '35%'
         });
 
         /* Logo hides */

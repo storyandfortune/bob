@@ -279,7 +279,7 @@ details.menu-drawer-container[open] .close-icon{
     visibility: visible;
     opacity: 1;
     top: -70px;
-    left: 5rem;
+    left: 4rem;
     margin: 0;
     line-height: 0;
     z-index: 2;
