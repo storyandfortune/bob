@@ -446,6 +446,11 @@ h3.cart-title,
     width: auto;
 }
 
+.bob-page-content.menu .big-boy-box li {
+    width: 30%;
+}
+
+
 .bob-page-content.menu .big-boy-box,
 .bob-page-content.menu .menu-box {
     position: relative;
@@ -516,7 +521,7 @@ h3.cart-title,
         right: 0;
         top: 0;
         width: 15rem;
-    }
+    
     }
 
     .bob-page-content.menu .big-boy-box li:first-child {
