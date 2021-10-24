@@ -245,6 +245,89 @@ h3.cart-title,
     line-height: 2rem;
 }
 
+/* ------- Hall of Fame  ------------- */
+
+.bob-page-content.hof section{
+    padding: 5rem 10rem; 
+    max-width: 900px;
+    margin:0 auto;
+}
+
+.bob-page-content.hof section.hof-header p{
+   text-align: center;
+} 
+
+.bob-page-content.hof section.hof-header h3{
+    font-family: "RoadRadio-Black";
+    text-transform: uppercase;
+    padding: 0;
+    width: 100%;
+    font-size: 6rem;
+    line-height: 3rem;
+    font-size: 6.5rem;
+    color:#e62544;
+    margin: 0 0 3rem 0;
+}
+
+.bob-page-content.hof section h3{
+    font-family: "AvenirNextLTPro-Bold";
+    text-transform: uppercase;
+    padding: 0;
+    margin: 0 0 0 0;
+    text-align: center;
+    width: 100%;
+    color:#000000;
+    font-size: 2.5rem;
+    line-height: 3rem;
+}
+
+.bob-page-content.hof section p:first-child{
+    text-align: center;
+}
+
+.bob-page-content.hof section p{
+    font-family: "AvenirNextLTPro-Medium";
+    font-size: 1.8rem;
+    line-height: 2.5rem;
+    text-align: left;
+    padding:0;
+    margin:1rem;
+}
+
+.bob-page-content.hof section p img{
+    width:100%;
+    max-width:650px;
+    height:auto;
+}
+
+.bob-page-content.hof section p a{
+    color:#b79668;
+}
+
+
+.bob-page-content.hof section p strong{
+    font-family: "AvenirNextLTPro-Bold";
+}
+
+.bob-page-content.hof.index ul{
+    display:block;
+    margin:0;
+    padding:0;
+    list-style: none;
+}
+
+.bob-page-content.hof.index ul li a{
+    display:block;
+    background-color: #e62544;
+    color:#ffffff;
+    text-transform: uppercase;
+    font-size: 2rem;
+    padding:1rem;
+    width:20vw;
+    max-width:500px;
+    margin:3rem auto 0 auto;
+}
+
 /* ------- Bobs menu page styles ------------- */
 
 .bob-page-content.menu-header .lunch,
@@ -590,10 +673,19 @@ h3.cart-title,
     vertical-align: top;
 }
 
+/* kids */
+.bob-page-content.menu ul.two-col li{
+    width:50%;
+}
+
 @media screen and (max-width: 990px) {
     .bob-page-content.menu .disclaimer ul li {
         width: 100%;
         font-weight: 200;
+    }
+
+    .bob-page-content.menu ul.two-col li{
+        width:100%;
     }
 }
 
