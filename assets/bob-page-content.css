@@ -248,16 +248,17 @@ h3.cart-title,
 /* ------- Hall of Fame  ------------- */
 
 .bob-page-content.hof section{
-    padding: 5rem 10rem; 
+    padding: 5rem 10rem 0 10rem; 
     max-width: 900px;
     margin:0 auto;
 }
 
-.bob-page-content.hof section.hof-header p{
+.bob-page-content.hof.index section.hof-header p{
    text-align: center;
 } 
 
-.bob-page-content.hof section.hof-header h3{
+.bob-page-content.hof.index section.hof-header h3,
+.bob-page-content.hof section h3{
     font-family: "RoadRadio-Black";
     text-transform: uppercase;
     padding: 0;
@@ -269,7 +270,7 @@ h3.cart-title,
     margin: 0 0 3rem 0;
 }
 
-.bob-page-content.hof section h3{
+.bob-page-content.hof.index section h3{
     font-family: "AvenirNextLTPro-Bold";
     text-transform: uppercase;
     padding: 0;
@@ -281,8 +282,19 @@ h3.cart-title,
     line-height: 3rem;
 }
 
-.bob-page-content.hof section p:first-child{
+.bob-page-content.hof.index section p:first-child{
     text-align: center;
+}
+
+.bob-page-content.hof section p.photo{
+    text-align: center;
+    margin: 5rem 0 5rem 0;
+}
+
+
+.bob-page-content.hof section p.photo strong{
+    display:block;
+    margin-top:1.5rem;
 }
 
 .bob-page-content.hof section p{
@@ -302,6 +314,9 @@ h3.cart-title,
 
 .bob-page-content.hof section p a{
     color:#b79668;
+}
+.bob-page-content.hof section p a:hover{
+    text-decoration: underline;
 }
 
 
@@ -327,6 +342,12 @@ h3.cart-title,
     max-width:500px;
     margin:3rem auto 0 auto;
 }
+
+
+
+
+
+
 
 /* ------- Bobs menu page styles ------------- */
 
