@@ -248,9 +248,13 @@ h3.cart-title,
 /* ------- Hall of Fame  ------------- */
 
 .bob-page-content.hof section{
-    padding: 5rem 10rem 0 10rem; 
+    padding: 5rem 10rem 10rem 10rem; 
     max-width: 900px;
     margin:0 auto;
+}
+
+.bob-page-content.hof.index section.hof-header{
+    padding: 5rem 10rem 0 10rem; 
 }
 
 .bob-page-content.hof.index section.hof-header p{
