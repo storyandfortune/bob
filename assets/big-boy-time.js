@@ -66,7 +66,6 @@ $(document).ready(function () {
          };
 
 
-
          // watch mobile drawer on homepage
          var observer = new MutationObserver(function(mutations) {
             mutations.forEach(function(mutation) {

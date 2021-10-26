@@ -245,6 +245,12 @@ h3.cart-title,
     line-height: 2rem;
 }
 
+/* ------------ History --------------- */
+
+.bob-page-content.history section h3{
+    padding:0 0 0 0;
+}
+
 /* ------- Hall of Fame  ------------- */
 
 .bob-page-content.hof section{
