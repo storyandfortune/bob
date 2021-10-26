@@ -69,6 +69,23 @@ $(document).ready(function () {
             resize();
          };
 
+
+
+         // watch mobile drawer on homepage
+         var observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+              if (mutation.attributeName === "open") {
+                  scrollToID("#MainContent");
+              }
+            });
+          });
+
+          
+         var element = document.querySelector('#mobile-menu-drawer');
+         observer.observe(element, {
+            attributes: true //configure it to listen to attribute changes
+          });
+
     }
     
     /* footer big boy coming up */
@@ -185,7 +202,9 @@ $(document).ready(function () {
 
         if ($('body').hasClass('home-page') && !$("#shopify-section-header").hasClass('sticky')) {
 
-            e.preventDefault();
+            if(e){
+                 e.preventDefault();
+            }
 
             $("html, body").animate({
                 scrollTop: ($(id).offset().top - 117)
@@ -193,7 +212,7 @@ $(document).ready(function () {
                 duration: 1100
             }).promise().done(function () {
 
-            });;
+            });
         }
         else {
             console.log('normal');
@@ -209,7 +228,6 @@ $(document).ready(function () {
     });
 
 
-    // scroll to homepage
     $("#shopify-section-header nav .list-menu li.nav-history").bind('click', function (e) {
         scrollToID("#history", e);
     });
