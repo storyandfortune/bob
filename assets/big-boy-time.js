@@ -228,30 +228,30 @@ $(document).ready(function () {
     });
 
 
-    $("#shopify-section-header nav .list-menu li.nav-history").bind('click', function (e) {
+    $("#shopify-section-header nav .list-menu li.nav-history").bind('touchstart, click', function (e) {
         scrollToID("#history", e);
     });
 
-    $("#shopify-section-header nav .list-menu li.nav-menus").bind('click', function (e) {
+    $("#shopify-section-header nav .list-menu li.nav-menus").bind('touchstart, click', function (e) {
         scrollToID("#menus", e);
     });
 
-    $("#shopify-section-header nav .list-menu li.nav-events").bind('click', function (e) {
+    $("#shopify-section-header nav .list-menu li.nav-events").bind('touchstart, click', function (e) {
         scrollToID("#events", e);
     });
 
-    $("#shopify-section-header nav .list-menu li.nav-photos").bind('click', function (e) {
+    $("#shopify-section-header nav .list-menu li.nav-photos").bind('touchstart, click', function (e) {
         scrollToID("#photos", e);
     });
 
-    $("#shopify-section-header nav .list-menu li.nav-shop").bind('click', function (e) {
+    $("#shopify-section-header nav .list-menu li.nav-shop").bind('touchstart, click', function (e) {
         var id = $("section[id*='featured_products']");
         scrollToID(id, e);
     });
 
 
     // trigger scroll up on big boy click
-    $('#big-boy-header').bind('click', function () {
+    $('#big-boy-header').bind('touchstart, click', function () {
         $("html, body").animate({
             scrollTop: ($("#history").offset().top - 125)
         }, {
@@ -261,12 +261,12 @@ $(document).ready(function () {
     });
 
     // toggle big boy hiding
-    $('#big-boy-footer').bind('click', function () {
+    $('#big-boy-footer').bind('touchstart, click', function () {
         $('#big-boy-footer').toggleClass('up');
     });
 
     /*-- scroll to top ---*/
-    $("#totop").click(function () {
+    $("#totop").bind('touchstart, click', function () {
         $("html, body").animate({ scrollTop: 0 }, "slow");
         return false;
     });
@@ -275,21 +275,21 @@ $(document).ready(function () {
     if($('.new-media').length){
 
         // switch detail image.
-        $('.new-media .product__media-thumb-list li').bind('click', function(){
+        $('.new-media .product__media-thumb-list li').bind('touchstart, click', function(){
             var media = $(this).data('src');
             $('.new-media .product_media-detail').data('src', media);
             $('.new-media .product_media-detail img').attr('src', media);
         })
         
         // open modal
-        $('.new-media .product_media-detail').bind('click', function(){
+        $('.new-media .product_media-detail').bind('touchstart, click', function(){
             var media = $(this).data('src');
             $('.new-product-modal .product-modal-image').css("background-image", "url(" + media + ")");
             $('html').addClass('modal');
         })
 
         //close modal
-        $('.new-product-modal .close-product').bind('click', function(){
+        $('.new-product-modal .close-product').bind('touchstart, click' , function(){
             $('html').removeClass('modal');
         })
 
