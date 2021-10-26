@@ -762,9 +762,19 @@ header {
 
     /* history -------------------------------------------------------------------- */
 
-    .list-menu li.nav-history .header__submenu li.nav-bobs-history .nav-image {
-        background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/pantry.jpg?v=1631569525");
+    /*  hide main level links on desltop */
+    @media screen and (min-width: 990px) {
+        .list-menu li.nav-history .header__submenu li.nav-history,
+        .list-menu li.nav-menus .header__submenu li.nav-menus,
+        .list-menu li.nav-events .header__submenu li.nav-events,
+        .list-menu li.nav-photos .header__submenu li.nav-photos,
+        .list-menu li.nav-shop .header__submenu li.nav-shop,
+        .list-menu li.nav-history .header__submenu li.nav-history {
+            display:none;
+        }
     }
+  
+
 
     .list-menu li.nav-history .header__submenu li.nav-opening .nav-image {
         background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/history.jpg?v=1631569447");
@@ -786,9 +796,6 @@ header {
         text-transform: none;
     }
 
-    .list-menu li.nav-history .header__submenu li.nav-bobs-history .nav-title:after {
-        content:"In 1936, Bob Wian sold his car for $300 and bought a ten-stool lunch stand called The Pantry.";
-    }
 
     .list-menu li.nav-history .header__submenu li.nav-opening .nav-title:after {
         content:"Bob Wian and how the Big Boy® became an American icon.";
@@ -808,17 +815,17 @@ header {
 
     .list-menu li.nav-history .header__submenu li.nav-architecture .nav-image {
         background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/mcallister.jpg?v=1631569696");
-        background-position: left;
+        
     }
 
     .list-menu li.nav-history .header__submenu li.nav-the-beatles-booth .nav-image {
         background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/beatles.jpg?v=1631569766");
-        background-position: left;
+     
     }
 
     .list-menu li.nav-history .header__submenu li.nav-filming-heat .nav-image {
         background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/Val-Kilmer-Robert-DeNiro-Bobs-Big-Boy-HEAT.jpg?v=1631569894");
-        background-position: right;
+       
     }
 
     /* menus -------------------------------------------------------------------- */
