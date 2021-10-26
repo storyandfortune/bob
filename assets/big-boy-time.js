@@ -181,21 +181,21 @@ $(document).ready(function () {
 
     }
 
-    $('.data').bind('focus', function(){
+    $('.data').on('focus', function(){
         $(this).removeClass('inc');
     });
 
 
     if ($(".bob-page-content").hasClass("form")) {
 
-        $('button').bind('click', function (e) {
+        $('button').on('click', function (e) {
             e.preventDefault();
             formsData();
         });
 
     }
 
-    /* -- bind -------------------------------- */
+    /* -- on -------------------------------- */
 
     // scroll to jigger-rig should update admin with the ability to assign id's to sections
     var scrollToID = function (id, e) {
@@ -223,35 +223,35 @@ $(document).ready(function () {
 
 
     // double click go to page.
-    $("#shopify-section-header nav .list-menu li").bind('dblclick', function (e) {
+    $("#shopify-section-header nav .list-menu li").on('dblclick', function (e) {
         window.location.href = $(this).data('link');
     });
 
 
-    $("#shopify-section-header nav .list-menu li.nav-history").bind('touchstart, click', function (e) {
+    $("#shopify-section-header nav .list-menu li.nav-history").on('touchstart, click', function (e) {
         scrollToID("#history", e);
     });
 
-    $("#shopify-section-header nav .list-menu li.nav-menus").bind('touchstart, click', function (e) {
+    $("#shopify-section-header nav .list-menu li.nav-menus").on('touchstart, click', function (e) {
         scrollToID("#menus", e);
     });
 
-    $("#shopify-section-header nav .list-menu li.nav-events").bind('touchstart, click', function (e) {
+    $("#shopify-section-header nav .list-menu li.nav-events").on('touchstart, click', function (e) {
         scrollToID("#events", e);
     });
 
-    $("#shopify-section-header nav .list-menu li.nav-photos").bind('touchstart, click', function (e) {
+    $("#shopify-section-header nav .list-menu li.nav-photos").on('touchstart, click', function (e) {
         scrollToID("#photos", e);
     });
 
-    $("#shopify-section-header nav .list-menu li.nav-shop").bind('touchstart, click', function (e) {
+    $("#shopify-section-header nav .list-menu li.nav-shop").on('touchstart, click', function (e) {
         var id = $("section[id*='featured_products']");
         scrollToID(id, e);
     });
 
 
     // trigger scroll up on big boy click
-    $('#big-boy-header').bind('touchstart, click', function () {
+    $('#big-boy-header').on('touchstart, click', function () {
         $("html, body").animate({
             scrollTop: ($("#history").offset().top - 125)
         }, {
@@ -261,12 +261,12 @@ $(document).ready(function () {
     });
 
     // toggle big boy hiding
-    $('#big-boy-footer').bind('touchstart, click', function () {
+    $('#big-boy-footer').on('touchstart, click', function () {
         $('#big-boy-footer').toggleClass('up');
     });
 
     /*-- scroll to top ---*/
-    $("#totop").bind('touchstart, click', function () {
+    $("#totop").on('touchstart, click', function () {
         $("html, body").animate({ scrollTop: 0 }, "slow");
         return false;
     });
@@ -275,21 +275,21 @@ $(document).ready(function () {
     if($('.new-media').length){
 
         // switch detail image.
-        $('.new-media .product__media-thumb-list li').bind('touchstart, click', function(){
+        $('.new-media .product__media-thumb-list li').on('touchstart, click', function(){
             var media = $(this).data('src');
             $('.new-media .product_media-detail').data('src', media);
             $('.new-media .product_media-detail img').attr('src', media);
         })
         
         // open modal
-        $('.new-media .product_media-detail').bind('touchstart, click', function(){
+        $('.new-media .product_media-detail').on('touchstart, click', function(){
             var media = $(this).data('src');
             $('.new-product-modal .product-modal-image').css("background-image", "url(" + media + ")");
             $('html').addClass('modal');
         })
 
         //close modal
-        $('.new-product-modal .close-product').bind('touchstart, click' , function(){
+        $('.new-product-modal .close-product').on('touchstart, click' , function(){
             $('html').removeClass('modal');
         })
 
