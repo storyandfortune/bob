@@ -60,11 +60,6 @@ $(document).ready(function () {
         }, {
             offset: '15%'
         });
-
-
-        screen.orientation.addEventListener('change', function() {
-            resize();
-        });
     
          window.onresize = function(){
             resize();
