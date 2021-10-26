@@ -62,7 +62,8 @@ section.shopify-section {
 section.shopify-section h2,
 h3.cart-title,
 .home-page .featured-recommendations__heading,
-.template-search h1.h2{
+.template-search h1.h2,
+h1.collection-title{
     font-family: "Harvard";
     text-transform: capitalize;
     width: 100%;
