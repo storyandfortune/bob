@@ -4,7 +4,9 @@ $(document).ready(function () {
     var resizing;
 
     var setHero = function(){
-        if ($('body').hasClass('home-page')) {
+        
+        var top = $(window).scrollTop();
+        if ($('body').hasClass('home-page') && !top) {
             $('.hero-scroll').css('height', (window.innerHeight - 117));
             $(window).scrollTop(0); 
         }
