@@ -8,8 +8,7 @@
   position: absolute;
   cursor: default;
   width: 100%;
-  height: calc(100vh - 100%);
-  height: 100vh;
+  height: calc(100vh - 117px);
   top: 0;
   left: 0;
   background: rgba(var(--color-foreground), 0.5);
@@ -29,21 +28,20 @@ menu-drawer > details[open] > summary::before {
   position: absolute;
   transform: translateX(-100%);
   visibility: hidden;
-  z-index: 3;
+  z-index: 1;
   left: 0;
   top: 100%;
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - 100%);
   padding: 0;
   border: 0.1rem solid rgba(var(--color-foreground), 0.2);
   border-left: 0;
   background-color: rgb(var(--color-background));
   overflow-x: hidden;
-
 }
 
 .js .menu-drawer {
-  height: calc(100vh - 100%);
+
 }
 
 .js details[open] > .menu-drawer,
@@ -64,21 +62,17 @@ details[open].menu-opening > .menu-drawer__submenu {
   }
 
   .no-js .menu-drawer {
-    height: 100vh;
+    width: 100vw;
   }
 }
 
-. {
-  position: relative;
-  height: 100%;
-}
 
 .menu-drawer__navigation-container {
   display: grid;
   grid-template-rows: 1fr auto;
   align-content: space-between;
   overflow-y: auto;
-  height: 100%;
+  height: calc(100vh - 119px);
 }
 
 .menu-drawer__navigation {
