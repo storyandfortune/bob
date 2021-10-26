@@ -220,38 +220,40 @@ $(document).ready(function () {
 
         return false;
     }
-
+    
+ 
 
     // double click go to page.
     $("#shopify-section-header nav .list-menu li").on('dblclick', function (e) {
         window.location.href = $(this).data('link');
     });
 
-
-    $("#shopify-section-header nav .list-menu li.nav-history").on('touchstart, click', function (e) {
+    $("#shopify-section-header nav .list-menu li").css("cursor", "pointer");
+    $("#shopify-section-header nav .list-menu li.nav-history").on('touchstart', function (e) {
         scrollToID("#history", e);
     });
 
-    $("#shopify-section-header nav .list-menu li.nav-menus").on('touchstart, click', function (e) {
+    $("#shopify-section-header nav .list-menu li.nav-menus").on('touchstart', function (e) {
         scrollToID("#menus", e);
     });
 
-    $("#shopify-section-header nav .list-menu li.nav-events").on('touchstart, click', function (e) {
+    $("#shopify-section-header nav .list-menu li.nav-events").on('touchstart', function (e) {
         scrollToID("#events", e);
     });
 
-    $("#shopify-section-header nav .list-menu li.nav-photos").on('touchstart, click', function (e) {
+    $("#shopify-section-header nav .list-menu li.nav-photos").on('touchstart', function (e) {
         scrollToID("#photos", e);
     });
 
-    $("#shopify-section-header nav .list-menu li.nav-shop").on('touchstart, click', function (e) {
+    $("#shopify-section-header nav .list-menu li.nav-shop").on('touchstart', function (e) {
         var id = $("section[id*='featured_products']");
         scrollToID(id, e);
     });
 
 
     // trigger scroll up on big boy click
-    $('#big-boy-header').on('touchstart, click', function () {
+    $('#big-boy-header').css("cursor", "pointer");
+    $('#big-boy-header').on('touchstart', function () {
         $("html, body").animate({
             scrollTop: ($("#history").offset().top - 125)
         }, {
@@ -261,12 +263,14 @@ $(document).ready(function () {
     });
 
     // toggle big boy hiding
-    $('#big-boy-footer').on('touchstart, click', function () {
+    $('#big-boy-footer').css("cursor", "pointer");
+    $('#big-boy-footer').on('touchstart', function () {
         $('#big-boy-footer').toggleClass('up');
     });
 
     /*-- scroll to top ---*/
-    $("#totop").on('touchstart, click', function () {
+    $("#totop").css("cursor", "pointer");
+    $("#totop").on('touchstart', function () {
         $("html, body").animate({ scrollTop: 0 }, "slow");
         return false;
     });
@@ -275,21 +279,24 @@ $(document).ready(function () {
     if($('.new-media').length){
 
         // switch detail image.
-        $('.new-media .product__media-thumb-list li').on('touchstart, click', function(){
+        $('.new-media .product__media-thumb-list li').css("cursor", "pointer");
+        $('.new-media .product__media-thumb-list li').on('touchstart', function(){
             var media = $(this).data('src');
             $('.new-media .product_media-detail').data('src', media);
             $('.new-media .product_media-detail img').attr('src', media);
         })
         
         // open modal
-        $('.new-media .product_media-detail').on('touchstart, click', function(){
+        $('.new-media .product_media-detail').css("cursor", "pointer");
+        $('.new-media .product_media-detail').on('touchstart', function(){
             var media = $(this).data('src');
             $('.new-product-modal .product-modal-image').css("background-image", "url(" + media + ")");
             $('html').addClass('modal');
         })
 
         //close modal
-        $('.new-product-modal .close-product').on('touchstart, click' , function(){
+        $('.new-product-modal .close-product').css("cursor", "pointer");
+        $('.new-product-modal .close-product').on('touchstart' , function(){
             $('html').removeClass('modal');
         })
 
