@@ -301,6 +301,7 @@ details.menu-drawer-container[open] .close-icon{
         position: absolute;
         cursor: pointer;
         width:30vw;
+        max-width: 250px;
         top: -7vw;
         left:0 !important;
         right:0;
@@ -315,6 +316,7 @@ details.menu-drawer-container[open] .close-icon{
     .home-page #shopify-section-header.sticky .header__heading {
         position: absolute;
         width:30vw;
+        max-width: 250px;
         top: -7vw;
         visibility: visible;
         opacity: 1;
@@ -330,6 +332,7 @@ details.menu-drawer-container[open] .close-icon{
        cursor: pointer;
        left:0 !important;
        width:30vw;
+       max-width: 250px;
        top: -7vw;
        right:0;
        margin:0 auto;
