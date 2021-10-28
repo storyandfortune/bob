@@ -38,6 +38,7 @@ section.shopify-section {
     text-align: center;
 }
 
+
 /* --- */
 
 .bob-page-content.history section,
@@ -724,6 +725,12 @@ h1.collection-title{
 }
 
 /* ----------------------------- events styles ----------------------------- */
+
+.bob-page-content.events section.bleed {
+    width:100vw;
+    max-width: 100vw;
+}
+
 .bob-page-content.events .big-image {
     display: flex;
     align-items: center;
@@ -732,6 +739,8 @@ h1.collection-title{
     height: calc((100vh - 117px) / 2);
     margin: 0;
     padding: 0;
+
+
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;

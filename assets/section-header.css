@@ -293,17 +293,17 @@ details.menu-drawer-container[open] .close-icon{
     }
 }
 
-
+/* Logo mobile breakpoints */
 @media screen and (max-width: 990px) {
 
     .home-page #shopify-section-header .header__heading {
         position: absolute;
         cursor: pointer;
-        width:200px;
+        width:30vw;
+        top: -7vw;
         left:0 !important;
         right:0;
         margin:0 auto;
-        top: -285px;
         visibility: hidden;
         opacity: 0;
         line-height: 0;
@@ -313,10 +313,10 @@ details.menu-drawer-container[open] .close-icon{
     
     .home-page #shopify-section-header.sticky .header__heading {
         position: absolute;
-        width:228px;
+        width:30vw;
+        top: -7vw;
         visibility: visible;
         opacity: 1;
-        top: -55px;
         left:0 !important;
         right:0;
         margin:0 auto;
@@ -326,10 +326,10 @@ details.menu-drawer-container[open] .close-icon{
 
     /* secondary */
     #shopify-section-header .header__heading {
-        cursor: pointer;
-       width:228px;
+       cursor: pointer;
        left:0 !important;
-       top: -55px;
+       width:30vw;
+       top: -7vw;
        right:0;
        margin:0 auto;
     }
