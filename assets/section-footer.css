@@ -78,41 +78,57 @@
 }
 
 @media screen and (max-width: 990px) {
+  .coupon-code {
+    width:55vw;
+    padding-left:2vw;
+  }
+
+  .footer-b-boy {
+    right: -45vw;
+  }
+
+}
+
+@media screen and (max-width: 720px) {
 
   .coupon-code {
     width:55vw;
-    padding-left:5rem;
+    padding-left:2vw;
     position: relative;
-    line-height: 14px;
     text-align: center;
     
   }
 
   .coupon-code h1 {
-    font-size: 2.5rem;
+    font-size: 5vw;
+    line-height: 5.5vw;
     font-weight: 800;
-    margin: 3rem 0 1rem 0;
+    margin: 5vw 0 1vw 0;
     width:100%;
   }
-  
-  .coupon-code h2 {
-    font-size: 1.8rem;
-    margin: 0 0 5rem 0;
+
+
+  .coupon-code div {
+    font-size: 4vw;
+    line-height: 4vw;
+    font-weight: 800;
+    margin: 0 0 5vw 0;
   }
 
+  
   .footer-b-boy {
     position: absolute;
     cursor: pointer;
     z-index: 1;
     right: -45vw;
-    bottom: -30rem;
-    width: 24rem;
+    bottom: -55vw;
+    width: 45vw;
     transform: scale(0.9);
     transition: all 1s ease;
   }
 
   .footer-b-boy.up {
-    bottom: -15rem;
+    bottom: -25vw;
     transform: scale(1);
   }
 
@@ -153,6 +169,15 @@
   display: inline-block;
   margin-right: 1.5em;
 }
+
+@media screen and (max-width: 990px) {
+  .footer-nav {
+    display: inline-block;
+    margin-right: 0;
+  }
+}
+
+
 
 .footer-nav li {
   display: inline-block;

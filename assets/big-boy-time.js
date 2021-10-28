@@ -82,20 +82,38 @@ $(document).ready(function () {
           });
 
     }
+
+    /* mobile offset needs to be diffrent */
+    if(Waypoint.viewportWidth() < 990){
+        var BigBoyBottom = $('#big-boy-footer').waypoint(function (direction) {
+
+            if (direction === "down") {
+                $('#big-boy-footer').addClass('up');
+            }
+            else {
+                $('#big-boy-footer').removeClass('up');
+            }
+
+        }, {
+            offset: '99%'
+        });
+    }
+    else{
+        /* footer big boy coming up */
+        var BigBoyBottom = $('#big-boy-footer').waypoint(function (direction) {
+
+            if (direction === "down") {
+                $('#big-boy-footer').addClass('up');
+            }
+            else {
+                $('#big-boy-footer').removeClass('up');
+            }
+
+        }, {
+            offset: 'bottom-in-view'
+        });
+    }
     
-    /* footer big boy coming up */
-    var BigBoyBottom = $('#big-boy-footer').waypoint(function (direction) {
-
-        if (direction === "down") {
-            $('#big-boy-footer').addClass('up');
-        }
-        else {
-            $('#big-boy-footer').removeClass('up');
-        }
-
-    }, {
-        offset: 'bottom-in-view'
-    });
      
   
     /* forms ------------------------------------ */
