@@ -188,6 +188,7 @@ details.menu-drawer-container .close-icon {
 details.menu-drawer-container[open] .menu-icon{
     display:none;
 }
+
 details.menu-drawer-container[open] .close-icon{
     display:block;
 }
@@ -338,7 +339,8 @@ details.menu-drawer-container[open] .close-icon{
 
 /* section-header secondary page ---------------------------------- */
 
-#shopify-section-header {
+#shopify-section-header
+ {
     position: sticky !important;
     top: 0;
     left: 0;
