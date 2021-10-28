@@ -300,21 +300,25 @@ $(document).ready(function () {
             var media = $(this).data('src');
             $('.new-media .product_media-detail').data('src', media);
             $('.new-media .product_media-detail img').attr('src', media);
-        })
+        });
         
-        // open modal
-        $('.new-media .product_media-detail').css("cursor", "pointer");
-        $('.new-media .product_media-detail').on('touchstart click', function(){
-            var media = $(this).data('src');
-            $('.new-product-modal .product-modal-image').css("background-image", "url(" + media + ")");
-            $('html').addClass('modal');
-        })
+        if(window.innerHeight > 720){
 
-        //close modal
-        $('.new-product-modal .close-product').css("cursor", "pointer");
-        $('.new-product-modal .close-product').on('touchstart click' , function(){
-            $('html').removeClass('modal');
-        })
+            // open modal
+            $('.new-media .product_media-detail').css("cursor", "pointer");
+            $('.new-media .product_media-detail').on('touchstart click', function(){
+                var media = $(this).data('src');
+                $('.new-product-modal .product-modal-image').css("background-image", "url(" + media + ")");
+                $('html').addClass('modal');
+            });
+
+            //close modal
+            $('.new-product-modal .close-product').css("cursor", "pointer");
+            $('.new-product-modal .close-product').on('touchstart click' , function(){
+                $('html').removeClass('modal');
+            });
+
+        }
 
    
     }
