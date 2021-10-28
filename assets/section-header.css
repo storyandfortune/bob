@@ -47,13 +47,14 @@
     }
 }
 
+/* big boy header mobile */
 @media screen and (max-width: 990px) {
     .hero-scroll .header-b-boy {
         left: 0;
         right: 0;
         margin: 0 auto;
-        width: 25rem;
-        height: 30rem;
+        width: 45vw;
+        height: 50vw;
     }
 }
 
@@ -244,7 +245,6 @@ details.menu-drawer-container[open] .close-icon{
 }
 
 /* Logo ----------------------------- */
-
 .home-page #shopify-section-header .header__heading {
     position: absolute;
     width: 250px;
