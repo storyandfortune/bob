@@ -533,6 +533,53 @@ menu-drawer + .header__search {
     }
 }
 
+/* header icons mobile */
+@media screen and (max-width: 540px) {
+
+    header-drawer {
+        justify-self: start;
+        margin-left: 3rem;
+    }
+    
+
+    details.menu-drawer-container .menu-icon {
+        width:2rem;
+    }
+    details.menu-drawer-container .close-icon {
+        width:1.8rem;
+    }
+
+    .header__icons {
+        display: flex;
+        grid-area: icons;
+        justify-self: end;
+        padding-right: 3rem;
+    }
+
+    .header__icon .icon {
+        height: 2rem;
+        width: 2rem;
+        fill: none;
+        vertical-align: middle;
+    }
+    
+    .header__icon,
+    .header__icon--cart .icon {
+        height: 2.5rem;
+        width: 2.5rem;
+    }
+    
+    .header__icon .icon-search {
+        height: 2rem;
+        width: 2rem;
+    }
+    
+    .header__icon--cart {
+        position: relative;
+        margin-right:0rem;
+    }
+}
+
 /* -------------------------- Header menu ----------------------------------------- */
 
 .header__inline-menu details[open] > .header__submenu {

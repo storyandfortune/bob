@@ -379,10 +379,7 @@ h1.collection-title{
     background-position: center center;
 }
 
-.bob-page-content.menu-header h3 {
-    font-family: "Harvard";
-     font-size: 8.5rem;
-}
+
 
 .bob-page-content.menu-header .lunch {
     background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/lunch.jpg?v=1631907771");
@@ -392,12 +389,23 @@ h1.collection-title{
 }
 
 .bob-page-content.menu-header h3 {
+    font-family: "Harvard";
     display: block;
     font-size: 8.5rem;
     color: #ffffff;
     margin: 0;
     padding: 0;
 }
+
+/* menu titles in menu*/
+@media screen and (max-width: 720px) {
+    .bob-page-content.menu-header h3 {
+        font-size: 15vw;
+        line-height: 15vw;
+    }
+}
+
+
 
 .bob-page-content.menu-header a {
     color: #ffffff;
@@ -434,6 +442,7 @@ h1.collection-title{
     width: 100%;
 }
 
+/* menu titles in menu*/
 @media screen and (max-width: 990px) {
     .bob-page-content.menu h3 {
         font-size: 4.5rem;
