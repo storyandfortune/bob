@@ -225,7 +225,6 @@
 
   .flex-block-container {
     position: relative;
-    flex-flow: column wrap;
     align-items: center;
   }
 
@@ -243,9 +242,13 @@
   }
 
   .back-to-top {
+    width: 10vw;
+    max-width: 5rem;
     position: absolute;
     right: 0;
-    bottom: 0;
+    left:0;
+    margin:0 auto;
+    bottom: -1rem;
   }
 
   .footer__content-bottom-wrapper {

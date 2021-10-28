@@ -339,8 +339,7 @@ details.menu-drawer-container[open] .close-icon{
 
 /* section-header secondary page ---------------------------------- */
 
-#shopify-section-header
- {
+#shopify-section-header{
     position: sticky !important;
     top: 0;
     left: 0;
@@ -424,9 +423,7 @@ details.menu-drawer-container[open] .close-icon{
 }
 
 @media screen and (min-width: 990px) {
-    .header__heading-link {
-    }
-
+  
     .header__heading,
     .header__heading-link {
         justify-self: start;

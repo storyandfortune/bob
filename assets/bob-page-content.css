@@ -816,6 +816,7 @@ h1.collection-title{
     width: 90vw;
     max-width: 1500px;
     margin: 0 auto;
+
 }
 
 .bob-page-content.events.form section h3 {
@@ -826,8 +827,31 @@ h1.collection-title{
     display: block;
 }
 
+
 .bob-page-content.events.form section form {
     margin: 5rem 0 10rem 0;
+}
+
+@media screen and (max-width: 720px) {
+
+    .bob-page-content.events.form section {
+        width: 90vw;
+        max-width: 1500px;
+        margin: 0 auto;
+        padding:5rem 0;
+    }
+
+    .bob-page-content.events.form section h3 {
+        font-size: 12vw;
+        line-height: 13vw;
+        margin: 0 0 0 0;
+        padding:0;
+    }
+
+    .bob-page-content.events.form section form {
+        margin: 5rem 0 10rem 0;
+        padding:0;
+    }
 }
 
 .bob-page-content.events.form section form.error .error{
@@ -854,6 +878,14 @@ h1.collection-title{
     font-size: 2rem;
     text-transform: uppercase;
 }
+
+@media screen and (max-width: 720px) {
+    .bob-page-content.events.form section legend {
+        font-size: 5.5vw;
+        line-height: 6vw;
+    }
+}
+
 
 .bob-page-content.events.form section input,
 .bob-page-content.events.form section textarea {
@@ -906,6 +938,14 @@ h1.collection-title{
 
 .bob-page-content.events.form section .three input {
     width: calc(33% - 0.5rem);
+}
+
+@media screen and (max-width: 720) {
+    .bob-page-content.events.form section .two input,
+    .bob-page-content.events.form section .three input  {
+        width: 100%;
+    }
+    
 }
 
 .bob-page-content.events.form section label span {
