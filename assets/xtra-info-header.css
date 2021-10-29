@@ -110,3 +110,31 @@
     }
 }
 
+@media screen and (max-width: 520px) {
+    .header-top .xtra-info ul li {
+        margin: 0 1rem 0 1rem;
+    }
+
+    .header-top .xtra-info ul li.space{
+        margin-right:0;
+    }
+
+}
+
+@media screen and (max-width: 320px) {
+
+    .header-top .xtra-info ul li.space{
+
+        width:50vw;
+   
+    }
+
+
+    .header-top .xtra-info ul li.location{
+        display:none;
+    }
+    .header-top .xtra-info ul li.num{
+        display:none;
+    }
+}
+

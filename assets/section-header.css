@@ -301,7 +301,8 @@ details.menu-drawer-container[open] .close-icon{
     .home-page #shopify-section-header .header__heading {
         position: absolute;
         cursor: pointer;
-        width:30vw;
+        width:40vw;
+        min-width: 150px;
         max-width: 250px;
         top: -7vw;
         left:0 !important;
@@ -316,7 +317,8 @@ details.menu-drawer-container[open] .close-icon{
     
     .home-page #shopify-section-header.sticky .header__heading {
         position: absolute;
-        width:30vw;
+        width:40vw;
+        min-width: 150px;
         max-width: 250px;
         top: -7vw;
         visibility: visible;
@@ -332,7 +334,8 @@ details.menu-drawer-container[open] .close-icon{
     #shopify-section-header .header__heading {
        cursor: pointer;
        left:0 !important;
-       width:30vw;
+       width:40vw;
+       min-width: 150px;
        max-width: 250px;
        top: -7vw;
        right:0;
@@ -483,6 +486,13 @@ details.menu-drawer-container[open] .close-icon{
 .header__icon .icon-search {
     height: 3rem;
     width: 3rem;
+}
+
+@media screen and (max-width: 320px) {
+
+    .header__icon .icon-search {
+        display:none;
+    }
 }
 
 .header__icon--cart {
