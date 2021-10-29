@@ -1,5 +1,11 @@
 {
   "sections": {
+    "1635473742225e97ba": {
+      "type": "page",
+      "settings": {
+        "page": "new-hoodies"
+      }
+    },
     "1632440292fb8ce2dd": {
       "type": "page",
       "settings": {
@@ -21,7 +27,7 @@
     "16324409287fa12d3e": {
       "type": "page",
       "settings": {
-        "page": "photos-outside"
+        "page": "photos"
       }
     },
     "featured_products": {
@@ -42,6 +48,7 @@
     }
   },
   "order": [
+    "1635473742225e97ba",
     "1632440292fb8ce2dd",
     "16324403215baef854",
     "16324408963ac6a505",
