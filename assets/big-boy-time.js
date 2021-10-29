@@ -271,7 +271,7 @@ $(document).ready(function () {
 
         console.log('big boy clicked');
         $("html, body").animate({
-            scrollTop: ($("#MainContent").offset().top - 125)
+            scrollTop: ($("#MainContent").offset().top - 120)
         }, {
             duration: 1100
         });

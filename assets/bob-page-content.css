@@ -249,6 +249,17 @@ h1.collection-title{
     line-height: 2rem;
 }
 
+/* ------------- Featured ------------- */
+.bob-page-content.featured section{
+    max-width: 1500px;
+    padding:0 5rem 0 5rem;
+}
+
+.bob-page-content.featured section img{
+    border:1px solid #CCCCCC;
+}
+
+
 /* ------------ History --------------- */
 
 .bob-page-content.history section h3{
