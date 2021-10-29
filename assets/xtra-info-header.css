@@ -57,10 +57,35 @@
     transform: scale(1.05);
 }
 
-.header-top .xtra-info ul li.space{
-    margin: 0rem;
-    width:0;
-    display:none;
+
+
+/* widths */
+@media screen and (min-width: 990px) {
+
+    .header-top .xtra-info ul li.location{
+        width:69.28px;
+    }
+
+    .header-top .xtra-info ul li.phone{
+        width: 95.54px;
+    }
+
+  
+
+    .header-top .xtra-info ul li.space{
+        margin: 0rem;
+        width:0;
+        display:none;
+    }
+
+    .header-top .xtra-info ul li.num{
+        width: 86.52px;
+    }
+
+    .header-top .xtra-info ul li.order{
+        width:  89.75px;
+    }
+
 }
 
 
