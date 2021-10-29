@@ -48,7 +48,7 @@ $(document).ready(function () {
         });
 
         /* Logo hides */
-        var BigBoyHides = $('#MainContent').waypoint(function (direction) {
+        var LogoHides = $('#MainContent').waypoint(function (direction) {
 
             if (direction === "down") {
                 $('#shopify-section-header').addClass('sticky');
@@ -266,12 +266,12 @@ $(document).ready(function () {
 
     // trigger scroll up on big boy click
     $('#big-boy-header').css("cursor", "pointer");
-    console.log('big boy click');
+
     $('#big-boy-header').on('touchstart click', function () {
 
         console.log('big boy clicked');
         $("html, body").animate({
-            scrollTop: ($("#history").offset().top - 125)
+            scrollTop: ($("#MainContent").offset().top - 125)
         }, {
             duration: 1100
         });
