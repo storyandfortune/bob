@@ -123,6 +123,7 @@
     right: -45vw;
     bottom: -55vw;
     width: 45vw;
+    max-width: 28rem;
     transform: scale(0.9);
     transition: all 1s ease;
   }
@@ -225,6 +226,7 @@
 
   .flex-block-container {
     position: relative;
+    flex-flow: column;
     align-items: center;
   }
 

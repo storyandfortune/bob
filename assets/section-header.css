@@ -54,6 +54,7 @@
         right: 0;
         margin: 0 auto;
         width: 45vw;
+        max-width: 30rem;
         height: 50vw;
     }
 }
