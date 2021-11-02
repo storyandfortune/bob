@@ -1,6 +1,11 @@
 $(document).ready(function () {
     console.log('ready');
 
+    // shop slug hack
+    if($.url('path') === "/shop"){
+        window.location.href = "/collections/all"
+    }
+
     /* disable waypoints on resize, enable & refresh when finished */
     var resizing;
 
