@@ -27,6 +27,16 @@ if ($('.swiper-featured').length) {
             loadPrevNextAmount: 2,
         },
         loop: true,
+        speed: 1000,
+        onTransitionEnd: function(swiper){
+          swiper.params.speed = 1000;
+        },
+        onTouchStart: function(swiper){
+          swiper.params.speed = 400;
+        },
+        onTransitionStart: function (swiper) {
+          swiper.params.speed = 400;  
+        },
         autoplay: {
             delay: 3000,
             disableOnInteraction: false,
