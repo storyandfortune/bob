@@ -41,8 +41,6 @@
     width:auto;
     height:38px;
     text-decoration: none;
-    transition: all .25s ease;
-
 }
 
 .header-top .xtra-info ul li .icon{
@@ -57,11 +55,6 @@
 .header-top .xtra-info ul li a svg{
   width:auto;
   height:38px;
-}
-
-.header-top .xtra-info ul li a:hover{
-    color:#e42948;
-    transform: scale(1.05);
 }
 
 
@@ -90,31 +83,27 @@
 }
 
 @media screen and (max-width: 720px) {
-    .header-top .xtra-info ul li.space{
 
+    .header-top .xtra-info ul li.space{
         width:30vw;
-   
     }
+
     .header-top .xtra-info ul li .icon{
         display:none;
     }
 
 }
 
-
 @media screen and (max-width: 600px) {
 
-   
     .header-top .xtra-info ul li.space{
-
         width:40vw;
-   
     }
 
-
-    .header-top .xtra-info ul li.location{
+    .header-top .xtra-info ul li.phone{
         display:none;
     }
+    
     .header-top .xtra-info ul li.num{
         display:none;
     }

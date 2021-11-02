@@ -128,8 +128,16 @@ $(document).ready(function () {
         $("form").removeClass("error");
         $(".data").removeClass("inc");  
 
+        var isMarketing;
+        if($(".bob-page-content").hasClass('instagram')){
+            isMarketing = 1;
+        }else{
+            isMarketing = 0;
+        }
+
         var d = {
             "form": $("h3.title").text().trim(),
+            "marketing":isMarketing,
             "fields": []
         };
 
@@ -138,8 +146,18 @@ $(document).ready(function () {
 
         $.each($('.data'), function (key, value) {
             var v = { "name": "", "value": "" };
-            v.name = $(value).attr("name");
-            v.value = $(value).val().trim();
+            // radio
+            if($(value).attr("type") === "radio"){
+                if( $(value).is(":checked") ){ 
+                    v.name = $(value).attr("name");
+                    v.value = $(value).val();
+                }
+            }
+            else{
+                v.name = $(value).attr("name");
+                v.value = $(value).val().trim();
+            }
+       
 
             if( $(this).hasClass('required') ){
                 if(v.value.length){
@@ -167,7 +185,7 @@ $(document).ready(function () {
 
             $.ajax({
                 method: "POST",
-                url: "https://mysql.storyandfortune.com/bobs/",
+                url: "https://mysql.storyandfortune.com/bobs/test.php",
                 data: { "data": d }
             }).done(function (msg) {
 
