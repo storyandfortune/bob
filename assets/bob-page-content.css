@@ -908,6 +908,11 @@ h1.collection-title{
     width: 100%;
 }
 
+.bob-page-content.events.form section input[type="radio"]{
+    width:auto;
+    margin-right:.5rem;
+}
+
 .bob-page-content.events.form section .data.inc{
     border: 3px solid #e62544;
  }
