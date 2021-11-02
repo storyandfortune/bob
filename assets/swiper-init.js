@@ -1,5 +1,5 @@
-if ($('.swiper-container').length) {
-    var swiper = new Swiper(".swiper-container", {
+if ($('.swiper-photos').length) {
+    var swiper = new Swiper(".swiper-photos", {
         lazy: {
             //  tell swiper to load images before they appear
             loadPrevNext: true,
@@ -9,8 +9,8 @@ if ($('.swiper-container').length) {
         loop: true,
         effect: "fade",
         navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
+            nextEl: ".photo-button-next",
+            prevEl: ".photo-button-prev",
         },
     });
 }
