@@ -1,7 +1,7 @@
 $(document).ready(function () {
     console.log('ready');
 
-    // shop slug hack
+    // shop slug hack -------------------------------------------------
     if($.url('path') === "/shop"){
         window.location.href = "/collections/all"
     }
