@@ -103,6 +103,9 @@ h1.main-page-title.page-title.h0 {
 }
 
 .swiper-featured .swiper-slide a img{
-    width:auto;
-    height:70vh;
+    width: auto;
+    height: auto;
+    min-width: 100%;
+    min-height: 100%;
+}
 }
