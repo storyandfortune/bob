@@ -59,7 +59,13 @@ h1.main-page-title.page-title.h0 {
 .swiper-button-prev {
     color: #fff;
     transition: all 0.25s ease;
+    z-index: 1;
 }
+
+.swiper-pagination{
+    z-index: 1;
+}
+
 
 .swiper-button-next:hover {
     margin-right: 2rem;
