@@ -75,9 +75,22 @@ h1.main-page-title.page-title.h0 {
 }
 
 /* featured -----------------*/
-.swiper-slide  a{
+.swiper-featured .swiper-slide{
+    display:flex;
+    align-content: center;
+    height: 100%;
+    width: 100%;
+
+}
+
+.swiper-featured .swiper-slide .slide-content{
+    align-self: center;
+}
+
+.swiper-featured .swiper-slide  a{
     display:block;
     text-decoration: none;
+    height:auto;
 }
 
 .swiper-pagination-bullet-active{
@@ -93,19 +106,37 @@ h1.main-page-title.page-title.h0 {
     font-family: "Harvard";
     text-transform: capitalize;
     width: 100%;
-    padding:5rem 0 0 0;
+    padding:0 0 0 0;
     margin:0 0 0 0;
     text-align: center;
     font-size: 6.5rem;
     letter-spacing: 0rem;
-    line-height: 8.5rem;
+    line-height:6.5rem;
     color: #e62544;
 }
 
 .swiper-featured .swiper-slide a img{
-    width: auto;
-    height: auto;
-    min-width: 100%;
-    min-height: 100%;
+    object-fit: contain;
 }
+
+@media screen and (max-width: 520px) {
+    .swiper-featured h3{
+        font-size: 12vw;
+    }
+
+    .swiper-button-next.featured-button-next,
+    .swiper-button-prev.featured-button-prev{
+       
+    }
+
+    .featured-button-next {
+        margin-right: .5rem;
+    }
+    
+    .featured-button-prev {
+        margin-left: .5rem;
+    }
+    
+
 }
+
