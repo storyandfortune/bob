@@ -27,9 +27,8 @@ if ($('.swiper-featured').length) {
             loadPrevNextAmount: 2,
         },
         loop: true,
-        effect: "fade",
         autoplay: {
-            delay: 2500,
+            delay: 3000,
             disableOnInteraction: false,
         },
         pagination: {
