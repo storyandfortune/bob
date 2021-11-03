@@ -490,6 +490,12 @@ h1.collection-title{
     font-family: "AvenirNextLTPro-Bold";
 }
 
+@media screen and (max-width: 990px) {
+    .bob-page-content.menu ul li {
+        width: 100%;
+    }
+}
+
 .bob-page-content.menu ul li h4 {
     text-align: center;
     font-size: 2.6rem;
@@ -513,7 +519,6 @@ h1.collection-title{
     .bob-page-content.menu ul li {
         display: block;
         width: 100%;
-        font-size: max(4vw, 2.4em 2.4rem);
         margin: 3vw 0 3vw 0;
     }
 }
