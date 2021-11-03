@@ -1,14 +1,5 @@
 /* ------ Bobs secondary page styles ------------ */
 
-/* Fonts --------------------
-AvenirNextLTPro-Medium
-AvenirNextLTPro-Bold
-RoadRadio-Black
-TradeGothicLTStd-Cn18
-Harvard
------------------------------
-*/
-
 h1.main-page-title.page-title.h0,
 h1.collection-hero__title,
 .main-blog h1.title--primary {
@@ -367,9 +358,6 @@ h1.collection-title{
     max-width:500px;
     margin:3rem auto 0 auto;
 }
-
-
-
 
 
 
@@ -1079,6 +1067,7 @@ h1.product__title {
         margin:5rem 0 0 0;
     }
 }
+
 .bob-page-content.site-map ul {
     list-style: none;
 }
