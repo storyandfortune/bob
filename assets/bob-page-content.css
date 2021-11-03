@@ -38,9 +38,6 @@ section.shopify-section {
     text-align: center;
 }
 
-
-/* --- */
-
 .bob-page-content.history section,
 .bob-page-content.events section,
 .bob-page-content.menu section{
@@ -347,7 +344,6 @@ h1.collection-title{
 .bob-page-content.hof section p a:hover{
     text-decoration: underline;
 }
-
 
 .bob-page-content.hof section p strong{
     font-family: "AvenirNextLTPro-Bold";
