@@ -73,7 +73,8 @@
 @media screen and (max-width: 990px) {
 
     .header-top .xtra-info ul li {
-        margin: 0 1rem 0 1rem;
+        margin: 0 0 0 0;
+        width:15vw;
     }
 
     .header-top .xtra-info ul li.space{
