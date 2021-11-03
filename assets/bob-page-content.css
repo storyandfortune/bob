@@ -110,6 +110,10 @@ h1.collection-title{
         padding: 5rem;
     }
 
+    .bob-page-content section.bleed {
+        padding: 0;
+    }
+
     .bob-page-content section .col {
         display: block;
         width: 100%;
@@ -454,7 +458,8 @@ h1.collection-title{
 }
 
 /* menu titles in menu*/
-@media screen and (max-width: 990px) {
+@media screen and (max-width: 720px) {
+
     .bob-page-content.menu h3 {
         font-size: 8vw;
         line-height: 8vw;
@@ -496,7 +501,8 @@ h1.collection-title{
     margin: 0 0 1rem 0;
 }
 
-@media screen and (max-width: 990px) {
+/* copy in menus*/
+@media screen and (max-width: 520px) {
 
     .bob-page-content.menu ul li h4 {
         text-align: center;
@@ -507,7 +513,7 @@ h1.collection-title{
     .bob-page-content.menu ul li {
         display: block;
         width: 100%;
-        font-size: 4vw;
+        font-size: max(4vw, 2.4em 2.4rem);
         margin: 3vw 0 3vw 0;
     }
 }
@@ -524,7 +530,8 @@ h1.collection-title{
     font-family: "AvenirNextLTPro-Medium";
 }
 
-@media screen and (max-width: 990px) {
+
+@media screen and (max-width: 320px) {
 
     .bob-page-content.menu ul li p {
         padding: 0;
@@ -534,6 +541,7 @@ h1.collection-title{
         font-family: "AvenirNextLTPro-Medium";
     }
 }
+
 
 .bob-page-content.menu .double-border {
     margin-top: 5rem;

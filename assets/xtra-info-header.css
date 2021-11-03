@@ -48,7 +48,7 @@
 }
 
 .header-top .xtra-info ul li .label{
- 
+    font-size: 1.25rem;
 }
 
 
@@ -78,15 +78,13 @@
 
     .header-top .xtra-info ul li.space{
         display:inline-block;
-        width:20vw;
+        width:40vw;
+        min-width: 175px;
+        max-width: 250px;
     }
 }
 
 @media screen and (max-width: 720px) {
-
-    .header-top .xtra-info ul li.space{
-        width:30vw;
-    }
 
     .header-top .xtra-info ul li .icon{
         display:none;
@@ -96,9 +94,6 @@
 
 @media screen and (max-width: 600px) {
 
-    .header-top .xtra-info ul li.space{
-        width:40vw;
-    }
 
     .header-top .xtra-info ul li.phone{
         display:none;

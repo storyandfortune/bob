@@ -68,7 +68,7 @@
 .footer-b-boy {
   position: absolute;
   cursor: pointer;
-  z-index: 10;
+  z-index: 1;
   right: 4rem;
   bottom: -36rem;
   width: 28rem;
@@ -286,7 +286,7 @@
     position: absolute;
     right: 0;
     left:0;
-    margin:0 auto;
+    margin:-3rem auto;
     bottom: -1rem;
   }
 

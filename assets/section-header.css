@@ -302,8 +302,8 @@ details.menu-drawer-container[open] .close-icon{
         position: absolute;
         cursor: pointer;
         width:40vw;
-        min-width: 150px;
-        max-width: 250px;
+        min-width: 175px;
+        max-width: 220px;
         top: -7vw;
         left:0 !important;
         right:0;
@@ -318,8 +318,8 @@ details.menu-drawer-container[open] .close-icon{
     .home-page #shopify-section-header.sticky .header__heading {
         position: absolute;
         width:40vw;
-        min-width: 150px;
-        max-width: 250px;
+        min-width: 175px;
+        max-width: 220px;
         top: -7vw;
         visibility: visible;
         opacity: 1;
@@ -335,8 +335,8 @@ details.menu-drawer-container[open] .close-icon{
        cursor: pointer;
        left:0 !important;
        width:40vw;
-       min-width: 150px;
-       max-width: 250px;
+       min-width: 175px;
+       max-width: 220px;
        top: -7vw;
        right:0;
        margin:0 auto;
