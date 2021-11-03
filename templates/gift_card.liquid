@@ -102,7 +102,7 @@
 
     <main class="gift-card">
       <div class="gift-card__image-wrapper">
-        <img src="{{ 'https://cdn.shopify.com/s/files/1/0593/5942/8759/t/2/assets/giftcard.png?v=1635982405' }}" alt="" class="gift-card__image" height="{{ 570 | divided_by: 1.5 }}" width="570" loading="lazy">
+        <img src="{{ 'giftcard.png' | asset_img_url: '1024x1024' }}" alt="" class="gift-card__image" height="{{ 570 | divided_by: 1.5 }}" width="570" loading="lazy”>
       </div>
       <div class="gift-card__qr-code" data-identifier="{{ gift_card.qr_identifier }}"></div>
       <div class="gift-card__information">
