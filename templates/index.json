@@ -1,11 +1,5 @@
 {
   "sections": {
-    "1635473742225e97ba": {
-      "type": "page",
-      "settings": {
-        "page": "featured-slideshow"
-      }
-    },
     "1632440292fb8ce2dd": {
       "type": "page",
       "settings": {
@@ -48,7 +42,6 @@
     }
   },
   "order": [
-    "1635473742225e97ba",
     "1632440292fb8ce2dd",
     "16324403215baef854",
     "16324408963ac6a505",
