@@ -41,6 +41,7 @@
 .article-card__excerpt {
   padding: 0;
   font-size: 1.6rem;
+  line-height: 2.3rem;
 }
 
 .grid--peek .article-card {
@@ -89,8 +90,16 @@
   text-align:left;
   word-break: break-word;
   font-size:4rem;
-  line-height: 4rem;;
+  line-height: 4rem;
 
+}
+
+@media screen and (max-width: 640px) {
+  .article-card__header h2.article-card__title {
+    font-size:2rem;
+    line-height: 2.5rem;
+  
+  }
 }
 
 .article-card__link.link {
@@ -106,6 +115,9 @@
 }
 
 
+header.article-card__header{
+  height:auto;
+}
 
 .article-card__header h2 {
   margin: 0 0 0 0;
