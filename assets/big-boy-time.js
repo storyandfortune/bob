@@ -1,5 +1,4 @@
 $(document).ready(function () {
-    console.log('ready');
 
     // shop slug hack -------------------------------------------------
     if($.url('path') === "/shop"){
@@ -7,7 +6,20 @@ $(document).ready(function () {
     }
 
     /* disable waypoints on resize, enable & refresh when finished */
-    var resizing;
+
+    var resizing, footerOffset, logoOffset;
+
+    var setOffsets = function(){
+        /* mobile offset needs to be different */
+        if(Waypoint.viewportWidth() < 990){
+            footerOffset = '99%';
+            logoOffset = '30%';
+        }else{
+            footerOffset = 'bottom-in-view';
+            logoOffset = '15%';
+        }
+        
+    }
 
     var setHero = function(){
         
@@ -16,6 +28,7 @@ $(document).ready(function () {
             $('.hero-scroll').css('height', (window.innerHeight - 117));
             $(window).scrollTop(0); 
         }
+        setOffsets();
     }
 
     var endResize = function(){
@@ -31,6 +44,7 @@ $(document).ready(function () {
     }
 
     setHero();
+  
     
     /* Waypoints --------------------------------------------------------- */
     if ($('body').hasClass('home-page')) {
@@ -51,6 +65,7 @@ $(document).ready(function () {
         }, {
             offset: '35%'
         });
+        
 
         /* Logo hides */
         var LogoHides = $('#MainContent').waypoint(function (direction) {
@@ -63,9 +78,10 @@ $(document).ready(function () {
             }
 
         }, {
-            offset: '15%'
+            offset: logoOffset
         });
-    
+
+        
          window.onresize = function(){
             resize();
          };
@@ -88,39 +104,21 @@ $(document).ready(function () {
 
     }
 
-    /* mobile offset needs to be diffrent */
-    if(Waypoint.viewportWidth() < 990){
-        var BigBoyBottom = $('#big-boy-footer').waypoint(function (direction) {
-
-            if (direction === "down") {
-                $('#big-boy-footer').addClass('up');
-            }
-            else {
-                $('#big-boy-footer').removeClass('up');
-            }
-
-        }, {
-            offset: '99%'
-        });
-    }
-    else{
-        /* footer big boy coming up */
-        var BigBoyBottom = $('#big-boy-footer').waypoint(function (direction) {
-
-            if (direction === "down") {
-                $('#big-boy-footer').addClass('up');
-            }
-            else {
-                $('#big-boy-footer').removeClass('up');
-            }
-
-        }, {
-            offset: 'bottom-in-view'
-        });
-    }
-    
-     
   
+    var BigBoyBottom = $('#big-boy-footer').waypoint(function (direction) {
+
+        if (direction === "down") {
+            $('#big-boy-footer').addClass('up');
+        }
+        else {
+            $('#big-boy-footer').removeClass('up');
+        }
+
+    }, {
+        offset: footerOffset
+    });
+   
+   
     /* forms ------------------------------------ */
 
     var formsData = function () {
@@ -257,7 +255,6 @@ $(document).ready(function () {
         return false;
     }
     
- 
 
     // double click go to page.
     $("#shopify-section-header nav .list-menu li").on('dblclick', function (e) {
