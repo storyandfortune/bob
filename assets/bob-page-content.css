@@ -434,6 +434,13 @@ h1.collection-title{
     padding: 0 5rem 0 5rem;
 }
 
+@media screen and (max-width: 990px) {
+
+    .bob-page-content.menu section {
+        margin-top:5rem
+    }
+}
+
 /* offset anchor for fixed header */
 .bob-page-content.menu a.anchor{
     position:absolute;

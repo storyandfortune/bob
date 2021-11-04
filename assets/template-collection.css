@@ -1,7 +1,7 @@
 
 
 .collection-grid-section {
-  margin-top: 3rem;
+  margin-top: 10rem;
 }
 
 .collection {
@@ -29,6 +29,11 @@
   .collection .grid__item:only-child {
     flex: 0 0 100%;
     max-width: 100%;
+  }
+
+
+  .collection-grid-section {
+    margin-top: 5rem;
   }
 
   .collection .title:not(.title--no-heading) {
