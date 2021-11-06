@@ -377,7 +377,7 @@
   "gift_cards": {
     "issued": {
       "title": "Here's your {{ value }} gift card for {{ shop }}!",
-      "subtext": "Your Bobs.net gift card",
+      "subtext": "Your BOBS.NET Digital Gift Card",
       "gift_card_code": "Gift card code",
       "shop_link": "BOBS.NET",
       "remaining_html": "Remaining {{ balance }}",
