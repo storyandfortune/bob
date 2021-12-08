@@ -984,7 +984,8 @@ header {
 
 
     .list-menu li.nav-shop .header__submenu li.nav-seasoning-salt .nav-title, 
-    .list-menu li.nav-shop .header__submenu li.nav-11-plushie .nav-title{
+    .list-menu li.nav-shop .header__submenu li.nav-11-plushie .nav-title,
+  .list-menu li.nav-shop .header__submenu li.nav-coin-bank .nav-title {
         text-align:center;
     }
 
@@ -999,7 +1000,8 @@ header {
     }
 
     .list-menu li.nav-shop  .header__submenu li.nav-seasoning-salt, 
-    .list-menu li.nav-shop .header__submenu li.nav-11-plushie {
+    .list-menu li.nav-shop .header__submenu li.nav-11-plushie, 
+  .list-menu li.nav-shop .header__submenu li.nav-coin-bank {
        padding: 0 2rem 2rem 2rem;
     }
 
