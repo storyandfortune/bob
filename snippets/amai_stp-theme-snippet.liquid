@@ -1,27 +1,29 @@
 <script>
     if(typeof(Spurit) === 'undefined'){
-      Spurit = {};
+        var Spurit = {};
     }
-    if(!Spurit.tieredPricing){
-        Spurit.tieredPricing = {};
+    if(!Spurit.QuantityBreaks2){
+        Spurit.QuantityBreaks2 = {};
     }
-    if(!Spurit.tieredPricing.snippet){
-        Spurit.tieredPricing.snippet = {};
+    if(!Spurit.QuantityBreaks2.snippet){
+      Spurit.QuantityBreaks2.snippet = {};
     }
-    Spurit.tieredPricing.snippet.appId = '44';
-    Spurit.tieredPricing.snippet.shopHash = 'e793db187ee94097b79786782b4e2e11';
-    Spurit.tieredPricing.snippet.shopDomain = 'dev-big-boy.myshopify.com';
-    Spurit.tieredPricing.snippet.folderStore = 'https://amaicdn.com/pricing-by-quantity/store';
-    Spurit.tieredPricing.snippet.folderCss = 'https://amaicdn.com/pricing-by-quantity/css';
-    Spurit.tieredPricing.snippet.moneyFormat = '{{ shop.money_format }}';
+
+    Spurit.QuantityBreaks2.snippet.appId = '44';
+    Spurit.QuantityBreaks2.snippet.shopHash = '83a65dfaa736676797cc4de1c2f81535';
+    Spurit.QuantityBreaks2.snippet.shopDomain = 'dev-big-boy.myshopify.com';
+    Spurit.QuantityBreaks2.snippet.folderStore = 'https://amaicdn.com/pricing-by-quantity/store';
+    Spurit.QuantityBreaks2.snippet.folderCss = 'https://amaicdn.com/pricing-by-quantity/css';
+    Spurit.QuantityBreaks2.snippet.moneyFormat = '{{ shop.money_format }}';
+    Spurit.QuantityBreaks2.snippet.cacheTimestamp = 1641395405;
 
     if(typeof(Spurit.globalSnippet) === 'undefined'){
-      Spurit.globalSnippet = {
-        shop_currency: '{{ shop.currency }}',
-        money_format: '{{ shop.money_format }}',
-        cart: {{ cart | json }},
-        customer_id: '{{ customer.id }}'
-      };
+        Spurit.globalSnippet = {
+            shop_currency: '{{ shop.currency }}',
+            money_format: '{{ shop.money_format }}',
+            cart: {{ cart | json }},
+            customer_id: '{{ customer.id }}'
+        };
     }
 </script>
-<script src="https://amaicdn.com/pricing-by-quantity/js/common.js"></script>
+<script src="https://amaicdn.com/pricing-by-quantity/common.js"></script>
