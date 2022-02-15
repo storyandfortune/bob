@@ -183,24 +183,23 @@ $(document).ready(function () {
 
             $.ajax({
                 method: "POST",
-                url: "https://mysql.storyandfortune.com/bobs/test.php",
+                url: "http://brand.bobs.net/api/forms.php",
                 data: { "data": d }
             }).done(function (msg) {
 
                 m = JSON.parse(msg);
                 if (m.message === "success") {
                     // submit --------------------------------------------
-                    //console.log(msg);
+                    console.log(msg);
                     $("form").removeClass("error");
                     $(".data").removeClass("inc");
 
                     $(".conformation h3").html("Thanks !");
                     $(".conformation p").html("We will be contacting you shortly.");
 
-              
                 }
                 else {
-                    //console.log(msg);
+                    console.log(msg);
                     $(".conformation h3").html("Opps !");
                     $(".conformation p").html("Something went wrong.");
                 }
