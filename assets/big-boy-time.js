@@ -134,6 +134,7 @@ $(document).ready(function () {
         }
 
         var d = {
+            "webform":true,
             "form": $("h3.title").text().trim(),
             "marketing":isMarketing,
             "fields": []
@@ -183,27 +184,36 @@ $(document).ready(function () {
 
             $.ajax({
                 method: "POST",
-                url: "http://brand.bobs.net/api/forms.php",
+                url: "https://mysql.storyandfortune.com/bobs/",
                 data: { "data": d }
             }).done(function (msg) {
 
-                m = JSON.parse(msg);
-                if (m.message === "success") {
-                    // submit --------------------------------------------
-                    console.log(msg);
-                    $("form").removeClass("error");
-                    $(".data").removeClass("inc");
+                console.log(msg);
 
-                    $(".conformation h3").html("Thanks !");
-                    $(".conformation p").html("We will be contacting you shortly.");
+                try {
+                    if (msg.message === "success") {
+                        // submit --------------------------------------------
+                        $("form").removeClass("error");
+                        $(".data").removeClass("inc");
+    
+                        $(".conformation h3").html("Thanks !");
+                        $(".conformation p").html("We will be contacting you shortly.");
+    
+                    }
+                    else {
+                        $(".conformation h3").html("Opps !");
+                        $(".conformation p").html("Something went wrong.");
+                    }
 
-                }
-                else {
-                    console.log(msg);
+                  } catch (error) {
+                    console.log(error);
                     $(".conformation h3").html("Opps !");
                     $(".conformation p").html("Something went wrong.");
-                }
+                  }
 
+            }).fail(function() {
+                $(".conformation h3").html("Opps !");
+                $(".conformation p").html("Something went wrong.");
             });
         }
         else{
