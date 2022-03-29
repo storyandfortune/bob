@@ -228,17 +228,37 @@
 }
 
 .card__badge {
-  bottom: 1rem;
-  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
   flex-wrap: wrap;
+  bottom: 0;
+  border-radius: 2rem;
+  height: 4rem;
+  width: 4rem;
+  display: flex;
   left: 1rem;
   position: absolute;
 }
 
+.card__badge.sold-out {
+  background-color: black;
+}
+
+.card__badge.sale {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  background-image: url('https://cdn.shopify.com/s/files/1/0593/5942/8759/files/sale-badge.png?v=1648588341');
+}
+
+
+/*
 .card__badge > * {
   margin-right: 1rem;
   margin-top: 0.5rem;
 }
+*/
 
 .overlay-card {
   position: absolute;

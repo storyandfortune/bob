@@ -27,6 +27,7 @@ if ($('.swiper-featured').length) {
             loadPrevNextAmount: 2,
         },
         loop: true,
+        effect: "fade",
         speed: 1000,
         onTransitionEnd: function(swiper){
           swiper.params.speed = 1000;
