@@ -85,6 +85,11 @@ details[open].menu-opening > .menu-drawer__submenu {
   overflow-y: auto;
 }
 
+.menu-drawer__inner-submenu ul.menu-drawer__menu.list-menu li:nth-child(1) a{
+  text-decoration: underline;
+}
+
+
 .no-js .menu-drawer__navigation {
   padding: 0;
 }
@@ -105,6 +110,10 @@ details[open].menu-opening > .menu-drawer__submenu {
   padding: 1.1rem 3.2rem;
   text-decoration: none;
   font-size: 1.8rem;
+}
+
+.menu-drawer__menu li.active{
+  border:1px solid red;
 }
 
 .no-js .menu-drawer__menu-item {

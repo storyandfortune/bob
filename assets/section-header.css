@@ -6,6 +6,7 @@
 
 .hero-scroll {
     position: relative;
+    background-color: #000;
     width: 100vw;
     height: 100vh;
 }
@@ -157,6 +158,21 @@
         opacity: 1;
     }
 }
+
+
+/* video hero -----------------------------------------------*/
+
+.hero-scroll video {
+    object-fit: cover;
+    width: 100vw;
+    height: 100vh;
+    margin:0;
+    padding:0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index:0;
+  }
 
 /* menu ----------------------------------------------------- */
 
