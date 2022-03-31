@@ -239,6 +239,16 @@ fieldset.product-form__input .form__label {
   border-bottom:1px solid #b79668;
 }
 
+.product__description .size-details{
+  cursor:pointer;
+  text-decoration: underline;
+}
+
+.product__description .size-details:hover{
+  color:#b79668;
+}
+
+
 .product__text {
   margin-bottom: 0;
 }
@@ -407,12 +417,14 @@ a.product__text {
 
 
 
-html.modal{
+html.modal,
+html.size-modal{
   height:100vh;
   overflow: hidden;
 }
 
-.new-product-modal{
+.new-product-modal, 
+.new-size-modal{
   display:none;
   position:absolute;
   top:0;
@@ -424,14 +436,16 @@ html.modal{
   background-color: transparent;
 }
 
-.modal .new-product-modal{
+.modal .new-product-modal,
+.size-modal .new-size-modal{
   display:block;
   background-color: white;
   width:100vw;
   height:100vh;
 }
 
-.new-product-modal .close-product{
+.new-product-modal .close-product,
+.new-size-modal .close-product{
   position:absolute;
   cursor: pointer;
   top:3rem;
@@ -449,10 +463,56 @@ html.modal{
   background-position: center center;
 }
 
+.new-size-modal .size-info{
+  padding: 45px 25px;
+  width:40%;
+  max-width: 640px;
+  height:100vh;
+  margin:0 auto;
+  overflow: scroll;
+}
+
+.new-size-modal p{
+    color:#666;
+    font-size: 13px;
+    line-height: 19px;
+}
+.new-size-modal ul{
+    color:#000;
+    border-top: 1px solid #b79668;
+    border-bottom: 1px solid #b79668;
+    margin:0;
+    padding:20px;
+    font-size: 11px;
+    line-height: 14px;
+    font-family: "AvenirNextLTPro-Bold";
+
+}
+
+.new-size-modal .stretch,
+.new-size-modal .size-image img{
+  width:100%;
+  height:auto;
+}
+
+
+@media screen and (max-width: 920px) {
+  .new-size-modal .size-info{
+    margin-top:125px;
+    padding: 0 5rem 45px 5rem;
+    width:100%;
+    height:calc(100vh - 125px);
+    overflow: scroll;
+  }
+}
+
 
 /* Product media */
 
 @media screen and (max-width: 749px) {
+
+ 
+
   /*
 
   *{

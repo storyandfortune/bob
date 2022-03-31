@@ -130,9 +130,19 @@
 
             {%- when 'description' -%}
               {%- if product.description != blank -%}
+
                 <div class="product__description rte">
-                  {{ product.description }}
+                  <div>{{ product.description }}</div>
+
+                  {% for tag in product.tags %}
+                    {% if tag contains 'size' %}
+                          <span class="size-details">Size/Details</span>
+                    {% endif %}
+                  {% endfor %}
+
                 </div>
+
+
               {%- endif -%}
             
          
@@ -377,6 +387,7 @@
     </div>
   </div>
 
+
    <!-- ///////////////////////////////////////////// Product Modal /////////////////////////////////////////////  -->
    
   <product-modal id="ProductModal-{{ section.id }}" class="product-media-modal media-modal">
@@ -442,6 +453,51 @@
     </div>
     <div class="product-modal-image"></div>
   </div>
+
+    <!-- ///////////////////////////////////////////// New Size Modal /////////////////////////////////////////////  -->
+    <div class="new-size-modal hide">
+
+      <div class="product-modal-information">
+        <h3> {{ product.title | escape }}</h3>
+        {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large' -%}
+      </div>
+
+      <div class="close-product">
+        {%- render 'icon-times-solid' %}
+      </div>
+
+      <div class="size-info">
+
+        <p>We print this on a mustard Bella+Canvas 3001 Unisex T-Shirt. The feel is soft and light
+with just the right amount of stretch.</p>
+
+        <ul>
+          <li>100% Airlume combed and ring-spun cotton</li>
+          <li>Soft & lightweight (4.2oz)</li>
+          <li>The fabric is pre-washed for increased comfort and reduced shrinkage</li>
+          <li>Plastisol ink screen printed graphics for longer lasting color and quality</li>
+          <li>Screen printed Bob's Big Boy inside label</li>
+          <li>Designed and screen printed in the USA </li>
+        </ul>
+
+      
+          <div class="size-image">   
+              {{ product.images.last | img_url:'1200x' | img_tag }}
+           </div>
+
+         <img class="stretch" src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/size-diagram.png?v=1648752345" />
+
+         <p><strong>Measuring Instructions:</strong> Lay out your favorite tee and compare with below.</p>
+
+         <img class="stretch" src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/grid.png?v=1648752345" />
+
+         <p>Overall Fit</p>
+         <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/fit-image.png?v=1648752345" />
+
+      </div>
+
+
+    </div>
 
 {% javascript %}
   class ProductModal extends ModalDialog {

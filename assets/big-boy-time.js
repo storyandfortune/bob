@@ -343,6 +343,7 @@ $(document).ready(function () {
 
             //close modal
             $('.new-product-modal .close-product').css("cursor", "pointer");
+
             $('.new-product-modal .close-product').on('touchstart click' , function(){
                 $('html').removeClass('modal');
             });
@@ -350,6 +351,20 @@ $(document).ready(function () {
         }
 
    
+    }
+
+    if( $('.size-details').length ){
+
+        $('.size-details').on('touchstart click', function(){
+            $('html').addClass('size-modal');
+        });
+
+        //close modal
+        $('.new-size-modal .close-product').css("cursor", "pointer");
+        $('.new-size-modal .close-product').on('touchstart click' , function(){
+            $('html').removeClass('size-modal');
+        });
+        
     }
 
 });
