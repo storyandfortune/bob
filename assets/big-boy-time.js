@@ -367,4 +367,109 @@ $(document).ready(function () {
         
     }
 
+    //in-line products
+    var productMarkup = function(id, title, image, link){
+        console.log('insert product');
+        var html = `<a class="appened-product" href="` + link + `" />
+                            <div class="appened-image" style="background-image: url(` + image  + `) "></div>
+                            <div class="title">` + title + `</div>
+                    </a>`;
+
+        $('#'+id).append(html);
+    }
+
+    document.location.origin;
+
+    if($('.inline-product').length){
+
+        $('.inline-product').each(function( index ) {
+
+                var id = this.id;
+                var apiUrl = document.location.origin + '/collections/all/products/'+ this.id +'.json';
+
+                var request = $.ajax({
+                    url: apiUrl,
+                    method: "GET",
+                    dataType: "json"
+                });
+
+                request.done(function( json ) {
+                    productMarkup(id, json.product.title, json.product.image.src, document.location.origin +`/products/`+ json.product.handle);
+                });
+
+                request.fail(function( jqXHR, textStatus ) {
+                    console.log( "Request failed: " + textStatus );
+                });
+
+        });
+
+    
+    }
+
+    if($('.inline-collection').length){
+
+        $('.inline-collection').each(function( index ) {
+
+            var id = this.id;
+            var apiUrl = document.location.origin + '/collections/'+ this.id +'/products.json';
+
+            var request = $.ajax({
+                url: apiUrl,
+                method: "GET",
+                dataType: "json"
+            });
+
+            request.done(function( json ) {
+                $.each( json.products, function( index, value ){
+                     productMarkup(id, value.title, value.images[0].src, document.location.origin +`/products/`+ value.handle);
+                });
+           
+            });
+
+            request.fail(function( jqXHR, textStatus ) {
+                console.log( "Request failed: " + textStatus );
+            });
+
+        });
+
+    }
+
+
+    // inline random
+    if($('.inline-random-product').length){
+
+    
+        $('.inline-random-product').each(function( index ) {
+
+            var id = this.id;
+            var apiUrl = document.location.origin + '/products.json';
+
+            var request = $.ajax({
+                url: apiUrl,
+                method: "GET",
+                dataType: "json"
+            });
+
+            request.done(function( json ) {
+
+
+                let rand = Math.random() * json.products.length;
+                rand = Math.floor(rand);
+
+                console.log(json.products[rand]);
+
+                productMarkup(id, json.products[rand].title, json.products[rand].images[0].src, document.location.origin +`/products/`+ json.products[rand].handle);
+            
+           
+            });
+
+            request.fail(function( jqXHR, textStatus ) {
+                console.log( "Request failed: " + textStatus );
+            });
+
+
+        });
+
+    }
+
 });

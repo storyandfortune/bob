@@ -511,6 +511,48 @@ h1.collection-title{
     margin: 0 0 1rem 0;
 }
 
+
+/* inline products ------------------------- */ 
+
+.bob-page-content .inline-collection,
+.bob-page-content .inline-product,
+.bob-page-content .inline-random-product{
+    width:100%;
+    display:flex;
+    justify-content: flex-start;
+}
+
+.bob-page-content .appened-product{
+    margin:1rem;
+    flex-grow: 1;
+    transition: all .25s ease;
+}
+
+.bob-page-content .appened-product:hover{
+    transform: scale(1.05);
+    text-decoration: none !important;
+}
+
+.bob-page-content .appened-product .appened-image{
+    width:100%;
+    padding-top: 56.25%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    margin:0;
+}
+
+
+.bob-page-content .appened-product .title{
+    margin:0;
+    padding:0;
+    text-align: center;
+    color:#000;
+    font-size: 2.2rem;
+}
+
+
+
 /* copy in menus*/
 @media screen and (max-width: 520px) {
 

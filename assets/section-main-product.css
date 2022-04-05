@@ -472,22 +472,31 @@ html.size-modal{
   overflow: scroll;
 }
 
-.new-size-modal p{
-    color:#666;
-    font-size: 13px;
-    line-height: 19px;
+.sizing-information h4{
+  padding:0;
+  margin:0;
+  font-family: "AvenirNextLTPro-Bold";
 }
-.new-size-modal ul{
-    color:#000;
-    border-top: 1px solid #b79668;
-    border-bottom: 1px solid #b79668;
-    margin:0;
-    padding:20px;
-    font-size: 11px;
-    line-height: 14px;
-    font-family: "AvenirNextLTPro-Bold";
 
+
+.sizing-information p{
+  color:#666;
+  font-size: 13px;
+  line-height: 19px;
+  margin:.75rem 0;
 }
+
+.sizing-information ul{
+  color:#000;
+  border-top: 1px solid #b79668;
+  border-bottom: 1px solid #b79668;
+  margin:0;
+  padding:20px;
+  font-size: 11px;
+  line-height: 14px;
+  font-family: "AvenirNextLTPro-Bold";
+}
+
 
 .new-size-modal .stretch,
 .new-size-modal .size-image img{
