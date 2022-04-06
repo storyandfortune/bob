@@ -463,14 +463,18 @@ html.size-modal{
   background-position: center center;
 }
 
-.new-size-modal .size-info{
-  padding: 45px 25px;
-  width:40%;
-  max-width: 640px;
-  height:100vh;
+
+.new-size-modal .size-info {
+
   margin:0 auto;
-  overflow: scroll;
+  max-width: 800px;
+  width:90vw;
+  height:100vh;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
 }
+
 
 .sizing-information h4{
   padding:0;
@@ -509,7 +513,6 @@ html.size-modal{
   .new-size-modal .size-info{
     margin-top:125px;
     padding: 0 5rem 45px 5rem;
-    width:100%;
     height:calc(100vh - 125px);
     overflow: scroll;
   }

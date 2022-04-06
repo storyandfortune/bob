@@ -136,7 +136,7 @@
 
                   {% for tag in product.tags %}
                     {% if tag contains 'size' %}
-                          <span class="size-details">Size/Details</span>
+                          <span class="size-details">Size Guide</span>
                     {% endif %}
                   {% endfor %}
 
@@ -384,7 +384,89 @@
           {%- endcase -%}
         {%- endfor -%}
 
-        {% if product.type contains 'T-Shirt' %}
+        
+
+        {% if product.tags contains 'size-PC-61P' %}
+
+        <div class="sizing-information">
+
+          <h4>Description</h4>
+          
+          <p>Printed on a Port & Copmany 61 Mens Pocket Shirt. The feel is soft and heavy for an unmatched combination of comfort and durability</p>
+
+          <ul>
+            <li>100% soft spun cotton</li>
+            <li>Soft & heavyweight (6.1oz)</li>
+            <li>Pre-washed for increased comfort and reduced shrinkage</li>
+            <li>Plastisol ink screen printed for lasting color and quality</li>
+            <li>Screen printed Bob’s Big Boy inside label</li>
+            <li>Designed and screen printed in the USA</li>
+          </ul>
+        </div>
+
+      {% endif %}
+
+      {% if product.tags contains 'size-INDPNDNT-4500' %}
+
+        <div class="sizing-information">
+
+          <h4>Description</h4>
+          
+          <p>Printed on an Independent 5400 Zipped Hoodie. This feel is soft and midweight with a generous fit for comfort.</p>
+
+          <ul>
+            <li>80/20 cotton/polyester blend fleece with 100% cotton face</li>
+            <li>Soft & midweight (8.5oz)</li>
+            <li>Pre-washed for increased comfort and reduced shrinkage</li>
+            <li>Plastisol ink screen printed graphics for longer lasting color and quality</li>
+            <li>Screen printed Bob's Big Boy inside label</li>
+            <li>Designed and screen printed in the USA </li>
+          </ul>
+        </div>
+
+      {% endif %}
+
+      {% if product.tags contains 'size-G-5400' %}
+
+        <div class="sizing-information">
+
+          <h4>Description</h4>
+          
+          <p>Printed on a Gildan 5400 Unisex Shirt. This is a soft and midweight shirt that will last.</p>
+
+          <ul>
+            <li>100% Airlume combed and ring-spun cotton</li>
+            <li>Soft & midweight (5.3oz)</li>
+            <li>Pre-washed for increased comfort and reduced shrinkage</li>
+            <li>Plastisol ink screen printed graphics for longer lasting color and quality</li>
+            <li>Screen printed Bob's Big Boy inside label</li>
+            <li>Designed and screen printed in the USA </li>
+          </ul>
+        </div>
+
+      {% endif %}
+
+      {% if product.tags contains 'size-BS-9500' %}
+
+        <div class="sizing-information">
+
+          <h4>Description</h4>
+          
+          <p>Printed on a Bayside 9500 Unisex Shirt. The feel is soft and light, but still maintains a rich and structured look.</p>
+
+          <ul>
+            <li>100% combed and ring-spun cotton</li>
+            <li>Soft & lightweight (4.2oz)</li>
+            <li>Pre-washed for increased comfort and reduced shrinkage</li>
+            <li>Plastisol ink screen printed graphics for longer lasting color and quality</li>
+            <li>Screen printed Bob's Big Boy inside label</li>
+            <li>Designed and screen printed in the USA </li>
+          </ul>
+        </div>
+
+      {% endif %}
+
+      {% if product.tags contains 'size-BC-3100' %}
 
         <div class="sizing-information">
 
@@ -404,6 +486,8 @@
         </div>
 
       {% endif %}
+
+
 
       </div>
     </div>
@@ -488,19 +572,37 @@
         {%- render 'icon-times-solid' %}
       </div>
 
-      <div class="size-info">
+  
 
       
-       
+        {% if product.tags contains 'size-PC-61P' %}
+          <div class="size-info" style="background-image: url(https://cdn.shopify.com/s/files/1/0593/5942/8759/files/PC-61P.png?v=1649261015)"></div>  
+        {% endif %}
+  
+        {% if product.tags contains 'size-INDPNDNT-4500' %}
 
-         <img class="stretch" src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/size-diagram.png?v=1648752345" />
+          <div class="size-info" style="background-image: url(https://cdn.shopify.com/s/files/1/0593/5942/8759/files/INDPNDNT-4500.png?v=1649261015)"></div>  
+  
+        {% endif %}
+  
+        {% if product.tags contains 'size-G-5400' %}
+          
+          <div class="size-info" style="background-image: url(https://cdn.shopify.com/s/files/1/0593/5942/8759/files/G-5400.png?v=1649261015)"></div>  
+  
+        {% endif %}
+  
+        {% if product.tags contains 'size-BS-9500' %}
+  
+          <div class="size-info" style="background-image: url(https://cdn.shopify.com/s/files/1/0593/5942/8759/files/BS-9500.png?v=1649261015)"></div>  
 
-         <p><strong>Measuring Instructions:</strong> Lay out your favorite tee and compare with below.</p>
-
-         <img class="stretch" src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/grid.png?v=1648752345" />
-
-         <p>Overall Fit</p>
-         <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/fit-image.png?v=1648752345" />
+        {% endif %}
+  
+        {% if product.tags contains 'size-BC-3100' %}
+  
+          <div class="size-info" style="background-image: url(https://cdn.shopify.com/s/files/1/0593/5942/8759/files/BC-3100.png?v=1649261015)"></div>  
+    
+  
+        {% endif %}
 
       </div>
 

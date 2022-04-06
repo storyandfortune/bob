@@ -377,15 +377,17 @@ $(document).ready(function () {
 
         $('#'+id).append(html);
     }
-
-    document.location.origin;
-
+    
+    // inline product
     if($('.inline-product').length){
 
         $('.inline-product').each(function( index ) {
 
-                var id = this.id;
-                var apiUrl = document.location.origin + '/collections/all/products/'+ this.id +'.json';
+                var handle = this.id;
+                var newID = "product-" + Math.floor(Math.random() * 5000);
+                $(this).attr("id", newID);
+
+                var apiUrl = document.location.origin + '/collections/all/products/'+ handle +'.json';
 
                 var request = $.ajax({
                     url: apiUrl,
@@ -394,7 +396,7 @@ $(document).ready(function () {
                 });
 
                 request.done(function( json ) {
-                    productMarkup(id, json.product.title, json.product.image.src, document.location.origin +`/products/`+ json.product.handle);
+                    productMarkup(newID, json.product.title, json.product.image.src, document.location.origin +`/products/`+ json.product.handle);
                 });
 
                 request.fail(function( jqXHR, textStatus ) {
@@ -406,6 +408,7 @@ $(document).ready(function () {
     
     }
 
+    // inline collection
     if($('.inline-collection').length){
 
         $('.inline-collection').each(function( index ) {
@@ -434,7 +437,6 @@ $(document).ready(function () {
 
     }
 
-
     // inline random
     if($('.inline-random-product').length){
 
@@ -452,11 +454,8 @@ $(document).ready(function () {
 
             request.done(function( json ) {
 
-
                 let rand = Math.random() * json.products.length;
                 rand = Math.floor(rand);
-
-                console.log(json.products[rand]);
 
                 productMarkup(id, json.products[rand].title, json.products[rand].images[0].src, document.location.origin +`/products/`+ json.products[rand].handle);
             
@@ -469,6 +468,37 @@ $(document).ready(function () {
 
 
         });
+
+    }
+
+     // inline random
+     if($('.inline-random-product').length){
+
+     // inline recent products
+     $('.inline-recent-products').each(function( index ) {
+
+            var id = this.id;
+            var limit = $(this).data('limit');
+            var apiUrl = document.location.origin + '/products.json';
+
+            var request = $.ajax({
+                url: apiUrl,
+                method: "GET",
+                dataType: "json"
+            });
+
+            request.done(function( json ) {
+                for(let i = 0; i < limit; i++){
+                     productMarkup(id, json.products[i].title, json.products[i].images[0].src, document.location.origin +`/products/`+ json.products[i].handle);
+                }
+            });
+
+            request.fail(function( jqXHR, textStatus ) {
+                console.log( "Request failed: " + textStatus );
+            });
+
+
+     });
 
     }
 
