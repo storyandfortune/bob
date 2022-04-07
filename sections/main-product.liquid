@@ -143,11 +143,13 @@
 
                   <div>{{ product.description }}</div>
 
+                  <!-- 
                   {% for tag in product.tags %}
                     {% if tag contains 'size' %}
                           <span class="size-details">Size Guide</span>
                     {% endif %}
                   {% endfor %}
+                -->
 
                 </div>
 
@@ -393,17 +395,16 @@
           {%- endcase -%}
         {%- endfor -%}
 
-        <!-- sizing area -->
-        {% product.description | split: '~delimiter~' | last %}
+ 
 
-
-          xxx {{ last }}
 
         {% if product.tags contains 'size' %}
+            <!-- sizing area -->
+            {% product.description | split: '~delimiter~' | last %}
             {{ last }}
         {% endif %}
 
-xxxxxxxxxxxxxxxxxx
+
 
       </div>
     </div>
