@@ -131,7 +131,16 @@
             {%- when 'description' -%}
               {%- if product.description != blank -%}
 
-                <div class="product__description rte">
+                <!--
+                {% assign split_description = product.description  %}
+                {% split_description | split: '~delimiter~' | first %}
+                 -->
+
+                 {% assign favorite_food = 'apples' %}
+
+
+                <div class="product__description rte"> 
+
                   <div>{{ product.description }}</div>
 
                   {% for tag in product.tags %}
@@ -384,110 +393,17 @@
           {%- endcase -%}
         {%- endfor -%}
 
-        
-
-        {% if product.tags contains 'size-PC-61P' %}
-
-        <div class="sizing-information">
-
-          <h4>Description</h4>
-          
-          <p>Printed on a Port & Copmany 61 Mens Pocket Shirt. The feel is soft and heavy for an unmatched combination of comfort and durability</p>
-
-          <ul>
-            <li>100% soft spun cotton</li>
-            <li>Soft & heavyweight (6.1oz)</li>
-            <li>Pre-washed for increased comfort and reduced shrinkage</li>
-            <li>Plastisol ink screen printed for lasting color and quality</li>
-            <li>Screen printed Bob’s Big Boy inside label</li>
-            <li>Designed and screen printed in the USA</li>
-          </ul>
-        </div>
-
-      {% endif %}
-
-      {% if product.tags contains 'size-INDPNDNT-4500' %}
-
-        <div class="sizing-information">
-
-          <h4>Description</h4>
-          
-          <p>Printed on an Independent 5400 Zipped Hoodie. This feel is soft and midweight with a generous fit for comfort.</p>
-
-          <ul>
-            <li>80/20 cotton/polyester blend fleece with 100% cotton face</li>
-            <li>Soft & midweight (8.5oz)</li>
-            <li>Pre-washed for increased comfort and reduced shrinkage</li>
-            <li>Plastisol ink screen printed graphics for longer lasting color and quality</li>
-            <li>Screen printed Bob's Big Boy inside label</li>
-            <li>Designed and screen printed in the USA </li>
-          </ul>
-        </div>
-
-      {% endif %}
-
-      {% if product.tags contains 'size-G-5400' %}
-
-        <div class="sizing-information">
-
-          <h4>Description</h4>
-          
-          <p>Printed on a Gildan 5400 Unisex Shirt. This is a soft and midweight shirt that will last.</p>
-
-          <ul>
-            <li>100% Airlume combed and ring-spun cotton</li>
-            <li>Soft & midweight (5.3oz)</li>
-            <li>Pre-washed for increased comfort and reduced shrinkage</li>
-            <li>Plastisol ink screen printed graphics for longer lasting color and quality</li>
-            <li>Screen printed Bob's Big Boy inside label</li>
-            <li>Designed and screen printed in the USA </li>
-          </ul>
-        </div>
-
-      {% endif %}
-
-      {% if product.tags contains 'size-BS-9500' %}
-
-        <div class="sizing-information">
-
-          <h4>Description</h4>
-          
-          <p>Printed on a Bayside 9500 Unisex Shirt. The feel is soft and light, but still maintains a rich and structured look.</p>
-
-          <ul>
-            <li>100% combed and ring-spun cotton</li>
-            <li>Soft & lightweight (4.2oz)</li>
-            <li>Pre-washed for increased comfort and reduced shrinkage</li>
-            <li>Plastisol ink screen printed graphics for longer lasting color and quality</li>
-            <li>Screen printed Bob's Big Boy inside label</li>
-            <li>Designed and screen printed in the USA </li>
-          </ul>
-        </div>
-
-      {% endif %}
-
-      {% if product.tags contains 'size-BC-3100' %}
-
-        <div class="sizing-information">
-
-          <h4>Description</h4>
-          
-          <p>We print this on a mustard Bella+Canvas 3001 Unisex T-Shirt. The feel is soft and light
-  with just the right amount of stretch.</p>
-
-          <ul>
-            <li>100% Airlume combed and ring-spun cotton</li>
-            <li>Soft & lightweight (4.2oz)</li>
-            <li>The fabric is pre-washed for increased comfort and reduced shrinkage</li>
-            <li>Plastisol ink screen printed graphics for longer lasting color and quality</li>
-            <li>Screen printed Bob's Big Boy inside label</li>
-            <li>Designed and screen printed in the USA </li>
-          </ul>
-        </div>
-
-      {% endif %}
+        <!-- sizing area -->
+        {% product.description | split: '~delimiter~' | last %}
 
 
+          xxx {{ last }}
+
+        {% if product.tags contains 'size' %}
+            {{ last }}
+        {% endif %}
+
+xxxxxxxxxxxxxxxxxx
 
       </div>
     </div>
@@ -807,11 +723,6 @@
           "info": "t:sections.main-product.blocks.buy_buttons.settings.show_dynamic_checkout.info"
         }
       ]
-    },
-    {
-      "type": "description",
-      "name": "t:sections.main-product.blocks.description.name",
-      "limit": 1
     },
     {
       "type": "description",
