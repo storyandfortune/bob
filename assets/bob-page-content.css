@@ -514,11 +514,19 @@ h1.collection-title{
 
 /* inline products ------------------------- */ 
 
-.bob-page-content .inline-collection,
+
 .bob-page-content .inline-product,
 .bob-page-content .inline-random-product{
     width:100%;
     max-width:350px;
+    margin:0 auto;
+    padding:0;
+    display:flex;
+    justify-content: flex-start;
+}
+
+.bob-page-content .inline-collection{
+    width:100%;
     margin:0 auto;
     padding:0;
     display:flex;
