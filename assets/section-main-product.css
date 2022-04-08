@@ -430,7 +430,7 @@ html.size-modal{
 .new-product-modal, 
 .new-size-modal{
   display:none;
-  position:absolute;
+  position:fixed;
   top:0;
   left:0;
   width:0px;
@@ -442,7 +442,7 @@ html.size-modal{
 
 .modal .new-product-modal,
 .size-modal .new-size-modal{
-  display:block;
+  display:block !important;
   background-color: white;
   width:100vw;
   height:100vh;
@@ -515,9 +515,10 @@ html.size-modal{
 
 @media screen and (max-width: 920px) {
   .new-size-modal .size-info{
-    margin-top:125px;
+    margin-top:145px;
     padding: 0 5rem 45px 5rem;
-    height:calc(100vh - 125px);
+    height:calc(100vh - 145px);
+    background-position: top center;
     overflow: scroll;
   }
 }
@@ -729,7 +730,11 @@ html.size-modal{
 }
 
 .product-modal-information h3{
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
   font-size: 3.5rem;
+  max-width: 90%;
   font-family: "AvenirNextLTPro-Bold";
   margin:0;
 }
@@ -737,6 +742,20 @@ html.size-modal{
 .product-modal-information .price.price--large .price-item{
   font-size: 3rem;
 }
+
+@media screen and (max-width: 550px) {
+
+  .product-modal-information h3{
+    font-size: 2.5rem;
+  }
+  
+  .product-modal-information .price.price--large .price-item{
+    font-size: 2rem;
+  }
+
+}
+
+
 
 
 .product-media-modal__content > *:not(.active),
