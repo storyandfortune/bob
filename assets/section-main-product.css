@@ -727,6 +727,7 @@ html.size-modal{
   position:absolute;
   left:5rem;
   top:3rem;
+  width:90vw;
 }
 
 .product-modal-information h3{
@@ -734,7 +735,7 @@ html.size-modal{
   overflow: hidden;
   white-space: nowrap;
   font-size: 3.5rem;
-  max-width: 90%;
+  width:100%;
   font-family: "AvenirNextLTPro-Bold";
   margin:0;
 }
