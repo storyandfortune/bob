@@ -525,7 +525,8 @@ h1.collection-title{
     justify-content: flex-start;
 }
 
-.bob-page-content .inline-collection{
+.bob-page-content .inline-collection,
+.bob-page-content .inline-recent-products{
     width:100%;
     margin:0 auto;
     padding:0;
@@ -535,10 +536,9 @@ h1.collection-title{
 }
 
 .bob-page-content .inline-collection .appened-product,
-.bob-page-content .inline-recent-product .appened-product{
+.bob-page-content .inline-recent-products .appened-product{
     flex: 1 1 30%;
 }
-
 
 
 .bob-page-content .appened-product{

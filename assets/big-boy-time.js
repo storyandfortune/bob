@@ -415,7 +415,8 @@ $(document).ready(function () {
 
             var id = this.id;
             var apiUrl = document.location.origin + '/collections/'+ this.id +'/products.json';
-            var maxItems = $(this).data('max-items')
+            var maxItems = $(this).data('max-items');
+            var max;
 
             var request = $.ajax({
                 url: apiUrl,
@@ -481,33 +482,46 @@ $(document).ready(function () {
     }
 
      // inline random
-     if($('.inline-recent-product').length){
+     if($('.inline-recent-products').length){
 
-     // inline recent products
-     $('.inline-recent-products').each(function( index ) {
+        console.log('recent products');
 
-            var id = this.id;
-            var limit = $(this).data('limit');
-            var apiUrl = document.location.origin + '/products.json';
+        // inline recent products
+        $('.inline-recent-products').each(function( index ) {
 
-            var request = $.ajax({
-                url: apiUrl,
-                method: "GET",
-                dataType: "json"
-            });
+                var id = this.id;
+                var maxItems = $(this).data('max-items');
+                var apiUrl = document.location.origin + '/products.json';
+                var max;
 
-            request.done(function( json ) {
-                for(let i = 0; i < limit; i++){
-                     productMarkup(id, json.products[i].title, json.products[i].images[0].src, document.location.origin +`/products/`+ json.products[i].handle);
-                }
-            });
+                var request = $.ajax({
+                    url: apiUrl,
+                    method: "GET",
+                    dataType: "json"
+                });
 
-            request.fail(function( jqXHR, textStatus ) {
-                console.log( "Request failed: " + textStatus );
-            });
+                request.done(function( json ) {
+
+                    console.log(json);
+
+                    if(maxItems > 0){
+                        max = maxItems;
+                    }
+                    else{
+                        max = 9;
+                    }
+
+                    for(let i = 0; i < max; i++){
+                        productMarkup(id, json.products[i].title, json.products[i].images[0].src, document.location.origin +`/products/`+ json.products[i].handle);
+                    }
+                });
+
+                request.fail(function( jqXHR, textStatus ) {
+                    console.log( "Request failed: " + textStatus );
+                });
 
 
-     });
+        });
 
     }
 
