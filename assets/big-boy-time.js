@@ -367,7 +367,7 @@ $(document).ready(function () {
         
     }
 
-    //in-line products
+    //in-line products --------------------------------------------- */
     var productMarkup = function(id, title, image, link){
         console.log('insert product');
         var html = `<a class="appened-product" href="` + link + `" />
@@ -415,6 +415,7 @@ $(document).ready(function () {
 
             var id = this.id;
             var apiUrl = document.location.origin + '/collections/'+ this.id +'/products.json';
+            var maxItems = $(this).data('max-items')
 
             var request = $.ajax({
                 url: apiUrl,
@@ -423,10 +424,18 @@ $(document).ready(function () {
             });
 
             request.done(function( json ) {
-                $.each( json.products, function( index, value ){
-                     productMarkup(id, value.title, value.images[0].src, document.location.origin +`/products/`+ value.handle);
-                });
-           
+
+                if(maxItems > 0){
+                    max = maxItems;
+                }
+                else{
+                    max = json.products.length;
+                }
+
+                for(i=0; i<max; i++){
+                    productMarkup(id, json.products[i].title, json.products[i].images[0].src, document.location.origin +`/products/`+ json.products[i].handle);
+                }
+              
             });
 
             request.fail(function( jqXHR, textStatus ) {
@@ -472,7 +481,7 @@ $(document).ready(function () {
     }
 
      // inline random
-     if($('.inline-random-product').length){
+     if($('.inline-recent-product').length){
 
      // inline recent products
      $('.inline-recent-products').each(function( index ) {

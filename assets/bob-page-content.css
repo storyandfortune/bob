@@ -530,8 +530,16 @@ h1.collection-title{
     margin:0 auto;
     padding:0;
     display:flex;
+    flex-wrap: wrap;
     justify-content: flex-start;
 }
+
+.bob-page-content .inline-collection .appened-product,
+.bob-page-content .inline-recent-product .appened-product{
+    flex: 1 1 30%;
+}
+
+
 
 .bob-page-content .appened-product{
     margin:1rem;
@@ -539,6 +547,7 @@ h1.collection-title{
     flex-grow: 1;
     transition: all .25s ease;
 }
+
 
 .bob-page-content .appened-product:hover{
     transform: scale(1.05);
@@ -565,8 +574,21 @@ h1.collection-title{
 }
 
 
+@media screen and (max-width: 1024px) {
+
+    .bob-page-content .inline-collection{
+        display:block;
+    }
+    .bob-page-content .inline-collection .appened-product{
+        width:100%;
+        display:block;
+    }
+}
+
+
 
 /* copy in menus*/
+
 @media screen and (max-width: 520px) {
 
     .bob-page-content.menu ul li h4 {
@@ -581,6 +603,10 @@ h1.collection-title{
         margin: 3vw 0 3vw 0;
     }
 }
+
+
+
+
 
 .bob-page-content.menu ul li h4 sup {
     font-size: 1.5rem;
