@@ -38,6 +38,7 @@ h1.main-page-title.page-title.h0 {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
+   
 
     /* no select*/
     -webkit-user-select: none; /* Chrome all / Safari all */
@@ -46,6 +47,82 @@ h1.main-page-title.page-title.h0 {
     user-select: none;
 }
 
+/*--------------- inline product --------------*/
+
+.swiper-slide.inline-product,
+.swiper-slide.inline-random-product{
+    background-color: #fff;
+    width:100%;
+    max-width:350px;
+    margin:0 auto;
+    padding:0;
+    display:flex;
+    justify-content: flex-start;
+}
+
+.swiper-slide.inline-collection,
+.swiper-slide.inline-recent-products{
+    background-color: #fff;
+    width:100%;
+    margin:0 auto;
+    padding:0;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.swiper-slide.inline-collection .appened-product,
+.swiper-slide.inline-recent-products .appened-product{
+    flex: 1 1 30%;
+}
+
+
+.swiper-slide .appened-product{
+    align-self: center;
+    margin:1rem;
+    padding:0;
+    flex-grow: 1;
+    transition: all .25s ease;
+}
+
+
+.swiper-slide .appened-product:hover{
+    transform: scale(1.05);
+    text-decoration: none !important;
+}
+
+.swiper-slide .appened-product .appened-image{
+    width:100%;
+    padding: calc(100% - 3.5rem) 0 0 0;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+
+}
+
+
+.swiper-slide .appened-product .title{
+    margin:0;
+    padding:0;
+    text-align: center;
+    color:#000;
+    font-size: 2rem;
+    height:3.5rem;
+}
+
+
+@media screen and (max-width: 1024px) {
+
+    .swiper-slide.inline-collection{
+        display:block;
+    }
+    .swiper-slide.inline-collection .appened-product{
+        width:100%;
+        display:block;
+    }
+}
+
+/* ----------------------------------------------------------- */
 
 .swiper-button-next {
     margin-right: 3rem;
@@ -57,7 +134,7 @@ h1.main-page-title.page-title.h0 {
 
 .swiper-button-next,
 .swiper-button-prev {
-    color: #fff;
+    color: rgb(225, 225, 225);
     transition: all 0.25s ease;
     z-index: 1;
 }
@@ -126,6 +203,7 @@ h1.main-page-title.page-title.h0 {
     color: #e62544;
     background-color: #fff;
 }
+
 
 @media screen and (max-width: 520px) {
     .swiper-featured h3{

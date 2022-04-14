@@ -514,9 +514,11 @@ h1.collection-title{
 
 /* inline products ------------------------- */ 
 
-
+.swiper-slide.inline-product,
+.swiper-slide.inline-random-product,
 .bob-page-content .inline-product,
 .bob-page-content .inline-random-product{
+    background-color: #ffffff;
     width:100%;
     max-width:350px;
     margin:0 auto;
@@ -562,7 +564,6 @@ h1.collection-title{
     background-size: contain;
 
 }
-
 
 .bob-page-content .appened-product .title{
     margin:0;
