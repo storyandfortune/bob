@@ -53,9 +53,8 @@ h1.main-page-title.page-title.h0 {
 .swiper-slide.inline-random-product{
     background-color: #fff;
     width:100%;
-    max-width:350px;
-    margin:0 auto;
-    padding:0;
+    max-width:100%;
+
     display:flex;
     justify-content: flex-start;
 }
@@ -83,6 +82,12 @@ h1.main-page-title.page-title.h0 {
     padding:0;
     flex-grow: 1;
     transition: all .25s ease;
+}
+
+.swiper-slide.inline-product .appened-product,
+.swiper-slide.inline-random-product .appened-product{
+    margin:0 auto;
+    max-width: 65%;
 }
 
 
