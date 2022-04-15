@@ -1,5 +1,7 @@
 $(document).ready(function () {
 
+    console.log('init');
+
     // shop slug hack -------------------------------------------------
     if($.url('path') === "/shop"){
         window.location.href = "/collections/all"
@@ -410,11 +412,15 @@ $(document).ready(function () {
 
     // inline collection
     if($('.inline-collection').length){
+        console.log($('.inline-collection'));
 
         $('.inline-collection').each(function( index ) {
 
-            var id = this.id;
-            var apiUrl = document.location.origin + '/collections/'+ this.id +'/products.json';
+            var handle = this.id;
+            var newID = "product-" + Math.floor(Math.random() * 5000);
+            $(this).attr("id", newID);
+
+            var apiUrl = document.location.origin + '/collections/'+ handle +'/products.json';
             var maxItems = $(this).data('max-items');
             var max;
 
@@ -432,13 +438,10 @@ $(document).ready(function () {
                 else{
                     max = json.products.length;
                 }
-
-                console.log(json);
-
-                $('#' + id).html('');
+                
 
                 for(i=0; i<max; i++){
-                    productMarkup(id, json.products[i].title, json.products[i].images[0].src, document.location.origin +`/products/`+ json.products[i].handle);
+                    productMarkup(newID, json.products[i].title, json.products[i].images[0].src, document.location.origin +`/products/`+ json.products[i].handle);
                 }
               
             });
@@ -454,7 +457,6 @@ $(document).ready(function () {
     // inline random
     if($('.inline-random-product').length){
 
-    
         $('.inline-random-product').each(function( index ) {
 
             var id = this.id;
