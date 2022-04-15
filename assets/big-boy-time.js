@@ -433,6 +433,10 @@ $(document).ready(function () {
                     max = json.products.length;
                 }
 
+                console.log(json);
+
+                $('#' + id).html('');
+
                 for(i=0; i<max; i++){
                     productMarkup(id, json.products[i].title, json.products[i].images[0].src, document.location.origin +`/products/`+ json.products[i].handle);
                 }
