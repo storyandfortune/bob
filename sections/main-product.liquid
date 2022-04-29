@@ -335,7 +335,9 @@
           {%- endcase -%}
         {%- endfor -%}
 
-        {% if product.tags contains 'size-PC-61P' or  product.tags contains 'size-INDPNDNT-4500' or  product.tags contains 'size-G-5400' or product.tags contains 'size-BS-9500' or product.tags contains 'size-BC-3100' %}
+
+        {% if productDescription.size > 0 %}
+          <!-- sizing information --> 
           {{ productDescription | last}} 
         {% endif %}
 
