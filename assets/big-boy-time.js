@@ -186,7 +186,7 @@ $(document).ready(function () {
 
             $.ajax({
                 method: "POST",
-                url: "https://mysql.storyandfortune.com/bobs/",
+                url: "https://api.storyandfortune.com/bobs/",
                 data: { "data": d }
             }).done(function (msg) {
 
