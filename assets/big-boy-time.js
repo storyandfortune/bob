@@ -242,7 +242,7 @@ $(document).ready(function () {
 
     /* -- on -------------------------------- */
 
-    // scroll to jigger-rig should update admin with the ability to assign id's to sections
+    // scroll to 
     var scrollToID = function (id, e) {
 
         if ($('body').hasClass('home-page') && !$("#shopify-section-header").hasClass('sticky')) {
