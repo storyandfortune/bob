@@ -374,6 +374,14 @@ a.product__text {
   padding-left: 0;
 }
 
+/* PRE-ORDER BEAR App */
+.cb-preorder-widget .BackInStockWidget-module__root input{
+  outline: none;
+}
+.cb-preorder-widget .BackInStockWidget-module__root input:focus{
+  box-shadow: none;
+}
+
 
 /* NEw Pr0ducT media$ */
 .new-media{
