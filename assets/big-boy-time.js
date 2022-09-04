@@ -562,4 +562,12 @@ $(document).ready(function () {
 
     }
 
+    //HACK!!!! additonal checkout buttons not showin up
+    if($('#dynamic-checkout-cart').length){
+        setTimeout(() => {
+            $('#dynamic-checkout-cart').removeAttr("style");
+        }, 500);
+    
+    }
+
 });
