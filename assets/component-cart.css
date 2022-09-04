@@ -194,6 +194,10 @@ cart-items {
   text-align: center;
 }
 
+.additional-checkout-buttons{
+  min-height:5rem;
+}
+
 @media screen and (min-width: 750px) {
   .cart-note {
     max-width: 35rem;
