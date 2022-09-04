@@ -25,15 +25,17 @@
   <div class="grid__item product__media-wrapper"> 
      <div class="new-media">
       <ul class="product__media-thumb-list list-unstyled " role="list">
+
         {%- for image in product.media -%}
-            <li class="product__media-item" data-media-id="{{ section.id }}-{{ media.id }}" data-src="{{image | img_url:'1200x' }}">
+            <li class="product__media-item" data-indx="{{forloop.index0}}" data-media-id="{{ section.id }}-{{ media.id }}" data-src="{{image | img_url:'1200x' }}">
               {{ image | img_url:'1200x' | img_tag }}
             </li>
-        {%- endfor -%}
+        {%- endfor-%}
+
       </ul>
 
       {%- assign first = product.media[0] -%}
-      <div class="product_media-detail" data-src="{{first | img_url:'1200x' }}">
+      <div class="product_media-detail" data-indx="0" data-src="{{first | img_url:'1200x' }}">
         <div class="product-information">
       </div>
          {{ first | img_url:'1200x' | img_tag }}
@@ -406,10 +408,19 @@
       <h3> {{ product.title | escape }}</h3>
       {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large' -%}
     </div>
+
+
     <div class="close-product">
       {%- render 'icon-times-solid' %}
     </div>
+
+    <div class="nxt-arrw arrw"> {% render 'icon-chevron-right' %}</div>
+    <div class="bck-arrw arrw"> {% render 'icon-chevron-left' %}</div>
+
     <div class="product-modal-image"></div>
+    
+  
+
   </div>
 
     <!-- ///////////////////////////////////////////// New Size Modal /////////////////////////////////////////////  -->

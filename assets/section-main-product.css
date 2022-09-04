@@ -464,6 +464,14 @@ html.size-modal{
   right:5rem;
   width:3rem;
   height:auto;
+  opacity:.65;
+  transition: all .24s ease;
+}
+
+.new-product-modal .close-product:hover,
+.new-size-modal .close-product:hover{
+  transform: scale(1.2);
+  opacity:1;
 }
 
 .new-product-modal .product-modal-image{
@@ -473,6 +481,30 @@ html.size-modal{
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center center;
+}
+
+.new-product-modal .arrw{
+  position:absolute;
+  cursor: pointer;
+  top:45vh;
+  width:3rem;
+  opacity:.65;
+  transition: all .24s ease;
+}
+
+.new-product-modal .arrw:hover{
+  transform: scale(1.2);
+  opacity:1;
+}
+
+.new-product-modal .nxt-arrw{
+  right:5rem;
+  height:auto;
+}
+
+.new-product-modal .bck-arrw{
+  left:5rem;
+  height:auto;
 }
 
 

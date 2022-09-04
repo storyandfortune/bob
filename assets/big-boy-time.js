@@ -322,24 +322,39 @@ $(document).ready(function () {
         return false;
     });
 
+
+
     // new product media ------------------------------- */
+
     if($('.new-media').length){
+        var index;
+        var medias = [];
+        $( ".new-media .product__media-item" ).each(function(){
+            medias.push($(this).data('src'));
+        });
+
 
         // switch detail image.
         $('.new-media .product__media-thumb-list li').css("cursor", "pointer");
         $('.new-media .product__media-thumb-list li').on('touchstart click', function(){
-            var media = $(this).data('src');
-            $('.new-media .product_media-detail').data('src', media);
-            $('.new-media .product_media-detail img').attr('src', media);
+
+            index = $(this).data('indx');
+            //console.log(index);
+            //console.log(medias[index]);
+            $('.new-media .product_media-detail').data('src', medias[index]);
+            $('.new-media .product_media-detail').data('indx', index);
+            $('.new-media .product_media-detail img').attr('src', medias[index]);
+
         });
         
         if(window.innerHeight > 720){
 
             // open modal
             $('.new-media .product_media-detail').css("cursor", "pointer");
+
             $('.new-media .product_media-detail').on('touchstart click', function(){
-                var media = $(this).data('src');
-                $('.new-product-modal .product-modal-image').css("background-image", "url(" + media + ")");
+                //console.log(index);
+                $('.new-product-modal .product-modal-image').css("background-image", "url(" + medias[index] + ")");
                 $('html').addClass('modal');
             });
 
@@ -348,6 +363,22 @@ $(document).ready(function () {
 
             $('.new-product-modal .close-product').on('touchstart click' , function(){
                 $('html').removeClass('modal');
+            });
+
+            $('.new-product-modal .nxt-arrw').on('touchstart click' , function(){
+                index++;
+                if(index >= medias.length){
+                    index=0;
+                }
+                $('.new-product-modal .product-modal-image').css("background-image", "url(" + medias[index] + ")"); 
+            });
+
+            $('.new-product-modal .bck-arrw').on('touchstart click' , function(){
+                index--;
+                if(index < 0){
+                    index= medias.length -1;
+                }
+                $('.new-product-modal .product-modal-image').css("background-image", "url(" + medias[index] + ")");
             });
 
         }
