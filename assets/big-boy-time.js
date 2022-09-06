@@ -327,7 +327,7 @@ $(document).ready(function () {
     // new product media ------------------------------- */
 
     if($('.new-media').length){
-        var index;
+        var index = 0;
         var medias = [];
         $( ".new-media .product__media-item" ).each(function(){
             medias.push($(this).data('src'));
@@ -354,7 +354,8 @@ $(document).ready(function () {
 
             $('.new-media .product_media-detail').on('touchstart click', function(){
                 //console.log(index);
-                $('.new-product-modal .product-modal-image').css("background-image", "url(" + medias[index] + ")");
+                var detailImage = $('.new-media .product_media-detail').data('src');
+                $('.new-product-modal .product-modal-image').css("background-image", "url(" + detailImage + ")");
                 $('html').addClass('modal');
             });
 
