@@ -1,0 +1,28 @@
+{{ 'spin-2-win.css' | asset_url | stylesheet_tag }}
+<!--- SPIN 2 WIN --->
+<div class="spin-win noselect">
+
+    <div class='bg'>    
+       <!-- <h2>Spin 2 Win!</h2> -->
+        <div class="triangle"></div>
+        <div id="mainbox" class="mainbox">
+
+            <div id="box" class="box">
+
+                <div class="box1">
+                    <span class="top"><b class="noselect">20% off</b></span>
+                    <span class="right"><b class="noselect">10% 0ff</b></span>
+                    <span class="left"><b class="noselect">Free Spice</b></span>
+                    <span class="bottom"><b class="noselect">Free Shipping</b></span>
+                </div>
+        
+            </div>
+
+            <button class="spin-btn noselect" onclick="spin()">SPIN</button>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="{{ 'spin-2-win.js' | asset_url }}" defer="defer"></script>

@@ -65,6 +65,7 @@
 
                 {%- if additional_checkout_buttons -%}
                   <div class="cart__dynamic-checkout-buttons additional-checkout-buttons">
+                    <!-- There is some admin setting that is not showin up for this fixed in jquery -->
                     {{ content_for_additional_checkout_buttons }}
                   </div>
                 {%- endif -%}
