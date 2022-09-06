@@ -48,6 +48,11 @@
           "settings": {
             "show_dynamic_checkout": false
           }
+        },
+        "4acc14a2-b894-4db5-8ed1-fea40649c414": {
+          "type": "shopify:\/\/apps\/rivo-product-reviews\/blocks\/star-rating\/5f785e18-66cc-4519-8181-565d1cce1705",
+          "settings": {
+          }
         }
       },
       "block_order": [
@@ -58,7 +63,8 @@
         "description",
         "variant_picker",
         "quantity_selector",
-        "buy_buttons"
+        "buy_buttons",
+        "4acc14a2-b894-4db5-8ed1-fea40649c414"
       ],
       "settings": {
         "enable_sticky_info": true,
