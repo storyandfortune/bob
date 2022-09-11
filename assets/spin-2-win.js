@@ -23,10 +23,14 @@ let spin = function(){
 	$('#box').css("transform", "rotate("+deg+"deg)");
 
 	setTimeout(() => {
-		$('#title h2').html("You won, " + win[prize].title +"!");
+		$('#title h2').html( win[prize].title +"!");
 		$('#title span').html(copy.cta);
 		$('#spin').addClass('shrink');
 	}, 5500);
+
+	setTimeout(() => {
+		$('#win').addClass('in');
+	}, 5750);
 
 }
 
