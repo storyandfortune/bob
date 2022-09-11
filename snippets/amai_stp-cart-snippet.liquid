@@ -1,5 +1,5 @@
 {% assign cartParts = cart | json | split: ',' | first | split: '"' %}
-{% assign tokenIndex = cartParts.size | minus: 1%}
+{% assign tokenIndex = cartParts.size | minus: 1 %}
 <script>
     if(typeof(Spurit) === 'undefined'){
         var Spurit = {};
