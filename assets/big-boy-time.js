@@ -1,6 +1,20 @@
 $(document).ready(function () {
 
     console.log('init');
+    
+
+    // check for coupon ----------------------------------------------
+    if($('#coupon')){
+
+        let spin = window.sessionStorage.getItem("coupon");
+
+        if(spin){
+            let v  = JSON.parse(spin);
+            $('#coupon .title').html(v.title);
+            $('#coupon').addClass("on");
+        }
+        
+    }
 
     // shop slug hack -------------------------------------------------
     if($.url('path') === "/shop"){

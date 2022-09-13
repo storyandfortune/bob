@@ -1203,6 +1203,44 @@ h1.product__title {
 }
 
 
+/* ---------- Coupon ------------- */
+.cart__blocks .coupon_container{
+    margin-top:1.5rem;
+    display: none;
+    align-items: flex-start;
+}
+/* cart */
+ #coupon{
+    width:250px;
+    padding:2rem;
+    text-align: center;
+    font-size: 12px;
+    background-color: #b79668;
+    color:white;
+    border:white dashed 5px;
+    margin-left: auto;
+
+}
+
+.cart__blocks #coupon h3{
+    font-family: "Harvard";
+    padding:0;
+    margin:0 0 1rem 0;
+    font-size: 42px;
+    line-height: 32px;
+    width:100%;
+    color:white;
+}
+
+.cart__blocks #coupon p{
+    line-height: 14px;
+    padding:0;
+    margin:0;
+}
+
+/* home page */
+
+
 
 /* ---------- 404 ---------------------*/
 .not-found{ 

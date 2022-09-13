@@ -24,6 +24,12 @@
                   <h3 class="totals__subtotal">{{ 'sections.cart.subtotal' | t }}</h3>
                   <p class="totals__subtotal-value">{{ cart.total_price | money_with_currency }}</p>
                 </div>
+                <div class="coupon_container">
+                  <div id="coupon">
+                      <h3>10% Off</h3>
+                      <p>Discounted calculated at checkout.</p>
+                  </div>
+              </div>
 
                 <div>
                   {%- if cart.cart_level_discount_applications.size > 0 -%}
