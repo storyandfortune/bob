@@ -1,10 +1,10 @@
 let spin = function(){
 
 	let win = [
-		{deg:0, title:"20% Off", img:"", code:""}, 
-		{deg:90, title:"10% Off", img:"", code:""},
-		{deg:180, title:"Free Shipping", img:"", code:""},
-		{deg:270, title:"Free Spice", img:"", code:""}
+		{deg:0, title:"25% Off", img:"", code:"WIN25%OFF"}, 
+		{deg:90, title:"20% Off", img:"", code:"WIN20%OFF"},
+		{deg:180, title:"10% Off", img:"", code:"WIN10%OFF"},
+		{deg:270, title:"15% Off", img:"", code:"WIN15%OFF"},
 	];
 
 	let copy = {
