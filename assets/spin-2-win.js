@@ -1,10 +1,14 @@
 let spin = function(){
 
 	let win = [
-		{deg:0, title:"25% Off", img:"", code:"WIN25%OFF"}, 
-		{deg:90, title:"20% Off", img:"", code:"WIN20%OFF"},
-		{deg:180, title:"10% Off", img:"", code:"WIN10%OFF"},
-		{deg:270, title:"15% Off", img:"", code:"WIN15%OFF"},
+		{deg:0, title:"Beef Patty", img:"", code:"WIN25%"}, 
+		{deg:45, title:"25% Off", img:"", code:"WIN25%"}, 
+		{deg:90, title:"Free Stickers", img:"", code:"WIN20%OFF"},
+		{deg:135, title:"20% Off", img:"", code:"WIN20%OFF"},
+		{deg:180, title:"Free Postcards", img:"", code:"XXX"},
+		{deg:225, title:"10% Off", img:"", code:"WIN10%OFF"},
+		{deg:270, title:"Free Emoji", img:"", code:"WIN15%OFF"},
+		{deg:315, title:"15% Off", img:"", code:"WIN15%OFF"},
 	];
 
 	let copy = {
@@ -14,25 +18,28 @@ let spin = function(){
 	}
 
 	let prize = (Math.floor(Math.random() * (1 - win.length)) + win.length) -1;
+	console.log(win[prize]);
 
 	let x = 5; //min rotation
 	let y = 25; // max rotation
 
 	let deg = 360 * (Math.floor(Math.random() * (x - y)) + y) + win[prize].deg;
 
-	$('#box').css("transform", "rotate("+deg+"deg)");
+	//$('#box').css("transform", "rotate("+deg+"deg)");
 
+	$('#box').css("transform", "rotate(-"+deg+"deg)");
 
 	setTimeout(() => {
-
 		$('#title h2').html( win[prize].title +"!");
 		$('#title span').html(copy.cta);
-		$('#spin').addClass('shrink');
+		//$('#spin').addClass('shrink');
 	}, 5500);
 
+	/*
 	setTimeout(() => {
 		$('#win').addClass('in');
 	}, 5750);
+	*/
 
 
 }
