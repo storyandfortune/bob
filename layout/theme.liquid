@@ -206,6 +206,7 @@
 
         {% section 'hero-video-scroll' %}
 
+
     {% else %}
       <body class="gradient">
         <a class="skip-to-content-link button visually-hidden" href="#MainContent">
@@ -214,16 +215,18 @@
     {% endif %}
 
  
-    {% section 'announcement-bar' %}
-    {% section 'header' %}
+    {% if template != 'page.blank' %}
+      {% section 'announcement-bar' %}
+      {% section 'header' %}
+    {% endif %}
 
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
       {{ content_for_layout }}
     </main>
     
-    
-
-    {% section 'footer' %}
+    {% if template != 'page.blank' %}
+      {% section 'footer' %}
+    {% endif %}
 
     <ul hidden>
       <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>
