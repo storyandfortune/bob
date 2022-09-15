@@ -45,7 +45,6 @@
     min-height:50vh;
     width: 100vw;
     height:100%;
-    border: 1px solid green;
     z-index:1;
   }
 
@@ -272,6 +271,7 @@
     transform: rotate(0deg);
     animation-name: pop-up ;
     animation-duration: 1s;
+   
   }
 
   @keyframes pop-up {
@@ -287,8 +287,6 @@
         transform: rotate(0deg);
        }
   }
-
-
 
   .gameboy img{
     width:100%;
@@ -320,6 +318,12 @@
     left: 0;
     right:0;
     margin: 0 auto;
+  }
+
+  .spin-win #win .prize{  
+    border: 2px #b79668 solid;
+    border-radius: 1rem;
+    background-color: rgba(255, 255, 255, 0.75);
   }
 
   .spin-win #win .email{ 
