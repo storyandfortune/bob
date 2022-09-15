@@ -238,16 +238,21 @@
   
   .spin-win .spin-btn{
     position: absolute;
+    display:block;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+
     width: 70px;
     height: 70px;
+
     border: 2px solid #fff;
     background-color: #b79668;
-    border-radius: 50% !important;
-    color: #fff;
+    border-radius: 50%;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.75);
+    color: #fff;
+    padding-top:20px;
+    text-align: center;
     font-size: 15px;
     cursor: pointer;
     transition: all .25s ease;
@@ -264,14 +269,17 @@
     position:absolute;
     left:-550px;
     right:0;
+    bottom:-50vh;
     margin:0 auto;
-    bottom:-5rem;
     width:250px;
     z-index:100;
+  }
+
+  .gameboy.jump{
+    bottom:-5rem;
     transform: rotate(0deg);
     animation-name: pop-up ;
     animation-duration: 1s;
-   
   }
 
   @keyframes pop-up {
@@ -352,6 +360,7 @@
     height: 4rem;
     font-size: 14px;
     font-weight: 800;
+    cursor: pointer;
     border:none;
     color:white;
     text-transform: uppercase;

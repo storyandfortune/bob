@@ -14,12 +14,15 @@
 	let win_ratio = [];
 
 	win.forEach((element) => {
-
 		for(i=0; i<element.ratio; i++){
 			win_ratio.push(element);
 		}
-
 	});
+
+	setTimeout(() => {
+		$('.gameboy').addClass('jump');
+	}, 1000);
+
 
 let spin = function(){
 
@@ -52,7 +55,6 @@ let spin = function(){
 	}, 5750);
 }
 
-
 // submit e-mail.
 let addCoupon = function(){
 
@@ -72,3 +74,4 @@ let addCoupon = function(){
 let reset = function(){
 	window.sessionStorage.clear();
 }
+
