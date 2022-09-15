@@ -11,17 +11,19 @@
 		{deg:315, title:"15% Off", img:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/spin2win-15percent.png?v=1663197699", code:"WIN15%OFF", ratio:100}
 	];
 
-	let win_ratio = [];
 
+	let win_ratio = [];
+	let el = 0;
 	win.forEach((element) => {
 		for(i=0; i<element.ratio; i++){
-			win_ratio.push(element);
+			win_ratio.push(el);
 		}
+		el++;
 	});
 
 	setTimeout(() => {
 		$('.gameboy').addClass('jump');
-	}, 1000);
+	}, 750);
 
 
 let spin = function(){
@@ -33,7 +35,9 @@ let spin = function(){
 	}
 
 	let prize = (Math.floor(Math.random() * (1 - win_ratio.length)) + win_ratio.length) -1;
-	let winning_prize = win_ratio[prize];
+	console.log(prize);
+
+	let winning_prize = win[win_ratio[prize]];
 	let x = 5; //min rotation
 	let y = 25; // max rotation
 
