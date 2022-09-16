@@ -6,16 +6,18 @@
     <div class="spin-win">
 
         <div class='bg'>  
-     
+
             <!-- confirm email -->
             {% if form.posted_successfully? %}
-                <div class="claimed"> 
-                    <div>
-                        Comment posted successfully!<br/>
-                        <a data-ref="{{ routes.root_url }}discount/" href=""> Use your code now!</a>
-                    </div>
+                 
+             <div class="claimed"> 
+                <div class="claimed-box">
+                    <h2>Thanks!</h2>
+                    <div class="code">COUPON-CODE</div>
+                    <a data-ref="{{ routes.root_url }}discount/" href=""> Use your code now!</a>
                 </div>
-                
+            </div>
+                    
             {% else %}
 
             <div id="title">
@@ -23,7 +25,7 @@
                 <span>Spin the wheel for a chance to win!</span>
             </div>
 
-            <!-- Spin the wheel -->
+         
             <div class="game">
 
                 <div id="spin">
@@ -54,7 +56,7 @@
 
                 </div>
                 
-                <!-- Collect e-mail -->
+               
                 <div id="win">
 
                     <div class="email">
@@ -69,8 +71,10 @@
                 </div>
 
             </div>
+   
     
             {% endif %}
+      
                    
             <!-- -->
             <div class="gameboy">

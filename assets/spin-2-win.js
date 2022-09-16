@@ -11,7 +11,6 @@
 		{deg:315, title:"15% Off", img:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/spin2win-15percent.png?v=1663197699", code:"WIN15%OFF", ratio:100}
 	];
 
-
 	let win_ratio = [];
 	let el = 0;
 	win.forEach((element) => {
@@ -20,6 +19,14 @@
 		}
 		el++;
 	});
+
+	let coupon_code = window.sessionStorage.getItem("coupon");
+
+	if(coupon_code){
+		let v  = JSON.parse(coupon_code);
+		$('.claimed .code').html(v.code);
+		$('.claimed a').attr("href",  $('.claimed a').data("ref") + v.code);
+	}
 
 	setTimeout(() => {
 		$('.gameboy').addClass('jump');
@@ -51,6 +58,9 @@ let spin = function(){
 		$('#win img').attr("src", winning_prize.img);
 		$('.claimed a').attr("href", $('.claimed a').data("ref") + winning_prize.code);
 		$('#spin').addClass('shrink');
+
+ 		addCoupon();
+
 	}, 5500);
 
 	
@@ -78,4 +88,5 @@ let addCoupon = function(){
 let reset = function(){
 	window.sessionStorage.clear();
 }
+
 
