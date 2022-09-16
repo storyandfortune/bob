@@ -3,7 +3,7 @@
     "main": {
       "type": "dynamic-page",
       "settings": {
-        "snippet": "ascii-art"
+        "snippet": "xtra-info"
       }
     }
   },
