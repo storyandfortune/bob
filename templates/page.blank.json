@@ -5,9 +5,16 @@
       "settings": {
         "snippet": "xtra-info"
       }
+    },
+    "1663288623055a5b5b": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": ""
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "1663288623055a5b5b"
   ]
 }
