@@ -1,3 +1,12 @@
+:root {
+  --bob-red:#e62544;
+  --bob-gold:#e7c391;
+  --bob-blue:#1e80ff;
+
+  --checker-board: var(--bob-red);
+}
+
+  
   .spin-win {
       position: relative;
       display:flex;
@@ -15,17 +24,16 @@
 
 
   .spin-win  a{
-    color:#b79668;
+    color:var(--bob-gold);
     font-size: 2rem;
   }
 
   .spin-win  a:hover{
-    color:#e62544;
+    color:var(--bob-red)
   }
 
-
-
   /* ---------------- TITLE -------------------- */
+
   .spin-win .bg{
     position:relative;
     min-height:50vh;
@@ -50,7 +58,7 @@
 
   .claimed-box{
     text-align: center;
-    border: 2px #b79668 solid;
+    border: 2px var(--bob-gold) solid;
     align-self: center;
     border-radius: 1rem;
     background-color: rgba(255, 255, 255, 0.75);
@@ -58,7 +66,6 @@
   }
 
   .checkerboard{
-
     position:absolute;
     height:100%;
     width:300%;
@@ -70,19 +77,19 @@
 
     background-image: linear-gradient(
       45deg,
-      #ccc 25%,
+      var(--checker-board) 25%,
       transparent 25%,
       transparent 75%,
-      #ccc 75%,
-      #ccc
+      var(--checker-board) 75%,
+      var(--checker-board)
     ),
     linear-gradient(
       -45deg,
-      #ccc 25%,
+      var(--checker-board) 25%,
       transparent 25%,
       transparent 75%,
-      #ccc 75%,
-      #ccc
+      var(--checker-board)75%,
+      var(--checker-board)
     );
 
     background-size: 60px 60px;
@@ -98,7 +105,7 @@
 
   .spin-win h2{
     font-family: "Harvard";
-    color:#e62544;
+    color:var(--bob-red);
     font-size: 50px;
     margin:0 2rem;
     padding:0;
@@ -153,13 +160,13 @@
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    border: 5px solid #b79668;
+    border: 5px solid var(--bob-gold);
     box-shadow: 0 0 35px rgba(0, 0, 0, 0.45);
     background-color: white;
     overflow: hidden;
-
     transition: all ease 5s;
-
+    animation-name: spin-in;
+    animation-duration: 1s;
   }
 
   .spin-win .box1{
@@ -176,11 +183,10 @@
   }
 
   .spin-win  .box1 span{
-
     width: 50%;
     height: 50%;
     position: absolute;
-    background-color: #e62544;
+    background-color: var(--bob-blue);    
   }
 
   .spin-win  .box2 span{
@@ -242,7 +248,7 @@
   }
 
   .spin-win  .box2 span b{
-    color:#e62544;
+    color:var(--bob-red)
   }
   
   .spin-win .spin-btn{
@@ -256,7 +262,7 @@
     height: 70px;
 
     border: 2px solid #fff;
-    background-color: #b79668;
+    background-color: var(--bob-red);
     border-radius: 50%;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.75);
     color: #fff;
@@ -288,7 +294,7 @@
     bottom:-5rem;
     transform: rotate(0deg);
     animation-name: pop-up ;
-    animation-duration: 1s;
+    animation-duration: 1.5s;
   }
 
   @keyframes pop-up {
@@ -303,6 +309,15 @@
         bottom:-5rem;
         transform: rotate(0deg);
        }
+  }
+
+  @keyframes spin-in {
+    0% {
+      transform: scale(.2) rotate(2160deg);
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
   }
 
   .gameboy img{
@@ -336,10 +351,8 @@
     margin: 0 auto;
   }
 
-  .spin-win #win .prize,{  
-    border: 2px #b79668 solid;
-    border-radius: 1rem;
-    background-color: rgba(255, 255, 255, 0.75);
+  .spin-win #win {  
+
   }
 
   .spin-win #win .email{ 
@@ -349,18 +362,30 @@
     align-items: stretch;
     width:100%;
     height: 4rem;
-    margin:0 auto 1rem auto;
+    margin:0 auto;
   }
 
   .spin-win #win #email{
     flex: 2;
     border:1px solid #ccc;
     font-size: 18px;
-    padding:1rem;
+    padding:0 1rem;
     height: 4rem;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
  
+  }
+
+  .spin-win #win .prize { 
+      aspect-ratio: 3 / 2;
+      margin-top:2rem;
+      border-radius: 1rem;
+      background-color: var(--bob-gold);
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.45);
+  }
+
+  .spin-win #win .prize img{ 
+    display:none;
   }
 
   .spin-win #win #submit_btn{
@@ -372,7 +397,7 @@
     border:none;
     color:white;
     text-transform: uppercase;
-    background-color: #e62544;
+    background-color: var(--bob-red);
     padding:1rem;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
@@ -381,7 +406,7 @@
   }
 
   .spin-win #win #submit_btn:hover{
-    background-color: #f62e4f;
+    background-color: var(--bob-red);
   }
 
   .noselect {
