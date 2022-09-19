@@ -23,7 +23,7 @@
 		deg:null,
 		preload:null,
 		init(){
-			setTimeout(() => {
+
 
 				this.win_ratio = [];
 				let el = 0;
@@ -51,7 +51,7 @@
 					this.spin();
 				});
 				
-			}, 750);
+			
 		},
 		spin(){
 			this.prize = (Math.floor(Math.random() * (1 - this.win_ratio.length)) + this.win_ratio.length) -1;
@@ -106,4 +106,12 @@
 		}
 	}
 
-	spinToWin.init();
+	var waitForJQuery = setInterval(function () {
+		if (typeof $ != 'undefined') {
+	
+			spinToWin.init();
+	
+			clearInterval(waitForJQuery);
+		}
+	}, 10);
+
