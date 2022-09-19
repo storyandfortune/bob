@@ -24,7 +24,6 @@
 		preload:null,
 		init(){
 
-
 				this.win_ratio = [];
 				let el = 0;
 				this.win.forEach((element) => {
@@ -108,9 +107,7 @@
 
 	var waitForJQuery = setInterval(function () {
 		if (typeof $ != 'undefined') {
-	
 			spinToWin.init();
-	
 			clearInterval(waitForJQuery);
 		}
 	}, 10);
