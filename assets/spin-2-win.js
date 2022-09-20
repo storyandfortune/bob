@@ -3,13 +3,13 @@
 	let spinToWin = {
 		win:[
 			{deg:0, title:"Beef Patty", img:"", code:"", ratio:0}, 
-			{deg:45, title:"25% Off", img:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/spin2win-25percent.png?v=1663197700", code:"WIN25%OFF", ratio:10}, 
-			{deg:90, title:"Free Stickers", img:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/spin2win-stickers.png?v=1663197700", code:"FREESTICKER", ratio:100 },
-			{deg:135, title:"20% Off", img:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/spin2win-20percent.png?v=1663197699", code:"WIN20%OFF", ratio:5 },
-			{deg:180, title:"Free Postcards", img:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/spin2win-postcards.png?v=1663197699", code:"FREEPOSTCARDS", ratio:100},
-			{deg:225, title:"10% Off", img:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/spin2win-10percent.png?v=1663197699", code:"WIN10%OFF", ratio:100},
-			{deg:270, title:"Free Emoji", img:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/spin2win-emoji.png?v=1663197699", code:"FREEEMOJI", ratio:100},
-			{deg:315, title:"15% Off", img:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/spin2win-15percent.png?v=1663197699", code:"WIN15%OFF", ratio:100}
+			{deg:45, title:"25% Off", img:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/25-off.png?v=1663635694", code:"WIN25%OFF", ratio:10}, 
+			{deg:90, title:"Free Stickers", img:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/FREE-Stickers.png?v=1663635695", code:"FREESTICKER", ratio:100 },
+			{deg:135, title:"20% Off", img:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/20-off.png?v=1663635695", code:"WIN20%OFF", ratio:5 },
+			{deg:180, title:"Free Postcards", img:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/FREE-Postcards.png?v=1663635697", code:"FREEPOSTCARDS", ratio:100},
+			{deg:225, title:"10% Off", img:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/10-off.png?v=1663635695", code:"WIN10%OFF", ratio:100},
+			{deg:270, title:"Free Emoji", img:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/FREE-Emoji.png?v=1663635695", code:"FREEEMOJI", ratio:100},
+			{deg:315, title:"15% Off", img:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/15-off.png?v=1663635695", code:"WIN15%OFF", ratio:100}
 		],
 		win_ratio: [],
 		coupon_code:null,
@@ -37,8 +37,14 @@
 
 				if(this.coupon_code){
 					let v  = JSON.parse(this.coupon_code);
+					console.log(v);
 					$('.claimed .code').html(v.code);
 					$('.claimed a').attr("href",  $('.claimed a').data("ref") + v.code);
+					$('#title h2').html(v.title +"!");
+					$('#title span').html("You already won!");
+					$('.spin-btn').hide();
+
+					$('#box').css("transform", "rotate(-"+v.deg+"deg)");
 				}
 
 				// make the big boy jump
@@ -46,8 +52,12 @@
 		
 				/* bind -------------------------------*/
 				$('.spin-win #spin .spin-btn').on('click', () => {
-					console.log('spin');
 					this.spin();
+				});
+
+				$('.spin-win .gameboy').on('click', () => {
+					this.reset();
+					window.location.reload();
 				});
 				
 			
@@ -93,6 +103,7 @@
 			let data = {
 				title: this.winning_prize.title,
 				code:  this.winning_prize.code,
+				deg:this.winning_prize.deg,
 				time: Date.now()
 			};
 	
