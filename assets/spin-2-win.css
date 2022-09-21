@@ -2,21 +2,23 @@
   --bob-red:#e62544;
   --bob-gold:#e7c391;
   --bob-blue:#1e80ff;
+  --scale: 1;
 
-  --checker-board: black
+  --checker-board: black;
 }
 
-  
+#shopify-section-header, 
+#shopify-section-footer{
+  display:none;
+}
+
   .spin-win {
       position: relative;
       display:flex;
       justify-content: center;
       background-color: rgba(255, 255, 255, 0.75);
       width:100vw;
-      min-height:calc(50vh  - 120px);
-      max-height: calc(100vh - 120px);
-
-      /*border:5px solid purple*/
+      height:100vh;
   }
 
   .spin-win  *{
@@ -25,7 +27,6 @@
     margin: 0;
     outline: none;
   }
-
 
   .spin-win  a{
     color:var(--bob-gold);
@@ -43,7 +44,6 @@
     min-height:50vh;
     width: 100vw;
     height:100%;
-    padding: 0 0 6rem 0;
     justify-content: center;
     align-self: center;
     overflow:hidden;
@@ -70,6 +70,7 @@
   }
 
   .checkerboard{
+
     position:absolute;
     width:100%;
     height: 35%;
@@ -104,10 +105,9 @@
 
   .spin-win #title{
     display:block;
-    margin: 0 auto 2rem auto;
-    padding-top:35px;
+    width:90vw;
+    margin: 2rem auto 2rem auto;
     text-align: center;
-    height:12rem;
   }
 
   .spin-win h2{
@@ -123,14 +123,16 @@
 
    /* ---------------- SPIN -------------------- */
 
-   .game{
+  .game{
     position:relative;
     display:flex;
     justify-content: center;
     align-content: center;
     z-index:1;
+    height:100%;
 
-    /* border:1px solid green; */
+    border:1px solid red;
+
    }
 
   .spin-win #spin{
@@ -141,13 +143,21 @@
     transform-origin: center;
     width: 500px;
     height: 500px;
+
+    border:1px solid green;
+    
     animation-name: spin-in;
     animation-duration: 1s;
   }
 
-  .spin-win  #spin.shrink{
+  .spin-win  .game.shrink #spin{
+    display:block;
     opacity: 0;
     transform: scale(.1);
+  }
+
+  .spin-win  .game.shrink.in #spin{
+    display:none;
   }
 
   .spin-win .triangle{
@@ -336,19 +346,21 @@
       transform: scale(.2) rotate(2160deg);
     }
     100% {
-        transform: scale(1) rotate(0deg);
+        transform: scale(var(--scale)) rotate(0deg);
     }
   }
+
 
 
   /* ---------------- WIN -------------------- */
 
   .spin-win #win{
-    position:absolute;
+    position:relative;
+    display:none;
     visibility: hidden;
-    top:0;
-    left: -200vw;
-    width:100%;
+    width:90vw;
+    left:-200vw;
+    margin:0 auto;
     max-width:500px;
     transition: all ease .75s;
     z-index:1;
@@ -359,11 +371,10 @@
     height: auto;
   }
   
-  .spin-win #win.in{
+  .spin-win .game.in #win{
+    display:block;
+    left:0;
     visibility: visible;
-    left: 0;
-    right:0;
-    margin: 0 auto;
   }
 
   .spin-win #win .email{ 
@@ -406,9 +417,9 @@
   }
 
   .spin-win #win #submit_btn{
-    width: 15%;
+    width: 20%;
     height: 4rem;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 800;
     cursor: pointer;
     border:none;
@@ -440,10 +451,15 @@
 /* ---------------- MEDIA -------------------- */
 
 @media screen and (max-width: 600px) {
+
+  :root {
+    --scale: .8;
+  }
+
   
   .spin-win #spin{
-    transform-origin: top;
-    transform: scale(.75);
+    /*transform-origin: top;*/
+    transform: scale(.8);
   }
 
   .gameboy{
@@ -456,14 +472,25 @@
 
 }
 
-
 @media screen and (max-width: 400px) {
+
+  :root {
+    --scale: .65;
+  }
+
+ 
+
   .spin-win #spin{
     transform: scale(.65)
   }
 }
 
 @media screen and (max-width: 300px) {
+
+  :root {
+    --scale: .45;
+  }
+
   .spin-win #spin{
     transform: scale(.45)
   }

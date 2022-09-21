@@ -84,7 +84,7 @@
 				$('#title span').html(this.copy.cta);
 				$('#win img').attr("src", this.winning_prize.img);
 				$('.claimed a').attr("href", $('.claimed a').data("ref") + this.winning_prize.code);
-				$('#spin').addClass('shrink');
+				$('.game').addClass('shrink');
 	
 				this.addCoupon();
 	
@@ -92,7 +92,7 @@
 	
 			
 			setTimeout(() => {
-				$('#win').addClass('in');
+				$('.game').addClass('in');
 			}, 5750);
 
 		},
