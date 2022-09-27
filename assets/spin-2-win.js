@@ -12,7 +12,7 @@
 			{deg:315, title:"15% Off", img:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/15-off.png?v=1663635695", code:"WIN15%OFF", ratio:100}
 		],
 		win_ratio: [],
-		coupon_code:null,
+		coupon_code:false,
 		copy :{
 			defaultTitle:"Spin to Win",
 			defualttagline:"Spin the wheel for a chance to win!",
@@ -41,8 +41,8 @@
 					$('.claimed .code').html(v.code);
 					$('.claimed a').attr("href",  $('.claimed a').data("ref") + v.code);
 					$('#title h2').html(v.title +"!");
-					$('#title span').html("You already won!");
-					$('.spin-btn').hide();
+					$('#title span').html("You already won! <br/> COUPON CODE: <strong>" +  v.code + "</strong>");
+					$('.spin-btn').addClass('disable');
 
 					$('#box').css("transform", "rotate(-"+v.deg+"deg)");
 				}
@@ -51,16 +51,16 @@
 				$('.gameboy').addClass('jump');
 		
 				/* bind -------------------------------*/
-				$('.spin-win #spin .spin-btn').on('click', () => {
-					this.spin();
-				});
+				if(!this.coupon_code){
+					$('.spin-win #spin .spin-btn').on('click', () => {
+						this.spin();
+					});
+				}
 
 				$('.spin-win .gameboy').on('click', () => {
 					this.reset();
 					window.location.reload();
 				});
-				
-			
 		},
 		spin(){
 			this.prize = (Math.floor(Math.random() * (1 - this.win_ratio.length)) + this.win_ratio.length) -1;
