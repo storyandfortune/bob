@@ -44,7 +44,7 @@
     height:75vh;
     justify-content: center;
     align-self: center;
-    overflow:hidden;
+  
   }
 
   /* ---------------- TITLE -------------------- */
@@ -129,9 +129,6 @@
     justify-content: center;
     align-content: center;
     z-index:1;
-
-    /*border:1px solid green;*/
-
    }
 
   .spin-win #spin{
@@ -473,8 +470,20 @@
  
 
   .spin-win #spin{
+    transform-origin: top;
     transform: scale(.65)
   }
+
+  .gameboy{
+    left:-320px; 
+    right:0;
+    width:150px;
+  }
+
+  .checkerboard{
+    clip-path: polygon(0 0, 100% 50%, 100% 100%, 0% 100%);
+  }
+
 }
 
 @media screen and (max-width: 300px) {
@@ -483,7 +492,15 @@
     --scale: .45;
   }
 
+
+  .gameboy{
+    left:-250px; 
+    right:0;
+    width:150px;
+  }
+
   .spin-win #spin{
+    transform-origin: top;
     transform: scale(.45)
   }
 }

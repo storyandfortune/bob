@@ -369,6 +369,7 @@
         -%}
 
         {%- for media in product.media -%}
+          assign variant_image = false
           {%- liquid
             if section.settings.hide_variants and variant_images contains media.src
               assign variant_image = true
@@ -443,28 +444,23 @@
         {% endif %}
   
         {% if product.tags contains 'size-INDPNDNT-4500' %}
-
           <div class="size-info" style="background-image: url(https://cdn.shopify.com/s/files/1/0593/5942/8759/files/INDPNDNT-4500.png?v=1649261015)"></div>  
-  
         {% endif %}
   
         {% if product.tags contains 'size-G-5400' %}
-          
           <div class="size-info" style="background-image: url(https://cdn.shopify.com/s/files/1/0593/5942/8759/files/G-5400.png?v=1649261015)"></div>  
-  
         {% endif %}
   
         {% if product.tags contains 'size-BS-9500' %}
-  
           <div class="size-info" style="background-image: url(https://cdn.shopify.com/s/files/1/0593/5942/8759/files/BS-9500.png?v=1649261015)"></div>  
-
         {% endif %}
   
         {% if product.tags contains 'size-BC-3100' %}
-  
           <div class="size-info" style="background-image: url(https://cdn.shopify.com/s/files/1/0593/5942/8759/files/BC-3100.png?v=1649261015)"></div>  
-    
-  
+        {% endif %}
+
+        {% if product.tags contains 'size-G-2000' %}
+          <div class="size-info" style="background-image: url(https://cdn.shopify.com/s/files/1/0593/5942/8759/files/G-2000.png?v=1664302983)"></div>  
         {% endif %}
 
       </div>
