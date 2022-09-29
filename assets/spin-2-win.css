@@ -10,11 +10,9 @@
       justify-content: center;
       width:100vw;
       height:100vh;
-
-      
-      background: rgb(216,246,254);
-background: radial-gradient(circle, rgba(216,246,254,1) 0%, rgba(44,116,203,1) 100%);
+      background: radial-gradient(circle, rgba(216,246,254,1) 0%, rgba(44,116,203,1) 100%);
       perspective: 100vw;
+      overflow: hidden;
   }
 
   .checkerboard {
@@ -24,14 +22,12 @@ background: radial-gradient(circle, rgba(216,246,254,1) 0%, rgba(44,116,203,1) 1
     height:100vh;
     left:-50%;
     bottom:-30%;
-
     border: 15px var(--bob-gold) solid;
-    /*clip-path: polygon(0 0, 100% 30%, 100% 100%, 0% 100%);*/
     background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/pattern_checkerboard_1_7_0-0_0_2__ffffff_000000.png?v=1664407865");
     background-repeat: repeat;
     background-size: 100%;
     
-    transform: rotatex(75deg);
+    transform: rotatex(80deg);
     background-repeat: repeat;
     z-index: 0;
 
@@ -478,9 +474,7 @@ background: radial-gradient(circle, rgba(216,246,254,1) 0%, rgba(44,116,203,1) 1
     width:250px;
   }
 
-  .checkerboard{
-    clip-path: polygon(0 0, 100% 50%, 100% 100%, 0% 100%);
-  }
+ 
 
 }
 

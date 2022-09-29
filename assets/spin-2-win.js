@@ -22,7 +22,13 @@
 		winning_prize:null,
 		deg:null,
 		preload:null,
+		clickSound:null,
+		applauseSound:null,
 		init(){
+
+			  this.applauseSound = new Howl({
+				src: ['https://cdn.shopify.com/s/files/1/0593/5942/8759/files/winner.mp3?v=1664477304']
+			  });
 
 				this.win_ratio = [];
 				let el = 0;
@@ -93,6 +99,7 @@
 	
 			
 			setTimeout(() => {
+				this.applauseSound.play();
 				$('.game').addClass('in');
 			}, 5750);
 
