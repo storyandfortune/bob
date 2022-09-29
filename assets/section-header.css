@@ -41,17 +41,16 @@
 
 .hero-scroll #coupon{
     display:none;
-    position:fixed;
+}
+
+.hero-scroll #coupon.on{
     display:flex;
+    position:fixed;
     justify-content: center;
     align-items: center;
     width:100vw;
     height:100vh;
     z-index:100;
-}
-
-.hero-scroll #coupon.on{
-    display:flex;
 }
 
 .hero-scroll #coupon h2{
