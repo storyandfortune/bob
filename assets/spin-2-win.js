@@ -22,12 +22,18 @@
 		winning_prize:null,
 		deg:null,
 		preload:null,
-		clickSound:null,
+		spinSound:null,
 		applauseSound:null,
 		init(){
 
+			  this.spinSound = new Howl({
+				src: ['https://cdn.shopify.com/s/files/1/0593/5942/8759/files/spin.mp3?v=1664478860'],
+				preload: true
+			  });
+
 			  this.applauseSound = new Howl({
-				src: ['https://cdn.shopify.com/s/files/1/0593/5942/8759/files/winner.mp3?v=1664477304']
+				src: ['https://cdn.shopify.com/s/files/1/0593/5942/8759/files/winner.mp3?v=1664477304'],
+				preload: true
 			  });
 
 				this.win_ratio = [];
@@ -80,6 +86,7 @@
 	
 	
 			$('#box').css("transform", "rotate(-"+this.deg+"deg)");
+			this.spinSound.play();
 	
 			//preload image
 			this.preload = new Image();
