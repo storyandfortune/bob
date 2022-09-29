@@ -1,15 +1,16 @@
 
 
 	let spinToWin = {
+		testing:true,
 		win:[
 			{deg:0, title:"Beef Patty", img:"", code:"", ratio:0}, 
-			{deg:45, title:"25% Off", img:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/25-off.png?v=1663635694", code:"WIN25%OFF", ratio:10}, 
-			{deg:90, title:"Free Stickers", img:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/FREE-Stickers.png?v=1663635695", code:"FREESTICKER", ratio:100 },
-			{deg:135, title:"20% Off", img:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/20-off.png?v=1663635695", code:"WIN20%OFF", ratio:5 },
-			{deg:180, title:"Free Postcards", img:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/FREE-Postcards.png?v=1663635697", code:"FREEPOSTCARDS", ratio:100},
-			{deg:225, title:"10% Off", img:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/10-off.png?v=1663635695", code:"WIN10%OFF", ratio:100},
-			{deg:270, title:"Free Emoji", img:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/FREE-Emoji.png?v=1663635695", code:"FREEEMOJI", ratio:100},
-			{deg:315, title:"15% Off", img:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/15-off.png?v=1663635695", code:"WIN15%OFF", ratio:100}
+			{deg:45, title:"25% Off", img:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/25-off.png?v=1663635694", code:"WIN-25-PERCENT-OFF", ratio:10}, 
+			{deg:90, title:"Free Stickers", img:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/FREE-Stickers.png?v=1663635695", code:"FREE-STICKERS", ratio:100 },
+			{deg:135, title:"20% Off", img:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/20-off.png?v=1663635695", code:"WIN-20-PERCENT-OFF", ratio:5 },
+			{deg:180, title:"Free Postcards", img:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/FREE-Postcards.png?v=1663635697", code:"FREE-POSTCARDS", ratio:100},
+			{deg:225, title:"10% Off", img:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/10-off.png?v=1663635695", code:"WIN-10-PERCENT-OFF", ratio:100},
+			{deg:270, title:"Free Emoji", img:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/FREE-Emoji.png?v=1663635695", code:"FREE-EMOJI", ratio:100},
+			{deg:315, title:"15% Off", img:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/15-off.png?v=1663635695", code:"WIN-15-PERCENT-OFF", ratio:100}
 		],
 		win_ratio: [],
 		coupon_code:false,
@@ -74,11 +75,20 @@
 					this.reset();
 					window.location.reload();
 				});
+
+				if(this.testing){
+					let that = this;
+					$('.spin-win .box span').on('click', function(){
+						let d = $(this).data('deg');
+						that.test(d);
+					});
+				}
 		},
 		spin(){
-			this.prize = (Math.floor(Math.random() * (1 - this.win_ratio.length)) + this.win_ratio.length) -1;
 
+			this.prize = (Math.floor(Math.random() * (1 - this.win_ratio.length)) + this.win_ratio.length) -1;
 			this.winning_prize = this.win[this.win_ratio[this.prize]];
+
 			let x = 5; //min rotation
 			let y = 15; // max rotation
 	
@@ -121,10 +131,17 @@
 			};
 
 			console.log(data);
-	
+
 			let value = JSON.stringify(data);
 			window.sessionStorage.setItem("coupon", value);
 
+		},
+		test(d){
+		     this.winning_prize = this.win.find(element => element.deg === d);
+			 this.addCoupon();
+
+			 let link = window.location.protocol + '//' + window.location.hostname + ":" + window.location.port+ "/discount/" +  this.winning_prize.code;
+			 window.location = link;
 		},
 		reset(){
 			window.sessionStorage.clear();
