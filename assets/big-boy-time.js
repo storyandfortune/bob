@@ -10,7 +10,21 @@ $(document).ready(function () {
 
         if(spin){
             let v  = JSON.parse(spin);
-            $('#coupon .title').html(v.title);
+            let inject = `
+                 <div class="prize"> 
+                        <p>Your discount code: <strong>`+ v.prize.code +`</strong> has been applied and will show up on the checkout page. </p>
+                        <div class="card"> 
+                            <img src="` + v.prize.img  + `" / >
+                        </div> 
+                        <button>OK</button>
+                  </div>`;
+
+            $('#coupon').html(inject);
+
+            $('#coupon .prize button').on('click', () => {
+                $('#coupon').remove();
+            });
+
             $('#coupon').addClass("on");
         }
         

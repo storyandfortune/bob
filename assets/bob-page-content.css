@@ -1,3 +1,13 @@
+:root {
+    --bob-red:#e62544;
+    --bob-gold:#e7c391;
+    --bob-blue:#1e80ff;
+    --scale: 1;
+    --bold: "AvenirNextLTPro-Bold";
+  
+    --checker-board: black;
+  }
+
 /* ------ Bobs secondary page styles ------------ */
 
 h1.main-page-title.page-title.h0,
@@ -1209,7 +1219,7 @@ h1.product__title {
     display: none;
     align-items: flex-start;
 }
-/* cart */
+/* cart 
  #coupon{
     width:250px;
     padding:2rem;
@@ -1237,6 +1247,7 @@ h1.product__title {
     padding:0;
     margin:0;
 }
+*/
 
 /* home page */
 

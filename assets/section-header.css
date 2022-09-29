@@ -39,6 +39,85 @@
     bottom:-45rem;
 }
 
+.hero-scroll #coupon{
+    display:none;
+    position:fixed;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width:100vw;
+    height:100vh;
+    z-index:100;
+}
+
+.hero-scroll #coupon.on{
+    display:flex;
+}
+
+.hero-scroll #coupon h2{
+    padding:0;
+    margin:0;
+    font-size: 3.5rem;
+}
+
+.hero-scroll #coupon p{
+    font-size: 1.5rem;
+    line-height: 2rem;
+
+}
+
+.hero-scroll #coupon p strong{
+    font-family: var(  --bold);
+}
+
+.hero-scroll #coupon .prize{
+    width:30vw;
+    max-width:450px;
+    text-align: center;
+    padding: 2rem 5rem;
+    border: 2px var(--bob-gold) solid;
+    border-radius: 1rem;
+    background-color: rgba(255, 255, 255, 0.85);
+
+    animation-name: zoom-in;
+    animation-duration: 1s;
+}
+
+.hero-scroll #coupon .prize .card{
+    background-color: var(--bob-gold);
+    border-radius: .5rem;
+}
+
+.hero-scroll #coupon .prize .card img{
+    width:100%;
+    height:auto;
+}
+
+.hero-scroll #coupon .prize button{
+    display:block;
+    margin:1rem 0;
+    padding:1rem;
+    color:white;
+    border:none;
+    width:100%;
+    cursor:pointer;
+    background-color: var(--bob-red);
+}
+
+
+@keyframes zoom-in {
+    0% {
+      transform: scale(.2)
+    }
+    95%{
+        transform: scale(1.1) 
+    }
+    100% {
+        transform: scale(var(--scale))
+    }
+  }
+
+
 @media screen and (max-width: 1250px) {
 
     .hero-scroll .header-b-boy {

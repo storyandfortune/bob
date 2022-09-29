@@ -36,15 +36,16 @@
 				this.coupon_code = window.sessionStorage.getItem("coupon");
 
 				if(this.coupon_code){
+					console.log(this.coupon_code);
 					let v  = JSON.parse(this.coupon_code);
-					console.log(v);
-					$('.claimed .code').html(v.code);
-					$('.claimed a').attr("href",  $('.claimed a').data("ref") + v.code);
-					$('#title h2').html(v.title +"!");
-					$('#title span').html("You already won! <br/> COUPON CODE: <strong>" +  v.code + "</strong>");
+				
+					$('.claimed .code').html(v.prize.code);
+					$('.claimed a').attr("href",  $('.claimed a').data("ref") + v.prize.code);
+					$('#title h2').html(v.prize.title +"!");
+					$('#title span').html("You already won! <br/> COUPON CODE: <strong>" +  v.prize.code + "</strong>");
 					$('.spin-btn').addClass('disable');
 
-					$('#box').css("transform", "rotate(-"+v.deg+"deg)");
+					$('#box').css("transform", "rotate(-"+v.prize.deg+"deg)");
 				}
 
 				// make the big boy jump
@@ -101,11 +102,11 @@
 			window.sessionStorage.clear();
 
 			let data = {
-				title: this.winning_prize.title,
-				code:  this.winning_prize.code,
-				deg:this.winning_prize.deg,
+				prize: this.winning_prize,
 				time: Date.now()
 			};
+
+			console.log(data);
 	
 			let value = JSON.stringify(data);
 			window.sessionStorage.setItem("coupon", value);

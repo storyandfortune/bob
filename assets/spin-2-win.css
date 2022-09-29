@@ -1,11 +1,3 @@
-:root {
-  --bob-red:#e62544;
-  --bob-gold:#e7c391;
-  --bob-blue:#1e80ff;
-  --scale: 1;
-
-  --checker-board: black;
-}
 
 #shopify-section-header, 
 #shopify-section-footer{
@@ -16,10 +8,35 @@
       position: relative;
       display:flex;
       justify-content: center;
-      background-color: rgba(255, 255, 255, 0.75);
       width:100vw;
       height:100vh;
+
+      
+      background: rgb(216,246,254);
+background: radial-gradient(circle, rgba(216,246,254,1) 0%, rgba(44,116,203,1) 100%);
+      perspective: 100vw;
   }
+
+  .checkerboard {
+  
+    position: absolute;
+    width:200vw;
+    height:100vh;
+    left:-50%;
+    bottom:-30%;
+
+    border: 15px var(--bob-gold) solid;
+    /*clip-path: polygon(0 0, 100% 30%, 100% 100%, 0% 100%);*/
+    background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/pattern_checkerboard_1_7_0-0_0_2__ffffff_000000.png?v=1664407865");
+    background-repeat: repeat;
+    background-size: 100%;
+    
+    transform: rotatex(75deg);
+    background-repeat: repeat;
+    z-index: 0;
+
+  }
+
 
   .spin-win  *{
     box-sizing: border-box;
@@ -68,40 +85,7 @@
     background-color: rgba(255, 255, 255, 0.75);
     padding:11vw;
   }
-
-  .checkerboard{
-
-    position:absolute;
-    width:100%;
-    height: 35%;
-    left:0;
-    bottom:0;
-    z-index: 0;
-
-    clip-path: polygon(0 0, 100% 60%, 100% 100%, 0% 100%);
-    /*border: 5px solid var(--bob-gold);*/
   
-    background-image: linear-gradient(
-      45deg,
-      var(--checker-board) 25%,
-      transparent 25%,
-      transparent 75%,
-      var(--checker-board) 75%,
-      var(--checker-board)
-    ),
-    linear-gradient(
-      -45deg,
-      var(--checker-board) 25%,
-      transparent 25%,
-      transparent 75%,
-      var(--checker-board)75%,
-      var(--checker-board)
-    );
-
-    background-size: 60px 60px;
-    background-repeat: repeat;
-
-  }
 
   .spin-win #title{
     display:block;
@@ -117,12 +101,13 @@
   .spin-win h2{
     font-family: "Harvard";
     color:var(--bob-red);
-    font-size: 45px;
+    font-size: 70px;
     margin:0 2rem;
     padding:0;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+  
   }
 
    /* ---------------- SPIN -------------------- */
@@ -143,7 +128,6 @@
     transform-origin: center;
     width: 500px;
     height: 500px;
-    
     animation-name: spin-in;
     animation-duration: 1s;
   }
@@ -318,7 +302,7 @@
     right:0;
     bottom:-50vh;
     margin:0 auto;
-    width:250px;
+    width:350px;
     z-index:1;
   }
 
@@ -466,9 +450,9 @@
   }
 
   .gameboy{
-    left:-370px; 
+    left:-400px; 
     right:0;
-    width:200px;
+    width:330px;
     z-index:1;
   }
 
@@ -491,7 +475,7 @@
   .gameboy{
     left:-320px; 
     right:0;
-    width:150px;
+    width:250px;
   }
 
   .checkerboard{
