@@ -23,67 +23,20 @@
 		winning_prize:null,
 		deg:null,
 		preload:null,
-		spinSound:null,
-		applauseSound:null,
-		init(){
+		boing:null,
+		spin3:null,
+		spin5:null,
+		applause:null,
+		soundLoaded:0,
+		startGame(){
+			this.soundLoaded++;
+			if(	this.soundLoaded > 3){
 
-			  this.spinSound = new Howl({
-				src: ['https://cdn.shopify.com/s/files/1/0593/5942/8759/files/spin.mp3?v=1664478860'],
-				preload: true
-			  });
-
-			  this.applauseSound = new Howl({
-				src: ['https://cdn.shopify.com/s/files/1/0593/5942/8759/files/winner-short.mp3?v=1664642420'],
-				preload: true
-			  });
-
-				this.win_ratio = [];
-				let el = 0;
-				this.win.forEach((element) => {
-					for(i=0; i<element.ratio; i++){
-						this.win_ratio.push(el);
-					}
-					el++;
-				});
-
-				this.coupon_code = window.sessionStorage.getItem("coupon");
-
-				if(this.coupon_code){
-					
-					let v  = JSON.parse(this.coupon_code);
-					console.log(v);
-				
-					$('.claimed .code').html(v.prize.code);
-					$('.claimed a').attr("href",  $('.claimed a').data("ref") + v.prize.code);
-					$('#title h2').html(v.prize.title +"!");
-					$('#title span').html("You already won! <br/> COUPON CODE: <strong>" +  v.prize.code + "</strong>");
-					$('.spin-btn').addClass('disable');
-
-					$('#box').css("transform", "rotate(-"+v.prize.deg+"deg)");
-				}
-
-				// make the big boy jump
-				$('.gameboy').addClass('jump');
-		
-				/* bind -------------------------------*/
-				if(!this.coupon_code){
-					$('.spin-win #spin .spin-btn').on('click', () => {
-						this.spin();
-					});
-				}
-
-				$('.spin-win .gameboy').on('click', () => {
-					this.reset();
-					window.location.reload();
-				});
-
-				if(this.testing){
-					let that = this;
-					$('.spin-win .box span').on('click', function(){
-						let d = $(this).data('deg');
-						that.test(d);
-					});
-				}
+				//this.boing.play();
+				//this.spin3.play();
+				//$(".spin-win").trigger("click");
+				$('.spin-win').addClass('start');
+			}
 		},
 		spin(){
 
@@ -97,7 +50,7 @@
 	
 	
 			$('#box').css("transform", "rotate(-"+this.deg+"deg)");
-			this.spinSound.play();
+			this.spin5.play();
 	
 			//preload image
 			this.preload = new Image();
@@ -117,7 +70,7 @@
 	
 			
 			setTimeout(() => {
-				this.applauseSound.play();
+				this.applause.play();
 				$('.game').addClass('in');
 			}, 5750);
 
@@ -143,7 +96,88 @@
 		},
 		reset(){
 			window.sessionStorage.clear();
-		}
+		},
+		init(){
+
+			   this.boing = new Howl({
+			   src: ['https://cdn.shopify.com/s/files/1/0593/5942/8759/files/boing.mp3?v=1664663096'],
+			   preload: true,
+			   onload:()=>{
+				   console.log('loaded');
+				   this.startGame();
+			   }
+			   });
+
+			   this.spin3 = new Howl({
+				src: ['https://cdn.shopify.com/s/files/1/0593/5942/8759/files/spin-3.mp3?v=1664663273'],
+				preload: true,
+				onload:()=>{
+					this.startGame();
+				}
+			   });
+
+			   this.spin5 = new Howl({
+				src: ['https://cdn.shopify.com/s/files/1/0593/5942/8759/files/spin.mp3?v=1664478860'],
+				preload: true,
+				onload:()=>{
+					this.startGame();
+				}
+			   });
+
+			   this.applause = new Howl({
+				src: ['https://cdn.shopify.com/s/files/1/0593/5942/8759/files/winner-short.mp3?v=1664642420'],
+				preload: true,
+				onload:()=>{
+					this.startGame();
+				}
+			   });
+
+
+			   this.win_ratio = [];
+			   let el = 0;
+			   this.win.forEach((element) => {
+				   for(i=0; i<element.ratio; i++){
+					   this.win_ratio.push(el);
+				   }
+				   el++;
+			   });
+
+			   this.coupon_code = window.sessionStorage.getItem("coupon");
+
+			   if(this.coupon_code){
+				   
+				   let v  = JSON.parse(this.coupon_code);
+				   console.log(v);
+			   
+				   $('.claimed .code').html(v.prize.code);
+				   $('.claimed a').attr("href",  $('.claimed a').data("ref") + v.prize.code);
+				   $('#title h2').html(v.prize.title +"!");
+				   $('#title span').html("You already won! <br/> COUPON CODE: <strong>" +  v.prize.code + "</strong>");
+				   $('.spin-btn').addClass('disable');
+
+				   $('#box').css("transform", "rotate(-"+v.prize.deg+"deg)");
+			   }
+	   
+			   /* bind -------------------------------*/
+			   if(!this.coupon_code){
+				   $('.spin-win #spin .spin-btn').on('click', () => {
+					   this.spin();
+				   });
+			   }
+
+			   $('.spin-win .gameboy').on('click', () => {
+				   this.reset();
+				   window.location.reload();
+			   });
+
+			   if(this.testing){
+				   let that = this;
+				   $('.spin-win .box span').on('click', function(){
+					   let d = $(this).data('deg');
+					   that.test(d);
+				   });
+			   }
+	   },
 	}
 
 	var waitForJQuery = setInterval(function () {
