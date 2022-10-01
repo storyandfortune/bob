@@ -1,31 +1,35 @@
 $(document).ready(function () {
 
-    console.log('init');
-    
-
     // check for coupon ----------------------------------------------
     if($('#coupon')){
 
         let spin = window.sessionStorage.getItem("coupon");
 
         if(spin){
+
             let v  = JSON.parse(spin);
-            let inject = `
-                 <div class="prize"> 
-                        <p>Your discount code: <strong>`+ v.prize.code +`</strong> has been applied and will show up on the checkout page. </p>
-                        <div class="card"> 
-                            <img src="` + v.prize.img  + `" / >
-                        </div> 
-                        <button>OK</button>
-                  </div>`;
 
-            $('#coupon').html(inject);
+            if(!v.viewed){
+                let inject = `
+                    <div class="prize"> 
+                            <p>Your discount code: <strong>`+ v.prize.code +`</strong> has been applied and will show up on the checkout page. </p>
+                            <div class="card"> 
+                                <img src="` + v.prize.img  + `" / >
+                            </div> 
+                            <button>OK</button>
+                    </div>`;
 
-            $('#coupon .prize button').on('click', () => {
-                $('#coupon').remove();
-            });
+                $('#coupon').html(inject);
 
-            $('#coupon').addClass("on");
+                $('#coupon').on('click', () => {
+                    $('#coupon').remove();
+                    v.viewed = true;
+                    let value = JSON.stringify(v);
+                    window.sessionStorage.setItem("coupon", value);
+                });
+
+                $('#coupon').addClass("on");
+            }
         }
         
     }

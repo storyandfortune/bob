@@ -33,7 +33,7 @@
 			  });
 
 			  this.applauseSound = new Howl({
-				src: ['https://cdn.shopify.com/s/files/1/0593/5942/8759/files/winner.mp3?v=1664477304'],
+				src: ['https://cdn.shopify.com/s/files/1/0593/5942/8759/files/winner-short.mp3?v=1664642420'],
 				preload: true
 			  });
 
@@ -49,8 +49,9 @@
 				this.coupon_code = window.sessionStorage.getItem("coupon");
 
 				if(this.coupon_code){
-					console.log(this.coupon_code);
+					
 					let v  = JSON.parse(this.coupon_code);
+					console.log(v);
 				
 					$('.claimed .code').html(v.prize.code);
 					$('.claimed a').attr("href",  $('.claimed a').data("ref") + v.prize.code);
@@ -122,16 +123,13 @@
 
 		},
 		addCoupon(){
-
 			window.sessionStorage.clear();
 
 			let data = {
 				prize: this.winning_prize,
+				viewed:false,
 				time: Date.now()
 			};
-
-			console.log(data);
-
 			let value = JSON.stringify(data);
 			window.sessionStorage.setItem("coupon", value);
 

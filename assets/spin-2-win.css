@@ -97,13 +97,14 @@
   .spin-win h2{
     font-family: "Harvard";
     color:var(--bob-red);
-    font-size: 70px;
-    margin:0 2rem;
+    font-size: 60px;
+    line-height: 50px;
+    margin:0 0 2rem 0;
     padding:0;
+    
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
-  
   }
 
    /* ---------------- SPIN -------------------- */
