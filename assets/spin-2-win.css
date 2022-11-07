@@ -419,6 +419,7 @@ h2{
 
    .reset-wheel .wheel ul{
      transition:transform 0s ease;
+     opacity:0;
    }
 
    .wheel ul li{
@@ -685,10 +686,10 @@ h2{
       height:auto;
   }
 
-  .spin-win .win #submit_btn{
+  .spin-win.win #submit_btn{
     width: 35%;
     height: 4rem;
-    font-size: clamp(1.5rem, 1.5vw, 2rem);
+    font-size: clamp(1.5rem, .5vw, 1rem);
     font-weight: 800;
     cursor: pointer;
     border:none;
@@ -701,7 +702,7 @@ h2{
     transition: all .25s ease;
   }
 
-  .spin-win .win #submit_btn:hover{
+  .spin-win.win #submit_btn:hover{
     background-color: var(--bob-red);
   }
 
