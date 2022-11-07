@@ -1,91 +1,219 @@
+{% style %}
+
+     @font-face {
+        font-family: "StickyToffee";
+        src: url( {{- 'DK-Sticky-Toffee.otf' | asset_url -}} );
+      }
+
+      @font-face {
+        font-family: "AvenirNextLTPro-Medium";
+        src: url( {{- 'font-avenir-next_light.eot' | asset_url -}} );
+        src: url( {{- 'font-avenir-next_light.eot?#iefix' | asset_url -}} ) format("embedded-opentype"),
+          url(  {{- 'font-avenir-next_light.woff2' | asset_url -}} ) format("woff2"), url( {{- 'font-avenir-next_light.woff' | asset_url -}} ) format("woff"),
+          url( {{- 'font-avenir-next_light.svg#OTS-derived-font' | asset_url -}} ) format("svg");
+        font-weight: normal;
+        font-style: normal;
+      }
+    
+      @font-face {
+        font-family: "AvenirNextLTPro-Bold";
+        src: url(  {{- 'font-avenir-next_medium.eot' | asset_url -}} );
+        src: url( {{- 'font-avenir-next_medium.eot?#iefix' | asset_url -}} ) format("embedded-opentype"),
+          url( {{- 'font-avenir-next_medium.woff2' | asset_url -}} ) format("woff2"), url(  {{- 'font-avenir-next_medium.woff' | asset_url -}} ) format("woff"),
+          url(    {{- 'font-avenir-next_medium.svg#OTS-derived-font' | asset_url -}} ) format("svg");
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: 'Harvard';
+        src: url( {{- 'font-filmotype-harvard.eot' | asset_url -}} );
+        src: url( {{- 'font-filmotype-harvard.eot?#iefix' | asset_url -}} ) format('embedded-opentype'),
+        url(  {{- 'font-filmotype-harvard.woff2' | asset_url -}}) format('woff2'),
+        url(  {{- 'font-filmotype-harvard.woff' | asset_url -}}) format('woff'),
+        url(  {{- 'font-filmotype-harvard.svg#Hudson' | asset_url -}}) format('svg');
+        font-weight: normal;
+        font-style: normal; 
+      }
+
+{% endstyle %}
+
 {{ 'spin-2-win.css' | asset_url | stylesheet_tag }}
 
-<!--- SPIN 2 WIN --->  
-{% form 'contact' %}
+<div id="app">
 
-    <div class="spin-win">
+    <div class="spin-win" :class="gameState">
 
-        <div class='bg'>  
-
-            <!-- confirm email -->
-            {% if form.posted_successfully? %}
-                 
-             <div class="claimed"> 
-                <div class="claimed-box">
-                    <h2>Here's <br/> your code:</h2>
-                    <div class="code">COUPON-CODE</div>
-                    <a data-ref="{{ routes.root_url }}discount/" href=""> Use your code now!</a>
-                </div>
-            </div>
-                    
-            {% else %}
-
-            <div id="title">
-                <h2>Spin to Win</h2>
-                <span>Spin the wheel for a chance to win!</span>
-            </div>
-
-         
-            <div class="game">
-
-                <div id="spin">
-
-                    <div class="triangle"></div>
-                    <div id="mainbox" class="mainbox">
-
-                        <div id="box" class="box">
-
-                            <div class="box1">
-                                <span class="top" data-deg="45"><b class="noselect">25% off</b></span>
-                                <span class="right" data-deg="135"><b class="noselect">20% off</b></span>
-                                <span class="left" data-deg="315"><b class="noselect">15% off</b></span>
-                                <span class="bottom" data-deg="225"><b class="noselect">10% 0ff</b></span>
-                            </div>
-
-                            <div class="box2">
-                                <span class="top" data-deg="0"><b class="noselect">Beef Patty </b></span>
-                                <span class="right" data-deg="90"><b class="noselect">Free Stickers</b></span>
-                                <span class="left" data-deg="270"><b class="noselect">Free Emoji</b></span>
-                                <span class="bottom" data-deg="180"><b class="noselect">Free Postcard</b></span>
-                            </div>
-                    
-                        </div>
-
-                        <div class="spin-btn noselect"> SPIN </div>
-                    </div>
-
+        <div class="game">
+            
+            <div class="game-center">
+                <!-- title -->
+                <div id="title">
+                    <h2 v-for="index in 3" :key="index" class="noselect">${copy.defaultTitle}</h2>
+                    <div class="credits noselect"> Credits = ${credits}</div>
                 </div>
                 
-                <div id="win">
+         
 
-                    <div class="email">
-                        <input id="email"  type="email" name="contact[email]" placeholder="Enter your email address"/>
-                        <input id="submit_btn" type="submit" value="Submit" />
+                    <!-- spin wheel -->
+                    <div v-if="wheelActive" 
+                        class="wheel noselect">
+
+                        <div class="arrow"></div>
+
+                        <div class="spin-btn" @click="spin()">
+                            <div class="arrow"></div>
+
+                            <div>
+                                <div class="accent">Spin</div> 
+                                <div>to</div> 
+                                <div class="accent">Win</div>
+                            </div>
+
+                        </div>
+
+                        <ul :style="{'transform': 'rotate('+wheelPos+'deg)'}">
+                            <li  v-for="prize in win" 
+                                :key="prize.deg" 
+                                :style="{'transform': 'rotate('+prize.deg+'deg)'}">
+                                <div class="label" v-html="prize.title"></div>
+            
+                            </li>
+                        </ul>
+
                     </div>
 
-                    <div class="prize">
-                        <img src='https://cdn.shopify.com/s/files/1/0593/5942/8759/files/Giftcard.png?v=1638921067' width="auto" height="auto" loading="lazy" />
+                    <!-- prize -->
+                    <div v-else="wheelActive" 
+                        class="win">
+
+                        <div class="prize">
+                            <div class="prize-title">
+                                <h2 v-html="winning_prize.title"></h2>
+                                Valid only at <br/>
+                                <a href="#">Bobs.net/shop</a>
+                            </div>
+
+                            <img src='https://cdn.shopify.com/s/files/1/0593/5942/8759/files/prize-card.png?v=1667522299' 
+                                width="auto" 
+                                height="auto" 
+                                loading="lazy" />
+                        </div>
+
+                        <div class="email">
+                            <input id="email"  type="email" name="contact[email]" placeholder="Enter your email address"/>
+                            <input id="submit_btn" type="submit" value="Get Code" />
+                        </div>
+
+                        <div v-if="credits" 
+                            class="spin-again">
+                            <h3 class="btn" @click="spinAgain()">Or Spin Again</h3>
+                            <div>You will loose this prize</div>
+                        </div>
+
+                        <div v-else 
+                            class="spin-again">
+                            <h3>No Spins Left</h3>
+                            <div>Enter e-mail to claim prize</div>
+                        </div>
+
                     </div>
 
-                </div>
 
+                <p>Valid only at <br/> <a href="/collections/all">Bobs.net/shop</a></p>
+                
             </div>
-   
+       
+
+        </div>    
+
+       <!-- end game -->
     
-            {% endif %}
-      
-            <div class="gameboy">
-                <img src='https://cdn.shopify.com/s/files/1/0593/5942/8759/files/Bob_Hand_Up.svg?v=1664321479' width="auto" height="auto" loading="lazy" />
-            </div>
+    <!-- big boy jumping in -->
+    <div v-if="wheelActive" 
+        class="gameboy-contianer">
+        <div class="gameboy" :class="" @click="reset()">
 
+            <img v-show="armUp" 
+                 src='https://cdn.shopify.com/s/files/1/0593/5942/8759/files/Bob_Hand_Up.svg?v=1667588656' 
+                 width="auto" 
+                 height="auto" 
+                 loading="lazy" />
 
+            <img v-show="!armUp"
+                 src='https://cdn.shopify.com/s/files/1/0593/5942/8759/files/Bob_Hand_In.svg?v=1667588656' 
+                 width="auto" 
+                 height="auto" 
+                 loading="lazy" />
         </div>
-
-
-        <div class="checkerboard"></div>
-
     </div>
 
-{% endform %}
+    <!-- sky -->
+    <div class="sky">
+
+        <div>
+            <div class="sun"></div>
+            
+            <img class="cloud one"src='https://cdn.shopify.com/s/files/1/0593/5942/8759/files/cloud-1.svg?v=1667140810' width="auto" height="auto" loading="lazy" />
+            <img class="cloud two"src='https://cdn.shopify.com/s/files/1/0593/5942/8759/files/cloud-2.svg?v=1667140810' width="auto" height="auto" loading="lazy" />
+            <img class="cloud three"src='https://cdn.shopify.com/s/files/1/0593/5942/8759/files/cloud-3.svg?v=1667140810' width="auto" height="auto" loading="lazy" />
+            <img class="cloud four"src='https://cdn.shopify.com/s/files/1/0593/5942/8759/files/cloud-4.svg?v=1667140810' width="auto" height="auto" loading="lazy" />
+
+            <ul class="birds left">
+                <li class="bird time-3">
+                    <img src='https://cdn.shopify.com/s/files/1/0593/5942/8759/files/bird.svg?v=1667140810' 
+                        width="auto" 
+                        height="auto" 
+                        loading="lazy" />
+                </li>
+                <li class="bird time-1">
+                    <img src='https://cdn.shopify.com/s/files/1/0593/5942/8759/files/bird.svg?v=1667140810' 
+                        width="auto" 
+                        height="auto" 
+                        loading="lazy" />
+                </li>
+                <li class="bird time-2">
+                    <img src='https://cdn.shopify.com/s/files/1/0593/5942/8759/files/bird.svg?v=1667140810' 
+                        width="auto" 
+                        height="auto" 
+                        loading="lazy" />
+                </li>
+            </ul>
+
+            
+            <ul class="birds right">
+                <li class="bird time-1">
+                    <img src='https://cdn.shopify.com/s/files/1/0593/5942/8759/files/bird.svg?v=1667140810' 
+                        width="auto" 
+                        height="auto" 
+                        loading="lazy" />
+                </li>
+                <li class="bird time-3">
+                    <img src='https://cdn.shopify.com/s/files/1/0593/5942/8759/files/bird.svg?v=1667140810' 
+                        width="auto" 
+                        height="auto" 
+                        loading="lazy" />
+                </li>
+                <li class="bird time-2">
+                    <img src='https://cdn.shopify.com/s/files/1/0593/5942/8759/files/bird.svg?v=1667140810' 
+                        width="auto" 
+                        height="auto" 
+                        loading="lazy" />
+                </li>
+            </ul>
+       </div>
+        
+    </div>
+
+    <!-- checker board -->
+    <div class='bg'>
+        <div class="checkerboard"></div>
+    </div>
+
+</div>
+
+</div>
+
+<script src="{{ 'vue@3.0.11.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'howler.min.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'spin-2-win.js' | asset_url }}" defer="defer"></script>

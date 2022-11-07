@@ -1,5 +1,6 @@
 {
-    "sections": {
+  "layout":"game",  
+  "sections": {
       "main": {
         "type": "main-page"
       },

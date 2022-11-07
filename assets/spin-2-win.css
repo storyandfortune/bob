@@ -1,282 +1,439 @@
 
-#shopify-section-header, 
-#shopify-section-footer{
-  display:none;
+:root {
+  --scale: 1;
+  --bob-red:#e62544;
 }
 
-  .spin-win {
-      position: relative;
-      display:flex;
-      justify-content: center;
-      width:100vw;
-      height:100vh;
-      background: radial-gradient(circle, rgba(216,246,254,1) 0%, rgba(44,116,203,1) 100%);
-      perspective: 100vw;
-      overflow: hidden;
+body,
+html{
+  margin:0;
+  padding:0;
+  color:black;
+  font-family: 'AvenirNextLTPro-Medium';
+}
+
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  outline: none;
+}
+
+#title{
+  position:relative;
+  display:block;
+  width:100%;
+  margin: 0 auto 1rem auto;
+  text-align: center;
+  border:1px solid transparent;
+}
+
+h2{
+   position:absolute;
+   top:0;
+   left:0;
+   right:0;
+   margin:0 auto;
+   font-family: "StickyToffee";
+   font-size: clamp(3rem, 5.5vw, 4.5rem);
+   line-height: clamp(3.5rem, 6vw, 6rem);
+   letter-spacing: 1px;
+   padding:0;
+   text-overflow: ellipsis;
+   overflow: hidden;
+   white-space: nowrap;
+}
+
+#title h2:nth-child(1){
+  color:var(--bob-red);
+  z-index:3
+}
+
+#title h2:nth-child(2){
+  color:white;
+  -webkit-text-stroke: clamp(10px, 1vw, 17px) white;
+  -webkit-text-fill-color: white;
+  z-index:2
+}
+
+#title h2:nth-child(3){
+  color:black;
+  -webkit-text-stroke: clamp(20px, 2vw, 33px) black;
+  -webkit-text-fill-color: black;
+  z-index:1
+}
+
+#title .credits{
+  margin-top:clamp(5rem, 6vw, 7rem);
+  font-size: clamp(1.5rem, 2vw, 2rem);
+  text-transform: uppercase;
+  font-family: 'AvenirNextLTPro-Bold';
+}
+
+.spin-win {
+    position: relative;
+    width:100vw;
+    height:100vh;
+    overflow: hidden;
+}
+
+.game{
+  position:absolute;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  top:0;
+  left:0;
+  right:0;
+  margin:0 auto;
+  width:100vw;
+  height:100vh;
+  z-index:2;
+}
+
+
+.game-center{
+  padding-bottom: 5vh;
+}
+
+.game .game-center p{
+  padding:2rem;
+  text-align: center;
+}
+
+.game .game-center p a{
+  color:black;
+  transition: all .25s ease;
+}
+
+.game .game-center p a:hover{
+  color:var(--bob-red);
+}
+
+
+/* --------- TRANSITIONS ------------
+
+.wheel.v-enter-active,
+.wheel.v-leave-active {
+   transition: all 1s ease;
+}
+
+.wheel.v-enter-from{
+  opacity: 0;
+}
+
+.wheel.v-leave-to {
+  opacity: 0;
+  transform:scale(0.25)
+}
+
+
+.win.v-enter-active,
+.win.v-leave-active {
+   transition: all 2s ease;
+}
+
+.win.v-enter-from,
+.win.v-leave-to {
+  opacity: 0;
+}
+
+ */
+
+
+
+/* ---------------- SKY -------------------- */
+
+.sky{
+  position:absolute;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  top:0;
+  left:0;
+  width:100vw;
+  height:100vh;
+  z-index:1;
+}
+
+.sun{
+  position:absolute;
+  top:10%;
+  right:20%;
+  width:200px;
+  height:200px;
+  border-radius: 50%;
+  background-color:#fdd538;
+}
+
+.cloud{
+  position:absolute;
+  width:200px;
+  height:200px;
+  border-radius: 50%;
+  animation-name:cloud-float;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  transition: all .25s ease;
+}
+
+.cloud.one{
+  top:5%;
+  left:10%;
+  animation-duration: 45s;
+}
+
+.cloud.two{
+  top:30%;
+  left:20%;
+  animation-duration: 35s;
+}
+
+.cloud.three{
+  top:15%;
+  right:20%;
+  animation-duration: 30s;
+}
+
+.cloud.four{
+  top:35%;
+  right:10%;
+  animation-duration: 25s;
+}
+
+
+@keyframes cloud-float{
+  0% {
+      transform: scale(1)
+    }
+  50% {
+      transform: scale(1.5) translateX(50%) translateY(10%)
+  }
+  100% {
+    transform: scale(1)
+  }
+}
+
+
+.bird{
+  width: clamp(65px, 8vw, 200px);
+  aspect-ratio: 1/1;
+  margin:.5vw;
+  animation-name: bird-fly;
+  animation-iteration-count: infinite;
+  transition: all .25s ease;
+}
+
+.time-1{
+  animation-duration: 3s;
+}
+.time-2{
+  animation-duration: 4s;
+}
+.time-3{
+  animation-duration: 5s;
+}
+
+.bird img{
+ width:100%;
+ height:auto;
+} 
+
+
+.birds{
+  position:absolute;
+  display:flex;
+  margin:0;
+  padding:0;
+  list-style: none;
+}
+
+.birds.left{
+  top:30%;
+  left:5%;
+}
+
+.birds.right{
+  top:30%;
+  right:5%;
+}
+
+
+@keyframes bird-fly {
+  0% {
+        margin:0;
+        transform: scale(1.1) rotate(2deg)
+      }
+  15% {
+        margin:10%;
+        transform: scale(0.9) rotate(-1deg)
+      }
+  25% {
+      margin:5%;
+      transform: scale(1.3) rotate(5deg)
+  }
+  35% {
+      margin:8%;
+      transform: scale(1.1) rotate(0deg)
+  }
+  65% {
+      margin:0%;
+      transform: scale(0.7) rotate(-8deg)
+  }
+  85% {
+      margin:5%;
+      transform: scale(1.4) rotate(-2deg)
+  }
+  100% {
+      margin:0%;
+      transform: scale(1.1) rotate(3deg)
+  }
+}
+
+
+  /* ---------------- BG -------------------- */
+
+  .bg{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100vw;
+    height:100vh;
+    perspective: 100vw;
+    background: #75d0f3;
+    z-index:0;
   }
 
   .checkerboard {
-  
     position: absolute;
     width:200vw;
     height:100vh;
     left:-50%;
-    bottom:-30%;
-    border: 15px var(--bob-gold) solid;
+    bottom:-44%;
     background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/pattern_checkerboard_1_7_0-0_0_2__ffffff_000000.png?v=1664407865");
     background-repeat: repeat;
-    background-size: 100%;
-    
-    transform: rotatex(80deg);
+    background-size: 100%; 
+    transform: rotatex(90deg);
     background-repeat: repeat;
     z-index: 0;
-
   }
 
-  .spin-win  *{
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    outline: none;
-  }
 
-  .spin-win  a{
-    color:var(--bob-gold);
-    font-size: 2rem;
-  }
-
-  .spin-win  a:hover{
-    color:var(--bob-red);
-  }
-
-  .spin-win .bg{
-    position:relative;
-    min-height:50vh;
-    width: 95vw;
-    height:75vh;
-    justify-content: center;
-    align-self: center;
-  
-  }
-
-  /* ---------------- TITLE -------------------- */
-
-  .claimed{
-    position:relative;
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    width:100%;
-    height:100%;
-    min-height:50vh;
-    z-index:1;
-  }
-
-  .claimed-box{
-    text-align: center;
-    border: 2px var(--bob-gold) solid;
-    align-self: center;
-    border-radius: 1rem;
-    background-color: rgba(255, 255, 255, 0.75);
-    padding:11vw;
-  }
-  
-
-  .spin-win #title{
-    display:block;
-    width:100%;
-    margin: 2rem auto 2rem auto;
-    text-align: center;
-  }
-
-  .spin-win #title strong{
-    font-family: "AvenirNextLTPro-Bold";
-  }
-
-  .spin-win h2{
-    font-family: "Harvard";
-    color:var(--bob-red);
-    font-size: 60px;
-    line-height: 50px;
-    margin:0 0 2rem 0;
-    padding:0;
-    
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-  }
 
    /* ---------------- SPIN -------------------- */
 
-  .game{
-    position:relative;
-    display:flex;
-    justify-content: center;
-    align-content: center;
-    z-index:1;
+   .wheel{
+     position:relative;
+     width: clamp(300px, 30vw, 550px);
+     aspect-ratio:1/1;
+     border-radius: 50%;;
+     margin: 0 auto;
+     overflow:hidden;
+     animation-name: spin-in;
+     animation-duration: 1.5s;
+     border:1px solid rgba(0, 0, 0, 0.25);
    }
 
-  .spin-win #spin{
-    opacity:0;
+   .wheel ul{
     position:relative;
-    display:flex;
-    align-self: center;
-    transition: all ease .5s;
-    transform-origin: center;
-    width: 500px;
-    height: 500px;
-  }
+    margin:0;
+    padding:0;
+    list-style: none;
+    width:100%;
+    aspect-ratio:1/1;
+    transition:transform 5s ease;
+   }
 
-  .spin-win.start #spin{
-    opacity:1;
-    animation-name: spin-in;
-    animation-duration: 3s;
-  }
+   .wheel ul li{
+      position:absolute;
+      top:0;
+      left:0;
+      right:0;
+      margin:0 auto;
+      font-family: var(--bold);
+      text-align: center;; 
+      width:42%;
+      height:50%;
+      clip-path: polygon(50% 100%, 0 0, 100% 0);
+      background:rgb(11, 241, 25, .15);
+      transform-origin: bottom center;
+      z-index:1;
+   }
 
-  .spin-win  .game.shrink #spin{
-    display:block;
-    opacity: 0;
-    transform: scale(.1);
-  }
+   
+   .wheel ul li:nth-child(even){
+        background:black;
+        color:white;
+   }
 
-  .spin-win  .game.shrink.in #spin{
-    display:none;
-  }
+   .wheel ul li:nth-child(odd){
+        background:white;
+        color:black;
+    }
+    
+   .wheel ul li .label{
+      position:absolute;
+      text-align: center;
+      top:20%;
+      width:100%;
+      padding:0 25%;
+      text-transform: uppercase;
+      font-family:'AvenirNextLTPro-Bold';
+      font-size: clamp(.7rem, 1vw, 1.5rem);
+   }
+   
+   .arrow{
+      position:absolute;
+      top:0;
+      left:0;
+      right:0;
+      margin:0 auto;
+      width:3rem;
+      height:2rem;
+      background:var(--bob-red);
+      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+      transform: rotate(180deg);
+      z-index:10;
+   }
 
-  .spin-win .triangle{
-    position:absolute;
-    left:0;
-    right:0;
-    margin: 0 auto;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 45px 12.5px 0 12.5px;
-    border-color: #e7c391 transparent transparent transparent;
-    z-index:300;
-  }
+   .spin-btn .arrow{
+      transform: rotate(0deg);
+      top:-1.3rem;
+   }
 
- .spin-win .mainbox{
-    position: relative;
-    margin: 0 auto;
-    width: 500px;
-    height: 500px;
-  }
+   .spin-btn{
+     position:absolute;
+     display:flex;
+     align-items: center;
+     justify-content: center;
+     top: 50%;
+     left: 50%; 
+     transform: translate(-50%, -50%);
+     width:45%;
+     aspect-ratio:1/1;
+     border-radius: 50%;;
+     background:var(--bob-red);
+     color:white;
+     margin: 0 auto;
+     overflow:visible;
+     text-align: center;
+     font-family: "StickyToffee";
+     font-size: clamp(1rem, 3vw, 4.5rem);
+     padding:1.5rem 3rem;
+     cursor: pointer;
+     transition: all .25s ease;
+     z-index:10;
+   }
 
-  .spin-win  .box{
-    position: relative;
-    display:block;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    border: 5px solid var(--bob-gold);
-    box-shadow: 0 0 35px rgba(0, 0, 0, 0.45);
-    background-color: white;
-    overflow: hidden;
-    transition: all ease 5s;
-  }
+   .spin-btn .accent{
+      color:#fdd538;
+   }
 
-  .spin-win .box1{
-    display: block;
-    width: 100%;
-    height: 100%;
-    transform: rotate(45deg);
+  .spin-btn:active{
+    width:18vw;
+    height:18vw;
+    font-size: 4rem;
   }
-
-  .spin-win .box2{
-    display: block;
-    width: 100%;
-    height: 100%;
-  }
-
-  .spin-win  .box1 span{
-    width: 50%;
-    height: 50%;
-    position: absolute;
-    background-color: var(--bob-red);    
-  }
-
-  .spin-win  .box2 span{
-    width: 50%;
-    height: 50%;
-    position: absolute;
-    background-color: white;
-  }
-
-  .spin-win  .top{
-    clip-path: polygon(50% 100%, 92% 0, 8% 0);
-    top: 0;
-    left: 120px;
-  }
-  
-  .spin-win  .left{
-    clip-path: polygon(0 92%, 100% 50%, 0 8%);
-    top: 120px;
-    left: 0;
-  }
-
-  .spin-win  .right{
-    clip-path: polygon(100% 92%, 0 50%, 100% 8%);
-    top: 120px;
-    right: 0;
-  }
-
-  .spin-win  .bottom{
-    clip-path: polygon(50% 0%, 8% 100%, 92% 100%);
-    bottom: 0;
-    left: 120px;
-  }
-
-  .spin-win   .top b{
-    transform: translate(-50%, -50%) rotate(-85deg);
-  }
-
-  .spin-win  .left b{
-    transform: translate(-50%, -50%) rotate(185deg);
-  }
-
-  .spin-win .right b{
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-
-  .spin-win .bottom b{
-     transform: translate(-50%, -50%) rotate(-270deg);
-  }
-
-  .spin-win  span b{
-    font-size: 20px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color:white;
-    white-space: nowrap;
-  }
-
-  .spin-win  .box2 span b{
-    color:var(--bob-red)
-  }
-  
-  .spin-win .spin-btn{
-    position: absolute;
-    display:block;
-    top: 50%;
-    left: 50%; 
-    transform: translate(-50%, -50%);
-    width: 70px;
-    height: 70px;
-    border: 2px solid #fff;
-    background-color: var(--bob-blue);
-    border-radius: 50%;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.75);
-    color: #fff;
-    padding-top:20px;
-    text-align: center;
-    font-size: 15px;
-    cursor: pointer;
-    transition: all .25s ease;
-  }
-
 
   .spin-win .spin-btn.disable{
     box-shadow: 0 0 0 rgba(0, 0, 0, 0);
@@ -284,28 +441,31 @@
     cursor:auto;
   }
 
-
   .spin-win .spin-btn.disable:active{
     width: 70px;
     height: 70px;
     font-size: 15px;
   }
 
-  .spin-win .spin-btn:active{
-    width: 65px;
-    height: 65px;
-    font-size: 13px;
-  }
+
+
+  /* --- GAMEBOY --------------------------------------------------- */
 
   .gameboy{
     position:absolute;
-    opacity:0;
-    left:-550px;
+    opacity:1;
+    left:0;
     right:0;
-    bottom:-50vh;
-    margin:0 auto;
-    width:350px;
-    z-index:1;
+    margin-right:clamp(300px, 30vw, 550px);
+    bottom:15rem;
+    width: clamp(20rem, 30vw, 30rem);
+    z-index:10;
+    transition: all 1.25s ease;
+    transform: rotate(0);
+    transform-origin: top;
+    animation-name: pop-up ;
+    animation-duration: 1.5s;
+    z-index:10
   }
 
   .start .gameboy{
@@ -323,15 +483,16 @@
 
   @keyframes pop-up {
     0% {
-          bottom:-50vh;
+          bottom:-70vh;
+          width:60vw;
         }
-    93% {
-          bottom:6rem;
-          transform: rotate(20deg);
+    85% {
+          bottom:45vh;
+          transform: rotate(25deg);
         }
     100% {
-        bottom:-5rem;
         transform: rotate(0deg);
+        width:30vw;
        }
   }
 
@@ -344,31 +505,25 @@
     }
   }
 
+ 
+  
   /* ---------------- WIN -------------------- */
 
-  .spin-win #win{
-    position:absolute;
-    visibility: hidden;
+  .spin-win .win{
+    position:relative;
     width:90vw;
-    left:-200vw;
     margin:0 auto;
     max-width:500px;
     transition: all ease .75s;
     z-index:1;
   }
   
-  .spin-win .game.in #win{
-    position:relative;
-    left:0;
-    visibility: visible;
-  }
-
   .spin-win #win img{
     width:100%;
     height: auto;
   }
 
-  .spin-win #win .email{ 
+  .spin-win .win .email{ 
     position: relative;
     display: flex;
     flex-direction: row;
@@ -378,28 +533,60 @@
     margin:0 auto;
   }
 
-  .spin-win #win #email{
+  .spin-win .win #email{
     flex: 2;
     border:1px solid #ccc;
     font-size: 18px;
     padding:0 1rem;
     height: 4rem;
+    text-align: center;
+    color:black;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
  
   }
 
-  .spin-win #win .prize { 
-      padding:0;
-      margin:0;
-      margin-top:2rem;
-      border: 3px solid var(--bob-gold);
-      border-radius: 1rem;
-      background-color:  #c6a577;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.45);
+  .spin-win .win .prize { 
+      position:relative;
+      margin:0 0 1rem 0;
   }
 
-  .spin-win #win .prize img{ 
+  .spin-win .win .prize .prize-title{
+      position:absolute;
+      top:0;
+      right:0;
+      width:40%;
+      padding:1rem 0;
+      text-align: center;
+      font-size: clamp(.75rem, 1vw, 1rem);
+      line-height: clamp(1.05rem, 1.5vw, 1.8rem);
+      color:white;
+   }
+
+   .spin-win .win .prize .prize-title h2{
+      position:relative;
+      display:block;
+      color:yellow;
+      font-family: "Harvard";
+      font-size: clamp(1.25rem, 2vw, 2.5rem);
+      line-height: clamp(.25rem, 2.5rem, 2.5rem);
+      margin-bottom: clamp(0, 1vw, 1rem);
+   }
+
+
+   .spin-win .win .prize .prize-title h2::first-line{
+        color:white;
+        text-transform: uppercase;
+        font-size: clamp(1.75rem, 3vw, 3rem);
+        line-height: clamp(1.25rem, 3.5vw, 3rem);
+   }
+
+   .spin-win .win .prize .prize-title a{
+      color:white;
+   }
+
+
+  .spin-win .win .prize img{ 
       display: block;
       padding:0;
       margin:0;
@@ -407,7 +594,7 @@
       height:auto;
   }
 
-  .spin-win #win #submit_btn{
+  .spin-win .win #submit_btn{
     width: 20%;
     height: 4rem;
     font-size: 13px;
@@ -420,12 +607,35 @@
     padding:1rem;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
-
     transition: all .25s ease;
   }
 
-  .spin-win #win #submit_btn:hover{
+  .spin-win .win #submit_btn:hover{
     background-color: var(--bob-red);
+  }
+
+  .spin-win .spin-again{
+     text-align: center;
+  }
+
+  .spin-win .spin-again h3{
+    font-family: "StickyToffee";
+    font-size: clamp(1rem, 3.5vw, 3rem);
+    line-height: 6rem;
+    letter-spacing: 1px;
+    color:var(--bob-red);
+    padding:0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .spin-win .spin-again h3.btn{
+       cursor:pointer;
+  }
+
+  .spin-win .spin-again div{
+    font-family: "AvenirNextLTPro-Bold";
   }
 
   .noselect {
@@ -443,63 +653,12 @@
 
 @media screen and (max-width: 600px) {
 
-  :root {
-    --scale: .8;
-  }
-
-  
-  .spin-win #spin{
-    transform: scale(.8);
-  }
-
-  .gameboy{
-    left:-400px; 
-    right:0;
-    width:330px;
-    z-index:1;
-  }
-
-
 }
 
 @media screen and (max-width: 400px) {
-
-  :root {
-    --scale: .65;
-  }
-
- 
-
-  .spin-win #spin{
-    transform-origin: top;
-    transform: scale(.65)
-  }
-
-  .gameboy{
-    left:-320px; 
-    right:0;
-    width:250px;
-  }
-
- 
 
 }
 
 @media screen and (max-width: 300px) {
 
-  :root {
-    --scale: .45;
-  }
-
-
-  .gameboy{
-    left:-250px; 
-    right:0;
-    width:150px;
-  }
-
-  .spin-win #spin{
-    transform-origin: top;
-    transform: scale(.45)
-  }
 }
