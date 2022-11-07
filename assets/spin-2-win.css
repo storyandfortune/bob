@@ -77,6 +77,24 @@ h2{
     overflow: hidden;
 }
 
+@media screen and (max-width: 600px) {
+  .spin-win {
+    border:3px solid red;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .spin-win {
+    border:3px solid green  }
+}
+
+
+@media screen and (max-width: 300px) {
+  .spin-win {
+    border:3px solid purple;
+  }
+}
+
 .game{
   position:absolute;
   display:flex;
@@ -166,6 +184,22 @@ h2{
   background-color:#fdd538;
 }
 
+@media screen and (max-width: 600px) {
+  .sun{
+    right:-5rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .sun{}
+}
+
+
+@media screen and (max-width: 300px) {
+  .sun{}
+}
+
+
 .cloud{
   position:absolute;
   width:200px;
@@ -218,19 +252,21 @@ h2{
 .bird{
   width: clamp(65px, 8vw, 200px);
   aspect-ratio: 1/1;
-  margin:.5vw;
   animation-name: bird-fly;
   animation-iteration-count: infinite;
   transition: all .25s ease;
 }
 
 .time-1{
+  margin: 1rem .5vw;
   animation-duration: 3s;
 }
 .time-2{
+  margin: 5rem .5vw;
   animation-duration: 4s;
 }
 .time-3{
+  margin: 1rem .5vw;
   animation-duration: 5s;
 }
 
@@ -257,6 +293,29 @@ h2{
   top:30%;
   right:5%;
 }
+
+
+@media screen and (max-width: 600px) {
+  .birds.left{
+    top:35%;
+    left:-15%;
+  }
+  
+  .birds.right{
+    top:35%;
+    right:-15%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+
+}
+
+
+@media screen and (max-width: 300px) {
+
+}
+
 
 
 @keyframes bird-fly {
@@ -319,12 +378,28 @@ h2{
   }
 
 
+  @media screen and (max-width: 600px) {
+    .checkerboard {
+      transform: rotatex(110deg);
+    }
+  }
+  
+  @media screen and (max-width: 400px) {
+    .checkerboard {}
+  }
+  
+  
+  @media screen and (max-width: 300px) {
+    .checkerboard {}
+  }
+
+
 
    /* ---------------- SPIN -------------------- */
 
    .wheel{
      position:relative;
-     width: clamp(300px, 30vw, 550px);
+     width: clamp(300px, 40vw, 550px);
      aspect-ratio:1/1;
      border-radius: 50%;;
      margin: 0 auto;
@@ -379,7 +454,7 @@ h2{
       padding:0 25%;
       text-transform: uppercase;
       font-family:'AvenirNextLTPro-Bold';
-      font-size: clamp(.7rem, 1vw, 1.5rem);
+      font-size: clamp(.7rem, 1.35vw, 1.5rem);
    }
    
    .arrow{
@@ -401,7 +476,7 @@ h2{
       top:-1.3rem;
    }
 
-   .spin-btn{
+  .spin-btn{
      position:absolute;
      display:flex;
      align-items: center;
@@ -418,7 +493,7 @@ h2{
      overflow:visible;
      text-align: center;
      font-family: "StickyToffee";
-     font-size: clamp(1rem, 3vw, 4.5rem);
+     font-size: clamp(1.25rem, 3vw, 4.5rem);
      padding:1.5rem 3rem;
      cursor: pointer;
      transition: all .25s ease;
@@ -454,23 +529,46 @@ h2{
   .gameboy{
     position:absolute;
     opacity:1;
-    left:0;
-    right:0;
-    margin-right:clamp(300px, 30vw, 550px);
-    bottom:15rem;
-    width: clamp(20rem, 30vw, 30rem);
+    left:10%;
+    width: clamp(19rem, 30vw, 30rem);
     z-index:10;
     transition: all 1.25s ease;
     transform: rotate(0);
     transform-origin: top;
-    animation-name: pop-up ;
+    animation-name: pop-up;
     animation-duration: 1.5s;
-    z-index:10
+    z-index:10;
+
+    /* border:1px purple solid; */
+
   }
+
+
+  @media screen and (max-width: 900px) {
+    .gameboy{
+       left:0;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .gameboy{
+       left:-6rem;
+    }
+  }
+  
+  @media screen and (max-width: 400px) {
+    .gameboy{}
+  }
+  
+  
+  @media screen and (max-width: 300px) {
+    .gameboy{}
+  }
+  
 
   .start .gameboy{
     opacity:1;
-    bottom:0px;
+    bottom:10vh;
     transform: rotate(0deg);
     animation-name: pop-up ;
     animation-duration: 1.5s;
@@ -491,6 +589,7 @@ h2{
           transform: rotate(25deg);
         }
     100% {
+        bottom:10vh;
         transform: rotate(0deg);
         width:30vw;
        }
@@ -506,7 +605,6 @@ h2{
   }
 
  
-  
   /* ---------------- WIN -------------------- */
 
   .spin-win .win{
@@ -573,7 +671,6 @@ h2{
       margin-bottom: clamp(0, 1vw, 1rem);
    }
 
-
    .spin-win .win .prize .prize-title h2::first-line{
         color:white;
         text-transform: uppercase;
@@ -584,7 +681,6 @@ h2{
    .spin-win .win .prize .prize-title a{
       color:white;
    }
-
 
   .spin-win .win .prize img{ 
       display: block;
