@@ -102,16 +102,20 @@ var app = Vue.createApp({
 	
 	
 			setTimeout(() => {
+				this.gameState = "reset-wheel"
+				this.wheelPos = 0
+
 				if(this.winning_prize.code === "MORE-SPINS"){
 					this.credits = this.credits + 3
+					this.gameState = "start"
 				}
-				this.wheelPos = 0
 			}, 5500);
 		
 			if(this.winning_prize.code != "MORE-SPINS"){
 				setTimeout(() => {
 					this.addCoupon()
 					this.applause.play()
+					this.gameState = "win"
 					this.wheelActive = false
 					this.copy.defaultTitle = "You Won"
 				
