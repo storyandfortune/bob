@@ -28,7 +28,7 @@ html{
   border:1px solid transparent;
 }
 
-h2{
+#title h2{
    position:absolute;
    top:0;
    left:0;
@@ -77,24 +77,6 @@ h2{
     overflow: hidden;
 }
 
-@media screen and (max-width: 600px) {
-  .spin-win {
-    border:3px solid red;
-  }
-}
-
-@media screen and (max-width: 400px) {
-  .spin-win {
-    border:3px solid green  }
-}
-
-
-@media screen and (max-width: 300px) {
-  .spin-win {
-    border:3px solid purple;
-  }
-}
-
 .game{
   position:absolute;
   display:flex;
@@ -109,13 +91,12 @@ h2{
   z-index:2;
 }
 
-
 .game-center{
   padding-bottom: 10vh;
 }
 
 .game .game-center p{
-  padding:clamp(1rem, 2vw, 2rem);
+  padding:clamp(.5rem, 2vw, 2rem);
   text-align: center;
 }
 
@@ -193,7 +174,6 @@ h2{
 @media screen and (max-width: 400px) {
   .sun{}
 }
-
 
 @media screen and (max-width: 300px) {
   .sun{}
@@ -392,7 +372,9 @@ h2{
   }
   
   @media screen and (max-width: 400px) {
-    .checkerboard {}
+    .checkerboard {
+      transform: rotatex(115deg);
+    }
   }
   
 
@@ -556,6 +538,11 @@ h2{
 
   }
 
+  .gameboy img{
+    width:100%;
+    height:auto;
+  }
+
 
   @media screen and (max-width: 900px) {
     .gameboy{
@@ -575,15 +562,8 @@ h2{
    }
   }
   
-  
   @media screen and (max-width: 300px) {
     .gameboy{}
-  }
-  
-
-  .gameboy img{
-    width:100%;
-    height:auto;
   }
 
   @keyframes pop-up {
@@ -615,32 +595,26 @@ h2{
 
  
   /* ---------------- WIN -------------------- */
+    
+  .spin-win.show-prize .win {
+      position: relative;
+      display:block;
+      margin:0 auto;
+      width:90%;
+   }
 
-  .spin-win .win{
-    position:relative;
-    width:90vw;
-    margin:0 auto;
-    max-width:500px;
-    transition: all ease .75s;
-    z-index:1;
-  }
-  
-  .spin-win #win img{
-    width:100%;
-    height: auto;
-  }
-
-  .spin-win .win .email{ 
+  .spin-win.show-prize .win .email{ 
     position: relative;
     display: flex;
     flex-direction: row;
     align-items: stretch;
     width:100%;
-    height: 4rem;
+    height:auto;
+    min-height: 4rem;
     margin:0 auto;
   }
 
-  .spin-win .win #email{
+  .spin-win.show-prize .win #email{
     flex: 2;
     border:1px solid #ccc;
     font-size: 18px;
@@ -653,12 +627,12 @@ h2{
  
   }
 
-  .spin-win .win .prize { 
+  .spin-win.show-prize .win .prize { 
       position:relative;
       margin:0 0 .5rem 0;
   }
 
-  .spin-win .win .prize .prize-title{
+  .spin-win.show-prize  .win .prize .prize-title{
       position:absolute;
       top:0;
       right:0;
@@ -670,28 +644,28 @@ h2{
       color:white;
    }
 
-   .spin-win .win .prize .prize-title h2{
+   .spin-win.show-prize  .win .prize .prize-title h2{
       position:relative;
       display:block;
-      color:yellow;
+      color:#fdd538;
       font-family: "Harvard";
       font-size: clamp(1.25rem, 2vw, 2.5rem);
-      line-height: clamp(.25rem, 2.5rem, 2.5rem);
-      margin-bottom: clamp(0, 1vw, 1rem);
+      line-height: clamp(1rem 2.5vw, 2.5rem);
+      margin-bottom: clamp(1rem, 1vw, 1rem);
    }
 
-   .spin-win .win .prize .prize-title h2::first-line{
+   .spin-win.show-prize  .win .prize .prize-title h2::first-line{
         color:white;
         text-transform: uppercase;
-        font-size: clamp(1.75rem, 3vw, 3rem);
-        line-height: clamp(1.25rem, 3.5vw, 3rem);
+        font-size: clamp(2rem, 3vw, 3rem);
+        line-height: clamp(2rem, 3.5vw, 3rem);
    }
 
-   .spin-win .win .prize .prize-title a{
+   .spin-win.show-prize  .win .prize .prize-title a{
       color:white;
    }
 
-  .spin-win .win .prize img{ 
+  .spin-win.show-prize  .win .prize img{ 
       display: block;
       padding:0;
       margin:0;
@@ -699,10 +673,14 @@ h2{
       height:auto;
   }
 
-  .spin-win.win #submit_btn{
+  .spin-win.show-prize  .win #email{
+    font-size: clamp(1rem, .5vw, 1rem);
+  }
+
+  .spin-win.show-prize  .win #submit_btn{
     width: 35%;
     height: 4rem;
-    font-size: clamp(1.5rem, .5vw, 1rem);
+    font-size: clamp(1rem, .5vw, 1rem);
     font-weight: 800;
     cursor: pointer;
     border:none;
@@ -715,15 +693,15 @@ h2{
     transition: all .25s ease;
   }
 
-  .spin-win.win #submit_btn:hover{
+  .spin-win.show-prize  .win #submit_btn:hover{
     background-color: var(--bob-red);
   }
 
-  .spin-win .spin-again{
+  .spin-win.show-prize  .spin-again{
      text-align: center;
   }
 
-  .spin-win .spin-again h3{
+  .spin-win.show-prize  .spin-again h3{
     font-family: "StickyToffee";
     font-size: clamp(2rem, 3.5vw, 3rem);
     line-height: clamp(2.5rem, 4vw, 3.5rem);
@@ -736,21 +714,21 @@ h2{
     white-space: nowrap;
   }
 
-  .spin-win .spin-again h3.btn{
+  .spin-win.show-prize  .spin-again h3.btn{
        cursor:pointer;
        transition: all .25s ease;
   }
 
-  .spin-win .spin-again h3.btn:hover{
+  .spin-win.show-prize  .spin-again h3.btn:hover{
     cursor:pointer;
     transform:scale(1.2);
 }
 
-  .spin-win .spin-again div{
+  .spin-win.show-prize  .spin-again div{
     font-family: "AvenirNextLTPro-Bold";
   }
 
-  .spin-win.win p{
+  .spin-win.show-prize  .win p{
     padding:.5rem;
   }
 
