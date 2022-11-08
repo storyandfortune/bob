@@ -111,11 +111,11 @@ h2{
 
 
 .game-center{
-  padding-bottom: 5vh;
+  padding-bottom: 10vh;
 }
 
 .game .game-center p{
-  padding:2rem;
+  padding:clamp(1rem, 2vw, 2rem);
   text-align: center;
 }
 
@@ -250,7 +250,7 @@ h2{
 
 
 .bird{
-  width: clamp(65px, 8vw, 200px);
+  width: clamp(50px, 8vw, 200px);
   aspect-ratio: 1/1;
   animation-name: bird-fly;
   animation-iteration-count: infinite;
@@ -261,10 +261,12 @@ h2{
   padding: 1rem .5vw;
   animation-duration: 3s;
 }
+
 .time-2{
   padding: 3rem .5vw;
   animation-duration: 4s;
 }
+
 .time-3{
   padding: 1rem .5vw;
   animation-duration: 5s;
@@ -274,7 +276,6 @@ h2{
  width:100%;
  height:auto;
 } 
-
 
 .birds{
   position:absolute;
@@ -308,7 +309,15 @@ h2{
 }
 
 @media screen and (max-width: 400px) {
-
+  .birds.left{
+    top:20%;
+    left:0;
+  }
+  
+  .birds.right{
+    top:20%;
+    right:0;
+  }
 }
 
 @media screen and (max-width: 300px) {
@@ -386,7 +395,7 @@ h2{
     .checkerboard {}
   }
   
-  
+
   @media screen and (max-width: 300px) {
     .checkerboard {}
   }
@@ -466,8 +475,8 @@ h2{
       left:0;
       right:0;
       margin:0 auto;
-      width:3rem;
-      height:2rem;
+      width:clamp(1.5rem, 2rem, 3rem);
+      aspect-ratio: 3/2;
       background:var(--bob-red);
       clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
       transform: rotate(180deg);
@@ -476,7 +485,7 @@ h2{
 
    .spin-btn .arrow{
       transform: rotate(0deg);
-      top:-1.3rem;
+      top:-1rem;
    }
 
   .spin-btn{
@@ -535,7 +544,7 @@ h2{
     left:10%;
     bottom:10vh;
     transform: rotate(0deg);
-    width: clamp(19rem, 30vw, 30rem);
+    width: clamp(16rem, 30vw, 30rem);
     transition: all 1.25s ease;
     transform: rotate(0);
     transform-origin: top;
@@ -561,7 +570,9 @@ h2{
   }
   
   @media screen and (max-width: 400px) {
-    .gameboy{}
+    .gameboy{
+      left:-6rem;
+   }
   }
   
   
@@ -577,13 +588,15 @@ h2{
 
   @keyframes pop-up {
     0% {
+          left:35%;
           bottom:-70vh;
           width:60vw;
         }
     85% {
+          left:20%;
           bottom:45vh;
           transform: rotate(25deg);
-        }
+         } 
     100% {
         bottom:10vh;
         transform: rotate(0deg);
@@ -732,7 +745,6 @@ h2{
     cursor:pointer;
     transform:scale(1.2);
 }
-
 
   .spin-win .spin-again div{
     font-family: "AvenirNextLTPro-Bold";
