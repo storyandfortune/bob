@@ -2,7 +2,6 @@ var app = Vue.createApp({
 
 	data() {
 		return {
-			testing:true,
 			ready:false,
 			gameState:"init",
 			win:[
@@ -87,8 +86,6 @@ var app = Vue.createApp({
 				setTimeout(() => {
 					this.armUp = true
 				}, 1500);
-			
-
 			}
 		},
 		spin(){
@@ -137,13 +134,6 @@ var app = Vue.createApp({
 			window.sessionStorage.setItem("coupon", value);
 	
 		},
-		test(d){
-			 this.winning_prize = this.win.find(element => element.deg === d);
-			 this.addCoupon();
-	
-			 let link = window.location.protocol + '//' + window.location.hostname + ":" + window.location.port+ "/discount/" +  this.winning_prize.code;
-			 window.location = link;
-		},
 		reset(){
 			window.sessionStorage.clear();
 			window.location.reload();
@@ -155,20 +145,8 @@ var app = Vue.createApp({
 
 			const STOREFRONT_ACCESS_TOKEN = 'f625bec6d5adc4e5aad0c18415597126'
 			const GRAPHQL_URL = 'https://dev-big-boy.myshopify.com/api/2022-10/graphql.json'
-			
-		    
-            let inputObject = `{"input": {"allowPartialAddresses": true,"email":"`+this.email+`,"note": "Spin 2 Win"}}`;
-
-
-			const addCustomer =`mutation checkoutCreate(`+ inputObject +`: CheckoutCreateInput!) { checkoutCreate(input:`+ inputObject +`) { checkout {email}, checkoutUserErrors {field message}}}`;
-
-			console.log(addCustomer);
-
-			const GQL = `{
-				shop {
-				  name
-				}
-			  }`
+            const inputObject = `{"input": {"allowPartialAddresses": true,"email":"`+ this.email +`,"note": "Spin 2 Win"}}`;
+			const addCustomer =`mutation checkoutCreate(`+ inputObject +`: CheckoutCreateInput!) { checkoutCreate(input:`+ inputObject +`) { checkout {email}, checkoutUserErrors {field message}}}`
 
 			const GRAPHQL_BODY  = () => {
 				return {
@@ -180,7 +158,7 @@ var app = Vue.createApp({
 					'Content-Type': 'application/graphql',
 				},
 				'body': addCustomer
-				};
+				}
 			}
 
 
@@ -189,8 +167,6 @@ var app = Vue.createApp({
 				.then(result => {
 					console.log(result)
 				})
-
-
 		},
 		init(){
 	
