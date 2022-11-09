@@ -3,6 +3,7 @@ var app = Vue.createApp({
 	data() {
 		return {
 			testing:true,
+			ready:false,
 			gameState:"init",
 			win:[
 				{
@@ -82,6 +83,7 @@ var app = Vue.createApp({
 			if(	this.soundLoaded > 3){
 
 				this.gameState = "start"
+				this.ready = true
 				setTimeout(() => {
 					this.armUp = true
 				}, 1500);
