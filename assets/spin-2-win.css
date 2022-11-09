@@ -110,37 +110,6 @@ html{
 }
 
 
-/* --------- TRANSITIONS ------------
-
-.wheel.v-enter-active,
-.wheel.v-leave-active {
-   transition: all 1s ease;
-}
-
-.wheel.v-enter-from{
-  opacity: 0;
-}
-
-.wheel.v-leave-to {
-  opacity: 0;
-  transform:scale(0.25)
-}
-
-
-.win.v-enter-active,
-.win.v-leave-active {
-   transition: all 2s ease;
-}
-
-.win.v-enter-from,
-.win.v-leave-to {
-  opacity: 0;
-}
-
- */
-
-
-
 /* ---------------- SKY -------------------- */
 
 .sky{
@@ -395,7 +364,6 @@ html{
      overflow:hidden;
      animation-name: spin-in;
      animation-duration: 1.5s;
-     border:1px solid rgba(0, 0, 0, 0.25);
    }
 
    .wheel ul{

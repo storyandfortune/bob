@@ -47,10 +47,14 @@
         <div class="game">
             
             <div class="game-center">
+
                 <!-- title -->
-                <div id="title">
+                <div id="title" @click="addEmail()">
                     <h2 v-for="index in 3" :key="index" class="noselect">${copy.defaultTitle}</h2>
                     <div class="credits noselect"> Credits = ${credits}</div>
+
+                    ${email}
+
                 </div>
                 
          
@@ -102,7 +106,7 @@
                         </div>
 
                         <div class="email">
-                            <input id="email"  type="email" name="contact[email]" placeholder="Enter your email address"/>
+                            <input v-model="email" id="email"  type="email" name="contact[email]" placeholder="Enter your email address"/>
                             <input id="submit_btn" type="submit" value="Get Code" />
                         </div>
 
@@ -130,8 +134,10 @@
 
        <!-- end game -->
     
-    <!-- big boy jumping in -->
-    <div v-if="wheelActive" 
+   
+       <!-- big boy jumping in -->
+    
+       <div v-if="wheelActive" 
         class="gameboy-contianer">
         <div class="gameboy" :class="" @click="reset()">
 
@@ -147,9 +153,10 @@
                  height="auto" 
                  loading="lazy" />
         </div>
-    </div>
+        </div>
 
-    <!-- sky -->
+    
+        <!-- sky -->
     <div class="sky">
 
         <div>
@@ -213,7 +220,7 @@
 
 </div>
 
-</div>
+
 
 <script src="{{ 'vue@3.0.11.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'howler.min.js' | asset_url }}" defer="defer"></script>

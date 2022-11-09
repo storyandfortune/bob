@@ -59,8 +59,9 @@ var app = Vue.createApp({
 			coupon_code:false,
 			credits:3,
 			wheelActive:true,
+			email:'test@test.com',
 			copy :{
-				defaultTitle:"Spin 2 Win",
+				defaultTitle:"Wheel of Fish",
 				defualttagline:"Spin the wheel for a chance to win!",
 				cta:"Enter your e-mail address to collect your prize."
 			},
@@ -147,6 +148,54 @@ var app = Vue.createApp({
 		},
 		spinAgain(){
 			this.wheelActive = true
+		},
+		addEmail(){
+		    
+            let email = {
+				"input": {
+				  "email": this.email
+				}
+			}
+
+			const STOREFRONT_ACCESS_TOKEN = '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'
+
+			const GRAPHQL_URL = 'https://dev-big-bot.myshopify.com/api/2020-07/graphql.json'
+
+			const addCustomer = (email) => `
+					mutation customerCreate(`+ email +`: CustomerInput!) {
+						customerCreate(input: `+ email +`) {
+						customer {
+							email
+						}
+						userErrors {
+							field
+							message
+						}
+						}
+					}
+				`;
+
+			const GRAPHQL_BODY  = () => {
+				return {
+				'async': true,
+				'crossDomain': true,
+				'method': 'POST',
+				'headers': {
+					'X-Shopify-Storefront-Access-Token': STOREFRONT_ACCESS_TOKEN,
+					'Content-Type': 'application/graphql',
+				},
+				'body': addCustomer()
+				};
+			}
+
+
+			fetch(GRAPHQL_URL, GRAPHQL_BODY())
+				.then(res => res.json())
+				.then(result => {
+					console.log(result)
+				})
+
+
 		},
 		init(){
 	
