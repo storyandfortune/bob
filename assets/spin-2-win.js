@@ -159,7 +159,7 @@ var app = Vue.createApp({
 				}
 			}
 
-			const STOREFRONT_ACCESS_TOKEN = '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'
+			const STOREFRONT_ACCESS_TOKEN = 'f625bec6d5adc4e5aad0c18415597126'
 
 			const GRAPHQL_URL = 'https://dev-big-bot.myshopify.com/api/2020-07/graphql.json'
 
