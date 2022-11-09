@@ -52,13 +52,8 @@
                 <div id="title" @click="addEmail()">
                     <h2 v-for="index in 3" :key="index" class="noselect">${copy.defaultTitle}</h2>
                     <div class="credits noselect"> Credits = ${credits}</div>
-
-                    ${email}
-
                 </div>
                 
-         
-
                     <!-- spin wheel -->
                     <div v-if="wheelActive" 
                         class="wheel noselect"

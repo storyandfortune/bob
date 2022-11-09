@@ -62,7 +62,7 @@ var app = Vue.createApp({
 			wheelActive:true,
 			email:'test@test.com',
 			copy :{
-				defaultTitle:"Wheel of Fish",
+				defaultTitle:"Spin or DIE",
 				defualttagline:"Spin the wheel for a chance to win!",
 				cta:"Enter your e-mail address to collect your prize."
 			},
@@ -152,32 +152,23 @@ var app = Vue.createApp({
 			this.wheelActive = true
 		},
 		addEmail(){
-		    
-            let email = {
-				"input": {
-					"allowPartialAddresses": true,
-					"email": this.email,
-					"note": "Spin 2 Win"
-				  }
-			}
 
 			const STOREFRONT_ACCESS_TOKEN = 'f625bec6d5adc4e5aad0c18415597126'
-
 			const GRAPHQL_URL = 'https://dev-big-boy.myshopify.com/api/2022-10/graphql.json'
+			
+		    
+            let inputObject = `{"input": {"allowPartialAddresses": true,"email":"`+this.email+`,"note": "Spin 2 Win"}}`;
 
-			const addCustomer = (email) => `
-					mutation checkoutCreate(`+ email +`: CheckoutCreateInput!) {
-						checkoutCreate(input:`+ email +`) {
-						checkout {
-							email
-						},
-						checkoutUserErrors {
-							field
-							message
-						}
-						}
-					}
-				`;
+
+			const addCustomer =`mutation checkoutCreate(`+ inputObject +`: CheckoutCreateInput!) { checkoutCreate(input:`+ inputObject +`) { checkout {email}, checkoutUserErrors {field message}}}`;
+
+			console.log(addCustomer);
+
+			const GQL = `{
+				shop {
+				  name
+				}
+			  }`
 
 			const GRAPHQL_BODY  = () => {
 				return {
@@ -188,7 +179,7 @@ var app = Vue.createApp({
 					'X-Shopify-Storefront-Access-Token': STOREFRONT_ACCESS_TOKEN,
 					'Content-Type': 'application/graphql',
 				},
-				'body': addCustomer()
+				'body': addCustomer
 				};
 			}
 
