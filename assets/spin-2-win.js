@@ -155,21 +155,23 @@ var app = Vue.createApp({
 		    
             let email = {
 				"input": {
-				  "email": this.email
-				}
+					"allowPartialAddresses": true,
+					"email": this.email,
+					"note": "Spin 2 Win"
+				  }
 			}
 
 			const STOREFRONT_ACCESS_TOKEN = 'f625bec6d5adc4e5aad0c18415597126'
 
-			const GRAPHQL_URL = 'https://dev-big-boy.myshopify.com/api/2020-07/graphql.json'
+			const GRAPHQL_URL = 'https://dev-big-boy.myshopify.com/api/2022-10/graphql.json'
 
 			const addCustomer = (email) => `
-					mutation customerCreate(`+ email +`: CustomerInput!) {
-						customerCreate(input: `+ email +`) {
-						customer {
+					mutation checkoutCreate($input: CheckoutCreateInput!) {
+						checkoutCreate(input: $input) {
+						checkout {
 							email
-						}
-						userErrors {
+						},
+						checkoutUserErrors {
 							field
 							message
 						}
