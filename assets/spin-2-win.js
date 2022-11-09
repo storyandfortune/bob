@@ -166,8 +166,8 @@ var app = Vue.createApp({
 			const GRAPHQL_URL = 'https://dev-big-boy.myshopify.com/api/2022-10/graphql.json'
 
 			const addCustomer = (email) => `
-					mutation checkoutCreate($input: CheckoutCreateInput!) {
-						checkoutCreate(input: $input) {
+					mutation checkoutCreate(`+ email +`: CheckoutCreateInput!) {
+						checkoutCreate(input:`+ email +`) {
 						checkout {
 							email
 						},
