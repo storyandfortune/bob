@@ -161,7 +161,7 @@ var app = Vue.createApp({
 
 			const STOREFRONT_ACCESS_TOKEN = 'f625bec6d5adc4e5aad0c18415597126'
 
-			const GRAPHQL_URL = 'https://dev-big-bot.myshopify.com/api/2020-07/graphql.json'
+			const GRAPHQL_URL = 'https://dev-big-boy.myshopify.com/api/2020-07/graphql.json'
 
 			const addCustomer = (email) => `
 					mutation customerCreate(`+ email +`: CustomerInput!) {
