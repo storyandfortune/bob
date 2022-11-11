@@ -378,7 +378,6 @@ html{
 
    .reset-wheel .wheel ul{
      transition:transform 0s ease;
-     opacity:0;
    }
 
    .wheel ul li{
