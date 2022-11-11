@@ -4,7 +4,7 @@ var app = Vue.createApp({
 		return {
 			ready:false,
 			gameState:"init",
-			endPoint:"https://api.storyandfortune.com/bobs/customer-connect/",
+			endPoint:"https://api.storyandfortune.com/bobs/customer-connect",
 			win:[
 				{
 					deg:0, 
@@ -56,7 +56,7 @@ var app = Vue.createApp({
 			],
 			armUp:false,
 			wheelPos:0,
-			emailError:false,
+			valid:false,
 			modalMessage:[],
 			win_ratio: [],
 			coupon_code:false,
@@ -151,11 +151,14 @@ var app = Vue.createApp({
 			  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 			)
 		},
+		resetEmail(){
+			this.email = ""
+		},
 		addEmail(){
 		
-			let valid = this.validateEmail(this.email)
+			this.valid = this.validateEmail(this.email)
 
-			if(valid){
+			if(this.valid){
 			// post --------------------------
 			  axios.post(this.endPoint, {'email': this.email, 'note': 'Spin 2 Win'})
 				.then( (response) => {
@@ -177,9 +180,6 @@ var app = Vue.createApp({
 					this.modalMessage.push(error)
 				});
 
-			}
-			else{
-				this.emailError = true
 			}
 		},
 		init(){
