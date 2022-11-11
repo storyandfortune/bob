@@ -49,7 +49,7 @@
             <div class="game-center">
 
                 <!-- title -->
-                <div id="title" @click="addEmail()">
+                <div class="title">
                     <h2 v-for="index in 3" :key="index" class="noselect">${copy.defaultTitle}</h2>
                     <div class="credits noselect"> Credits = ${credits}</div>
                 </div>
@@ -101,8 +101,8 @@
                         </div>
 
                         <div class="email">
-                            <input v-model="email" id="email"  type="email" name="contact[email]" placeholder="Enter your email address"/>
-                            <input id="submit_btn" type="submit" value="Get Code" />
+                            <input v-model="email" id="email"  type="email" placeholder="Enter your email address"/>
+                            <button class="submit_btn" @click="addEmail()"> Get Code </button>
                         </div>
 
                         <div v-if="credits" 
@@ -115,6 +115,11 @@
                             class="spin-again">
                             <h3>No Spins Left</h3>
                             <div>Enter e-mail to claim prize</div>
+                        </div>
+
+                        <div class="modal" >
+                            <div class="close"></div>
+                            <h3>${modalMessage}</h3>
                         </div>
 
                     </div>
@@ -216,7 +221,7 @@
 </div>
 
 
-
 <script src="{{ 'vue@3.0.11.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'howler.min.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'axios.min.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'spin-2-win.js' | asset_url }}" defer="defer"></script>
