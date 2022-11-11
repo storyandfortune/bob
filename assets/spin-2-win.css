@@ -711,6 +711,34 @@ html{
   }
 
 
+  .spin-win .modal{
+      position:absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      top:0;
+      left:0;
+      width:100vw;
+      height:100vh;
+      z-index:500
+  }
+
+  .spin-win .modal ul{
+    background-color: #e62544;
+    color:white;
+    margin:0;
+    padding: 0;
+    list-style: none;
+    padding: 5vw 10vw;
+    width:50vw;
+    font-family: "StickyToffee";
+    font-size: clamp(2rem, 3vw, 3rem);
+    border-radius:2rem;
+    border:5px solid white;
+  }
+
+
+
 /* ---------------- MEDIA -------------------- */
 
 @media screen and (max-width: 600px) {

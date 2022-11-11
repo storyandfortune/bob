@@ -57,7 +57,7 @@ var app = Vue.createApp({
 			armUp:false,
 			wheelPos:0,
 			emailError:false,
-			modalMessage:"",
+			modalMessage:[],
 			win_ratio: [],
 			coupon_code:false,
 			credits:3,
@@ -151,33 +151,30 @@ var app = Vue.createApp({
 			  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 			)
 		},
-		saveError(msg){
-			alert(msg)
-		},
 		addEmail(){
 		
-			let valid = this.validateEmail()
+			let valid = this.validateEmail(this.email)
 
 			if(valid){
 			// post --------------------------
 			  axios.post(this.endPoint, {'email': this.email, 'note': 'Spin 2 Win'})
-				.then(function (response) {
+				.then( (response) => {
 					console.log(response)
 			
 					if(response.data.data.customerCreate.userErrors.length){
 						console.log(response.data.data.customerCreate.userErrors)
-						this.saveError('fuck you')
+						this.modalMessage = response.data.data.customerCreate.userErrors
 					}
 
-					if(response.data.data.customerCreate.customer.email){
+					if(response.data.data.customerCreate.customer != null){
 						console.log(response.data.data.customerCreate.customer.email)
 						this.addCoupon()
 					}
 
 				})
-				.catch(function (error) {
+				.catch( (error) => {
 					console.log(error)
-					this.saveError('eat shit')
+					this.modalMessage.push(error)
 				});
 
 			}
@@ -265,8 +262,8 @@ var app = Vue.createApp({
 		console.log(window.location.hostname)
 		if( window.location.hostname === '127.0.0.1'){
 			this.endPoint = "http://dev.api/bobs/customer-connect/"
-			console.log(this.endPoint)
 		}
+		console.log(this.endPoint)
 	},
 	mounted(){
 		this.init()

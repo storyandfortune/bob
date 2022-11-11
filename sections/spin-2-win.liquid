@@ -56,8 +56,7 @@
                 
                     <!-- spin wheel -->
                     <div v-if="wheelActive" 
-                        class="wheel noselect"
-                        :class="">
+                        class="wheel noselect">
 
                         <div class="arrow"></div>
 
@@ -84,7 +83,7 @@
                     </div>
 
                     <!-- prize -->
-                    <div v-else="wheelActive" 
+                    <div v-else="!wheelActive" 
                         class="win">
 
                         <div class="prize">
@@ -100,9 +99,18 @@
                                 loading="lazy" />
                         </div>
 
-                        <div class="email">
-                            <input v-model="email" id="email"  type="email" placeholder="Enter your email address"/>
-                            <button class="submit_btn" @click="addEmail()"> Get Code </button>
+                        <div class="email" :class="{'emailError': !valid}">
+                            <input v-model="email" 
+                                   id="email"  
+                                   type="email" 
+                                   placeholder="Enter your email address"
+                                   @focus="email = ''"/>
+
+                            <button class="submit_btn" 
+                                    @click="addEmail()"> 
+                                    Get Code 
+                            </button>
+
                         </div>
 
                         <div v-if="credits" 
@@ -116,14 +124,7 @@
                             <h3>No Spins Left</h3>
                             <div>Enter e-mail to claim prize</div>
                         </div>
-
-                        <div class="modal" >
-                            <div class="close"></div>
-                            <h3>${modalMessage}</h3>
-                        </div>
-
                     </div>
-
 
                 <p>Valid only at <br/> <a href="/collections/all">Bobs.net/shop</a></p>
                 
@@ -217,6 +218,21 @@
     <div class='bg'>
         <div class="checkerboard"></div>
     </div>
+
+    <!-- modal -->
+    <div v-if="modalMessage.length" 
+         class="modal"
+         @click="modalMessage = []">
+        <div class="modal-container">
+            <div class="close"></div>
+            <ul>
+                <li v-for="item in modalMessage" :key="item.message">
+                    ${item.message}
+                </li>
+            </ul>
+        </div>
+    </div>
+
 
 </div>
 
