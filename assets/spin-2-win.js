@@ -98,11 +98,6 @@ var app = Vue.createApp({
 			this.winning_prize = this.win[this.win_ratio[this.prize]];
 			this.wheelPos = -1 * (3600 + this.winning_prize.deg);
 			this.spin5.play(); //play sound
-
-			//preload image
-			this.preload = new Image();
-			this.preload.src = this.winning_prize.img;
-	
 	
 			setTimeout(() => {
 				this.gameState = "reset-wheel"
