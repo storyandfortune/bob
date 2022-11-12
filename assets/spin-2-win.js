@@ -4,7 +4,7 @@ var app = Vue.createApp({
 		return {
 			ready:false,
 			gameState:"init",
-			endPoint:"https://api.storyandfortune.com/bobs/customer-connect",
+			endPoint:"https://api.storyandfortune.com/bobs/customer-connect/",
 			win:[
 				{
 					deg:0, 
