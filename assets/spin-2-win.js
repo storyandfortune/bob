@@ -107,6 +107,10 @@ var app = Vue.createApp({
 					this.credits = this.credits + 3
 				}
 			}, 5500);
+
+			setTimeout(() => {
+				this.gameState = "start"
+			}, 5600);
 		
 			if(this.winning_prize.code != "MORE-SPINS"){
 				setTimeout(() => {
@@ -137,6 +141,7 @@ var app = Vue.createApp({
 			window.location.reload();
 		},
 		spinAgain(){
+			this.gameState = "spin"
 			this.wheelActive = true
 		},
 		validateEmail(email){
@@ -154,7 +159,35 @@ var app = Vue.createApp({
 			this.valid = this.validateEmail(this.email)
 
 			if(this.valid){
-			// post --------------------------
+
+			 	// jquery post --------------------------
+
+				$.ajax({
+					method: "POST",
+					url: this.endPoint,
+					data: {'email': this.email, 'note': 'Spin 2 Win'}
+				}).done( (response)  => {
+
+					console.log(response)
+				
+					if(response.data.customerCreate.userErrors.length){
+						console.log(response.data.customerCreate.userErrors)
+						this.modalMessage = response.data.customerCreate.userErrors
+					}
+
+					if(response.data.customerCreate.customer != null){
+						console.log(response.data.customerCreate.customer.email)
+						this.addCoupon()
+					}
+				
+					
+				}).fail((error) => {
+					console.log(error)
+					this.modalMessage.push(error)
+				});
+
+			  // axios post getting CORS error --------------------------
+			  /*
 			  axios.post(this.endPoint, {'email': this.email, 'note': 'Spin 2 Win'})
 				.then( (response) => {
 					console.log(response)
@@ -174,6 +207,7 @@ var app = Vue.createApp({
 					console.log(error)
 					this.modalMessage.push(error)
 				});
+				*/
 
 			}
 		},

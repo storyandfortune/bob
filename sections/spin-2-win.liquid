@@ -99,7 +99,7 @@
                                 loading="lazy" />
                         </div>
 
-                        <div class="email" :class="{'emailError': !valid}">
+                        <div class="email" :class="{'error': !valid}">
                             <input v-model="email" 
                                    id="email"  
                                    type="email" 
@@ -239,5 +239,5 @@
 
 <script src="{{ 'vue@3.0.11.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'howler.min.js' | asset_url }}" defer="defer"></script>
-<script src="{{ 'axios.min.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'jquery-3.6.0.min.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'spin-2-win.js' | asset_url }}" defer="defer"></script>
