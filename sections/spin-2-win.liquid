@@ -51,7 +51,15 @@
                 <!-- title -->
                 <div class="title">
                     <h2 v-for="index in 3" :key="index" class="noselect">${copy.defaultTitle}</h2>
-                    <div class="credits noselect"> Credits = ${credits}</div>
+                    <div v-if="gameState != 'your-code'" class="credits noselect"> Credits = ${credits}</div>
+                    <div v-if="gameState === 'your-code'" class="close">
+                        {%- render 'icon-times-solid' %}
+                      </div>
+                    <div v-if="gameState === 'your-code'" class="discount-code">
+                        <h3>${winning_prize.code}</h3>
+                        <p>Code auto-applied Discount appears at Checkout</p>
+                        <a class="btn" href="/collections">Shop Now</a>
+                    </div>
                 </div>
                 
                     <!-- spin wheel -->
@@ -99,7 +107,7 @@
                                 loading="lazy" />
                         </div>
 
-                        <div class="email" :class="{'error': !valid}">
+                        <div v-if="gameState === 'show-prize'" class="email" :class="{'error': !valid}">
                             <input v-model="email" 
                                    id="email"  
                                    type="email" 
@@ -113,21 +121,30 @@
 
                         </div>
 
-                        <div v-if="credits" 
-                            class="spin-again">
-                            <h3 class="btn" @click="spinAgain()">Or Spin Again</h3>
-                            <div>You will loose this prize</div>
+                        <div v-if="gameState === 'show-prize'">
+
+                            <div v-if="credits" 
+                                class="spin-again">
+                                <h3 class="btn" @click="spinAgain()">Or Spin Again</h3>
+                                <div>You will loose this prize</div>
+                            </div>
+
+                            <div v-else 
+                                class="spin-again">
+                                <h3>No Spins Left</h3>
+                                <div>Enter e-mail to claim prize</div>
+                            </div>
+                            
                         </div>
 
-                        <div v-else 
-                            class="spin-again">
-                            <h3>No Spins Left</h3>
-                            <div>Enter e-mail to claim prize</div>
-                        </div>
+
                     </div>
-
-                <p>Valid only at <br/> <a href="/collections/all">Bobs.net/shop</a></p>
                 
+                    <div>
+                        <p v-if="gameState === 'your-code'" class="warning">CANNOT BE REDEEMED AT THE RESTAURANT</p>    
+                        <p class="valid-only">Valid only at <a href="/collections/all">Bobs.net/shop</a></p>
+                        <p v-if="gameState === 'your-code'" class="copyright"> &copy; 2022 Bob's Burbank (Bobs.net) "Bob's" & "Big Boy" are Registered Trademarks of Big Boy Restaurant Group, LLC, Southfield, MI, U.S.A.</p>
+                    </div>
             </div>
        
 
@@ -232,12 +249,10 @@
             </ul>
         </div>
     </div>
-
-
 </div>
 
 
 <script src="{{ 'vue@3.0.11.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'howler.min.js' | asset_url }}" defer="defer"></script>
-    <script src="{{ 'jquery-3.6.0.min.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'jquery-3.6.0.min.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'spin-2-win.js' | asset_url }}" defer="defer"></script>

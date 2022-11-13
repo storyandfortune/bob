@@ -93,7 +93,9 @@ html{
 
 .game-center{
   padding-bottom: 10vh;
-}
+  width:100%;
+  max-width:600px;
+ }
 
 .game .game-center p{
   padding:clamp(.5rem, 2vw, 2rem);
@@ -563,14 +565,14 @@ html{
  
   /* ---------------- WIN -------------------- */
     
-  .spin-win.show-prize .win {
+  .spin-win .win {
       position: relative;
       display:block;
       margin:0 auto;
       width:90%;
    }
 
-  .spin-win.show-prize .win .email{ 
+  .spin-win .win .email{ 
     position: relative;
     display: flex;
     flex-direction: row;
@@ -581,7 +583,13 @@ html{
     margin:0 auto;
   }
 
-  .spin-win.show-prize .win #email{
+
+  .spin-win .win .email.error #email{ 
+      border:3px solid var(--bob-red);
+      color:var(--bob-red);
+  }
+
+  .spin-win .win #email{
     flex: 2;
     border:1px solid #ccc;
     font-size: 18px;
@@ -594,12 +602,12 @@ html{
  
   }
 
-  .spin-win.show-prize .win .prize { 
+  .spin-win .win .prize { 
       position:relative;
       margin:0 0 .5rem 0;
   }
 
-  .spin-win.show-prize  .win .prize .prize-title{
+  .spin-win .win .prize .prize-title{
       position:absolute;
       top:0;
       right:0;
@@ -611,7 +619,7 @@ html{
       color:white;
    }
 
-   .spin-win.show-prize  .win .prize .prize-title h2{
+   .spin-win  .win .prize .prize-title h2{
       position:relative;
       display:block;
       color:#fdd538;
@@ -621,18 +629,18 @@ html{
       margin-bottom: clamp(1rem, 1vw, 1rem);
    }
 
-   .spin-win.show-prize  .win .prize .prize-title h2::first-line{
+   .spin-win .win .prize .prize-title h2::first-line{
         color:white;
         text-transform: uppercase;
         font-size: clamp(2rem, 3vw, 3rem);
         line-height: clamp(2rem, 3.5vw, 3rem);
    }
 
-   .spin-win.show-prize  .win .prize .prize-title a{
+   .spin-win  .win .prize .prize-title a{
       color:white;
    }
 
-  .spin-win.show-prize  .win .prize img{ 
+  .spin-win .win .prize img{ 
       display: block;
       padding:0;
       margin:0;
@@ -640,11 +648,11 @@ html{
       height:auto;
   }
 
-  .spin-win.show-prize  .win #email{
+  .spin-win .win #email{
     font-size: clamp(1rem, 1.75vw, 1.75rem);
   }
 
-  .spin-win.show-prize  .win .submit_btn{
+  .spin-win .win .submit_btn{
     width: 35%;
     height: 4rem;
     font-size: clamp(1rem, .5vw, 1rem);
@@ -664,11 +672,11 @@ html{
     background-color: var(--bob-red);
   }
 
-  .spin-win.show-prize  .spin-again{
+  .spin-win .spin-again{
      text-align: center;
   }
 
-  .spin-win.show-prize  .spin-again h3{
+  .spin-win .spin-again h3{
     font-family: "StickyToffee";
     font-size: clamp(2rem, 3.5vw, 3rem);
     line-height: clamp(2.5rem, 4vw, 3.5rem);
@@ -681,21 +689,21 @@ html{
     white-space: nowrap;
   }
 
-  .spin-win.show-prize  .spin-again h3.btn{
+  .spin-win .spin-again h3.btn{
        cursor:pointer;
        transition: all .25s ease;
   }
 
-  .spin-win.show-prize  .spin-again h3.btn:hover{
+  .spin-win .spin-again h3.btn:hover{
     cursor:pointer;
     transform:scale(1.2);
 }
 
-  .spin-win.show-prize  .spin-again div{
+  .spin-win .spin-again div{
     font-family: "AvenirNextLTPro-Bold";
   }
 
-  .spin-win.show-prize  .win p{
+  .spin-win .win p{
     padding:.5rem;
   }
 
@@ -737,6 +745,66 @@ html{
   }
 
 
+
+/* ---------------- YOUR CODE -------------------- */
+
+.title .close{
+  position:absolute;
+  right:0;
+  top:0;
+  color:white;
+  width:35px;
+}
+
+.title .discount-code{
+    margin-top:clamp(5rem, 7.5vw, 7rem);
+}
+
+.title .discount-code h3{
+  font-size: clamp(1rem, 2vw, 3rem);
+  padding:0;
+  margin:0;
+  font-family: "AvenirNextLTPro-Bold";
+  font-weight: 800;
+}
+
+.title .discount-code p{
+  width:50%;
+  padding:1.5rem;
+  margin:0 auto;
+  font-size: clamp(1rem, 1.5vw, 2rem);
+}
+
+a.btn{
+  display:inline-block;
+  width:auto;
+  font-size: clamp(1rem, 2vw, 3rem);
+  font-family: "AvenirNextLTPro-Bold";
+  font-weight: 800;
+  color:white;
+  background-color: var(--bob-red);
+  padding:1rem 1.5rem;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.your-code .game .game-center p{
+  padding:0;
+  margin:0 auto;
+}
+
+.game .game-center p.warning{
+  font-family: "AvenirNextLTPro-Bold";
+  font-size: 1.35rem;
+  font-weight: 800;
+  color:var(--bob-red);
+
+}
+
+p.copyright{
+  font-size: 12px;
+  line-height: 14px;
+}
 
 /* ---------------- MEDIA -------------------- */
 

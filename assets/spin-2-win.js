@@ -65,8 +65,6 @@ var app = Vue.createApp({
 			email:'',
 			copy :{
 				defaultTitle:"Spin 2 Win",
-				defualttagline:"Spin the wheel for a chance to win!",
-				cta:"Enter your e-mail address to collect your prize."
 			},
 			prize:null,
 			winning_prize:null,
@@ -125,15 +123,31 @@ var app = Vue.createApp({
 		
 		},
 		addCoupon(){
-			window.sessionStorage.clear();
+			window.sessionStorage.clear()
 	
 			let data = {
 				prize: this.winning_prize,
 				viewed:false,
 				time: Date.now()
 			};
-			let value = JSON.stringify(data);
-			window.sessionStorage.setItem("coupon", value);
+
+			let value = JSON.stringify(data)
+			window.sessionStorage.setItem("coupon", value)
+
+			this.copy.defaultTitle = "Your Code"
+			this.gameState = 'your-code'
+
+
+			$.ajax({
+				method: "GET",
+				url: '/discount/' + this.winning_prize.code
+			}).done( (response)  => {
+
+				
+			}).fail((error) => {
+				console.log(error)
+			});
+
 	
 		},
 		reset(){
@@ -153,11 +167,11 @@ var app = Vue.createApp({
 		},
 		resetEmail(){
 			this.email = ""
+			this.valid = true
 		},
 		addEmail(){
 		
 			this.valid = this.validateEmail(this.email)
-
 			if(this.valid){
 
 			 	// jquery post --------------------------
@@ -183,31 +197,8 @@ var app = Vue.createApp({
 					
 				}).fail((error) => {
 					console.log(error)
-					this.modalMessage.push(error)
+					this.modalMessage.push("Oopsie Daisy... Something went wrong.")
 				});
-
-			  // axios post getting CORS error --------------------------
-			  /*
-			  axios.post(this.endPoint, {'email': this.email, 'note': 'Spin 2 Win'})
-				.then( (response) => {
-					console.log(response)
-			
-					if(response.data.data.customerCreate.userErrors.length){
-						console.log(response.data.data.customerCreate.userErrors)
-						this.modalMessage = response.data.data.customerCreate.userErrors
-					}
-
-					if(response.data.data.customerCreate.customer != null){
-						console.log(response.data.data.customerCreate.customer.email)
-						this.addCoupon()
-					}
-
-				})
-				.catch( (error) => {
-					console.log(error)
-					this.modalMessage.push(error)
-				});
-				*/
 
 			}
 		},
