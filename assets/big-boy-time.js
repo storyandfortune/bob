@@ -1,38 +1,5 @@
 $(document).ready(function () {
 
-    // check for coupon ----------------------------------------------
-    if($('#coupon')){
-
-        let spin = window.sessionStorage.getItem("coupon");
-
-        if(spin){
-
-            let v  = JSON.parse(spin);
-
-            if(!v.viewed){
-                let inject = `
-                    <div class="prize"> 
-                            <p>Your discount code: <strong>`+ v.prize.code +`</strong> has been applied and will show up on the checkout page. </p>
-                            <div class="card"> 
-                                <img src="` + v.prize.img  + `" / >
-                            </div> 
-                            <button>OK</button>
-                    </div>`;
-
-                $('#coupon').html(inject);
-
-                $('#coupon').on('click', () => {
-                    $('#coupon').remove();
-                    v.viewed = true;
-                    let value = JSON.stringify(v);
-                    window.sessionStorage.setItem("coupon", value);
-                });
-
-                $('#coupon').addClass("on");
-            }
-        }
-        
-    }
 
     // shop slug hack -------------------------------------------------
     if($.url('path') === "/shop"){

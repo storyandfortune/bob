@@ -54,11 +54,12 @@ var app = Vue.createApp({
 					ratio:25
 				}
 			],
+			win_ratio: [],
+			winning_prize:null,
 			armUp:false,
 			wheelPos:0,
 			valid:false,
 			modalMessage:[],
-			win_ratio: [],
 			coupon_code:false,
 			credits:3,
 			wheelActive:true,
@@ -67,7 +68,6 @@ var app = Vue.createApp({
 				defaultTitle:"Spin 2 Win",
 			},
 			prize:null,
-			winning_prize:null,
 			deg:null,
 			preload:null,
 			boing:null,
@@ -123,27 +123,16 @@ var app = Vue.createApp({
 		
 		},
 		addCoupon(){
-			window.sessionStorage.clear()
-	
-			let data = {
-				prize: this.winning_prize,
-				viewed:false,
-				time: Date.now()
-			};
-
-			let value = JSON.stringify(data)
-			window.sessionStorage.setItem("coupon", value)
 
 			this.copy.defaultTitle = "Your Code"
 			this.gameState = 'your-code'
 
-
+			// add coupon to check out
 			$.ajax({
 				method: "GET",
 				url: '/discount/' + this.winning_prize.code
 			}).done( (response)  => {
-
-				
+				console.log(response)
 			}).fail((error) => {
 				console.log(error)
 			});
@@ -173,8 +162,6 @@ var app = Vue.createApp({
 		
 			this.valid = this.validateEmail(this.email)
 			if(this.valid){
-
-			 	// jquery post --------------------------
 
 				$.ajax({
 					method: "POST",
@@ -247,43 +234,15 @@ var app = Vue.createApp({
 				   el++;
 			   });
 	
-			   this.coupon_code = window.sessionStorage.getItem("coupon")
-
 			   console.log('init')
-			   
-			   /*
-			   if(this.coupon_code){
-				   
-				   let v  = JSON.parse(this.coupon_code);
-				   console.log(v);
-			   
-				   $('.claimed .code').html(v.prize.code);
-				   $('.claimed a').attr("href",  $('.claimed a').data("ref") + v.prize.code);
-				   $('#title h2').html(v.prize.title +"!");
-				   $('#title span').html("You already won! <br/> COUPON CODE: <strong>" +  v.prize.code + "</strong>");
-				   $('.spin-btn').addClass('disable');
-	
-				   $('#box').css("transform", "rotate(-"+v.prize.deg+"deg)");
-			   }
-	   
-			   
-			   if(this.testing){
-				   let that = this;
-				   $('.spin-win .box span').on('click', function(){
-					   let d = $(this).data('deg');
-					   that.test(d);
-				   });
-			   }
-			   */
+			
 	   }
 	},
 	delimiters: ['${', '}'],
 	beforeMount() {
-		console.log(window.location.hostname)
 		if( window.location.hostname === '127.0.0.1'){
 			this.endPoint = "http://dev.api/bobs/customer-connect/"
 		}
-		console.log(this.endPoint)
 	},
 	mounted(){
 		this.init()
