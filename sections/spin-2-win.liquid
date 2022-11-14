@@ -44,21 +44,18 @@
 
     <div v-if="ready" class="spin-win" :class="gameState">
 
-        <div class="game">
+        <div class="game" :class="{'ready': ready}">
             
             <div class="game-center">
 
                 <!-- title -->
                 <div class="title">
-                    <h2 v-for="index in 3" :key="index" class="noselect">${copy.defaultTitle}</h2>
+                    <h2 v-for="index in 3" :key="index" class="noselect">${mainTitle}</h2>
                     <div v-if="gameState != 'your-code'" class="credits noselect"> Credits = ${credits}</div>
-                    <div v-if="gameState === 'your-code'" class="close">
-                        {%- render 'icon-times-solid' %}
-                      </div>
                     <div v-if="gameState === 'your-code'" class="discount-code">
                         <h3>${winning_prize.code}</h3>
                         <p>Code auto-applied Discount appears at Checkout</p>
-                        <a class="btn" href="/collections">Shop Now</a>
+                        <a class="btn" href="/collections/all">Shop Now</a>
                     </div>
                 </div>
                 
@@ -146,35 +143,32 @@
                         <p v-if="gameState === 'your-code'" class="copyright"> &copy; 2022 Bob's Burbank (Bobs.net) "Bob's" & "Big Boy" are Registered Trademarks of Big Boy Restaurant Group, LLC, Southfield, MI, U.S.A.</p>
                     </div>
             </div>
-       
 
+
+            <!-- big boy jumping in -->
+            <div v-if="wheelActive" 
+                class="gameboy-contianer">
+                    <div class="gameboy" @click="reset()">
+
+                        <img v-show="armUp" 
+                            src='https://cdn.shopify.com/s/files/1/0593/5942/8759/files/Bob_Hand_Up.svg?v=1667588656' 
+                            width="auto" 
+                            height="auto" 
+                            loading="lazy" />
+
+                        <img v-show="!armUp"
+                            src='https://cdn.shopify.com/s/files/1/0593/5942/8759/files/Bob_Hand_In.svg?v=1667588656' 
+                            width="auto" 
+                            height="auto" 
+                            loading="lazy" />
+                    </div>
+                </div>
+
+        
         </div>    
-
        <!-- end game -->
     
-   
-       <!-- big boy jumping in -->
-    
-       <div v-if="wheelActive" 
-        class="gameboy-contianer">
-        <div class="gameboy" :class="" @click="reset()">
-
-            <img v-show="armUp" 
-                 src='https://cdn.shopify.com/s/files/1/0593/5942/8759/files/Bob_Hand_Up.svg?v=1667588656' 
-                 width="auto" 
-                 height="auto" 
-                 loading="lazy" />
-
-            <img v-show="!armUp"
-                 src='https://cdn.shopify.com/s/files/1/0593/5942/8759/files/Bob_Hand_In.svg?v=1667588656' 
-                 width="auto" 
-                 height="auto" 
-                 loading="lazy" />
-        </div>
-        </div>
-
-    
-        <!-- sky -->
+    <!-- sky -->
     <div class="sky">
 
         <div>
@@ -249,6 +243,7 @@
             </ul>
         </div>
     </div>
+
 </div>
 
 

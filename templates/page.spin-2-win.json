@@ -2,7 +2,7 @@
   "layout":"game",  
   "sections": {
       "main": {
-        "type": "main-page"
+        "type": "game-page"
       },
       "form": {
         "type": "spin-2-win",

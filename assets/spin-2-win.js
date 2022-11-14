@@ -3,7 +3,8 @@ var app = Vue.createApp({
 	data() {
 		return {
 			ready:false,
-			gameState:"init",
+			gameState:"init", // init, start, reset-wheel, show-prize, your-code
+			mainTitle:"Spin 2 Win",
 			endPoint:"https://api.storyandfortune.com/bobs/customer-connect/",
 			win:[
 				{
@@ -56,32 +57,27 @@ var app = Vue.createApp({
 			],
 			win_ratio: [],
 			winning_prize:null,
-			armUp:false,
-			wheelPos:0,
-			valid:false,
-			modalMessage:[],
-			coupon_code:false,
+			prize:null,
 			credits:3,
 			wheelActive:true,
+			wheelPos:0,
 			email:'',
-			copy :{
-				defaultTitle:"Spin 2 Win",
+			valid:false,
+			armUp:false,
+			audio:{
+				boing:null,
+				spin3:null,
+				spin5:null,
+				applause:null,
+				soundLoaded:0,
 			},
-			prize:null,
-			deg:null,
-			preload:null,
-			boing:null,
-			spin3:null,
-			spin5:null,
-			applause:null,
-			soundLoaded:0,
+			modalMessage:[],
 		}
 	},
 	methods: {
 		startGame(){
-			this.soundLoaded++;
-			if(	this.soundLoaded > 3){
-
+			this.audio.soundLoaded++;
+			if(	this.audio.soundLoaded > 3){
 				this.gameState = "start"
 				this.ready = true
 				setTimeout(() => {
@@ -91,32 +87,33 @@ var app = Vue.createApp({
 		},
 		spin(){
 			this.credits--
-
 			this.prize = (Math.floor(Math.random() * (1 - this.win_ratio.length)) + this.win_ratio.length) -1;
 			this.winning_prize = this.win[this.win_ratio[this.prize]];
 			this.wheelPos = -1 * (3600 + this.winning_prize.deg);
-			this.spin5.play(); //play sound
-	
+			this.audio.spin5.play(); //play sound
+			
+			//wheel done spinning
 			setTimeout(() => {
 				this.gameState = "reset-wheel"
 				this.wheelPos = 0
-
 				if(this.winning_prize.code === "MORE-SPINS"){
 					this.credits = this.credits + 3
 				}
 			}, 5500);
 
+			// prepare wheel to spin again
 			setTimeout(() => {
 				this.gameState = "start"
 			}, 5600);
 		
+			// show prize
 			if(this.winning_prize.code != "MORE-SPINS"){
 				setTimeout(() => {
 					this.addCoupon()
-					this.applause.play()
+					this.audio.applause.play()
 					this.gameState = "show-prize"
 					this.wheelActive = false
-					this.copy.defaultTitle = "You Won"
+					this.mainTitle = "You Won"
 				
 				}, 5750);
 			}
@@ -124,7 +121,7 @@ var app = Vue.createApp({
 		},
 		addCoupon(){
 
-			this.copy.defaultTitle = "Your Code"
+			this.mainTitle = "Your Code"
 			this.gameState = 'your-code'
 
 			// add coupon to check out
@@ -132,9 +129,9 @@ var app = Vue.createApp({
 				method: "GET",
 				url: '/discount/' + this.winning_prize.code
 			}).done( (response)  => {
-				console.log(response)
+				//console.log(response)
 			}).fail((error) => {
-				console.log(error)
+				//console.log(error)
 			});
 
 	
@@ -169,15 +166,11 @@ var app = Vue.createApp({
 					data: {'email': this.email, 'note': 'Spin 2 Win'}
 				}).done( (response)  => {
 
-					console.log(response)
-				
 					if(response.data.customerCreate.userErrors.length){
-						console.log(response.data.customerCreate.userErrors)
 						this.modalMessage = response.data.customerCreate.userErrors
 					}
 
 					if(response.data.customerCreate.customer != null){
-						console.log(response.data.customerCreate.customer.email)
 						this.addCoupon()
 					}
 				
@@ -191,16 +184,15 @@ var app = Vue.createApp({
 		},
 		init(){
 	
-			   this.boing = new Howl({
+			   this.audio.boing = new Howl({
 			   src: ['https://cdn.shopify.com/s/files/1/0593/5942/8759/files/boing.mp3?v=1664663096'],
 			   preload: true,
 			   onload:()=>{
-				   console.log('loaded');
 				   this.startGame();
 			   }
 			   });
 	
-			   this.spin3 = new Howl({
+			   this.audio.spin3 = new Howl({
 				src: ['https://cdn.shopify.com/s/files/1/0593/5942/8759/files/spin-3.mp3?v=1664663273'],
 				preload: true,
 				onload:()=>{
@@ -208,7 +200,7 @@ var app = Vue.createApp({
 				}
 			   });
 	
-			   this.spin5 = new Howl({
+			    this.audio.spin5 = new Howl({
 				src: ['https://cdn.shopify.com/s/files/1/0593/5942/8759/files/spin.mp3?v=1664478860'],
 				preload: true,
 				onload:()=>{
@@ -216,14 +208,13 @@ var app = Vue.createApp({
 				}
 			   });
 	
-			   this.applause = new Howl({
+			   this.audio.applause = new Howl({
 				src: ['https://cdn.shopify.com/s/files/1/0593/5942/8759/files/winner-short.mp3?v=1664642420'],
 				preload: true,
 				onload:()=>{
 					this.startGame();
 				}
 			   });
-	
 	
 			   this.win_ratio = [];
 			   let el = 0;
@@ -233,8 +224,6 @@ var app = Vue.createApp({
 				   }
 				   el++;
 			   });
-	
-			   console.log('init')
 			
 	   }
 	},
@@ -249,7 +238,6 @@ var app = Vue.createApp({
 	}
 
 })
-
 app.mount("#app");
 
 

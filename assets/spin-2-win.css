@@ -9,6 +9,7 @@ html{
   margin:0;
   padding:0;
   color:black;
+  background: #75d0f3;
   font-family: 'AvenirNextLTPro-Medium';
 }
 
@@ -78,8 +79,13 @@ html{
 }
 
 .game{
+  visibility: hidden;
+}
+
+.game.ready{
   position:absolute;
   display:flex;
+  visibility: visible;
   justify-content: center;
   align-items: center;
   top:0;
@@ -117,6 +123,7 @@ html{
 .sky{
   position:absolute;
   display:flex;
+  visibility: visible;
   justify-content: center;
   align-items: center;
   top:0;
@@ -312,12 +319,12 @@ html{
 
   .bg{
     position:absolute;
+    visibility: visible;
     top:0;
     left:0;
     width:100vw;
     height:100vh;
     perspective: 100vw;
-    background: #75d0f3;
     z-index:0;
   }
 
@@ -747,14 +754,6 @@ html{
 
 
 /* ---------------- YOUR CODE -------------------- */
-
-.title .close{
-  position:absolute;
-  right:0;
-  top:0;
-  color:white;
-  width:35px;
-}
 
 .title .discount-code{
     margin-top:clamp(5rem, 7.5vw, 7rem);
