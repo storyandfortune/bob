@@ -61,9 +61,12 @@ var app = Vue.createApp({
 			credits:3,
 			wheelActive:true,
 			wheelPos:0,
-			email:'',
-			valid:false,
 			armUp:false,
+			email:{
+				address:'',
+				valid:true,
+				sending:false
+			},
 			audio:{
 				boing:null,
 				spin3:null,
@@ -71,7 +74,7 @@ var app = Vue.createApp({
 				applause:null,
 				soundLoaded:0,
 			},
-			modalMessage:[],
+			modalMessage:[]
 		}
 	},
 	methods: {
@@ -144,27 +147,33 @@ var app = Vue.createApp({
 			this.gameState = "spin"
 			this.wheelActive = true
 		},
-		validateEmail(email){
-			return String(email)
+		validateEmail(val){
+			return String(val)
 			.toLowerCase()
 			.match(
 			  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 			)
 		},
 		resetEmail(){
-			this.email = ""
-			this.valid = true
+			this.email.address = ""
+			this.email.valid = true
 		},
 		addEmail(){
-		
-			this.valid = this.validateEmail(this.email)
-			if(this.valid){
+			console.log('send')
+			this.email.valid = this.validateEmail(this.email.address)
+
+			if(this.email.valid){
+
+				this.email.sending = true
 
 				$.ajax({
 					method: "POST",
 					url: this.endPoint,
-					data: {'email': this.email, 'note': 'Spin 2 Win'}
+					data: {'email': this.email.address, 'note': 'Spin 2 Win'}
 				}).done( (response)  => {
+
+					console.log(response)
+					this.email.sending = false
 
 					if(response.data.customerCreate.userErrors.length){
 						this.modalMessage = response.data.customerCreate.userErrors
@@ -174,9 +183,9 @@ var app = Vue.createApp({
 						this.addCoupon()
 					}
 				
-					
 				}).fail((error) => {
 					console.log(error)
+					this.email.sending = false
 					this.modalMessage.push("Oopsie Daisy... Something went wrong.")
 				});
 
@@ -238,6 +247,7 @@ var app = Vue.createApp({
 	}
 
 })
+
 app.mount("#app");
 
 

@@ -1,6 +1,6 @@
 {% style %}
 
-     @font-face {
+      @font-face {
         font-family: "StickyToffee";
         src: url( {{- 'DK-Sticky-Toffee.otf' | asset_url -}} );
       }
@@ -104,17 +104,27 @@
                                 loading="lazy" />
                         </div>
 
-                        <div v-if="gameState === 'show-prize'" class="email" :class="{'error': !valid}">
-                            <input v-model="email" 
-                                   id="email"  
-                                   type="email" 
-                                   placeholder="Enter your email address"
-                                   @focus="email = ''"/>
+                        <div v-if="gameState === 'show-prize'" 
+                             class="email" 
+                             :class="{'error': !email.valid}">
 
-                            <button class="submit_btn" 
-                                    @click="addEmail()"> 
-                                    Get Code 
-                            </button>
+                            <div v-if="!email.sending" 
+                                class="email-container">
+
+                                <input v-model="email.address" 
+                                    id="email"  
+                                    type="email" 
+                                    placeholder="Enter your email address"
+                                    @focus="email.address = ''"/>
+
+                                <button class="submit_btn" 
+                                        @click="addEmail()"> 
+                                        Get Code 
+                                </button>
+
+                            </div>
+
+                            <div v-else class="sending"> Sending... </div>
 
                         </div>
 

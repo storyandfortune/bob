@@ -579,15 +579,35 @@ html{
       width:90%;
    }
 
+
+
+   .spin-win .win .email .email-container{ 
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      align-items: stretch;
+      min-height: 4rem;
+   }
+
+
+   .spin-win .win .email .sending{
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       font-family: "AvenirNextLTPro-Bold";
+       text-transform: uppercase;
+       font-size: 1.5rem;
+       width:100%;
+       height:100%;
+       min-height: 4rem;
+   }
+
   .spin-win .win .email{ 
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
-    width:100%;
-    height:auto;
-    min-height: 4rem;
-    margin:0 auto;
+      position: relative;
+      width:100%;
+      height:auto;
+      min-height: 4rem;
+      margin:0 auto;
   }
 
 
