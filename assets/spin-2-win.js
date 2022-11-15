@@ -59,6 +59,7 @@ var app = Vue.createApp({
 			winning_prize:null,
 			prize:null,
 			credits:3,
+			wonCredits:false,
 			wheelActive:true,
 			wheelPos:0,
 			armUp:false,
@@ -72,6 +73,7 @@ var app = Vue.createApp({
 				spin3:null,
 				spin5:null,
 				applause:null,
+				winCredits:null,
 				soundLoaded:0,
 			},
 			modalMessage:[]
@@ -80,19 +82,39 @@ var app = Vue.createApp({
 	methods: {
 		startGame(){
 			this.audio.soundLoaded++;
-			if(	this.audio.soundLoaded > 3){
+			if(	this.audio.soundLoaded > 4){
 				this.gameState = "start"
 				this.ready = true
+
+				//this.audio.boing.play()
+
 				setTimeout(() => {
 					this.armUp = true
 				}, 1500);
 			}
 		},
+		winCredits(){
+			let currentCredits = this.credits
+			this.wonCredits = true
+			this.audio.winCredits.play(); //play sound
+
+			let winInt = setInterval(() => {
+				if(this.credits === currentCredits + 3){
+					clearInterval(winInt)
+					this.wonCredits = false	
+				}
+				else{
+					this.credits++
+					console.log(this.credits)
+				}
+			}, 300)
+		},
 		spin(){
 			this.credits--
-			this.prize = (Math.floor(Math.random() * (1 - this.win_ratio.length)) + this.win_ratio.length) -1;
-			this.winning_prize = this.win[this.win_ratio[this.prize]];
-			this.wheelPos = -1 * (3600 + this.winning_prize.deg);
+			this.prize = (Math.floor(Math.random() * (1 - this.win_ratio.length)) + this.win_ratio.length) -1
+			this.winning_prize = this.win[this.win_ratio[this.prize]]
+			//this.winning_prize = this.win[0]
+			this.wheelPos = -1 * (3600 + this.winning_prize.deg)
 			this.audio.spin5.play(); //play sound
 			
 			//wheel done spinning
@@ -100,7 +122,7 @@ var app = Vue.createApp({
 				this.gameState = "reset-wheel"
 				this.wheelPos = 0
 				if(this.winning_prize.code === "MORE-SPINS"){
-					this.credits = this.credits + 3
+					this.winCredits()
 				}
 			}, 5500);
 
@@ -200,6 +222,15 @@ var app = Vue.createApp({
 				   this.startGame();
 			   }
 			   });
+
+			   this.audio.winCredits = new Howl({
+				src: ['https://cdn.shopify.com/s/files/1/0593/5942/8759/files/win-credits.mp3?v=1668536092'],
+				preload: true,
+				onload:()=>{
+					this.startGame();
+				}
+				});
+
 	
 			   this.audio.spin3 = new Howl({
 				src: ['https://cdn.shopify.com/s/files/1/0593/5942/8759/files/spin-3.mp3?v=1664663273'],

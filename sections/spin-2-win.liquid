@@ -51,7 +51,13 @@
                 <!-- title -->
                 <div class="title">
                     <h2 v-for="index in 3" :key="index" class="noselect">${mainTitle}</h2>
-                    <div v-if="gameState != 'your-code'" class="credits noselect"> Credits = ${credits}</div>
+
+                    <div v-if="gameState != 'your-code'" 
+                         class="credits noselect"
+                         :class="{'count-up': wonCredits}"> 
+                         Credits = ${credits}
+                    </div>
+
                     <div v-if="gameState === 'your-code'" class="discount-code">
                         <h3>${winning_prize.code}</h3>
                         <p>Code auto-applied Discount appears at Checkout</p>
