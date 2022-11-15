@@ -120,27 +120,35 @@ var app = Vue.createApp({
 			//wheel done spinning
 			setTimeout(() => {
 				this.gameState = "reset-wheel"
-				this.wheelPos = 0
 				if(this.winning_prize.code === "MORE-SPINS"){
 					this.winCredits()
+					this.wheelPos = 0
 				}
-			}, 5500);
+			}, 5500)
 
 			// prepare wheel to spin again
 			setTimeout(() => {
 				this.gameState = "start"
-			}, 5600);
+			}, 5600)
 		
 			// show prize
 			if(this.winning_prize.code != "MORE-SPINS"){
+
+				// fade out wheel -------------
 				setTimeout(() => {
 					this.addCoupon()
 					this.audio.applause.play()
 					this.gameState = "show-prize"
-					this.wheelActive = false
 					this.mainTitle = "You Won"
-				
-				}, 5750);
+				}, 5750)
+
+
+				// show prize ---------------
+				setTimeout(() => {
+					this.wheelPos = 0
+					this.wheelActive = false
+				}, 6500)
+
 			}
 		
 		},

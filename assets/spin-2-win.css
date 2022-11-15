@@ -387,11 +387,18 @@ html{
      position:relative;
      width: clamp(300px, 40vw, 550px);
      aspect-ratio:1/1;
-     border-radius: 50%;;
+     border-radius: 50%;
+     opacity:1;
      margin: 0 auto;
      overflow:hidden;
+     transition: all .5s ease;
      animation-name: spin-in;
      animation-duration: 1.5s;
+   }
+
+   .show-prize  .wheel{
+      transform:scale(0.25);
+      opacity:0;
    }
 
    .wheel ul{
@@ -596,7 +603,22 @@ html{
       display:block;
       margin:0 auto;
       width:90%;
+      animation-name: win-in;
+      animation-duration: .5s;
    }
+
+
+
+   @keyframes win-in {
+    0% {
+      transform: scale(.2);
+      opacity:0;
+    }
+    100% {
+        transform: scale(1);
+        opacity:1;
+    }
+  }
 
 
 
