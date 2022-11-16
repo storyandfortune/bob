@@ -55,13 +55,18 @@
                     <div v-if="gameState != 'your-code'" 
                          class="credits noselect"
                          :class="{'count-up': wonCredits}"> 
-                         Credits = ${credits}
+                          ${credits} Credits
                     </div>
 
                     <div v-if="gameState === 'your-code'" class="discount-code">
                         <h3>${winning_prize.code}</h3>
                         <p>Code auto-applied Discount appears at Checkout</p>
-                        <a class="btn" href="/collections/all">Shop Now</a>
+
+                        <div class="btn black-white" @click="shop()">
+                            <h3>Shop Now</h3>
+                            <h3>Shop Now</h3>
+                        </div>
+
                     </div>
                 </div>
                 
@@ -77,7 +82,7 @@
                             <div>
                                 <div class="accent">Spin</div> 
                                 <div>to</div> 
-                                <div class="accent">Win</div>
+                                <div class="accent2">Win</div>
                             </div>
 
                         </div>
@@ -104,7 +109,7 @@
                                 <a href="#">Bobs.net/shop</a>
                             </div>
 
-                            <img src='https://cdn.shopify.com/s/files/1/0593/5942/8759/files/prize-card.png?v=1667522299' 
+                            <img src='https://cdn.shopify.com/s/files/1/0593/5942/8759/files/win-card-pink.png?v=1668637055' 
                                 width="auto" 
                                 height="auto" 
                                 loading="lazy" />
@@ -138,7 +143,10 @@
 
                             <div v-if="credits" 
                                 class="spin-again">
-                                <h3 class="btn" @click="spinAgain()">Or Spin Again</h3>
+                                <div class="btn black-white"  @click="spinAgain()">
+                                    <h3>Or Spin Again</h3>
+                                    <h3>Or Spin Again</h3>
+                                </div>
                                 <div>You will loose this prize</div>
                             </div>
 
@@ -154,7 +162,7 @@
                     </div>
                 
                     <div>
-                        <p v-if="gameState === 'your-code'" class="warning">CANNOT BE REDEEMED AT THE RESTAURANT</p>    
+                        <p v-if="gameState === 'your-code'">CANNOT BE REDEEMED AT THE RESTAURANT</p>    
                         <p class="valid-only">Valid only at <a href="/collections/all">Bobs.net/shop</a></p>
                         <p v-if="gameState === 'your-code'" class="copyright"> &copy; 2022 Bob's Burbank (Bobs.net) "Bob's" & "Big Boy" are Registered Trademarks of Big Boy Restaurant Group, LLC, Southfield, MI, U.S.A.</p>
                     </div>
@@ -167,13 +175,13 @@
                     <div class="gameboy" :class="boy.jump">
 
                         <img v-show="boy.armUp" 
-                            src='https://cdn.shopify.com/s/files/1/0593/5942/8759/files/Bob_Hand_Up.svg?v=1667588656' 
+                            src='https://cdn.shopify.com/s/files/1/0593/5942/8759/files/Bob_Hand_Up-blue.svg?v=1668635833' 
                             width="auto" 
                             height="auto" 
                             loading="lazy" />
 
                         <img v-show="!boy.armUp"
-                            src='https://cdn.shopify.com/s/files/1/0593/5942/8759/files/Bob_Hand_In.svg?v=1667588656' 
+                            src='https://cdn.shopify.com/s/files/1/0593/5942/8759/files/Bob_Hand_In-blue.svg?v=1668635823' 
                             width="auto" 
                             height="auto" 
                             loading="lazy" />
@@ -190,10 +198,10 @@
         <div>
             <div class="sun"></div>
             
-            <img class="cloud one"src='https://cdn.shopify.com/s/files/1/0593/5942/8759/files/cloud-1.svg?v=1667140810' width="auto" height="auto" loading="lazy" />
-            <img class="cloud two"src='https://cdn.shopify.com/s/files/1/0593/5942/8759/files/cloud-2.svg?v=1667140810' width="auto" height="auto" loading="lazy" />
-            <img class="cloud three"src='https://cdn.shopify.com/s/files/1/0593/5942/8759/files/cloud-3.svg?v=1667140810' width="auto" height="auto" loading="lazy" />
-            <img class="cloud four"src='https://cdn.shopify.com/s/files/1/0593/5942/8759/files/cloud-4.svg?v=1667140810' width="auto" height="auto" loading="lazy" />
+            <img class="cloud one"src='https://cdn.shopify.com/s/files/1/0593/5942/8759/files/cloud-1-outline.svg?v=1668635841' width="auto" height="auto" loading="lazy" />
+            <img class="cloud two"src='https://cdn.shopify.com/s/files/1/0593/5942/8759/files/cloud-2-outline.svg?v=1668635846' width="auto" height="auto" loading="lazy" />
+            <img class="cloud three"src='https://cdn.shopify.com/s/files/1/0593/5942/8759/files/cloud-3-outline.svg?v=1668635852' width="auto" height="auto" loading="lazy" />
+            <img class="cloud four"src='https://cdn.shopify.com/s/files/1/0593/5942/8759/files/cloud-4-outline.svg?v=1668635856' width="auto" height="auto" loading="lazy" />
 
             <ul class="birds left">
                 <li class="bird time-3">

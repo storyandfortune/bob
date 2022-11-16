@@ -2,6 +2,13 @@
 :root {
   --scale: 1;
   --bob-red:#e62544;
+  --bob-blue:#75d0f3;
+
+  /* GAY version */
+  --bob-pink:#e82291;
+  --bob-yellow:#fff001;
+  --bob-turqoise:#4bc5ca;
+
 }
 
 body,
@@ -9,7 +16,7 @@ html{
   margin:0;
   padding:0;
   color:black;
-  background: #75d0f3;
+  background:#7e6a57;
   font-family: 'AvenirNextLTPro-Medium';
 }
 
@@ -46,7 +53,7 @@ html{
 }
 
 .title h2:nth-child(1){
-  color:var(--bob-red);
+  color:var(--bob-pink);
   z-index:3
 }
 
@@ -153,6 +160,7 @@ html{
 }
 
 .sun{
+  display:none;
   position:absolute;
   top:10%;
   right:20%;
@@ -461,7 +469,7 @@ html{
       margin:0 auto;
       width:clamp(1.5rem, 2rem, 3rem);
       aspect-ratio: 3/2;
-      background:var(--bob-red);
+      background:var(--bob-pink);
       clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
       transform: rotate(180deg);
       z-index:10;
@@ -483,7 +491,7 @@ html{
      width:45%;
      aspect-ratio:1/1;
      border-radius: 50%;;
-     background:var(--bob-red);
+     background:var(--bob-pink);
      color:white;
      margin: 0 auto;
      overflow:visible;
@@ -497,8 +505,11 @@ html{
    }
 
    .spin-btn .accent{
-      color:#fdd538;
+      color:var(--bob-yellow);
    }
+   .spin-btn .accent2{
+    color:var(--bob-turqoise);
+  }
 
   .spin-btn:active{
     width:18vw;
@@ -533,9 +544,6 @@ html{
     transform: rotate(0);
     transform-origin: top;
     z-index:10;
-
-    /* border:1px purple solid; */
-
   }
 
   .gameboy.jump-in{
@@ -740,7 +748,7 @@ html{
     border:none;
     color:white;
     text-transform: uppercase;
-    background-color: var(--bob-red);
+    background-color: black;
     padding:1rem;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
@@ -750,17 +758,26 @@ html{
   .spin-win.show-prize  .win .submit_btn:hover{
     background-color: #b11b34;
   }
-
-  .spin-win .spin-again{
-     text-align: center;
+  
+  .spin-again{
+    text-align: center;
   }
 
-  .spin-win .spin-again h3{
-    font-family: "StickyToffee";
-    font-size: clamp(2rem, 3.5vw, 3rem);
-    line-height: clamp(2.5rem, 4vw, 3.5rem);
+  .black-white{
+      position:relative;
+      text-align: center;
+      height:clamp(2rem, 3.5vw, 3rem);
+  }
+
+  .black-white h3{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    font-family: "StickyToffee" !important;
+    font-size: clamp(2rem, 3.5vw, 3rem) !important;
+    line-height: clamp(2.5rem, 4vw, 3.5rem) !important;
     letter-spacing: 1px;
-    color:var(--bob-red);
     padding:0;
     margin:.5rem 0;
     text-overflow: ellipsis;
@@ -768,12 +785,27 @@ html{
     white-space: nowrap;
   }
 
-  .spin-win .spin-again h3.btn{
+  .black-white h3:nth-child(1){
+    color:white;
+    -webkit-text-fill-color: white;
+    z-index:2
+  }
+
+  .black-white h3:nth-child(2){
+    color:black;
+    -webkit-text-stroke: clamp(10px, 1.5vw, 17px) black;
+    -webkit-text-fill-color: black;
+    z-index:1
+  }
+
+
+
+ .btn{
        cursor:pointer;
        transition: all .25s ease;
   }
 
-  .spin-win .spin-again h3.btn:hover{
+  .btn:hover{
     cursor:pointer;
     transform:scale(1.2);
 }

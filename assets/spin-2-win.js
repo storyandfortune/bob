@@ -92,7 +92,7 @@ var app = Vue.createApp({
 				//this.audio.boing.play()
 
 				setTimeout(() => {
-					this.armUp = true
+					this.boy.armUp = true
 				}, 1500);
 			}
 		},
@@ -111,6 +111,9 @@ var app = Vue.createApp({
 					console.log(this.credits)
 				}
 			}, 300)
+		},
+		shop(){
+			window.location = "/collections/all"
 		},
 		spin(){
 			this.credits--
@@ -152,7 +155,7 @@ var app = Vue.createApp({
 				setTimeout(() => {
 					this.wheelPos = 0
 					this.wheelActive = false
-				}, 6500)
+				}, 6750)
 
 			}
 		
