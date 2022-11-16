@@ -95,7 +95,7 @@
 
                     <!-- prize -->
                     <div v-else="!wheelActive" 
-                        class="win">
+                         class="win">
 
                         <div class="prize">
                             <div class="prize-title">
@@ -164,15 +164,15 @@
             <!-- big boy jumping in -->
             <div v-if="wheelActive" 
                 class="gameboy-contianer">
-                    <div class="gameboy" @click="reset()">
+                    <div class="gameboy" :class="boy.jump">
 
-                        <img v-show="armUp" 
+                        <img v-show="boy.armUp" 
                             src='https://cdn.shopify.com/s/files/1/0593/5942/8759/files/Bob_Hand_Up.svg?v=1667588656' 
                             width="auto" 
                             height="auto" 
                             loading="lazy" />
 
-                        <img v-show="!armUp"
+                        <img v-show="!boy.armUp"
                             src='https://cdn.shopify.com/s/files/1/0593/5942/8759/files/Bob_Hand_In.svg?v=1667588656' 
                             width="auto" 
                             height="auto" 

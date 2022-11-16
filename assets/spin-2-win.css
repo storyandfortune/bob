@@ -65,7 +65,7 @@ html{
 }
 
 .title .credits{
-  margin-top:clamp(5rem, 6vw, 7rem);
+  margin-top:clamp(5rem, 7vw, 7rem);
   font-size: clamp(1.5rem, 2vw, 2rem);
   text-transform: uppercase;
   font-family: 'AvenirNextLTPro-Bold';
@@ -529,16 +529,27 @@ html{
     bottom:10vh;
     transform: rotate(0deg);
     width: clamp(16rem, 30vw, 30rem);
-    transition: all 1.25s ease;
+    transition: all 1s ease;
     transform: rotate(0);
     transform-origin: top;
-    animation-name: pop-up;
-    animation-duration: 1.5s;
     z-index:10;
 
     /* border:1px purple solid; */
 
   }
+
+  .gameboy.jump-in{
+    animation-name: pop-up;
+    animation-duration: 1.5s;
+  }
+
+  .gameboy.jump-out{
+    opacity:0;
+    animation-name: pop-up;
+    animation-direction: reverse;
+    animation-duration: 1s;
+  }
+
 
   .gameboy img{
     width:100%;
@@ -844,6 +855,7 @@ a.btn{
   color:white;
   background-color: var(--bob-red);
   padding:1rem 1.5rem;
+  margin:1rem 0 0 0;
   text-transform: uppercase;
   text-decoration: none;
 }

@@ -4,7 +4,7 @@ var app = Vue.createApp({
 		return {
 			ready:false,
 			gameState:"init", // init, start, reset-wheel, show-prize, your-code
-			mainTitle:"Spin 2 Win",
+			mainTitle:"Free Prizes",
 			endPoint:"https://api.storyandfortune.com/bobs/customer-connect/",
 			win:[
 				{
@@ -62,7 +62,10 @@ var app = Vue.createApp({
 			wonCredits:false,
 			wheelActive:true,
 			wheelPos:0,
-			armUp:false,
+			boy:{
+				armUp:false,
+				jump:"jump-in"
+			},
 			email:{
 				address:'',
 				valid:true,
@@ -116,6 +119,7 @@ var app = Vue.createApp({
 			//this.winning_prize = this.win[0]
 			this.wheelPos = -1 * (3600 + this.winning_prize.deg)
 			this.audio.spin5.play(); //play sound
+			this.boy.jump = ""
 			
 			//wheel done spinning
 			setTimeout(() => {
@@ -140,6 +144,7 @@ var app = Vue.createApp({
 					this.audio.applause.play()
 					this.gameState = "show-prize"
 					this.mainTitle = "You Won"
+					this.boy.jump = "jump-out"
 				}, 5750)
 
 
