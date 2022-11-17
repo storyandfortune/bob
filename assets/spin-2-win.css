@@ -16,7 +16,7 @@ html{
   margin:0;
   padding:0;
   color:black;
-  background:#7e6a57;
+  background:var(--bob-yellow);
   font-family: 'AvenirNextLTPro-Medium';
 }
 
@@ -43,6 +43,7 @@ html{
    right:0;
    margin:0 auto;
    font-family: "StickyToffee";
+   text-transform: uppercase;
    font-size: clamp(3rem, 5.5vw, 4.5rem);
    line-height: clamp(3.5rem, 6vw, 6rem);
    letter-spacing: 1px;
@@ -497,6 +498,7 @@ html{
      overflow:visible;
      text-align: center;
      font-family: "StickyToffee";
+     text-transform: uppercase;
      font-size: clamp(1.25rem, 3vw, 4.5rem);
      padding:1.5rem 3rem;
      cursor: pointer;
@@ -775,6 +777,7 @@ html{
     left:0;
     width:100%;
     font-family: "StickyToffee" !important;
+    text-transform: uppercase;
     font-size: clamp(2rem, 3.5vw, 3rem) !important;
     line-height: clamp(2.5rem, 4vw, 3.5rem) !important;
     letter-spacing: 1px;
@@ -849,7 +852,7 @@ html{
     list-style: none;
     padding: 5vw 10vw;
     width:50vw;
-    font-family: "StickyToffee";
+    text-transform: uppercase;
     font-size: clamp(2rem, 3vw, 3rem);
     border-radius:2rem;
     border:5px solid white;
