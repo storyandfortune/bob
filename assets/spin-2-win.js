@@ -143,7 +143,14 @@ var app = Vue.createApp({
 				this.audio.loose.play(); //play sound
 				this.wheelPos = 0
 				this.changeTitle('You Loose!')
-				let winInt = setTimeout(() => {
+
+
+				setTimeout(() => {
+					this.audio.haha.play(); //play sound
+					this.boy.jump = "laugh"
+				}, 1000)
+
+				setTimeout(() => {
 					this.wonCredits = false	
 					this.gameState = "start"
 					this.changeTitle('Spin Again')
@@ -170,7 +177,7 @@ var app = Vue.createApp({
 			window.location = "/collections/all"
 		},
 		spin(){
-			if(this.gameState === 'start'){
+			if(this.gameState === 'start' || this.testing.test === true){
 	
 				// testing ------------
 				if(this.testing.test){
@@ -312,6 +319,17 @@ var app = Vue.createApp({
 				   this.startGame();
 			   }
 			   });
+
+
+
+			   this.audio.haha = new Howl({
+				src: ['https://cdn.shopify.com/s/files/1/0593/5942/8759/files/ha-ha.mp3?v=1669675254'],
+				preload: true,
+				onload:()=>{
+					this.startGame();
+				}
+				});
+
 
 			    this.audio.winCredits = new Howl({
 				src: ['https://cdn.shopify.com/s/files/1/0593/5942/8759/files/win-credits_9ab32561-e3da-48f5-92b9-e640d4d0b18c.mp3?v=1669239541'],

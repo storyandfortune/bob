@@ -585,6 +585,13 @@ html{
     animation-duration: 1.5s;
   }
 
+  .gameboy.laugh{
+    animation-name: laugh;
+    animation-iteration-count: 20;
+    animation-direction: alternate-reverse;
+    animation-duration: .15s;
+  }
+
   .gameboy.jump-out{
     opacity:0;
     animation-name: pop-up;
@@ -637,6 +644,17 @@ html{
         bottom:10vh;
         transform: rotate(0deg);
         width:30vw;
+       }
+  }
+
+
+  @keyframes laugh {
+    0% {
+          transform: scaleY(0.95) rotate(5deg);
+          bottom:15vh;
+        }
+    100% {
+        transform: scaleY(1) rotate(-5deg);
        }
   }
 
