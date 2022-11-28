@@ -2,39 +2,53 @@ var app = Vue.createApp({
 
 	data() {
 		return {
-			ready:false,
-			gameState:"init", // init, start, reset-wheel, show-prize, your-code
-			mainTitle:"Free Prizes",
+			ready:false,     
+			testing:{'test':false, 'index':null},
+			fish:{
+				useFish:false, 
+				images:[
+					'https://cdn.shopify.com/s/files/1/0593/5942/8759/files/fish-purple.png?v=1669509615', 
+					'https://cdn.shopify.com/s/files/1/0593/5942/8759/files/fish-blue.png?v=1669509615', 
+					'https://cdn.shopify.com/s/files/1/0593/5942/8759/files/fish-blue-orange.png?v=1669509615', 
+					'https://cdn.shopify.com/s/files/1/0593/5942/8759/files/fish-red.png?v=1669509615', 
+					'https://cdn.shopify.com/s/files/1/0593/5942/8759/files/fish-orange-blue.png?v=1669509616', 
+					'https://cdn.shopify.com/s/files/1/0593/5942/8759/files/fish-green.png?v=1669509615', 
+					'https://cdn.shopify.com/s/files/1/0593/5942/8759/files/fish-orange.png?v=1669509615', 
+					'https://cdn.shopify.com/s/files/1/0593/5942/8759/files/fish-pink.png?v=1669509615'
+				]},
+			gameState:"init", // init, enter-email, start, reset-wheel, show-prize, your-code, game-over
+			mainTitle:"",
+			titleFade:false,
 			endPoint:"https://api.storyandfortune.com/bobs/customer-connect/",
 			win:[
 				{
 					deg:0, 
-					title:"More <br/> Spins", 
-					code:"MORE-SPINS", 
+					title:"Free <br/> Shirt", 
+					code:"FREE-SHIRT", 
 					ratio:50
 				}, 
 				{
 					deg:45, 
-					title:"10% <br/> Off", 
-					code:"WIN-10-PERCENT-OFF", 
+					title:"More <br/> Spins", 
+					code:"MORE-SPINS", 
 					ratio:75
 				}, 
 				{
 					deg:90, 
-					title:"Free <br/> Stickers", 
-					code:"FREE-STICKERS", 
+					title:"Free <br/> Hoodie", 
+					code:"FREE-HOODIE", 
 					ratio:75
 				 },
 				{
 					deg:135, 
-					title:"More <br/> Spins", 
-					code:"MORE-SPINS", 
+					title:"You <br/> Loose", 
+					code:"YOU-LOOSE", 
 					ratio:50 
 				},
 				{
 					deg:180, 
-					title:"Free <br/> Postcards", 
-					code:"FREE-POSTCARDS", 
+					title:"Free <br/> Stickers", 
+					code:"FREE-STICKERS", 
 					ratio:75
 				},
 				{
@@ -44,19 +58,25 @@ var app = Vue.createApp({
 					ratio:50
 				},
 				{
-					deg:270, title:"Free <br/> Emoji", 
-					code:"FREE-EMOJI", 
+					deg:270, 
+					title:"Free <br/> PATCH", 
+					code:"FREE-PATCH", 
 					ratio:100
 				},
 				{
 					deg:315, 
-					title:"15% <br/> Off", 
-					code:"WIN-15-PERCENT-OFF", 
+					title:"You <br/> Loose", 
+					code:"YOU-LOOSE", 
 					ratio:25
 				}
 			],
 			win_ratio: [],
-			winning_prize:null,
+			winning_prize:{
+				deg:0, 
+				title:false, 
+				code:false, 
+				ratio:0
+			},
 			prize:null,
 			credits:3,
 			wonCredits:false,
@@ -64,7 +84,7 @@ var app = Vue.createApp({
 			wheelPos:0,
 			boy:{
 				armUp:false,
-				jump:"jump-in"
+				jump:"hide"
 			},
 			email:{
 				address:'',
@@ -77,24 +97,28 @@ var app = Vue.createApp({
 				spin5:null,
 				applause:null,
 				winCredits:null,
+				loose:null,
 				soundLoaded:0,
 			},
-			modalMessage:[]
+			modalMessage:{display:false, content:[]}
 		}
 	},
 	methods: {
 		startGame(){
 			this.audio.soundLoaded++;
-			if(	this.audio.soundLoaded > 4){
-				this.gameState = "start"
+			if(	this.audio.soundLoaded > 5){
+				this.gameState = "enter-email"
 				this.ready = true
-
-				//this.audio.boing.play()
-
-				setTimeout(() => {
-					this.boy.armUp = true
-				}, 1500);
 			}
+		},
+		playGame(){
+			this.gameState = "start"
+			this.changeTitle('Spin 2 Win!')
+			this.boy.jump = "jump-in"
+			this.audio.boing.play()
+			setTimeout(() => {
+				this.boy.armUp = true
+			}, 1500);
 		},
 		winCredits(){
 			let currentCredits = this.credits
@@ -105,6 +129,7 @@ var app = Vue.createApp({
 				if(this.credits === currentCredits + 3){
 					clearInterval(winInt)
 					this.wonCredits = false	
+					this.gameState = "start"
 				}
 				else{
 					this.credits++
@@ -112,53 +137,94 @@ var app = Vue.createApp({
 				}
 			}, 300)
 		},
+		looseCredits(){
+			if(this.credits > 0){
+				this.wonCredits = true
+				this.audio.loose.play(); //play sound
+				this.wheelPos = 0
+				this.changeTitle('You Loose!')
+				let winInt = setTimeout(() => {
+					this.wonCredits = false	
+					this.gameState = "start"
+					this.changeTitle('Spin Again')
+				}, 2000)
+			}
+			else{
+				this.gameOver()
+			}
+		},
+		gameOver(){
+			this.changeTitle('Game Over!')
+			this.gameState = "game-over"
+			this.boy.jump = "jump-out"
+			this.audio.boing.play()
+		},
+		changeTitle(title){
+			this.titleFade = true
+			setTimeout(() => {
+				this.mainTitle = title
+				this.titleFade = false
+			}, 450)
+		},
 		shop(){
 			window.location = "/collections/all"
 		},
 		spin(){
-			this.credits--
-			this.prize = (Math.floor(Math.random() * (1 - this.win_ratio.length)) + this.win_ratio.length) -1
-			this.winning_prize = this.win[this.win_ratio[this.prize]]
-			//this.winning_prize = this.win[0]
-			this.wheelPos = -1 * (3600 + this.winning_prize.deg)
-			this.audio.spin5.play(); //play sound
-			this.boy.jump = ""
-			
-			//wheel done spinning
-			setTimeout(() => {
-				this.gameState = "reset-wheel"
-				if(this.winning_prize.code === "MORE-SPINS"){
-					this.winCredits()
-					this.wheelPos = 0
+			if(this.gameState === 'start'){
+	
+				// testing ------------
+				if(this.testing.test){
+					this.prize = this.testing.index
+					this.winning_prize = this.win[this.testing.index]
+				}else{
+					this.prize = (Math.floor(Math.random() * (1 - this.win_ratio.length)) + this.win_ratio.length) -1
+					this.winning_prize = this.win[this.win_ratio[this.prize]]
 				}
-			}, 5500)
 
-			// prepare wheel to spin again
-			setTimeout(() => {
-				this.gameState = "start"
-			}, 5600)
-		
-			// show prize
-			if(this.winning_prize.code != "MORE-SPINS"){
+			
+				this.wheelPos = -1 * (3600 + this.winning_prize.deg)
+				this.audio.spin5.play(); //play sound
+				this.boy.jump = ""
+				this.credits--
 
-				// fade out wheel -------------
-				setTimeout(() => {
-					this.addCoupon()
-					this.audio.applause.play()
-					this.gameState = "show-prize"
-					this.mainTitle = "You Won"
-					this.boy.jump = "jump-out"
-				}, 5750)
+				// show prize
+				if(this.winning_prize.code != "MORE-SPINS" && this.winning_prize.code != "YOU-LOOSE"){
+
+					// fade out wheel -------------
+					setTimeout(() => {
+						this.addCoupon()
+						this.audio.applause.play()
+						this.gameState = "show-prize"
+						this.mainTitle = "You Won"
+						this.boy.jump = "jump-out"
+					}, 5750)
 
 
-				// show prize ---------------
-				setTimeout(() => {
-					this.wheelPos = 0
-					this.wheelActive = false
-				}, 6750)
+					// show prize ---------------
+					setTimeout(() => {
+						this.wheelPos = 0
+						this.wheelActive = false
+					}, 6750)
 
+				}
+				else{
+					//wheel done spinning
+					setTimeout(() => {
+						this.gameState = "reset-wheel"
+						if(this.winning_prize.code === "MORE-SPINS"){
+							this.winCredits()
+							this.wheelPos = 0
+						}
+						if(this.winning_prize.code === "YOU-LOOSE"){
+							this.looseCredits()
+						}
+
+					}, 5500)
+
+				}
+			}else{
+				this.email.valid = false
 			}
-		
 		},
 		addCoupon(){
 
@@ -178,12 +244,10 @@ var app = Vue.createApp({
 	
 		},
 		reset(){
-			window.sessionStorage.clear();
-			window.location.reload();
-		},
-		spinAgain(){
-			this.gameState = "spin"
+			this.gameState = "start"
+			this.changeTitle('Win Prizes')
 			this.wheelActive = true
+			this.boy.jump = "jump-in"
 		},
 		validateEmail(val){
 			return String(val)
@@ -197,7 +261,7 @@ var app = Vue.createApp({
 			this.email.valid = true
 		},
 		addEmail(){
-			console.log('send')
+
 			this.email.valid = this.validateEmail(this.email.address)
 
 			if(this.email.valid){
@@ -214,19 +278,29 @@ var app = Vue.createApp({
 					this.email.sending = false
 
 					if(response.data.customerCreate.userErrors.length){
-						this.modalMessage = response.data.customerCreate.userErrors
+						this.modalMessage.display = true 
+						this.modalMessage.content = response.data.customerCreate.userErrors
+						console.log(this.modalMessage)
 					}
 
 					if(response.data.customerCreate.customer != null){
-						this.addCoupon()
+						this.playGame()
 					}
 				
 				}).fail((error) => {
 					console.log(error)
 					this.email.sending = false
-					this.modalMessage.push("Oopsie Daisy... Something went wrong.")
+					this.modalMessage.display = true 
+					this.modalMessage.content.push("Oopsie Daisy... Something went wrong.")
 				});
 
+			}
+		},
+		testSpin(index){
+			if(this.testing.test){
+				this.testing.index = index
+				console.log(this.testing)
+				this.spin()
 			}
 		},
 		init(){
@@ -239,15 +313,22 @@ var app = Vue.createApp({
 			   }
 			   });
 
-			   this.audio.winCredits = new Howl({
-				src: ['https://cdn.shopify.com/s/files/1/0593/5942/8759/files/win-credits.mp3?v=1668536092'],
+			    this.audio.winCredits = new Howl({
+				src: ['https://cdn.shopify.com/s/files/1/0593/5942/8759/files/win-credits_9ab32561-e3da-48f5-92b9-e640d4d0b18c.mp3?v=1669239541'],
 				preload: true,
 				onload:()=>{
 					this.startGame();
 				}
 				});
 
-	
+				this.audio.loose = new Howl({
+					src: ['https://cdn.shopify.com/s/files/1/0593/5942/8759/files/loose.mp3?v=1669239541'],
+					preload: true,
+					onload:()=>{
+						this.startGame();
+					}
+				});
+
 			   this.audio.spin3 = new Howl({
 				src: ['https://cdn.shopify.com/s/files/1/0593/5942/8759/files/spin-3.mp3?v=1664663273'],
 				preload: true,

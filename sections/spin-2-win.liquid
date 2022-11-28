@@ -48,14 +48,44 @@
             
             <div class="game-center">
 
+
+                <div v-if="gameState === 'enter-email'" 
+                    class="email" 
+                    :class="{'error': !email.valid}">
+
+                    <div class="credits noselect">Get 3 Credits</div>
+
+                   <div v-if="!email.sending" 
+                       class="email-container">
+
+                       <input v-model="email.address" 
+                           id="email"  
+                           type="email" 
+                           placeholder="Enter your Email"
+                           @focus="resetEmail()"/>
+
+                       <button class="title submit_btn" 
+                               @click="addEmail()"> 
+                               <h2 v-for="index in 3" :key="index" class="noselect">Play</h2>
+                       </button>
+
+                   </div>
+
+                   <div v-else class="sending"> Sending... </div>
+
+               </div>
+
                 <!-- title -->
-                <div class="title">
+                <div v-if="gameState != 'enter-email'" 
+                    class="title" 
+                    :class="{'fadeOut': titleFade}">
+
                     <h2 v-for="index in 3" :key="index" class="noselect">${mainTitle}</h2>
 
                     <div v-if="gameState != 'your-code'" 
                          class="credits noselect"
                          :class="{'count-up': wonCredits}"> 
-                          ${credits} Credits
+                          ${credits} Credits 
                     </div>
 
                     <div v-if="gameState === 'your-code'" class="discount-code">
@@ -88,11 +118,13 @@
                         </div>
 
                         <ul :style="{'transform': 'rotate('+wheelPos+'deg)'}">
-                            <li  v-for="prize in win" 
+                            <li  v-for="prize, index in win" 
                                 :key="prize.deg" 
-                                :style="{'transform': 'rotate('+prize.deg+'deg)'}">
-                                <div class="label" v-html="prize.title"></div>
-            
+                                :style="{'transform': 'rotate('+prize.deg+'deg)'}"
+                                @click="testSpin(index)">
+
+                                <div v-if="fish.useFish" class="fish"><img :src="fish.images[index]" /> </div>
+                                <div v-else class="label" v-html="prize.title"></div>
                             </li>
                         </ul>
 
@@ -115,35 +147,11 @@
                                 loading="lazy" />
                         </div>
 
-                        <div v-if="gameState === 'show-prize'" 
-                             class="email" 
-                             :class="{'error': !email.valid}">
-
-                            <div v-if="!email.sending" 
-                                class="email-container">
-
-                                <input v-model="email.address" 
-                                    id="email"  
-                                    type="email" 
-                                    placeholder="Enter your email address"
-                                    @focus="email.address = ''"/>
-
-                                <button class="submit_btn" 
-                                        @click="addEmail()"> 
-                                        Get Code 
-                                </button>
-
-                            </div>
-
-                            <div v-else class="sending"> Sending... </div>
-
-                        </div>
-
                         <div v-if="gameState === 'show-prize'">
 
                             <div v-if="credits" 
                                 class="spin-again">
-                                <div class="btn black-white"  @click="spinAgain()">
+                                <div class="btn black-white"  @click="reset()">
                                     <h3>Or Spin Again</h3>
                                     <h3>Or Spin Again</h3>
                                 </div>
@@ -192,7 +200,8 @@
         </div>    
        <!-- end game -->
     
-    <!-- sky -->
+   
+       <!-- sky -->
     <div class="sky">
 
         <div>
@@ -255,13 +264,15 @@
     </div>
 
     <!-- modal -->
-    <div v-if="modalMessage.length" 
+    <div v-if="modalMessage.display" 
          class="modal"
-         @click="modalMessage = []">
+         @click="modalMessage.display = false">
         <div class="modal-container">
-            <div class="close"></div>
+            <div class="close">
+                {%- render 'icon-times-solid' -%}
+            </div>
             <ul>
-                <li v-for="item in modalMessage" :key="item.message">
+                <li v-for="item in modalMessage.content" :key="item.message.content">
                     ${item.message}
                 </li>
             </ul>
