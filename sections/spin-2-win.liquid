@@ -44,10 +44,10 @@
 
     <div v-if="ready" class="spin-win" :class="gameState">
 
+
         <div class="game" :class="{'ready': ready}">
             
             <div class="game-center">
-
 
                 <div v-if="gameState === 'enter-email'" 
                     class="email" 
@@ -166,7 +166,6 @@
                             
                         </div>
 
-
                     </div>
                 
                     <div>
@@ -200,8 +199,8 @@
         </div>    
        <!-- end game -->
     
-   
-       <!-- sky -->
+
+    <!-- sky -->
     <div class="sky">
 
         <div>
@@ -262,6 +261,9 @@
     <div class='bg'>
         <div class="checkerboard"></div>
     </div>
+
+
+    <div v-if="testing.test" class="test-mode">TEST MODE</div>
 
     <!-- modal -->
     <div v-if="modalMessage.display" 

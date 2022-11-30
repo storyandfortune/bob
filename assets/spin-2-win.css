@@ -32,7 +32,7 @@ html{
   position:relative;
   display:block;
   width:100%;
-  margin: 0 auto 1rem auto;
+  margin: 0 auto 0 auto;
   text-align: center;
   border:1px solid transparent;
   transform: scale(1);
@@ -185,13 +185,6 @@ html{
   }
 }
 
-@media screen and (max-width: 400px) {
-  .sun{}
-}
-
-@media screen and (max-width: 300px) {
-  .sun{}
-}
 
 
 .cloud{
@@ -314,9 +307,6 @@ html{
   }
 }
 
-@media screen and (max-width: 300px) {
-
-}
 
 
 @keyframes bird-fly {
@@ -391,11 +381,6 @@ html{
     }
   }
   
-
-  @media screen and (max-width: 300px) {
-    .checkerboard {}
-  }
-
 
 
    /* ---------------- SPIN -------------------- */
@@ -626,7 +611,7 @@ html{
   }
   
   @media screen and (max-width: 300px) {
-    .gameboy{}
+    /**/
   }
 
   @keyframes pop-up {
@@ -753,7 +738,7 @@ html{
   }
 
 
-  .spin-win  .submit_btn{
+  .spin-win .submit_btn{
     display:block;
     background-color: transparent;
     height:85px;
@@ -910,7 +895,6 @@ html{
 
   .spin-win .modal-container .close{
         position:absolute;
-        cu
         top:.5rem;
         right:1rem;
         width:25px;
@@ -982,6 +966,15 @@ p.copyright{
   font-size: 12px;
   line-height: 14px;
 }
+
+
+.test-mode{
+  visibility: visible;
+  padding:2rem;
+  font-size: 1.5rem;
+  font-family: "AvenirNextLTPro-Bold";
+}
+
 
 /* ---------------- MEDIA -------------------- */
 
