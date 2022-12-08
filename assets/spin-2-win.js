@@ -3,7 +3,7 @@ var app = Vue.createApp({
 	data() {
 		return {
 			ready:false,     
-			testing:{'test':true, 'index':null},
+			testing:{'test':false, 'index':null},
 			fish:{
 				useFish:false, 
 				images:[
