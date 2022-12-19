@@ -609,9 +609,6 @@ html{
    }
   }
   
-  @media screen and (max-width: 300px) {
-    /**/
-  }
 
   @keyframes pop-up {
     0% {
@@ -728,22 +725,28 @@ html{
   .spin-win  #email{
     border:1px solid #ccc;
     padding:0;
-    height: 4rem;
+    max-height: 4rem;
+    min-height:3rem;
+    margin:.5rem;
     text-align: center;
     color:black;
     border-radius: 5px;
     max-width: 250px;
-    font-size: 1.25rem;
+    font-size: clamp(.8rem, 1vw ,1.25rem);
   }
 
 
-  .spin-win .submit_btn{
-    display:block;
+  .spin-win .title.submit_btn{
+    flex:1;
     background-color: transparent;
-    height:85px;
+    max-height: 4rem;
+    min-height:3rem;
+    font-size: clamp(1.5rem, 3vw, 4.5rem);
+    line-height: clamp(2rem, 6vw, 6rem);
     transition: all .25s ease;
     cursor: pointer;
   }
+
 
   .spin-win .submit_btn:hover{
       transform: scale(1.1);

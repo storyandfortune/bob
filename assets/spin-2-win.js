@@ -5,7 +5,7 @@ var app = Vue.createApp({
 			ready:false,     
 			testing:{'test':false, 'index':null},
 			fish:{
-				useFish:false, 
+				useFish:true, 
 				images:[
 					'https://cdn.shopify.com/s/files/1/0593/5942/8759/files/fish-purple.png?v=1669509615', 
 					'https://cdn.shopify.com/s/files/1/0593/5942/8759/files/fish-blue.png?v=1669509615', 
@@ -25,49 +25,49 @@ var app = Vue.createApp({
 					deg:0, 
 					title:"Free <br/> Shirt", 
 					code:"FREE-SHIRT", 
-					ratio:50
+					ratio:3
 				}, 
 				{
 					deg:45, 
 					title:"More <br/> Spins", 
 					code:"MORE-SPINS", 
-					ratio:75
+					ratio:15
 				}, 
 				{
 					deg:90, 
 					title:"Free <br/> Hoodie", 
 					code:"FREE-HOODIE", 
-					ratio:75
+					ratio:1
 				 },
 				{
 					deg:135, 
 					title:"You <br/> Loose", 
 					code:"YOU-LOOSE", 
-					ratio:50 
+					ratio:20
 				},
 				{
 					deg:180, 
 					title:"Free <br/> Stickers", 
 					code:"FREE-STICKERS", 
-					ratio:75
+					ratio:30
 				},
 				{
 					deg:225, 
 					title:"More <br/> Spins", 
 					code:"MORE-SPINS", 
-					ratio:50
+					ratio:10
 				},
 				{
 					deg:270, 
 					title:"Free <br/> PATCH", 
 					code:"FREE-PATCH", 
-					ratio:100
+					ratio:6
 				},
 				{
 					deg:315, 
 					title:"You <br/> Loose", 
 					code:"YOU-LOOSE", 
-					ratio:25
+					ratio:15
 				}
 			],
 			win_ratio: [],
@@ -255,7 +255,7 @@ var app = Vue.createApp({
 		},
 		reset(){
 			this.gameState = "start"
-			this.changeTitle('Win Prizes')
+			this.changeTitle('Spin Again')
 			this.wheelActive = true
 			this.boy.jump = "jump-in"
 		},

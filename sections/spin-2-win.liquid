@@ -152,17 +152,21 @@
 
                             <div v-if="credits" 
                                 class="spin-again">
+                                <div>Show Cashier in front to get your prize.</div>
                                 <div class="btn black-white"  @click="reset()">
                                     <h3>Or Spin Again</h3>
                                     <h3>Or Spin Again</h3>
                                 </div>
-                                <div>You will loose this prize</div>
+                                <div>You will lose this prize</div>
                             </div>
 
                             <div v-else 
                                 class="spin-again">
-                                <h3>No Spins Left</h3>
-                                <div>Enter e-mail to claim prize</div>
+                                <div class="btn black-white"  @click="reset()">
+                                    <h3>No Spins Left</h3>
+                                    <h3>No Spins Left</h3>
+                                </div>
+                                <div>Sorry your credits are 0</div>
                             </div>
                             
                         </div>
