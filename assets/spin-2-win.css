@@ -709,10 +709,17 @@ html{
     display: flex;
     flex-direction: row;
     align-items: center;
+    align-content: center;
     width:70%;
     margin:0 auto;
-    padding:0;
+    padding:1rem;
    }
+
+   @media screen and (max-width: 400px) {
+    .spin-win .email .email-container{ 
+      width:100%;
+    }
+  }
 
   .spin-win .email.error #email{ 
       border:3px solid var(--bob-red);
@@ -732,7 +739,7 @@ html{
     color:black;
     border-radius: 5px;
     max-width: 250px;
-    font-size: clamp(.8rem, 1vw ,1.25rem);
+    font-size: clamp(1rem, 1vw ,1.25rem);
   }
 
 
