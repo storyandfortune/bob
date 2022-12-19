@@ -104,6 +104,9 @@ var app = Vue.createApp({
 		}
 	},
 	methods: {
+		returnDate(){
+			return moment().format('MMMM Do YYYY, h:mm:ss a')
+		},
 		startGame(){
 			this.audio.soundLoaded++;
 			if(	this.audio.soundLoaded > 5){
@@ -113,7 +116,7 @@ var app = Vue.createApp({
 		},
 		playGame(){
 			this.gameState = "start"
-			this.changeTitle('Spin 2 Win!')
+			this.changeTitle('Spin to Win!')
 			this.boy.jump = "jump-in"
 			this.audio.boing.play()
 			setTimeout(() => {
@@ -137,12 +140,12 @@ var app = Vue.createApp({
 				}
 			}, 300)
 		},
-		looseCredits(){
+		loseCredits(){
 			if(this.credits > 0){
 				this.wonCredits = true
 				this.audio.loose.play(); //play sound
 				this.wheelPos = 0
-				this.changeTitle('You Loose!')
+				this.changeTitle('You Lose!')
 
 
 				setTimeout(() => {
@@ -223,7 +226,7 @@ var app = Vue.createApp({
 							this.wheelPos = 0
 						}
 						if(this.winning_prize.code === "YOU-LOOSE"){
-							this.looseCredits()
+							this.loseCredits()
 						}
 
 					}, 5500)

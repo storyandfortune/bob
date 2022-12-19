@@ -16,7 +16,7 @@ html{
   margin:0;
   padding:0;
   color:black;
-  background:var(--bob-yellow);
+  background:var(--bob-blue);
   /*background: rgb(100, 42, 104);*/
   font-family: 'AvenirNextLTPro-Medium';
 }
@@ -51,7 +51,6 @@ html{
    margin:0 auto;
    padding:0;
    font-family: "StickyToffee";
-   text-transform: uppercase;
    font-size: clamp(3rem, 5.5vw, 4.5rem);
    line-height: clamp(3.5rem, 6vw, 6rem);
    letter-spacing: 1px;

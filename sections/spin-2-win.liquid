@@ -62,6 +62,7 @@
                            id="email"  
                            type="email" 
                            placeholder="Enter your Email"
+                           v-on:keyup.enter="addEmail()"
                            @focus="resetEmail()"/>
 
                        <button class="title submit_btn" 
@@ -169,8 +170,8 @@
                     </div>
                 
                     <div>
-                        <p v-if="gameState === 'your-code'">CANNOT BE REDEEMED AT THE RESTAURANT</p>    
-                        <p class="valid-only">Valid only at <a href="/collections/all">Bobs.net/shop</a></p>
+                       
+                        <p class="valid-only">${returnDate()}</p>
                         <p v-if="gameState === 'your-code'" class="copyright"> &copy; 2022 Bob's Burbank (Bobs.net) "Bob's" & "Big Boy" are Registered Trademarks of Big Boy Restaurant Group, LLC, Southfield, MI, U.S.A.</p>
                     </div>
             </div>
@@ -182,6 +183,19 @@
                     <div class="gameboy" :class="boy.jump">
 
                         <img v-show="boy.armUp" 
+                            src='https://cdn.shopify.com/s/files/1/0593/5942/8759/files/Bob_Hand_Up-blue2.svg?v=1671134564' 
+                            width="auto" 
+                            height="auto" 
+                            loading="lazy" />
+
+                        <img v-show="!boy.armUp"
+                            src='https://cdn.shopify.com/s/files/1/0593/5942/8759/files/Bob_Hand_In-blue2.svg?v=1671134564' 
+                            width="auto" 
+                            height="auto" 
+                            loading="lazy" />
+
+                        <!-- 
+                        <img v-show="boy.armUp" 
                             src='https://cdn.shopify.com/s/files/1/0593/5942/8759/files/Bob_Hand_Up-blue.svg?v=1668635833' 
                             width="auto" 
                             height="auto" 
@@ -192,6 +206,7 @@
                             width="auto" 
                             height="auto" 
                             loading="lazy" />
+                         -->
                     </div>
                 </div>
 
@@ -287,4 +302,5 @@
 <script src="{{ 'vue@3.0.11.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'howler.min.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'jquery-3.6.0.min.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'moment-with-locales.min.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'spin-2-win.js' | asset_url }}" defer="defer"></script>
