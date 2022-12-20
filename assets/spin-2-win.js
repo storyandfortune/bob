@@ -18,6 +18,17 @@ var app = Vue.createApp({
 				]},
 			gameState:"init", // init, enter-email, start, reset-wheel, show-prize, your-code, game-over
 			mainTitle:"",
+			titleSvgs:{
+				wheelOfFish:{file:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/s2w-wheel-of-fish.svg?v=1671557956"},
+				spinToWin:{file:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/s2w-spin-to-win.svg?v=1671557956"},
+				play:{file:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/s2w-play.svg?v=1671557955"},
+				spinAgain:{file:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/s2w-spin-again.svg?v=1671557956"},
+				orSpinAgain:{file:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/s2w-or-spin-again.svg?v=1671557956"},
+				noSpinsLeft:{file:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/s2w-no-spins-left.svg?v=1671557956"},
+				gameOver:{file:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/s2w-game-over.svg?v=1671557956"},
+				youLose:{file:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/s2w-you-lose.svg?v=1671557955"},
+				spin_btn:{file:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/s2w-spin_btn.svg?v=1671557956"}
+			},
 			titleFade:false,
 			endPoint:"https://api.storyandfortune.com/bobs/customer-connect/",
 			win:[
@@ -116,7 +127,7 @@ var app = Vue.createApp({
 		},
 		playGame(){
 			this.gameState = "start"
-			this.changeTitle('Spin to Win!')
+			this.changeTitle(this.titleSvgs.spinToWin.file)
 			this.boy.jump = "jump-in"
 			this.audio.boing.play()
 			setTimeout(() => {
@@ -145,7 +156,7 @@ var app = Vue.createApp({
 				this.wonCredits = true
 				this.audio.loose.play(); //play sound
 				this.wheelPos = 0
-				this.changeTitle('You Lose!')
+				this.changeTitle(this.titleSvgs.youLose.file)
 
 
 				setTimeout(() => {
@@ -156,7 +167,7 @@ var app = Vue.createApp({
 				setTimeout(() => {
 					this.wonCredits = false	
 					this.gameState = "start"
-					this.changeTitle('Spin Again')
+					this.changeTitle(this.titleSvgs.spinAgain.file)
 				}, 2000)
 			}
 			else{
@@ -164,7 +175,7 @@ var app = Vue.createApp({
 			}
 		},
 		gameOver(){
-			this.changeTitle('Game Over!')
+			this.changeTitle(this.titleSvgs.gameOver.file)
 			this.gameState = "game-over"
 			this.boy.jump = "jump-out"
 			this.audio.boing.play()
@@ -255,7 +266,7 @@ var app = Vue.createApp({
 		},
 		reset(){
 			this.gameState = "start"
-			this.changeTitle('Spin Again')
+			this.changeTitle(this.titleSvgs.spinAgain.file)
 			this.wheelActive = true
 			this.boy.jump = "jump-in"
 		},
@@ -373,6 +384,9 @@ var app = Vue.createApp({
 					this.startGame();
 				}
 			   });
+
+
+			   console.log(this.titleSvgs.spinToWin.file)
 	
 			   this.win_ratio = [];
 			   let el = 0;

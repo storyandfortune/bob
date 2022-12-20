@@ -44,7 +44,7 @@
 
     <div v-if="ready" class="spin-win" :class="gameState">
 
-
+  
         <div class="game" :class="{'ready': ready}">
             
             <div class="game-center">
@@ -65,10 +65,10 @@
                            v-on:keyup.enter="addEmail()"
                            @focus="resetEmail()"/>
 
-                       <button class="title submit_btn" 
+                       <div class="submit_btn" 
                                @click="addEmail()"> 
-                               <h2 v-for="index in 3" :key="index" class="noselect">Play</h2>
-                       </button>
+                               <img class="svg" :src="titleSvgs.play.file" />
+                       </div>
 
                    </div>
 
@@ -81,7 +81,7 @@
                     class="title" 
                     :class="{'fadeOut': titleFade}">
 
-                    <h2 v-for="index in 3" :key="index" class="noselect">${mainTitle}</h2>
+                    <img class="svg" :src="mainTitle" />
 
                     <div v-if="gameState != 'your-code'" 
                          class="credits noselect"
@@ -110,10 +110,8 @@
                         <div class="spin-btn" @click="spin()">
                             <div class="arrow"></div>
 
-                            <div>
-                                <div class="accent">Spin</div> 
-                                <div>to</div> 
-                                <div class="accent2">Win</div>
+                            <div class="spin-title">
+                                <img class="svg" :src="titleSvgs.spin_btn.file" />
                             </div>
 
                         </div>
@@ -198,19 +196,6 @@
                             height="auto" 
                             loading="lazy" />
 
-                        <!-- 
-                        <img v-show="boy.armUp" 
-                            src='https://cdn.shopify.com/s/files/1/0593/5942/8759/files/Bob_Hand_Up-blue.svg?v=1668635833' 
-                            width="auto" 
-                            height="auto" 
-                            loading="lazy" />
-
-                        <img v-show="!boy.armUp"
-                            src='https://cdn.shopify.com/s/files/1/0593/5942/8759/files/Bob_Hand_In-blue.svg?v=1668635823' 
-                            width="auto" 
-                            height="auto" 
-                            loading="lazy" />
-                         -->
                     </div>
                 </div>
 
@@ -225,10 +210,10 @@
         <div>
             <div class="sun"></div>
             
-            <img class="cloud one"src='https://cdn.shopify.com/s/files/1/0593/5942/8759/files/cloud-1-outline.svg?v=1668635841' width="auto" height="auto" loading="lazy" />
-            <img class="cloud two"src='https://cdn.shopify.com/s/files/1/0593/5942/8759/files/cloud-2-outline.svg?v=1668635846' width="auto" height="auto" loading="lazy" />
-            <img class="cloud three"src='https://cdn.shopify.com/s/files/1/0593/5942/8759/files/cloud-3-outline.svg?v=1668635852' width="auto" height="auto" loading="lazy" />
-            <img class="cloud four"src='https://cdn.shopify.com/s/files/1/0593/5942/8759/files/cloud-4-outline.svg?v=1668635856' width="auto" height="auto" loading="lazy" />
+            <img class="cloud one"src='https://cdn.shopify.com/s/files/1/0593/5942/8759/files/cloud-1-outline.svg?v=1671499908' width="auto" height="auto" loading="lazy" />
+            <img class="cloud two"src='https://cdn.shopify.com/s/files/1/0593/5942/8759/files/cloud-2-outline.svg?v=1671499908' width="auto" height="auto" loading="lazy" />
+            <img class="cloud three"src='https://cdn.shopify.com/s/files/1/0593/5942/8759/files/cloud-3-outline.svg?v=1671499908' width="auto" height="auto" loading="lazy" />
+            <img class="cloud four"src='https://cdn.shopify.com/s/files/1/0593/5942/8759/files/cloud-4-outline.svg?v=1671499908' width="auto" height="auto" loading="lazy" />
 
             <ul class="birds left">
                 <li class="bird time-3">

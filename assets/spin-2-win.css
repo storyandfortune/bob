@@ -28,10 +28,15 @@ html{
   outline: none;
 }
 
+.svg{
+  width:100%;
+  height:auto;
+}
+
 .title{
   position:relative;
   display:block;
-  width:100%;
+  width:65%;
   margin: 0 auto 0 auto;
   text-align: center;
   border:1px solid transparent;
@@ -43,43 +48,7 @@ html{
   transform: scale(0);
 }
 
-.title h2{
-   position:absolute;
-   top:0;
-   left:0;
-   right:0;
-   margin:0 auto;
-   padding:0;
-   font-family: "StickyToffee";
-   font-size: clamp(3rem, 5.5vw, 4.5rem);
-   line-height: clamp(3.5rem, 6vw, 6rem);
-   letter-spacing: 1px;
-   text-overflow: ellipsis;
-   overflow: hidden;
-   white-space: nowrap;
-}
-
-.title h2:nth-child(1){
-  color:var(--bob-pink);
-  z-index:3
-}
-
-.title h2:nth-child(2){
-  color:white;
-  -webkit-text-stroke: clamp(10px, 1vw, 17px) white;
-  -webkit-text-fill-color: white;
-  z-index:2
-}
-
-.title h2:nth-child(3){
-  color:black;
-  -webkit-text-stroke: clamp(20px, 2vw, 33px) black;
-  -webkit-text-fill-color: black;
-  z-index:1
-}
-
 .credits{
-  margin-top:clamp(5rem, 7vw, 7rem);
   font-size: clamp(1.5rem, 2vw, 2rem);
   text-transform: uppercase;
   font-family: 'AvenirNextLTPro-Bold';
@@ -744,21 +713,11 @@ html{
   }
 
 
-  .spin-win .title.submit_btn{
+  .spin-win .submit_btn{
     flex:1;
-    background-color: transparent;
-    max-height:5rem;
-    height:4rem;
-    min-height:3rem;
     transition: all .25s ease;
     cursor: pointer;
   }
-
-  .spin-win .title.submit_btn h2{
-    font-size: clamp(1.5rem, 4.5vw, 4.5rem);
-    line-height: clamp(2rem, 5vw, 5rem);
-  }
-
 
   .spin-win .submit_btn:hover{
       transform: scale(1.1);
