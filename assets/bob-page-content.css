@@ -1224,6 +1224,7 @@ h1.product__title {
 
 #variant-switch{
     width:0;
+    height:0;
     visibility: hidden;
 }
 
