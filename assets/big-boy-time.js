@@ -324,7 +324,8 @@ $(document).ready(function () {
 
     /* variant_picker --------------------------------- */
 
-    let setVariant = function(){
+    let setVariant = function(radioButtons){
+        
         let selectedIndex = radioButtons.index(radioButtons.filter(':checked'));
         let index = selectedIndex + 1;
         let img = $('#variant-switch li[data-indx='+index+'] img').attr('src')
@@ -336,10 +337,10 @@ $(document).ready(function () {
        let inputName =  $('.variant_picker input').attr('name'); 
        let radioButtons = $(".variant_picker input:radio[name='"+inputName+"']");
 
-       setVariant();
+       setVariant(radioButtons);
 
        $('input[type=radio][name='+inputName+']').change(function() {
-         setVariant();
+         setVariant(radioButtons);
        });
        
     }
