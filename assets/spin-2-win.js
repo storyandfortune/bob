@@ -5,7 +5,7 @@ var app = Vue.createApp({
 			ready:false,     
 			testing:{'test':false, 'index':null},
 			fish:{
-				useFish:true, 
+				useFish:false, 
 				images:[
 					'https://cdn.shopify.com/s/files/1/0593/5942/8759/files/fish-purple.png?v=1669509615', 
 					'https://cdn.shopify.com/s/files/1/0593/5942/8759/files/fish-blue.png?v=1669509615', 
@@ -27,6 +27,7 @@ var app = Vue.createApp({
 				noSpinsLeft:{file:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/s2w-no-spins-left.svg?v=1671557956"},
 				gameOver:{file:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/s2w-game-over.svg?v=1671557956"},
 				youLose:{file:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/s2w-you-lose.svg?v=1671557955"},
+				youWon:{file:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/s2w-you-win.svg?v=1671565114"},
 				spin_btn:{file:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/s2w-spin_btn.svg?v=1671557956"}
 			},
 			titleFade:false,
@@ -36,48 +37,56 @@ var app = Vue.createApp({
 					deg:0, 
 					title:"Free <br/> Shirt", 
 					code:"FREE-SHIRT", 
+					svg:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/s2w-card-shirt.svg?v=1671573780",
 					ratio:3
 				}, 
 				{
 					deg:45, 
 					title:"More <br/> Spins", 
 					code:"MORE-SPINS", 
+					svg:false,
 					ratio:15
 				}, 
 				{
 					deg:90, 
 					title:"Free <br/> Hoodie", 
 					code:"FREE-HOODIE", 
+					svg:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/s2w-card-hoodie.svg?v=1671573780",
 					ratio:1
-				 },
+				 }, 
 				{
 					deg:135, 
 					title:"You <br/> Loose", 
 					code:"YOU-LOOSE", 
+					svg:false,
 					ratio:20
 				},
 				{
 					deg:180, 
 					title:"Free <br/> Stickers", 
 					code:"FREE-STICKERS", 
+					svg:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/s2w-card-stickers.svg?v=1671573781",
 					ratio:30
 				},
 				{
 					deg:225, 
 					title:"More <br/> Spins", 
 					code:"MORE-SPINS", 
+					svg:false,
 					ratio:10
 				},
 				{
 					deg:270, 
 					title:"Free <br/> PATCH", 
 					code:"FREE-PATCH", 
+					svg:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/s2w-card-patch.svg?v=1671573780",
 					ratio:6
 				},
 				{
 					deg:315, 
 					title:"You <br/> Loose", 
-					code:"YOU-LOOSE", 
+					code:"YOU-LOOSE",
+					svg:false,
 					ratio:15
 				}
 			],
@@ -118,6 +127,23 @@ var app = Vue.createApp({
 		returnDate(){
 			return moment().format('MMMM Do YYYY, h:mm:ss a')
 		},
+		preloadSVG(){
+			 
+			  for (const [key, value] of Object.entries(this.win)) {
+				if(value.svg){
+					console.log(value.svg)
+					let svg = new Image()
+					svg.src = value.svg
+				}
+			  }
+
+			  for (const [key, value] of Object.entries(this.titleSvgs)) {
+				console.log(value.file)
+				let svg = new Image()
+				svg.src = value.file
+			  }
+
+		},
 		startGame(){
 			this.audio.soundLoaded++;
 			if(	this.audio.soundLoaded > 5){
@@ -156,6 +182,7 @@ var app = Vue.createApp({
 				this.wonCredits = true
 				this.audio.loose.play(); //play sound
 				this.wheelPos = 0
+				console.log(this.titleSvgs.youLose.file)
 				this.changeTitle(this.titleSvgs.youLose.file)
 
 
@@ -216,7 +243,7 @@ var app = Vue.createApp({
 						this.addCoupon()
 						this.audio.applause.play()
 						this.gameState = "show-prize"
-						this.mainTitle = "You Won"
+						this.changeTitle(this.titleSvgs.spinAgain.file)
 						this.boy.jump = "jump-out"
 					}, 5750)
 
@@ -385,9 +412,8 @@ var app = Vue.createApp({
 				}
 			   });
 
+			   this.preloadSVG()
 
-			   console.log(this.titleSvgs.spinToWin.file)
-	
 			   this.win_ratio = [];
 			   let el = 0;
 			   this.win.forEach((element) => {

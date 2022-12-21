@@ -134,14 +134,9 @@
                          class="win">
 
                         <div class="prize">
-                            <div class="prize-title">
-                                <h2 v-html="winning_prize.title"></h2>
-                                Valid only at <br/>
-                                <a href="#">Bobs.net/shop</a>
-                            </div>
-
-                            <img src='https://cdn.shopify.com/s/files/1/0593/5942/8759/files/win-card-pink.png?v=1668637055' 
-                                width="auto" 
+                   
+                            <img :src="winning_prize.svg" 
+                                width="auto"  
                                 height="auto" 
                                 loading="lazy" />
                         </div>
@@ -150,20 +145,14 @@
 
                             <div v-if="credits" 
                                 class="spin-again">
-                                <div>Show Cashier in front to get your prize.</div>
-                                <div class="btn black-white"  @click="reset()">
-                                    <h3>Or Spin Again</h3>
-                                    <h3>Or Spin Again</h3>
-                                </div>
+                                <div>Show Cashier in front <br/> to get your prize.</div>
+                                <img class="svg btn" :src="titleSvgs.orSpinAgain.file" @click="reset()"/>
                                 <div>You will lose this prize</div>
                             </div>
 
                             <div v-else 
                                 class="spin-again">
-                                <div class="btn black-white"  @click="reset()">
-                                    <h3>No Spins Left</h3>
-                                    <h3>No Spins Left</h3>
-                                </div>
+                                <img class="svg btn" :src="titleSvgs.noSpinsLeft.file" @click="reset()"/>
                                 <div>Sorry your credits are 0</div>
                             </div>
                             
@@ -172,7 +161,6 @@
                     </div>
                 
                     <div>
-                       
                         <p class="valid-only">${returnDate()}</p>
                         <p v-if="gameState === 'your-code'" class="copyright"> &copy; 2022 Bob's Burbank (Bobs.net) "Bob's" & "Big Boy" are Registered Trademarks of Big Boy Restaurant Group, LLC, Southfield, MI, U.S.A.</p>
                     </div>
