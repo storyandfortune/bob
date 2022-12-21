@@ -323,21 +323,23 @@ $(document).ready(function () {
 
 
     /* variant_picker --------------------------------- */
+
+    let setVariant = function(){
+        let selectedIndex = radioButtons.index(radioButtons.filter(':checked'));
+        let index = selectedIndex + 1;
+        let img = $('#variant-switch li[data-indx='+index+'] img').attr('src')
+
+        $('.product_media-detail img').attr('src', img);
+    };
+
     if($('#variant-switch').length){
        let inputName =  $('.variant_picker input').attr('name'); 
        let radioButtons = $(".variant_picker input:radio[name='"+inputName+"']");
 
-       let img = $('#variant-switch li[data-indx=1] img').attr('src')
-       $('.product_media-detail img').attr('src', img);
+       setVariant();
 
        $('input[type=radio][name='+inputName+']').change(function() {
-
-          let selectedIndex = radioButtons.index(radioButtons.filter(':checked'));
-          let index = selectedIndex + 1;
-          let img = $('#variant-switch li[data-indx='+index+'] img').attr('src')
-
-          $('.product_media-detail img').attr('src', img);
-
+         setVariant();
        });
        
     }
