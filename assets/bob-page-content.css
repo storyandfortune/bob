@@ -1219,6 +1219,14 @@ h1.product__title {
     display: none;
     align-items: flex-start;
 }
+
+/* variants -------------------------*/
+
+#variant-switch{
+    width:0;
+    visibility: hidden;
+}
+
 /* cart 
  #coupon{
     width:250px;

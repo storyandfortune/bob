@@ -24,15 +24,21 @@
 
   <div class="grid__item product__media-wrapper"> 
      <div class="new-media">
-      
-      {% unless product.tags contains 'variant-images' %}
-      <ul class="product__media-thumb-list list-unstyled " role="list">
+
+      {%- assign variant_list_id = 'no-switch' -%}
+      {% if product.tags contains 'variant-images' %}
+        {%-  assign variant_list_id = 'variant-switch' -%}
+      {% endif %}
+
+      <ul id="{{variant_list_id}}" class="product__media-thumb-list list-unstyled" role="list">
         {%- for image in product.media -%}
             <li class="product__media-item" data-indx="{{forloop.index0}}" data-media-id="{{ section.id }}-{{ media.id }}" data-src="{{image | img_url:'1200x' }}">
               {{ image | img_url:'1200x' | img_tag }}
             </li>
         {%- endfor-%}
       </ul>
+
+      {% unless product.tags contains 'variant-images' %}
       {% endunless %}
      
 

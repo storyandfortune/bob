@@ -323,11 +323,20 @@ $(document).ready(function () {
 
 
     /* variant_picker --------------------------------- */
-    if($('.variant_picker').length){
+    if($('#variant-switch').length){
        let inputName =  $('.variant_picker input').attr('name'); 
+       let radioButtons = $("#myFormID input:radio[name='"+inputName+"']");
 
        $('input[type=radio][name='+inputName+']').change(function() {
-           console.log(this.value)
+
+          let selectedIndex = radioButtons.index(radioButtons.filter(':checked'));
+          let img = $('#variant-switch li[data-indx='+selectedIndex+' img]').attr('src')
+
+          console.log(selectedIndex)
+          console.log(img)
+
+          $('.product_media-detail img').attr('src', img);
+
        });
        
     }
