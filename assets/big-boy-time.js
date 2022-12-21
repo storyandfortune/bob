@@ -330,7 +330,8 @@ $(document).ready(function () {
        $('input[type=radio][name='+inputName+']').change(function() {
 
           let selectedIndex = radioButtons.index(radioButtons.filter(':checked'));
-          let img = $('#variant-switch li[data-indx='+selectedIndex+'] img').attr('src')
+          let index = selectedIndex + 1;
+          let img = $('#variant-switch li[data-indx='+index+'] img').attr('src')
 
           console.log(selectedIndex)
           console.log(img)
