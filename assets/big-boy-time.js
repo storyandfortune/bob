@@ -322,6 +322,16 @@ $(document).ready(function () {
     });
 
 
+    /* variant_picker --------------------------------- */
+    if($('.variant_picker').length){
+       let inputName =  $('.variant_picker input').attr('name'); 
+
+       $('input[type=radio][name='+inputName+']').change(function() {
+           //console.log(this.value)
+       });
+       
+    }
+    
 
     // new product media ------------------------------- */
 
@@ -562,7 +572,7 @@ $(document).ready(function () {
 
     }
 
-    //HACK!!!! additonal checkout buttons not showin up.
+    //HACK!!!! additonal checkout buttons not showing up.
     if($('#dynamic-checkout-cart').length){
         setTimeout(() => {
             $('#dynamic-checkout-cart').removeAttr("style");

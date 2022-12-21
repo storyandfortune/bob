@@ -24,15 +24,17 @@
 
   <div class="grid__item product__media-wrapper"> 
      <div class="new-media">
+      
+      {% unless product.tags contains 'variant-images' %}
       <ul class="product__media-thumb-list list-unstyled " role="list">
-
         {%- for image in product.media -%}
             <li class="product__media-item" data-indx="{{forloop.index0}}" data-media-id="{{ section.id }}-{{ media.id }}" data-src="{{image | img_url:'1200x' }}">
               {{ image | img_url:'1200x' | img_tag }}
             </li>
         {%- endfor-%}
-
       </ul>
+      {% endunless %}
+     
 
       {%- assign first = product.media[0] -%}
       <div class="product_media-detail" data-indx="0" data-src="{{first | img_url:'1200x' }}">
@@ -40,6 +42,9 @@
       </div>
          {{ first | img_url:'1200x' | img_tag }}
       </div>
+
+
+
 
     </div>
  </div>
@@ -186,10 +191,12 @@
               </details>
             </share-button>
             <script src="{{ 'share.js' | asset_url }}" defer="defer"></script>
+
           {%- when 'variant_picker' -%}
             {%- unless product.has_only_default_variant -%}
               {%- if block.settings.picker_type == 'button' -%}
-                <variant-radios class="no-js-hidden" data-section="{{ section.id }}" data-url="{{ product.url }}" {{ block.shopify_attributes }}>
+
+                <variant-radios class="variant_picker no-js-hidden" data-section="{{ section.id }}" data-url="{{ product.url }}" {{ block.shopify_attributes }}>
                   {%- for option in product.options_with_values -%}
                       <fieldset class="js product-form__input">
                         <legend class="form__label">{{ option.name }}</legend>
@@ -202,7 +209,7 @@
                           >
                           <label for="{{ section.id }}-{{ option.name }}-{{ forloop.index0 }}">
                             {{ value }}
-                          </label>
+                          </label> 
                         {%- endfor -%}
                       </fieldset>
                   {%- endfor -%}
@@ -210,8 +217,10 @@
                     {{ product.variants | json }}
                   </script>
                 </variant-radios>
+
+
               {%- else -%}
-                <variant-selects class="no-js-hidden" data-section="{{ section.id }}" data-url="{{ product.url }}" {{ block.shopify_attributes }}>
+                <variant-selects class="variant_picker no-js-hidden" data-section="{{ section.id }}" data-url="{{ product.url }}" {{ block.shopify_attributes }}>
                   {%- for option in product.options_with_values -%}
                     <div class="product-form__input product-form__input--dropdown">
                       <label class="form__label" for="Option-{{ section.id }}-{{ forloop.index0 }}">
