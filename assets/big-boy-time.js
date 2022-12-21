@@ -327,7 +327,7 @@ $(document).ready(function () {
        let inputName =  $('.variant_picker input').attr('name'); 
 
        $('input[type=radio][name='+inputName+']').change(function() {
-           //console.log(this.value)
+           console.log(this.value)
        });
        
     }
