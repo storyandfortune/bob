@@ -325,7 +325,7 @@ $(document).ready(function () {
     /* variant_picker --------------------------------- */
     if($('#variant-switch').length){
        let inputName =  $('.variant_picker input').attr('name'); 
-       let radioButtons = $("#myFormID input:radio[name='"+inputName+"']");
+       let radioButtons = $(".variant_picker input:radio[name='"+inputName+"']");
 
        $('input[type=radio][name='+inputName+']').change(function() {
 
