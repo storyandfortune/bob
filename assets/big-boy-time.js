@@ -327,7 +327,7 @@ $(document).ready(function () {
     let setVariant = function(radioButtons){
         
         let selectedIndex = radioButtons.index(radioButtons.filter(':checked'));
-        let index = selectedIndex + 1;
+        let index = selectedIndex;
         let img = $('#variant-switch li[data-indx='+index+'] img').attr('src')
 
         $('.product_media-detail img').attr('src', img);
