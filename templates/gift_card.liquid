@@ -106,7 +106,7 @@
       
 
       <div class="gift-card__image-wrapper">
-        {{ gift_card.initial_value | money }}
+        {{ gift_card.initial_value | round }}
         <img src="{{ '25.gif' | asset_img_url: '1024x1024' }}" alt="Bob's Coin" class="gift-card__image" height="1024" width="1024" loading="lazy" />
       </div>
 
