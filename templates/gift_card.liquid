@@ -103,10 +103,8 @@
 
     <main class="gift-card">
 
-      
-
       <div class="gift-card__image-wrapper">
-        <img src="{{ gift_card.initial_value | remove_last: "00" | | append: '.gif' | asset_img_url: '1024x1024' }}" alt="Bob's Coin" class="gift-card__image" height="1024" width="1024" loading="lazy" />
+        <img src="{{ gift_card.initial_value | remove_last: "00" | append: '-sm.gif' | asset_img_url: '526x526' }}" alt="Bob's Coin" class="gift-card__image" height="526" width="526" loading="lazy" />
       </div>
 
       <div class="gift-card__qr-code" data-identifier="{{ gift_card.qr_identifier }}"></div>
