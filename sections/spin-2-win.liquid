@@ -160,10 +160,15 @@
 
                     </div>
                 
-                    <div>
-                        <p class="valid-only">${returnDate()}</p>
+                 
+                      
+                        <div class="valid-only">
+                            <div v-if="gameState === 'show-prize'">${email.address}</div>
+                            <div>${returnDate()}</div>
+                        </div>
+
                         <p v-if="gameState === 'your-code'" class="copyright"> &copy; 2022 Bob's Burbank (Bobs.net) "Bob's" & "Big Boy" are Registered Trademarks of Big Boy Restaurant Group, LLC, Southfield, MI, U.S.A.</p>
-                    </div>
+                    
             </div>
 
 

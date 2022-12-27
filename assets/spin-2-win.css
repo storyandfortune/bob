@@ -789,7 +789,7 @@ html{
 
   .spin-win .win .prize { 
       position:relative;
-      margin:0 0 .5rem 0;
+      margin:1rem 0 1rem 0;
   }
 
 
@@ -804,7 +804,7 @@ html{
 
   .spin-again{
     font-family: "AvenirNextLTPro-Bold";
-    font-size: clamp(1rem, 1.25vw, 1.25rem);
+    font-size: clamp(1.25rem, 1.5vw, 1.5rem);
     text-transform: uppercase;
     text-align: center;
   }
@@ -972,11 +972,12 @@ p.copyright{
 }
 
 .valid-only{
+  padding:1.5rem;
+  width:100%;
+  text-align: center;
   font-family: "AvenirNextLTPro-Bold";
   font-size: clamp(1rem, 1.25vw, 1.25rem);
 }
-
-
 
 .test-mode{
   visibility: visible;
@@ -985,17 +986,3 @@ p.copyright{
   font-family: "AvenirNextLTPro-Bold";
 }
 
-
-/* ---------------- MEDIA -------------------- */
-
-@media screen and (max-width: 600px) {
-
-}
-
-@media screen and (max-width: 400px) {
-
-}
-
-@media screen and (max-width: 300px) {
-
-}
