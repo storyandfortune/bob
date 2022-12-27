@@ -170,6 +170,7 @@ html{
   width:200px;
   height:200px;
   border-radius: 50%;
+  transform: scale(.95);
   animation-name:cloud-float;
   animation-iteration-count: infinite;
   animation-direction: alternate;
@@ -201,15 +202,64 @@ html{
 }
 
 
+
+
+@media screen and (max-width: 420px) {
+
+  .cloud{
+    transform: scale(.85);
+    animation-name:cloud-float-mobile;
+  }
+
+  .cloud.one{
+    top:15%;
+    left:-25%;
+    animation-duration: 45s;
+  }
+  
+  .cloud.two{
+    top:45%;
+    left:-20%;
+    animation-duration: 35s;
+  }
+  
+  .cloud.three{
+    top:20%;
+    right:-10%;
+    animation-duration: 30s;
+  }
+  
+  .cloud.four{
+    top:35%;
+    right:-15%;
+    animation-duration: 25s;
+  }
+
+}
+
+
+
 @keyframes cloud-float{
   0% {
-      transform: scale(1)
+      transform: scale(.95)
     }
   50% {
-      transform: scale(1.5) translateX(50%) translateY(10%)
+      transform: scale(1.25) translateX(50%) translateY(-10%)
   }
   100% {
-    transform: scale(1)
+    transform: scale(.95)
+  }
+}
+
+@keyframes cloud-float-mobile{
+  0% {
+    transform: scale(.85)
+    }
+  50% {
+      transform: scale(1.5) translateX(5%) translateY(10%)
+  }
+  100% {
+    transform: scale(.85)
   }
 }
 
