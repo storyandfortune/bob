@@ -141,33 +141,30 @@
                                 loading="lazy" />
                         </div>
 
-                        <div v-if="gameState === 'show-prize'">
+                        <div class="spin-again" v-if="gameState === 'show-prize'">
 
-                            <div v-if="credits" 
-                                class="spin-again">
-                                <div>Show Cashier in front <br/> to get your prize.</div>
-                                <img class="svg btn" :src="titleSvgs.orSpinAgain.file" @click="reset()"/>
+                            <div>Show Cashier in front <br/> to get your prize.</div>
+
+                            <div v-if="credits">
+                                <img class="svg btn spin-again-btn" :src="titleSvgs.orSpinAgain.file" @click="reset()"/>
                                 <div>You will lose this prize</div>
                             </div>
 
-                            <div v-else 
-                                class="spin-again">
-                                <img class="svg btn" :src="titleSvgs.noSpinsLeft.file" @click="reset()"/>
+                            <div v-else>
+                                <img class="svg" :src="titleSvgs.noSpinsLeft.file "/>
                                 <div>Sorry your credits are 0</div>
                             </div>
                             
                         </div>
 
                     </div>
-                
-                 
-                      
-                        <div class="valid-only">
-                            <div v-if="gameState === 'show-prize'">${email.address}</div>
-                            <div>${returnDate()}</div>
-                        </div>
+     
+                    <div class="valid-only">
+                        <div v-if="gameState === 'show-prize'">${email.address}</div>
+                        <div>${returnDate()}</div>
+                    </div>
 
-                        <p v-if="gameState === 'your-code'" class="copyright"> &copy; 2022 Bob's Burbank (Bobs.net) "Bob's" & "Big Boy" are Registered Trademarks of Big Boy Restaurant Group, LLC, Southfield, MI, U.S.A.</p>
+                    <p v-if="gameState === 'your-code'" class="copyright"> &copy; 2022 Bob's Burbank (Bobs.net) "Bob's" & "Big Boy" are Registered Trademarks of Big Boy Restaurant Group, LLC, Southfield, MI, U.S.A.</p>
                     
             </div>
 

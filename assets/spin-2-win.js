@@ -3,7 +3,7 @@ var app = Vue.createApp({
 	data() {
 		return {
 			ready:false,     
-			testing:{'test':false, 'index':null},
+			testing:{'test':true, 'index':null},
 			fish:{
 				useFish:false, 
 				images:[
@@ -27,7 +27,8 @@ var app = Vue.createApp({
 				noSpinsLeft:{file:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/s2w-no-spins-left.svg?v=1671557956"},
 				gameOver:{file:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/s2w-game-over.svg?v=1671557956"},
 				youLose:{file:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/s2w-you-lose.svg?v=1671557955"},
-				youWon:{file:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/s2w-you-win.svg?v=1671565114"},
+				youWon:{file:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/s2w-you-won.svg?v=1672350114"},
+				playNow:{file:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/s2w-play-now.svg?v=1672350114"},
 				spin_btn:{file:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/s2w-spin_btn.svg?v=1671557956"}
 			},
 			titleFade:false,
@@ -37,7 +38,7 @@ var app = Vue.createApp({
 					deg:0, 
 					title:"Free <br/> Shirt", 
 					code:"FREE-SHIRT", 
-					svg:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/s2w-card-shirt.svg?v=1671573780",
+					svg:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/s2w-card-shirt.svg?v=1672348572",
 					ratio:3
 				}, 
 				{
@@ -51,21 +52,21 @@ var app = Vue.createApp({
 					deg:90, 
 					title:"Free <br/> Hoodie", 
 					code:"FREE-HOODIE", 
-					svg:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/s2w-card-hoodie.svg?v=1671573780",
+					svg:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/s2w-card-hoodie.svg?v=1672348572",
 					ratio:1
 				 }, 
 				{
 					deg:135, 
-					title:"You <br/> Loose", 
-					code:"YOU-LOOSE", 
+					title:"You <br/> Lose", 
+					code:"YOU-LOSE", 
 					svg:false,
 					ratio:20
 				},
 				{
 					deg:180, 
-					title:"Free <br/> Stickers", 
+					title:"Free <br/> Sticker", 
 					code:"FREE-STICKERS", 
-					svg:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/s2w-card-stickers.svg?v=1671573781",
+					svg:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/s2w-card-stickers.svg?v=1672348573",
 					ratio:30
 				},
 				{
@@ -79,13 +80,13 @@ var app = Vue.createApp({
 					deg:270, 
 					title:"Free <br/> PATCH", 
 					code:"FREE-PATCH", 
-					svg:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/s2w-card-patch.svg?v=1671573780",
+					svg:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/s2w-card-patch.svg?v=1672348572",
 					ratio:6
 				},
 				{
 					deg:315, 
 					title:"You <br/> Loose", 
-					code:"YOU-LOOSE",
+					code:"YOU-LOSE",
 					svg:false,
 					ratio:15
 				}
@@ -125,7 +126,7 @@ var app = Vue.createApp({
 	},
 	methods: {
 		returnDate(){
-			return moment().format('MMMM Do YYYY, h:mm:ss a')
+			return moment().format('MMM Do YYYY, h:mm:ss a')
 		},
 		preloadSVG(){
 			 
@@ -153,7 +154,7 @@ var app = Vue.createApp({
 		},
 		playGame(){
 			this.gameState = "start"
-			this.changeTitle(this.titleSvgs.spinToWin.file)
+			this.changeTitle(this.titleSvgs.playNow.file)
 			this.boy.jump = "jump-in"
 			this.audio.boing.play()
 			setTimeout(() => {
@@ -214,9 +215,6 @@ var app = Vue.createApp({
 				this.titleFade = false
 			}, 450)
 		},
-		shop(){
-			window.location = "/collections/all"
-		},
 		spin(){
 			if(this.gameState === 'start' || this.testing.test === true){
 	
@@ -236,14 +234,14 @@ var app = Vue.createApp({
 				this.credits--
 
 				// show prize
-				if(this.winning_prize.code != "MORE-SPINS" && this.winning_prize.code != "YOU-LOOSE"){
+				if(this.winning_prize.code != "MORE-SPINS" && this.winning_prize.code != "YOU-LOSE"){
 
 					// fade out wheel -------------
 					setTimeout(() => {
 						this.addCoupon()
 						this.audio.applause.play()
 						this.gameState = "show-prize"
-						this.changeTitle(this.titleSvgs.spinAgain.file)
+						this.changeTitle(this.titleSvgs.youWon.file)
 						this.boy.jump = "jump-out"
 					}, 5750)
 
@@ -263,7 +261,7 @@ var app = Vue.createApp({
 							this.winCredits()
 							this.wheelPos = 0
 						}
-						if(this.winning_prize.code === "YOU-LOOSE"){
+						if(this.winning_prize.code === "YOU-LOSE"){
 							this.loseCredits()
 						}
 
@@ -319,7 +317,7 @@ var app = Vue.createApp({
 				$.ajax({
 					method: "POST",
 					url: this.endPoint,
-					data: {'email': this.email.address, 'note': 'Spin 2 Win'}
+					data: {'email': this.email.address, 'note': 'Spin to Win'}
 				}).done( (response)  => {
 
 					console.log(response)
