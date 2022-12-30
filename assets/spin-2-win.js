@@ -4,18 +4,6 @@ var app = Vue.createApp({
 		return {
 			ready:false,     
 			testing:{'test':false, 'index':null},
-			fish:{
-				useFish:false, 
-				images:[
-					'https://cdn.shopify.com/s/files/1/0593/5942/8759/files/fish-purple.png?v=1669509615', 
-					'https://cdn.shopify.com/s/files/1/0593/5942/8759/files/fish-blue.png?v=1669509615', 
-					'https://cdn.shopify.com/s/files/1/0593/5942/8759/files/fish-blue-orange.png?v=1669509615', 
-					'https://cdn.shopify.com/s/files/1/0593/5942/8759/files/fish-red.png?v=1669509615', 
-					'https://cdn.shopify.com/s/files/1/0593/5942/8759/files/fish-orange-blue.png?v=1669509616', 
-					'https://cdn.shopify.com/s/files/1/0593/5942/8759/files/fish-green.png?v=1669509615', 
-					'https://cdn.shopify.com/s/files/1/0593/5942/8759/files/fish-orange.png?v=1669509615', 
-					'https://cdn.shopify.com/s/files/1/0593/5942/8759/files/fish-pink.png?v=1669509615'
-				]},
 			gameState:"init", // init, enter-email, start, reset-wheel, show-prize, your-code, game-over
 			mainTitle:"",
 			titleSvgs:{

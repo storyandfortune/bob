@@ -261,6 +261,7 @@
     <!-- modal -->
     <div v-if="modalMessage.display" 
          class="modal"
+         :class="{'on': modalMessage.display}"
          @click="modalMessage.display = false">
         <div class="modal-container">
             <div class="close">

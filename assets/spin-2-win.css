@@ -888,7 +888,7 @@ html{
   .spin-win .modal{
       position:absolute;
       display: flex;
-      visibility: visible;
+      visibility: hidden;
       align-items: center;
       justify-content: center;
       top:0;
@@ -896,6 +896,10 @@ html{
       width:100vw;
       height:100vh;
       z-index:500
+  }
+
+  .spin-win .modal.on{
+    visibility: visible;
   }
 
   .spin-win .modal-container{
