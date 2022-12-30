@@ -415,7 +415,7 @@ html{
 
    .wheel{
      position:relative;
-     width: clamp(300px, 40vw, 550px);
+     width: clamp(90vw, 40vw, 550px);
      aspect-ratio:1/1;
      border-radius: 50%;
      opacity:1;
@@ -544,12 +544,9 @@ html{
      z-index:10;
    }
 
-   .spin-btn .accent{
-      color:var(--bob-yellow);
+   .spin-btn .spin-title{
+      width:90%;
    }
-   .spin-btn .accent2{
-    color:var(--bob-turqoise);
-  }
 
   .spin-btn:active{
     width:18vw;

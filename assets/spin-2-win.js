@@ -3,7 +3,7 @@ var app = Vue.createApp({
 	data() {
 		return {
 			ready:false,     
-			testing:{'test':true, 'index':null},
+			testing:{'test':false, 'index':null},
 			fish:{
 				useFish:false, 
 				images:[
@@ -258,6 +258,7 @@ var app = Vue.createApp({
 					setTimeout(() => {
 						this.gameState = "reset-wheel"
 						if(this.winning_prize.code === "MORE-SPINS"){
+							this.changeTitle(this.titleSvgs.spinAgain.file)
 							this.winCredits()
 							this.wheelPos = 0
 						}
