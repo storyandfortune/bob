@@ -85,7 +85,7 @@ var app = Vue.createApp({
 				},
 				{
 					deg:315, 
-					title:"You <br/> Loose", 
+					title:"You <br/> Lose", 
 					code:"YOU-LOSE",
 					svg:false,
 					ratio:15
