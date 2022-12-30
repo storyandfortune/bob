@@ -203,10 +203,15 @@ var app = Vue.createApp({
 			}
 		},
 		gameOver(){
-			this.changeTitle(this.titleSvgs.gameOver.file)
 			this.gameState = "game-over"
 			this.boy.jump = "jump-out"
 			this.audio.boing.play()
+			
+			setTimeout(() => {
+				this.changeTitle(this.titleSvgs.gameOver.file)
+				this.audio.loose.play(); //play sound
+			}, 1000)
+		
 		},
 		changeTitle(title){
 			this.titleFade = true

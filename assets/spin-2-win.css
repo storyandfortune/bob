@@ -415,7 +415,7 @@ html{
 
    .wheel{
      position:relative;
-     width: clamp(90vw, 40vw, 550px);
+     width: clamp(300px, 40vw, 550px);
      aspect-ratio:1/1;
      border-radius: 50%;
      opacity:1;
@@ -425,6 +425,12 @@ html{
      animation-name: spin-in;
      animation-duration: 1.5s;
    }
+
+   @media screen and (max-width: 420px) {
+    .wheel{
+      width: 90vw;
+    }
+  }
 
    .show-prize  .wheel{
       transform:scale(0.25);
@@ -738,7 +744,7 @@ html{
     align-content: center;
     width:80%;
     margin:0 auto;
-    padding:1rem;
+    padding:0 1rem;
    }
 
    @media screen and (max-width: 400px) {
