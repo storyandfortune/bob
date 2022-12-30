@@ -3,7 +3,7 @@ var app = Vue.createApp({
 	data() {
 		return {
 			ready:false,     
-			testing:{'test':false, 'index':null},
+			testing:{'test':true, 'index':null},
 			gameState:"init", // init, enter-email, start, reset-wheel, show-prize, your-code, game-over
 			mainTitle:"",
 			titleSvgs:{
@@ -117,19 +117,26 @@ var app = Vue.createApp({
 			return moment().format('MMM Do YYYY, h:mm:ss a')
 		},
 		preloadSVG(){
-			 
+
+			  let svg = []
+			  let i = 0
 			  for (const [key, value] of Object.entries(this.win)) {
 				if(value.svg){
 					console.log(value.svg)
-					let svg = new Image()
-					svg.src = value.svg
+					svg[i] = new Image()
+					svg[i].src = value.svg
+					i++
 				}
 			  }
 
+
+			  svg = []
+			  i = 0
 			  for (const [key, value] of Object.entries(this.titleSvgs)) {
 				console.log(value.file)
-				let svg = new Image()
-				svg.src = value.file
+				svg[i] = new Image()
+				svg[i].src = value.file
+				i++
 			  }
 
 		},
