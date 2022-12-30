@@ -39,6 +39,7 @@ html{
   position:relative;
   display:block;
   width:65%;
+  height:17vh;
   margin: 0 auto 0 auto;
   text-align: center;
   border:1px solid transparent;
@@ -219,7 +220,7 @@ html{
   
   .cloud.two{
     top:45%;
-    left:-20%;
+    left:-35%;
     animation-duration: 35s;
   }
   
@@ -231,7 +232,7 @@ html{
   
   .cloud.four{
     top:35%;
-    right:-15%;
+    right:-35%;
     animation-duration: 25s;
   }
 
@@ -638,6 +639,7 @@ html{
   @media screen and (max-width: 400px) {
     .gameboy{
       left:-6rem;
+      bottom:3vh;
    }
   }
   
