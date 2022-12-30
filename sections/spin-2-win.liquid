@@ -122,8 +122,7 @@
                                 :style="{'transform': 'rotate('+prize.deg+'deg)'}"
                                 @click="testSpin(index)">
 
-                                <div v-if="fish.useFish" class="fish"><img :src="fish.images[index]" /> </div>
-                                <div v-else class="label" v-html="prize.title"></div>
+                                <div class="label" v-html="prize.title"></div>
                             </li>
                         </ul>
 
