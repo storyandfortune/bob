@@ -26,7 +26,7 @@ var app = Vue.createApp({
 					deg:0, 
 					title:"Free <br/> Shirt", 
 					code:"FREE-SHIRT", 
-					svg:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/s2w-card-shirt.svg?v=1672348572",
+					svg:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/s2w-card-shirt.svg?v=1672519674",
 					ratio:3
 				}, 
 				{
@@ -40,7 +40,7 @@ var app = Vue.createApp({
 					deg:90, 
 					title:"Free <br/> Hoodie", 
 					code:"FREE-HOODIE", 
-					svg:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/s2w-card-hoodie.svg?v=1672348572",
+					svg:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/s2w-card-hoodie.svg?v=1672519674",
 					ratio:1
 				 }, 
 				{
@@ -54,7 +54,7 @@ var app = Vue.createApp({
 					deg:180, 
 					title:"Free <br/> Sticker", 
 					code:"FREE-STICKERS", 
-					svg:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/s2w-card-stickers.svg?v=1672442638",
+					svg:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/s2w-card-stickers.svg?v=1672519275",
 					ratio:30
 				},
 				{
@@ -68,7 +68,7 @@ var app = Vue.createApp({
 					deg:270, 
 					title:"Free <br/> PATCH", 
 					code:"FREE-PATCH", 
-					svg:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/s2w-card-patch.svg?v=1672348572",
+					svg:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/s2w-card-patch.svg?v=1672519674",
 					ratio:6
 				},
 				{
