@@ -3,7 +3,7 @@ var app = Vue.createApp({
 	data() {
 		return {
 			ready:false,     
-			testing:{'test':true, 'index':null},
+			testing:{'test':false, 'index':null},
 			gameState:"init", // init, enter-email, start, reset-wheel, show-prize, your-code, game-over
 			mainTitle:"",
 			titleSvgs:{
