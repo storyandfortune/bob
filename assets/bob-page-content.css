@@ -1,11 +1,16 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 :root {
     --bob-red:#e62544;
     --bob-gold:#e7c391;
     --bob-blue:#1e80ff;
     --scale: 1;
-    --bold: "AvenirNextLTPro-Bold";
-  
-    --checker-board: black;
+    --bold: "AvenirNextLTPro-Bold", sans;
   }
 
 /* ------ Bobs secondary page styles ------------ */
@@ -390,9 +395,15 @@ h1.collection-title{
 
 .bob-page-content.menu-header .lunch,
 .bob-page-content.menu-header .breakfast {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     text-align: center;
     height: calc((100vh - 117px) / 2);
     margin: 0;
@@ -531,8 +542,12 @@ h1.collection-title{
     max-width:350px;
     margin:0 auto;
     padding:0;
+    display:-webkit-box;
+    display:-ms-flexbox;
     display:flex;
-    justify-content: flex-start;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
 }
 
 .bob-page-content .inline-collection,
@@ -540,27 +555,40 @@ h1.collection-title{
     width:100%;
     margin:0 auto;
     padding:0;
+    display:-webkit-box;
+    display:-ms-flexbox;
     display:flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
 }
 
 .bob-page-content .inline-collection .appened-product,
 .bob-page-content .inline-recent-products .appened-product{
-    flex: 1 1 30%;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 30%;
+            flex: 1 1 30%;
 }
 
 
 .bob-page-content .appened-product{
     margin:1rem;
     padding:0;
-    flex-grow: 1;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    -webkit-transition: all .25s ease;
+    -o-transition: all .25s ease;
     transition: all .25s ease;
 }
 
 
 .bob-page-content .appened-product:hover{
-    transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+        -ms-transform: scale(1.05);
+            transform: scale(1.05);
     text-decoration: none !important;
 }
 
@@ -876,9 +904,15 @@ h1.collection-title{
 }
 
 .bob-page-content.events .big-image {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     text-align: center;
     height: calc((100vh - 117px) / 2);
     margin: 0;
@@ -1024,6 +1058,18 @@ h1.collection-title{
 .bob-page-content.events.form section .data.inc{
     border: 3px solid #e62544;
  }
+ .bob-page-content.events.form section .data.inc::-webkit-input-placeholder{
+     color:#e62544;
+ }
+ .bob-page-content.events.form section .data.inc::-moz-placeholder{
+     color:#e62544;
+ }
+ .bob-page-content.events.form section .data.inc:-ms-input-placeholder{
+     color:#e62544;
+ }
+ .bob-page-content.events.form section .data.inc::-ms-input-placeholder{
+     color:#e62544;
+ }
  .bob-page-content.events.form section .data.inc::placeholder{
      color:#e62544;
  }
@@ -1049,6 +1095,8 @@ h1.collection-title{
     color: #ffffff;
     border: 1px solid #cccccc;
     width: 100%;
+    -webkit-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
 }
 
@@ -1081,12 +1129,18 @@ h1.collection-title{
     display: none;
     visibility: hidden;
     opacity: 0;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     margin: 0 auto 10rem auto;
     padding: 0;
     list-style: none;
     width: 50vw;
+    -webkit-transition: all 1s ease;
+    -o-transition: all 1s ease;
     transition: all 1s ease;
 }
 
@@ -1112,6 +1166,8 @@ h1.collection-title{
 
 /* form submitted ------------------------- */
 .bob-page-content.events.form section form.complete .conformation {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     visibility: visible;
     opacity: 1;
@@ -1217,7 +1273,9 @@ h1.product__title {
 .cart__blocks .coupon_container{
     margin-top:1.5rem;
     display: none;
-    align-items: flex-start;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
 }
 
 /* variants -------------------------*/
@@ -1264,9 +1322,15 @@ h1.product__title {
 
 /* ---------- 404 ---------------------*/
 .not-found{ 
+    display:-webkit-box; 
+    display:-ms-flexbox; 
     display:flex;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 }
 .not-found svg.original-big-boy{ 
     width:45vw;
