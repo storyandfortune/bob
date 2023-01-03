@@ -30,6 +30,11 @@ html{
   outline: none;
 }
 
+#app{
+  width:100vw;
+  height:300vh;
+}
+
 .svg{
   width:100%;
   height:auto;
@@ -108,7 +113,9 @@ html{
 }
 
 .spin-win {
-    position: relative;
+    position: fixed;
+    top:0;
+    left:0;
     width:100vw;
     height:100vh;
     overflow: hidden;

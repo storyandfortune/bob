@@ -416,6 +416,8 @@ var app = Vue.createApp({
 
 			   this.preloadSVG()
 
+			   window.scrollTo(0, 500)
+
 			   this.win_ratio = [];
 			   let el = 0;
 			   this.win.forEach((element) => {
