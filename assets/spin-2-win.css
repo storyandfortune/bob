@@ -606,11 +606,17 @@ html{
     list-style: none;
     width:100%;
     aspect-ratio:1/1;
+    background-image:url('https://cdn.shopify.com/s/files/1/0593/5942/8759/files/pin-wheel.svg?v=1672766054');
+    background-size:contain;
+    background-position:center center;
+    background-repeat:no-repeat;
+
     -webkit-transition:-webkit-transform 5s ease;
     transition:-webkit-transform 5s ease;
     -o-transition:transform 5s ease;
     transition:transform 5s ease;
     transition:transform 5s ease, -webkit-transform 5s ease;
+
    }
 
    .reset-wheel .wheel ul{
@@ -631,9 +637,7 @@ html{
       text-align: center;; 
       width:42%;
       height:50%;
-      -webkit-clip-path: polygon(50% 100%, 0 0, 100% 0);
-              clip-path: polygon(50% 100%, 0 0, 100% 0);
-      background:rgb(11, 241, 25, .15);
+
       -webkit-transform-origin: bottom center;
           -ms-transform-origin: bottom center;
               transform-origin: bottom center;
@@ -642,13 +646,11 @@ html{
 
    
    .wheel ul li:nth-child(even){
-        background:black;
-        color:white;
+        color:black;
    }
 
    .wheel ul li:nth-child(odd){
-        background:white;
-        color:black;
+        color:white;
     }
     
    .wheel ul li .label{
