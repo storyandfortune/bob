@@ -298,6 +298,7 @@ var app = Vue.createApp({
 			this.boy.jump = "jump-in"
 		},
 		validateEmail(val){
+			//console.log(val)
 			return String(val)
 			.toLowerCase()
 			.match(
@@ -311,6 +312,7 @@ var app = Vue.createApp({
 		addEmail(){
 
 			this.email.valid = this.validateEmail(this.email.address)
+			//console.log(this.email.valid)
 
 			if(this.email.valid){
 
@@ -430,7 +432,7 @@ var app = Vue.createApp({
 		if( window.location.hostname === '127.0.0.1'){
 			this.endPoint = "http://dev.api/bobs/customer-connect/"
 		}
-		this.date = returnDate()
+		this.date = this.returnDate()
 	},
 	mounted(){
 		this.init()

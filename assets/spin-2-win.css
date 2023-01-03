@@ -506,10 +506,13 @@ html{
               transform: scale(0.7) rotate(-8deg)
   }
   85% {
-      margin:5%;
-      -webkit-transform: scale(1.4) rotate(-2deg);
-              transform: scale(1.4) rotate(-2deg)
-  }
+              margin:5%;
+              -webkit-transform: scale(1.4) rotate(-2deg)  ;
+              transform: scale(1.4) rotate(-2deg)  ;
+              -moz-transform: scale(1.4) rotate(-2deg)  ;
+              -ms-transform: scale(1.4) rotate(-2deg)  ;
+              -o-transform: scale(1.4) rotate(-2deg)  ;
+}
   100% {
       margin:0%;
       -webkit-transform: scale(1.1) rotate(3deg);
@@ -876,8 +879,12 @@ html{
     0% {
           left:35%;
           bottom:-70vh;
-          width:60vw;
-        }
+          transform:scale(1.5);
+          -webkit-transform:scale(1.5);
+          -moz-transform:scale(1.5);
+          -ms-transform:scale(1.5);
+          -o-transform:scale(1.5);
+}
     85% {
           left:20%;
           bottom:45vh;
@@ -886,10 +893,12 @@ html{
          } 
     100% {
         bottom:10vh;
-        -webkit-transform: rotate(0deg);
-                transform: rotate(0deg);
-        width:30vw;
-       }
+        transform: rotate(0) scale(1);
+        -webkit-transform: rotate(0) scale(1);
+        -moz-transform: rotate(0) scale(1);
+        -ms-transform: rotate(0) scale(1);
+        -o-transform: rotate(0) scale(1);
+}
   }
 
 
