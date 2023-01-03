@@ -575,7 +575,7 @@ html{
      aspect-ratio:1/1;
      border-radius: 50%;
      opacity:1;
-     margin: 0 auto;
+     margin: .5rem auto;
      overflow:hidden;
      -webkit-transition: all .5s ease;
      -o-transition: all .5s ease;
