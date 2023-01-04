@@ -67,7 +67,9 @@
                     class="title" 
                     :class="{'fadeOut': titleFade}">
 
-                    <img class="svg" :src="mainTitle" />
+                    <div class="label">
+                         <img class="svg" :src="mainTitle" />
+                    </div>
 
                     <div v-if="gameState != 'your-code'" 
                          class="credits noselect"

@@ -36,15 +36,15 @@ html{
 }
 
 .svg{
-  width:100%;
-  height:auto;
+  width:auto;
+  height:100%;
 }
 
 .title{
   position:relative;
   display:block;
   width:65%;
-  height:17vh;
+  height:13vh;
   margin: 0 auto 1rem auto;
   text-align: center;
   border:1px solid transparent;
@@ -54,6 +54,10 @@ html{
   -webkit-transition: all .45s ease-in-out;
   -o-transition: all .45s ease-in-out;
   transition: all .45s ease-in-out;
+}
+
+.title .label{
+  height:6rem;
 }
 
 .title.fadeOut{
@@ -1106,8 +1110,10 @@ html{
     -webkit-transition: all .25s ease;
     -o-transition: all .25s ease;
     transition: all .25s ease;
+    height:6rem;
     cursor: pointer;
   }
+
 
   .spin-win .submit_btn:hover{
       -webkit-transform: scale(1.1);
