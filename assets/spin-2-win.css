@@ -715,8 +715,9 @@ html{
       -webkit-transform: rotate(0deg);
           -ms-transform: rotate(0deg);
               transform: rotate(0deg);
-      top:-1rem;
+      top:-.5rem;
    }
+
 
   .spin-btn{
      position:absolute;
@@ -734,18 +735,11 @@ html{
      -webkit-transform: translate(-50%, -50%); 
          -ms-transform: translate(-50%, -50%); 
              transform: translate(-50%, -50%);
-     width:45%;
+     width:50%;
      aspect-ratio:1/1;
      border-radius: 50%;;
-     background:var(--bob-pink);
-     color:white;
      margin: 0 auto;
      overflow:visible;
-     text-align: center;
-     font-family: "StickyToffee";
-     text-transform: uppercase;
-     font-size: clamp(1.25rem, 3vw, 4.5rem);
-     padding:1.5rem 3rem;
      cursor: pointer;
      -webkit-transition: all .25s ease;
      -o-transition: all .25s ease;

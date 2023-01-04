@@ -17,7 +17,7 @@ var app = Vue.createApp({
 				youLose:{file:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/s2w-you-lose.svg?v=1671557955"},
 				youWon:{file:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/s2w-you-won.svg?v=1672350114"},
 				playNow:{file:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/s2w-play-now.svg?v=1672350114"},
-				spin_btn:{file:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/s2w-spin_btn.svg?v=1671557956"}
+				spin_btn:{file:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/s2w-spin_btn-circle.svg?v=1672862472"}
 			},
 			titleFade:false,
 			endPoint:"https://api.storyandfortune.com/bobs/customer-connect/",
