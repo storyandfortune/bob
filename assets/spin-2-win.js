@@ -91,6 +91,7 @@ var app = Vue.createApp({
 			wonCredits:false,
 			wheelActive:true,
 			wheelPos:0,
+			lastWheelPos:0,
 			boy:{
 				armUp:false,
 				jump:"hide"
@@ -178,7 +179,7 @@ var app = Vue.createApp({
 			if(this.credits > 0){
 				this.wonCredits = true
 				this.audio.loose.play(); //play sound
-				this.wheelPos = 0
+				this.wheelPos = this.lastWheelPos
 				console.log(this.titleSvgs.youLose.file)
 				this.changeTitle(this.titleSvgs.youLose.file)
 
@@ -230,6 +231,10 @@ var app = Vue.createApp({
 
 			
 				this.wheelPos = -1 * (3600 + this.winning_prize.deg)
+				this.lastWheelPos = -1 * (this.winning_prize.deg)
+
+				console.log(this.lastWheelPos)
+
 				this.audio.spin5.play(); //play sound
 				this.boy.jump = ""
 				this.credits--
@@ -249,7 +254,7 @@ var app = Vue.createApp({
 
 					// show prize ---------------
 					setTimeout(() => {
-						this.wheelPos = 0
+						this.wheelPos = this.lastWheelPos
 						this.wheelActive = false
 					}, 6750)
 
@@ -261,7 +266,7 @@ var app = Vue.createApp({
 						if(this.winning_prize.code === "MORE-SPINS"){
 							this.changeTitle(this.titleSvgs.spinAgain.file)
 							this.winCredits()
-							this.wheelPos = 0
+							this.wheelPos = this.lastWheelPos
 						}
 						if(this.winning_prize.code === "YOU-LOSE"){
 							this.loseCredits()
@@ -349,7 +354,6 @@ var app = Vue.createApp({
 		testSpin(index){
 			if(this.testing.test){
 				this.testing.index = index
-				console.log(this.testing)
 				this.spin()
 			}
 		},
