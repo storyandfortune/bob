@@ -327,14 +327,13 @@ var app = Vue.createApp({
 					data: {'email': this.email.address, 'note': 'Spin to Win'}
 				}).done( (response)  => {
 
-					console.log(response.data)
+					
 					this.email.sending = false
 
 					if(response.data.customerCreate.userErrors.length){
-						
 						this.modalMessage.display = true 
 						this.modalMessage.content = response.data.customerCreate.userErrors
-						console.log(this.modalMessage)
+						this.audio.loose.play(); //play sound
 					}
 
 					if(response.data.customerCreate.customer != null){
@@ -346,6 +345,7 @@ var app = Vue.createApp({
 					this.email.sending = false
 					this.modalMessage.display = true 
 					this.modalMessage.content.push("Oopsie Daisy... Something went wrong.")
+					this.audio.loose.play(); //play sound
 				});
 
 			}
