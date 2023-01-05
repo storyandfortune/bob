@@ -124,7 +124,6 @@ var app = Vue.createApp({
 			  let i = 0
 			  for (const [key, value] of Object.entries(this.win)) {
 				if(value.svg){
-					console.log(value.svg)
 					svg[i] = new Image()
 					svg[i].src = value.svg
 					i++
@@ -135,7 +134,6 @@ var app = Vue.createApp({
 			  svg = []
 			  i = 0
 			  for (const [key, value] of Object.entries(this.titleSvgs)) {
-				console.log(value.file)
 				svg[i] = new Image()
 				svg[i].src = value.file
 				i++
@@ -329,10 +327,11 @@ var app = Vue.createApp({
 					data: {'email': this.email.address, 'note': 'Spin to Win'}
 				}).done( (response)  => {
 
-					console.log(response)
+					console.log(response.data)
 					this.email.sending = false
 
 					if(response.data.customerCreate.userErrors.length){
+						
 						this.modalMessage.display = true 
 						this.modalMessage.content = response.data.customerCreate.userErrors
 						console.log(this.modalMessage)
