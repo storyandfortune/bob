@@ -1110,8 +1110,13 @@ html{
     -webkit-transition: all .25s ease;
     -o-transition: all .25s ease;
     transition: all .25s ease;
-    height:6rem;
+    height:5rem;
     cursor: pointer;
+  }
+
+
+  .spin-win .submit_btn{
+
   }
 
 
