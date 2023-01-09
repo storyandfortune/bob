@@ -116,7 +116,7 @@ var app = Vue.createApp({
 	},
 	methods: {
 		returnDate(){
-			return moment().format('MMM Do YYYY, h:mm:ss a')
+			return "Valid on " + moment().format('MMM Do')
 		},
 		preloadSVG(){
 
@@ -437,7 +437,7 @@ var app = Vue.createApp({
 		if( window.location.hostname === '127.0.0.1'){
 			this.endPoint = "http://dev.api/bobs/customer-connect/"
 		}
-		this.date = this.returnDate()
+		this.date =  this.returnDate()
 	},
 	mounted(){
 		this.init()

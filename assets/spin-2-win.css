@@ -57,7 +57,7 @@ html{
 }
 
 .title .label{
-  height:6rem;
+  height:clamp(3rem, 10vh, 6rem);
 }
 
 .title.fadeOut{
