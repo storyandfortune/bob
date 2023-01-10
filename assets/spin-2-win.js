@@ -27,14 +27,14 @@ var app = Vue.createApp({
 					title:"Free <br/> Shirt", 
 					code:"FREE-SHIRT", 
 					svg:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/s2w-card-shirt.svg?v=1672766107",
-					ratio:3
+					ratio:1
 				}, 
 				{
 					deg:45, 
 					title:"More <br/> Spins", 
 					code:"MORE-SPINS", 
 					svg:false,
-					ratio:15
+					ratio:5
 				}, 
 				{
 					deg:90, 
@@ -55,21 +55,21 @@ var app = Vue.createApp({
 					title:"Free <br/> Sticker", 
 					code:"FREE-STICKERS", 
 					svg:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/s2w-card-stickers.svg?v=1672766107",
-					ratio:30
+					ratio:45
 				},
 				{
 					deg:225, 
 					title:"More <br/> Spins", 
 					code:"MORE-SPINS", 
 					svg:false,
-					ratio:10
+					ratio:5
 				},
 				{
 					deg:270, 
 					title:"Free <br/> PATCH", 
 					code:"FREE-PATCH", 
 					svg:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/s2w-card-patch.svg?v=1672766107",
-					ratio:6
+					ratio:8
 				},
 				{
 					deg:315, 
@@ -162,7 +162,7 @@ var app = Vue.createApp({
 			this.audio.winCredits.play(); //play sound
 
 			let winInt = setInterval(() => {
-				if(this.credits === currentCredits + 3){
+				if(this.credits === currentCredits + 1){
 					clearInterval(winInt)
 					this.wonCredits = false	
 					this.gameState = "start"
