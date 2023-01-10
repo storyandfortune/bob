@@ -38,6 +38,12 @@ html{
 .svg{
   width:auto;
   height:100%;
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 .title{
@@ -1115,10 +1121,7 @@ html{
   }
 
 
-  .spin-win .submit_btn{
-
-  }
-
+ 
 
   .spin-win .submit_btn:hover{
       -webkit-transform: scale(1.1);
@@ -1265,6 +1268,13 @@ html{
     border-radius:2rem;
     border:5px solid white;
   }
+
+  @media screen and (max-width: 600px) {
+    .spin-win .modal-container{
+      width:90vw;
+    }
+  }
+  
 
   .spin-win .modal-container .close{
         position:absolute;
