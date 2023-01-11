@@ -676,7 +676,7 @@ html{
       padding:0 25%;
       text-transform: uppercase;
       font-family:'AvenirNextLTPro-Bold';
-      font-size: clamp(.9rem, 1.35vw, 1.5rem);
+      font-size: clamp(.8rem, 1.25vw, 1.5rem);
    }
 
 
