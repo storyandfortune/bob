@@ -143,8 +143,19 @@ var app = Vue.createApp({
 		startGame(){
 			this.audio.soundLoaded++;
 			if(	this.audio.soundLoaded > 5){
-				this.gameState = "enter-email"
+				//window.localStorage.setItem('hasPlayed', 'false')
+				const hasPlayed = window.localStorage.getItem('hasPlayed')
 				this.ready = true
+
+				if(hasPlayed === "true"){
+					this.gameState = "already-played"
+					this.audio.loose.play(); //play sound
+				}
+				else{
+					this.gameState = "enter-email"
+					window.localStorage.setItem('hasPlayed', 'true')
+				}
+		
 			}
 		},
 		playGame(){

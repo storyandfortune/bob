@@ -30,158 +30,161 @@
 
     <div v-if="ready" class="spin-win" :class="gameState">
 
-  
-        <div class="game" :class="{'ready': ready}">
-            
-            <div class="game-center">
+    
+    <div v-if="gameState === 'already-played'" class="already-played">
+        <h1>Sorry, this device has already played.</h1>
+    </div>
 
-                <div v-if="gameState === 'enter-email'" 
-                    class="email" 
-                    :class="{'error': !email.valid}">
+    <div v-else class="game" :class="{'ready': ready}">
+        
+        <div class="game-center">
 
-                    <div class="credits noselect">Get 3 Credits</div>
+            <div v-if="gameState === 'enter-email'" 
+                class="email" 
+                :class="{'error': !email.valid}">
 
-                   <div v-if="!email.sending" 
-                       class="email-container">
+                <div class="credits noselect">Get 3 Credits</div>
 
-                       <input v-model="email.address" 
-                           id="email"  
-                           type="email" 
-                           placeholder="Enter your Email"
-                           v-on:keyup.enter="addEmail()"
-                           @focus="resetEmail()"/>
+                <div v-if="!email.sending" 
+                    class="email-container">
 
-                       <div class="submit_btn" 
-                               @click="addEmail()"> 
-                               <img class="svg" :src="titleSvgs.play.file" />
-                       </div>
+                    <input v-model="email.address" 
+                        id="email"  
+                        type="email" 
+                        placeholder="Enter your Email"
+                        v-on:keyup.enter="addEmail()"
+                        @focus="resetEmail()"/>
 
-                   </div>
-
-                   <div v-else class="sending"> Sending... </div>
-
-               </div>
-
-                <!-- title -->
-                <div v-if="gameState != 'enter-email'" 
-                    class="title" 
-                    :class="{'fadeOut': titleFade}">
-
-                    <div class="label">
-                         <img class="svg" :src="mainTitle" />
+                    <div class="submit_btn" 
+                            @click="addEmail()"> 
+                            <img class="svg" :src="titleSvgs.play.file" />
                     </div>
 
-                    <div v-if="gameState != 'your-code'" 
-                         class="credits noselect"
-                         :class="{'count-up': wonCredits}"> 
-                          ${credits} Credits 
-                    </div>
-
-                    <div v-if="gameState === 'your-code'" class="discount-code">
-                        <h3>${winning_prize.code}</h3>
-                        <p>Code auto-applied Discount appears at Checkout</p>
-
-                        <div class="btn black-white" @click="shop()">
-                            <h3>Shop Now</h3>
-                            <h3>Shop Now</h3>
-                        </div>
-
-                    </div>
-                    
                 </div>
-                
-                    <!-- spin wheel -->
-                    <div v-if="wheelActive" 
-                        class="wheel noselect">
 
-                        <div class="arrow"></div>
+                <div v-else class="sending"> Sending... </div>
 
-                        <div class="spin-btn" @click="spin()">
-                            <div class="arrow"></div>
-
-                            <div class="spin-title">
-                                <img class="svg" :src="titleSvgs.spin_btn.file" />
-                            </div>
-
-                        </div>
-
-                        <ul :style="{'transform': 'rotate('+wheelPos+'deg)'}">
-                            <li  v-for="prize, index in win" 
-                                :key="prize.deg" 
-                                :style="{'transform': 'rotate('+prize.deg+'deg)'}"
-                                @click="testSpin(index)">
-
-                                <div class="label" v-html="prize.title"></div>
-                            </li>
-                        </ul>
-
-                    </div>
-
-                    <!-- prize -->
-                    <div v-else="!wheelActive" 
-                         class="win">
-
-                        <div class="prize">
-                   
-                            <img :src="winning_prize.svg" 
-                                width="auto"  
-                                height="auto" 
-                                loading="lazy" />
-                        </div>
-
-                        <div class="spin-again" v-if="gameState === 'show-prize'">
-
-                            <div>Show Cashier in front <br/> to get your prize.</div>
-
-                            <div v-if="credits">
-                                <img class="svg btn spin-again-btn" :src="titleSvgs.orSpinAgain.file" @click="reset()"/>
-                                <div>You will lose this prize</div>
-                            </div>
-
-                            <div v-else>
-                                <img class="svg" :src="titleSvgs.noSpinsLeft.file "/>
-                                <div>Sorry your credits are 0</div>
-                            </div>
-                            
-                        </div>
-
-                    </div>
-     
-                    <div class="valid-only">
-                        <div v-if="gameState === 'show-prize'">${email.address}</div>
-                        <div>${date}</div>
-                    </div>
-
-                    <p v-if="gameState === 'your-code'" class="copyright"> &copy; 2022 Bob's Burbank (Bobs.net) "Bob's" & "Big Boy" are Registered Trademarks of Big Boy Restaurant Group, LLC, Southfield, MI, U.S.A.</p>
-                    
             </div>
 
+            <!-- title -->
+            <div v-if="gameState != 'enter-email'" 
+                class="title" 
+                :class="{'fadeOut': titleFade}">
 
-            <!-- big boy jumping in -->
-            <div v-if="wheelActive" 
-                class="gameboy-contianer">
-                    <div class="gameboy" :class="boy.jump">
-
-                        <img v-show="boy.armUp" 
-                            src='https://cdn.shopify.com/s/files/1/0593/5942/8759/files/Bob_Hand_Up-blue2.svg?v=1671134564' 
-                            width="auto" 
-                            height="auto" 
-                            loading="lazy" />
-
-                        <img v-show="!boy.armUp"
-                            src='https://cdn.shopify.com/s/files/1/0593/5942/8759/files/Bob_Hand_In-blue2.svg?v=1671134564' 
-                            width="auto" 
-                            height="auto" 
-                            loading="lazy" />
-
-                    </div>
+                <div class="label">
+                        <img class="svg" :src="mainTitle" />
                 </div>
 
-        
-        </div>    
-       <!-- end game -->
-    
+                <div v-if="gameState != 'your-code'" 
+                        class="credits noselect"
+                        :class="{'count-up': wonCredits}"> 
+                        ${credits} Credits 
+                </div>
 
+                <div v-if="gameState === 'your-code'" class="discount-code">
+                    <h3>${winning_prize.code}</h3>
+                    <p>Code auto-applied Discount appears at Checkout</p>
+
+                    <div class="btn black-white" @click="shop()">
+                        <h3>Shop Now</h3>
+                        <h3>Shop Now</h3>
+                    </div>
+
+                </div>
+                
+            </div>
+            
+                <!-- spin wheel -->
+                <div v-if="wheelActive" 
+                    class="wheel noselect">
+
+                    <div class="arrow"></div>
+
+                    <div class="spin-btn" @click="spin()">
+                        <div class="arrow"></div>
+
+                        <div class="spin-title">
+                            <img class="svg" :src="titleSvgs.spin_btn.file" />
+                        </div>
+
+                    </div>
+
+                    <ul :style="{'transform': 'rotate('+wheelPos+'deg)'}">
+                        <li  v-for="prize, index in win" 
+                            :key="prize.deg" 
+                            :style="{'transform': 'rotate('+prize.deg+'deg)'}"
+                            @click="testSpin(index)">
+
+                            <div class="label" v-html="prize.title"></div>
+                        </li>
+                    </ul>
+
+                </div>
+
+                <!-- prize -->
+                <div v-else="!wheelActive" 
+                        class="win">
+
+                    <div class="prize">
+                
+                        <img :src="winning_prize.svg" 
+                            width="auto"  
+                            height="auto" 
+                            loading="lazy" />
+                    </div>
+
+                    <div class="spin-again" v-if="gameState === 'show-prize'">
+
+                        <div>Show Cashier in front <br/> to get your prize.</div>
+
+                        <div v-if="credits">
+                            <img class="svg btn spin-again-btn" :src="titleSvgs.orSpinAgain.file" @click="reset()"/>
+                            <div>You will lose this prize</div>
+                        </div>
+
+                        <div v-else>
+                            <img class="svg" :src="titleSvgs.noSpinsLeft.file "/>
+                            <div>Sorry your credits are 0</div>
+                        </div>
+                        
+                    </div>
+
+                </div>
+    
+                <div class="valid-only">
+                    <div v-if="gameState === 'show-prize'">${email.address}</div>
+                    <div>${date}</div>
+                </div>
+
+                <p v-if="gameState === 'your-code'" class="copyright"> &copy; 2022 Bob's Burbank (Bobs.net) "Bob's" & "Big Boy" are Registered Trademarks of Big Boy Restaurant Group, LLC, Southfield, MI, U.S.A.</p>
+                
+        </div>
+
+
+        <!-- big boy jumping in -->
+        <div v-if="wheelActive" 
+            class="gameboy-contianer">
+                <div class="gameboy" :class="boy.jump">
+
+                    <img v-show="boy.armUp" 
+                        src='https://cdn.shopify.com/s/files/1/0593/5942/8759/files/Bob_Hand_Up-blue2.svg?v=1671134564' 
+                        width="auto" 
+                        height="auto" 
+                        loading="lazy" />
+
+                    <img v-show="!boy.armUp"
+                        src='https://cdn.shopify.com/s/files/1/0593/5942/8759/files/Bob_Hand_In-blue2.svg?v=1671134564' 
+                        width="auto" 
+                        height="auto" 
+                        loading="lazy" />
+
+                </div>
+            </div>
+
+    
+    </div>    
+    <!-- end game -->
+    
     <!-- sky -->
     <div class="sky">
 
