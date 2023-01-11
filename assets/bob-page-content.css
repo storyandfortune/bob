@@ -1318,6 +1318,12 @@ h1.product__title {
 
 /* home page */
 
+/* ---------- rivo-reviews- ---------------------*/
+.rivo-reviews-star-rating {
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
 
 
 /* ---------- 404 ---------------------*/
