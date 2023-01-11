@@ -1339,6 +1339,8 @@ html{
 
   .already-played{
     display: flex;
+    padding:5rem;
+    text-align: center;
     justify-content: center;
     justify-items: center;
     align-content: center;
