@@ -147,9 +147,11 @@ var app = Vue.createApp({
 				this.ready = true
 				//window.localStorage.removeItem('hasPlayed')
 				console.log(hasPlayed)
+
 				if(hasPlayed === "true"){
 					this.gameState = "already-played"
-					this.audio.loose.play(); //play sound
+					this.modalMessage.display = true 
+					this.modalMessage.content = [{"message":'This device has already played'}]
 				}
 				else{
 					this.gameState = "enter-email"
@@ -355,7 +357,7 @@ var app = Vue.createApp({
 					console.log(error)
 					this.email.sending = false
 					this.modalMessage.display = true 
-					this.modalMessage.content.push("Oopsie Daisy... Something went wrong.")
+					this.modalMessage.content.push({"message":"Oopsie Daisy... Something went wrong."})
 					this.audio.loose.play(); //play sound
 				});
 

@@ -32,7 +32,6 @@
 
     
     <div v-if="gameState === 'already-played'" class="already-played">
-        <h1>Sorry, this device has already played.</h1>
     </div>
 
     <div v-else class="game" :class="{'ready': ready}">
@@ -260,7 +259,7 @@
                 {%- render 'icon-times-solid' -%}
             </div>
             <ul>
-                <li v-for="item in modalMessage.content" :key="item.message.content">
+                <li v-for="item in modalMessage.content" :key="item.message">
                     ${item.message}
                 </li>
             </ul>
