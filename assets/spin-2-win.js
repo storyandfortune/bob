@@ -145,20 +145,21 @@ var app = Vue.createApp({
 			if(	this.audio.soundLoaded > 5){
 				const hasPlayed = window.localStorage.getItem('hasPlayed')
 				this.ready = true
-				window.localStorage.removeItem('hasPlayed')
+				//window.localStorage.removeItem('hasPlayed')
+				console.log(hasPlayed)
 				if(hasPlayed === "true"){
 					this.gameState = "already-played"
 					this.audio.loose.play(); //play sound
 				}
 				else{
 					this.gameState = "enter-email"
-					window.localStorage.setItem('hasPlayed', 'true')
 				}
 		
 			} 
 		},
 		playGame(){
 			this.gameState = "start"
+			window.localStorage.setItem('hasPlayed', 'true')
 			this.changeTitle(this.titleSvgs.playNow.file)
 			this.boy.jump = "jump-in"
 			this.audio.boing.play()
