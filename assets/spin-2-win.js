@@ -34,49 +34,49 @@ var app = Vue.createApp({
 					title:"More <br/> Spins", 
 					code:"MORE-SPINS", 
 					svg:false,
-					ratio:15
+					ratio:150
 				}, 
 				{
 					deg:90, 
 					title:"Free <br/> Postcard", 
 					code:"FREE-POSTCARD", 
 					svg:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/s2w-card-postcard.svg?v=1673403113",
-					ratio:25
+					ratio:250
 				 }, 
 				{
 					deg:135, 
 					title:"You <br/> Lose", 
 					code:"YOU-LOSE", 
 					svg:false,
-					ratio:7
+					ratio:70
 				},
 				{
 					deg:180, 
 					title:"Free <br/> Sticker", 
 					code:"FREE-STICKERS", 
 					svg:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/s2w-card-stickers.svg?v=1672766107",
-					ratio:25
+					ratio:250
 				},
 				{
 					deg:225, 
 					title:"More <br/> Spins", 
 					code:"MORE-SPINS", 
 					svg:false,
-					ratio:1
+					ratio:5
 				},
 				{
 					deg:270, 
 					title:"Free <br/> PATCH", 
 					code:"FREE-PATCH", 
 					svg:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/s2w-card-patch.svg?v=1672766107",
-					ratio:5
+					ratio:50
 				},
 				{
 					deg:315, 
 					title:"You <br/> Lose", 
 					code:"YOU-LOSE",
 					svg:false,
-					ratio:15
+					ratio:150
 				}
 			],
 			win_ratio: [],
