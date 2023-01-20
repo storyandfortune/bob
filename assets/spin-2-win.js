@@ -1,8 +1,11 @@
-var app = Vue.createApp({
+
+ // Enable pusher logging - don't include this in production -------------------------------------------------
+
+const app = Vue.createApp({
 
 	data() {
 		return {
-			ready:false,     
+			ready:false, 
 			testing:{'test':false, 'index':null, "extra-param":true},
 			gameState:"init", // init, enter-email, start, reset-wheel, show-prize, your-code, game-over
 			mainTitle:"",
@@ -27,14 +30,14 @@ var app = Vue.createApp({
 					title:"Free <br/> Shirt", 
 					code:"FREE-SHIRT", 
 					svg:"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/s2w-card-shirt.svg?v=1672766107",
-					ratio:1
+					ratio:10
 				}, 
 				{
 					deg:45, 
 					title:"More <br/> Spins", 
 					code:"MORE-SPINS", 
 					svg:false,
-					ratio:150
+					ratio:160
 				}, 
 				{
 					deg:90, 
@@ -62,7 +65,7 @@ var app = Vue.createApp({
 					title:"More <br/> Spins", 
 					code:"MORE-SPINS", 
 					svg:false,
-					ratio:5
+					ratio:160
 				},
 				{
 					deg:270, 
@@ -115,6 +118,9 @@ var app = Vue.createApp({
 		}
 	},
 	methods: {
+		backDoor(data){
+			this.modalMessage = JSON.parse(JSON.stringify(data));
+		},
 		returnDate(){
 			return "Valid on " + moment().format('MMM Do')
 		},
@@ -175,7 +181,7 @@ var app = Vue.createApp({
 			this.audio.winCredits.play(); //play sound
 
 			let winInt = setInterval(() => {
-				if(this.credits === currentCredits + 1){
+				if(this.credits === currentCredits + 2){
 					clearInterval(winInt)
 					this.wonCredits = false	
 					this.gameState = "start"
@@ -442,6 +448,7 @@ var app = Vue.createApp({
 				   }
 				   el++;
 			   });
+			  
 			
 	   }
 	},
@@ -454,6 +461,19 @@ var app = Vue.createApp({
 	},
 	mounted(){
 		this.init()
+
+		/*
+		Pusher.logToConsole = true;
+
+		var pusher = new Pusher('ef4df188e5c9152613bd', {
+		  cluster: 'us3'
+		});
+	   
+		var channel = pusher.subscribe('my-channel');
+		channel.bind('my-event', (data) => {
+			 this.backDoor(data)
+		});
+		*/
 	}
 
 })
