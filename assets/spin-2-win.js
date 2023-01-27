@@ -119,6 +119,15 @@ const app = Vue.createApp({
 	},
 	methods: {
 		backDoor(data){
+			// case switch in data that updates certian objects
+
+			// modal
+
+			//change odds
+
+			//test mode
+
+			//reset cookie
 			this.modalMessage = JSON.parse(JSON.stringify(data));
 		},
 		returnDate(){
