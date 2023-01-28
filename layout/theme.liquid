@@ -4,7 +4,7 @@
   <head>
     {% if template == '404' %}<meta http-equiv="refresh" content="0;URL={{ shop.url }}" />{% endif %}
 
-    {% render 'ascii-art' %}
+ 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -48,68 +48,7 @@
 
     {% style %}
 
-      @font-face {
-        font-family: "AvenirNextLTPro-Medium";
-        src: url( {{- 'font-avenir-next_light.eot' | asset_url -}} );
-        src: url( {{- 'font-avenir-next_light.eot?#iefix' | asset_url -}} ) format("embedded-opentype"),
-          url(  {{- 'font-avenir-next_light.woff2' | asset_url -}} ) format("woff2"), 
-          url( {{- 'font-avenir-next_light.woff' | asset_url -}} ) format("woff"),
-          url( {{- 'font-avenir-next_light.svg#OTS-derived-font' | asset_url -}} ) format("svg");
-        font-weight: normal;
-        font-style: normal;
-        font-display: swap; 
-      }
-    
-      @font-face {
-        font-family: "AvenirNextLTPro-Bold";
-        src: url(  {{- 'font-avenir-next_medium.eot' | asset_url -}} );
-        src: url( {{- 'font-avenir-next_medium.eot?#iefix' | asset_url -}} ) format("embedded-opentype"),
-         url( {{- 'font-avenir-next_medium.otf' | asset_url -}} ) format("opentype"), 
-         url( {{- 'font-avenir-next_medium.ttf' | asset_url -}} ) format("truetype"), 
-         url( {{- 'font-avenir-next_medium.woff2' | asset_url -}} ) format("woff2"), 
-         url( {{- 'font-avenir-next_medium.woff' | asset_url -}} ) format("woff"),
-         url( {{- 'font-avenir-next_medium.svg#OTS-derived-font' | asset_url -}} ) format("svg");
-         font-weight: normal;
-         font-style: normal;
-         font-display: swap; 
-      }
-
-      @font-face {
-        font-family: "RoadRadio-Black";
-        src: url({{- 'font-road-radio.eot' | asset_url -}} );
-        src: url({{- 'font-road-radio.eot?#iefix' | asset_url -}} ) format("embedded-opentype"),
-        url({{- 'font-road-radio.woff2' | asset_url -}} ) format("woff2"),
-        url( {{- 'font-road-radio.woff' | asset_url -}} ) format("woff"), 
-        url( {{- 'font-road-radio.svg#RoadRadio-Black' | asset_url -}}) format("svg");
-        font-weight: normal;
-        font-style: normal;
-        font-display: swap; 
-      }
-
-     
-      @font-face {
-        font-family: "TradeGothicLTStd-Cn18";
-        src: url( {{- 'font-trade-gothic.eot' | asset_url -}} );
-        src: url( {{- 'font-trade-gothic.eot?#iefix' | asset_url -}} ) format("embedded-opentype"), 
-        url( {{- 'font-trade-gothic.woff2' | asset_url -}} ) format("woff2"),
-        url( {{- 'font-trade-gothic.woff' | asset_url -}} ) format("woff"), url({{- 'font-trade-gothic.svg#TradeGothicLTStd-Cn18' | asset_url -}}) format("svg");
-        font-weight: normal;
-        font-style: normal;
-        font-display: swap; 
-      }
-
-      @font-face {
-        font-family: 'Harvard';
-        src: url( {{- 'font-filmotype-harvard.eot' | asset_url -}} );
-        src: url( {{- 'font-filmotype-harvard.eot?#iefix' | asset_url -}} ) format('embedded-opentype'),
-        url(  {{- 'font-filmotype-harvard.woff2' | asset_url -}}) format('woff2'),
-        url(  {{- 'font-filmotype-harvard.woff' | asset_url -}}) format('woff'),
-        url(  {{- 'font-filmotype-harvard.svg#Hudson' | asset_url -}}) format('svg');
-        font-weight: normal;
-        font-style: normal; 
-        font-display: swap; 
-      }
-
+      
       
     
     
@@ -173,9 +112,8 @@
         font-weight: 200;
         max-width:100%;
         overflow-x:hidden;
+        background-color:#000;
       }
-
-   
 
     @media screen and (min-width: 750px) {
         body {
@@ -188,11 +126,6 @@
 
     {{ 'section-header.css' | asset_url | stylesheet_tag }}
 
-    {{ 'bob-page-content.css' | asset_url | stylesheet_tag }}
-
-    {{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
-
-    {{ 'bob-swiper.css' | asset_url | stylesheet_tag }}
 
     {%- unless settings.type_body_font.system? -%}
       <link rel="preload" as="font" href="{{ settings.type_body_font | font_url }}" type="font/woff2" crossorigin>
@@ -210,7 +143,7 @@
   {% capture boostersnippet %}{% include "booster-apps-common" %}{% endcapture %}{% unless boostersnippet contains "Liquid error" %}{{ boostersnippet }}{% endunless %}
 </head>
 
-    {% if template == 'index' %}
+
       <body class="gradient home-page">
         <a class="skip-to-content-link button visually-hidden" href="#MainContent">
           {{ "accessibility.skip_to_text" | t }}
@@ -218,27 +151,11 @@
 
         {% section 'hero-video-scroll' %}
 
-
-    {% else %}
-      <body class="gradient">
-        <a class="skip-to-content-link button visually-hidden" href="#MainContent">
-          {{ "accessibility.skip_to_text" | t }}
-        </a>
-    {% endif %}
-
- 
-    {% if template != 'page.blank' %}
-      {% section 'announcement-bar' %}
-      {% section 'header' %}
-    {% endif %}
-
-    <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
-      {{ content_for_layout }}
-    </main>
+      <main id="MainContent" class="content-for-layout focus-none" style="display:none" role="main" tabindex="-1">
+        {{ content_for_layout }}
+      </main>
     
-    {% if template != 'page.blank' %}
-      {% section 'footer' %}
-    {% endif %}
+ 
 
     <ul hidden>
       <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>
@@ -273,35 +190,9 @@
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
-    <!-- custom libs ------------------------------------------------------------------->
 
-    <!-- jquery -->
-    <script src="{{ 'jquery-3.6.0.min.js' | asset_url }}" defer="defer"></script>
+<!-- custom libs ------------------------------------------------------------------->
 
-    <script src="{{ 'jquery-url-min.js' | asset_url }}" defer="defer"></script>
-
-     <!-- axios -->
-     <script src="{{ 'axios.min.js' | asset_url }}" defer="defer"></script>
-   
-    <!-- way points -->
-    <script src="{{ 'jquery.waypoints.min.js' | asset_url }}" defer="defer"></script>
-
-    <!-- Swiper -->
-    <script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer="defer"></script>
-
-    <!-- Swiper init-->
-    <script src="{{ 'swiper-init.js' | asset_url }}" defer="defer"></script>
-
-    <!-- scroll -->
-    <script src="{{ 'big-boy-time.js' | asset_url }}" defer="defer"></script>
-
-
-  
-<!-- amai_stp-added -->
-{% render 'amai_stp-theme-snippet' %}
-{% render 'amai_stp-cart-snippet' %}
-{% render 'amai_stp-product-snippet' %}
-<!-- /amai_stp-added -->
 
 </body>
 </html>
