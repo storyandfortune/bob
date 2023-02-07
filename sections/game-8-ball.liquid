@@ -1,16 +1,12 @@
-<style>
-    .landing-container{
-        display:flex;
-        width:100vw;
-        height:100vh;
-        justify-content:center;
-        align-items:center;
-    }
-    .landing-container h1{
-        font-size:clamp(20px, 20vw, 72px);
-    }
-</style>
+{{ 'game-8-ball.css' | asset_url | stylesheet_tag }}
 
 <div class="landing-container">
-    <h1>Magic-8-Ball PlaceHolder</h1>
+
+    <section class="stage">
+        <figure class="ball">
+          <span class="shadow"></span>
+          <span class="eight"></span>
+        </figure>
+      </section>
+
 </div>
