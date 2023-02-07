@@ -1,8 +1,8 @@
 {
-  "layout":"game",  
+  "layout":"blank",  
   "sections": {
       "main": {
-        "type": "game-page"
+        "type": "blank-page"
       },
       "form": {
         "type": "spin-2-win",
