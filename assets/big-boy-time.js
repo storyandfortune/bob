@@ -69,10 +69,18 @@ $(document).ready(function () {
         
 
         /* Logo hides */
+        var bricked = true;
         var LogoHides = $('#MainContent').waypoint(function (direction) {
 
             if (direction === "down") {
                 $('#shopify-section-header').addClass('sticky');
+
+                if(bricked){
+                    // google analytics scroll past brick wall
+                    ga('set', 'metric1', 'scroll-past-brick-wall');
+                    //console.log('scroll past brick wall');
+                    bricked = false;
+                }
             }
             else {
                 $('#shopify-section-header').removeClass('sticky');
@@ -86,6 +94,24 @@ $(document).ready(function () {
          window.onresize = function(){
             resize();
          };
+
+
+    // google analytics click on main nav
+    $("#shopify-section-header nav .list-menu li").on('click', function (e) {
+
+        var up = $('#shopify-section-header').hasClass('sticky');
+
+        if(up){
+             ga('set', 'metric3', 'click-main-nav-top');
+            //console.log('click on main nav on top');
+        }
+        else{
+           ga('set', 'metric2', 'click-main-nav-brick-wall');
+            //console.log('click on main nav brickwall'); 
+        }
+
+    });
+
 
 
          // watch mobile drawer on homepage
@@ -267,6 +293,9 @@ $(document).ready(function () {
     
 
     // double click go to page.
+
+
+
     $("#shopify-section-header nav .list-menu li").on('dblclick', function (e) {
         window.location.href = $(this).data('link');
     });
