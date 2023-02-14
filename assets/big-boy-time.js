@@ -78,7 +78,7 @@ $(document).ready(function () {
                 if(bricked){
                     // google analytics scroll past brick wall
                     ga('set', 'metric1', 'scroll-past-brick-wall');
-                    //console.log('scroll past brick wall');
+                    console.log('scroll past brick wall');
                     bricked = false;
                 }
             }
@@ -103,11 +103,11 @@ $(document).ready(function () {
 
         if(up){
              ga('set', 'metric3', 'click-main-nav-top');
-            //console.log('click on main nav on top');
+             console.log('click on main nav on top');
         }
         else{
            ga('set', 'metric2', 'click-main-nav-brick-wall');
-            //console.log('click on main nav brickwall'); 
+            console.log('click on main nav brickwall'); 
         }
 
     });
