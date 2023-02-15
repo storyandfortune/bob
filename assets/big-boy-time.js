@@ -77,7 +77,7 @@ $(document).ready(function () {
 
                 if(bricked){
                     // google analytics scroll past brick wall
-                    ga('set', 'metric1', 'scroll-past-brick-wall');
+                    ga('send', 'event', 'BrickWall', 'scroll', 'Scroll past hero');
                     console.log('scroll past brick wall');
                     bricked = false;
                 }
@@ -102,11 +102,11 @@ $(document).ready(function () {
         var up = $('#shopify-section-header').hasClass('sticky');
 
         if(up){
-             ga('set', 'metric3', 'click-main-nav-top');
-             console.log('click on main nav on top');
+            ga('send', 'event', 'MainNav', 'click', 'Click after scroll');
+            console.log('click on main nav on top');
         }
         else{
-           ga('set', 'metric2', 'click-main-nav-brick-wall');
+            ga('send', 'event', 'MainNav', 'click', 'Click before scroll');
             console.log('click on main nav brickwall'); 
         }
 
