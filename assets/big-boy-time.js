@@ -102,11 +102,11 @@ $(document).ready(function () {
         var up = $('#shopify-section-header').hasClass('sticky');
 
         if(up){
-            ga('send', 'event', 'MainNav', 'click', 'Click after scroll');
+            ga('send', 'event', 'BrickWall', 'click', 'Click main nav after scroll');
             console.log('click on main nav on top');
         }
         else{
-            ga('send', 'event', 'MainNav', 'click', 'Click before scroll');
+            ga('send', 'event', 'BrickWall', 'click', 'Click main nav before scroll');
             console.log('click on main nav brickwall'); 
         }
 
