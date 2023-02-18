@@ -293,9 +293,6 @@ $(document).ready(function () {
     
 
     // double click go to page.
-
-
-
     $("#shopify-section-header nav .list-menu li").on('dblclick', function (e) {
         window.location.href = $(this).data('link');
     });
