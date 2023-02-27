@@ -1,7 +1,7 @@
-<div id="wish-list-drawer" class="wish-list">
+<div id="wish-list-drawer" class="wish-list on">
 
     <div class="wish-list-header">
-        <h1>Wish list</h1>
+        <h3>Wishlist</h3>
         <div class="account">f-name, l-name, email@e-mail.com</div>
         <div class="sign-on">
             <div class="e-mail-input">
@@ -19,26 +19,125 @@
 
 <style>
 
+    /*  
+    on 
+    isActive
+    */
+
     .wish-list{
+        position:fixed;
+        visibility:hidden;
+        top:0;
+        right:-45vw;
+        width:35vw;
+        height:100vw;
+        padding:150px 35px;
+        background-color:#FFF;
+        -webkit-box-shadow: -19px 12px 33px -16px rgba(0,0,0,0.34);
+        transition: all .5s ease;
+        z-index:2;
     }
 
-    .wish-list .wish-list-header{
+    .wish-list.on{
+        visibility:visible;
+        right:0;
     }
 
-    .wish-list .account{
+    /* user logged in */ 
+    /*-------------------------------------------------------- */
+
+    .wish-list.isActive .wish-list-header .account,
+    .wish-list.isActive .product-list{
+        display:block;
     }
 
-    .wish-list .sign-on{
+    .wish-list.isActive .wish-list-header .sign-on{
+        display:none;
     }
 
-    .wish-list .email-input{
+    /* user logged out */ 
+    .wish-list .wish-list-header .account,
+    .wish-list .product-list
+    {
+        display:none;
     }
 
+    .wish-list .wish-list-header .sign-on{
+        display:block;
+    }
+
+    /*-------------------------------------------------------- */
+    
+    .wish-list .wish-list-header h3{
+        font-family: "AvenirNextLTPro-Bold";
+        text-transform:uppercase;
+        font-size:3rem;
+        color:var(--bob-red);
+        margin:0;
+        padding:0; 
+    }
+
+    .wish-list .wish-list-header p{
+        font-size:1.5rem; 
+        line-height:2rem;
+        margin:1rem 0;
+        padding:0;
+    }
+    
+
+    /* sign on ---------------- */
+    .wish-list .wish-list-header .sign-on .e-mail-input{
+        margin: 1rem 0 0 0;
+        display:flex;
+    }
+
+    .wish-list .wish-list-header .sign-on .e-mail-input input,
+    .wish-list .wish-list-header .sign-on .e-mail-input button
+    {
+        font-size:2rem;
+        padding: .5rem 1rem;
+    }
+
+    .wish-list .wish-list-header .sign-on .e-mail-input input{
+        flex:1;
+        border:1px solid #ccc;
+        outline:none;
+    }
+
+    .wish-list .wish-list-header .sign-on .e-mail-input input :active{
+        outline:none;
+        -webkit-box-shadow:none;
+    }
+
+    .wish-list .wish-list-header .sign-on .e-mail-input button{
+        border:1px solid var(--bob-red);
+        color:white;
+        text-transform:uppercase;
+        background-color:var(--bob-red)
+    }
+
+    /* Product List */
     .wish-list .product-list{
+        margin:1rem 0;
+        padding:0;
+        list-style:none;
+        height:calc(100vh - 250px);
+        overflow-x:hidden;
+        overflow-y:scroll;
     }
+
+
+
+
 
 </style>
 
 <script>
     console.log('wish list ready');
+
+    /*
+     let wishList = {
+    
+    };
+    */
 </script>

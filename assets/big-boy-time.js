@@ -618,5 +618,10 @@ $(document).ready(function () {
         }, 500);
     
     }
+    
 
+    /// wish list ----------------------------------------
+    $(".header .header__icons .header__icon--heart").on('touchstart click', function () {
+        $('#wish-list-drawer').toggleClass('on');
+    });
 });

@@ -545,11 +545,24 @@ details.menu-drawer-container[open] .close-icon{
     padding-right: 5rem;
 }
 
+.header__link{
+    margin: 0 .5rem 0 .5rem;
+    transition:all .25s ease;
+    -webkit-transition:all .25s ease;
+    -moz-transition:all .25s ease;
+    -ms-transition:all .25s ease;
+    -o-transition:all .25s ease;
+}
+
 .header__icon:not(.header__icon--summary),
 .header__icon span {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.header__link :hover{
+    color:var(--bob-gold);
 }
 
 .header__icon span {
@@ -618,7 +631,6 @@ menu-drawer + .header__search {
 .header__search {
     display: inline-flex;
     line-height: 0;
-    margin-right: 2rem;
 }
 
 .header--top-center > .header__search {

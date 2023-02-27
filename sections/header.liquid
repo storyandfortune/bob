@@ -361,7 +361,12 @@
     
     <!-- right icons -->
     <div class="header__icons">
-      <details-modal class="header__search">
+
+      <div class="header__link header__icon header__icon--heart link">
+        {% render 'icon-heart' %} 
+      </div>
+
+      <details-modal class="header__link header__search">
         <details>
           <summary class="header__icon header__icon--search header__icon--summary link link--text focus-inset modal__toggle" aria-haspopup="dialog" aria-label="{{ 'general.search.search' | t }}">
             <span>
@@ -449,7 +454,7 @@
         </a>
       {%- endif -%}
 
-      <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link link--text focus-inset" id="cart-icon-bubble">
+      <a href="{{ routes.cart_url }}" class="header__link header__icon header__icon--cart link link--text focus-inset" id="cart-icon-bubble">
         <svg class="icon icon-cart" aria-hidden="true" focusable="false" role="presentation">
           <use href="#icon-cart">
         </svg>
