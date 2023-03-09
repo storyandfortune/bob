@@ -61,6 +61,7 @@ $(document).ready(function () {
             }
             else {
                 $('#big-boy-header').removeClass('hide');
+                $('#wish-list-drawer').removeClass('on');
             }
 
         }, {
@@ -144,7 +145,9 @@ $(document).ready(function () {
     }, {
         offset: footerOffset
     });
-   
+
+
+
    
     /* forms ------------------------------------ */
 
@@ -457,7 +460,7 @@ $(document).ready(function () {
                             <div class="title">` + title + `</div>
                     </a>`;
 
-        $('#'+id).append(html);
+        $('#'+id).append(html); 
     }
     
     // inline product
@@ -478,6 +481,7 @@ $(document).ready(function () {
                 });
 
                 request.done(function( json ) {
+                    console.log(document.location.origin +`/products/`+ json.product.handle);
                     productMarkup(newID, json.product.title, json.product.image.src, document.location.origin +`/products/`+ json.product.handle);
                 });
 
@@ -622,6 +626,20 @@ $(document).ready(function () {
 
     /// wish list ----------------------------------------
     $(".header .header__icons .header__icon--heart").on('touchstart click', function () {
-        $('#wish-list-drawer').toggleClass('on');
+
+        // scroll down before opening wishlist if we are in the hero state.
+
+        if($('#shopify-section-header').hasClass('sticky')){
+            $('#wish-list-drawer').toggleClass('on');
+         }
+         else{
+            $("html, body" ).animate({
+                scrollTop: ($("#MainContent").offset().top - 120)
+              }, 1100, function() {
+             
+                $('#wish-list-drawer').addClass('on');
+
+            });
+         } 
     });
 });

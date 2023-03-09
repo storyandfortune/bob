@@ -343,16 +343,23 @@ const app = Vue.createApp({
 		addEmail(){
 
 			this.email.valid = this.validateEmail(this.email.address)
-			//console.log(this.email.valid)
 
 			if(this.email.valid){
 
 				this.email.sending = true
 
+				let dataObj = {
+					'email': this.email.address, 
+					'note': 'Spin to Win',
+					'tags': '"spin2win","game"',
+					'meta': {'key':null, 'value':null}
+				}
+
+				
 				$.ajax({
 					method: "POST",
 					url: this.endPoint,
-					data: {'email': this.email.address, 'note': 'Spin to Win'}
+					data: dataObj
 				}).done( (response)  => {
 
 					

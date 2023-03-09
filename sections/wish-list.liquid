@@ -1,21 +1,33 @@
-<div id="wish-list-drawer" class="wish-list on">
 
-    <div class="wish-list-header">
-        <h3>Wishlist</h3>
-        <div class="account">f-name, l-name, email@e-mail.com</div>
-        <div class="sign-on">
-            <div class="e-mail-input">
-                <input type="text" placeholder="Enter your e-mail" /> <button>Enter</button>
+
+<div id="wish-list-drawer" class="wish-list">
+
+    <!-- start app -->
+
+    
+            <div class="wish-list-header">
+                <h3>Wishlist</h3>
+
+                <div class="account">
+                   
+                </div>
+
+                <div class="sign-on">
+                    <div class="e-mail-input">
+                        <input id="emailAddress"type="text" v-bind="email.address" placeholder="Enter your e-mail" /> <button>Enter</button>
+                    </div>
+                    <p>Enter your e-mail address to activate & save your wishlist.</p>
+                </div>
+
             </div>
-            <p>Enter your e-mail address to activate & save your wishlist.</p>
-        </div>
-    </div>
 
-    <ul class="product-list">
-        <li>Product Placeholder</li>
-    </ul>
+            <ul class="product-list">
+               
+            </ul>
+
 
 </div>
+
 
 <style>
 
@@ -31,9 +43,9 @@
         right:-45vw;
         width:35vw;
         height:100vw;
-        padding:150px 35px;
+        padding:175px 35px;
         background-color:#FFF;
-        -webkit-box-shadow: -19px 12px 33px -16px rgba(0,0,0,0.34);
+        -webkit-box-shadow: -19px 12px 15px -20px rgba(0,0,0,0.34);
         transition: all .5s ease;
         z-index:2;
     }
@@ -80,7 +92,7 @@
     .wish-list .wish-list-header p{
         font-size:1.5rem; 
         line-height:2rem;
-        margin:1rem 0;
+        margin:2rem .25rem;
         padding:0;
     }
     
@@ -94,8 +106,8 @@
     .wish-list .wish-list-header .sign-on .e-mail-input input,
     .wish-list .wish-list-header .sign-on .e-mail-input button
     {
-        font-size:2rem;
-        padding: .5rem 1rem;
+        font-size:1.75rem;
+        padding: 1rem;
     }
 
     .wish-list .wish-list-header .sign-on .e-mail-input input{
@@ -126,18 +138,8 @@
         overflow-y:scroll;
     }
 
+    .wish-list .product-list li{
 
-
-
+    }
 
 </style>
-
-<script>
-    console.log('wish list ready');
-
-    /*
-     let wishList = {
-    
-    };
-    */
-</script>
