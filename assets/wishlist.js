@@ -1,6 +1,7 @@
 $(document).ready(function () {
 
         let wl = {
+            hasUser:{},
             user:{
                 userId:null,
                 email:null,
@@ -12,9 +13,15 @@ $(document).ready(function () {
             email:{
                 address:'something',
                 valid:true,
-                sending:false
+                sending:false,
+                message:'Enter your e-mail address to activate & save your wishlist.',
+                errorMessage:'Enter a vailid e-mail address.'
             },
             reset(){
+                $('.wishlist').removeClass('isActive');
+                $('#emailAddress').val('');
+            },
+            resetAll(){
                 this.deleteCookie();
                 $('.wishlist').removeClass('isActive');
                 $('#emailAddress').val('');
@@ -37,19 +44,22 @@ $(document).ready(function () {
 
                 this.email.address = $('#emailAddress').val();
     
-                this.email.valid = this.validateEmail(this.email.address)
-                console.log(this.email.address)
-                console.log(this.email.valid)
+                this.email.valid = this.validateEmail(this.email.address);
+
+                console.log('address: ' + this.email.address);
+                console.log('valid: ' + this.email.valid);
+                console.log('endpoint: ' + this.endPoint +'activate/');
     
               
                 if(this.email.valid){
-    
-                    this.email.sending = true
-    
+                    console.log('connecting to API');
+                    this.email.sending = true;
+                    $('#wish-list-drawer #wish-list-header').addClass('isSending');
+
+                    
                     let dataObj = {
                         'email': this.email.address, 
-                        'tags': '"wishlist"',
-                        'meta': {'key':wishlist, 'value':this.user.list}
+                        'tags': '"wishlist"'
                     }
     
                     
@@ -58,37 +68,66 @@ $(document).ready(function () {
                         url: this.endPoint +'activate/',
                         data: dataObj
                     }).done( (response)  => {
+
+                        console.log(response);
+
+                        if(response.status){
+
+                            this.email.sending = false
+
+                            //update user object
+                            this.user.userId = response.data.id;
+                            this.user.email = response.data.email;
+                            this.user.fname = response.data.firstName;
+                            this.user.lname = response.data.lastName;
+                            this.user.list = response.data.metafield.value.split(',');
     
-                        
-                        this.email.sending = false
+                            //save cookie
+                            this.setCookie();
     
-                        if(response.data.customerCreate.userErrors.length){
-                            this.modalMessage.display = true 
-                            this.modalMessage.content = response.data.customerCreate.userErrors
-                            this.audio.loose.play(); //play sound
+                            //update interface
+                            $('.account').html(this.user.email);
+                            $('#wish-list-drawer #wish-list-header').removeClass('isSending');
+                            $('#wish-list-drawer').addClass('isActive');
+                            this.listItems(this.user.list);
+
+    
                         }
-    
-                        if(response.data.customerCreate.customer != null){
-                            this.playGame()
+                        else{
+                            alert('error');
                         }
-                    
+
+                
                     }).fail((error) => {
                         console.log(error)
                         this.email.sending = false
-                        this.modalMessage.display = true 
-                        this.modalMessage.content.push({"message":"Oopsie Daisy... Something went wrong."})
-                        this.audio.loose.play(); //play sound
+                        $('#wish-list-drawer #wish-list-header').removeClass('isSending');
                     });
     
+                }
+                else{
+                    console.log('error');
+                    $('#wish-list-drawer #wish-list-header').addClass('error');
+                    $('#wish-list-drawer #wish-list-header p').html(this.email.errorMessage);
                 }
               
             },
             error(){},
+            onKeyDown(){
+                $('#wish-list-drawer #wish-list-header').removeClass('error');
+                $('#wish-list-drawer #wish-list-header p').html(this.email.message);
+            },
             getCookie(){
-              return window.localStorage.getItem('bobsWishList')
+              let c = window.localStorage.getItem('bobsWishList')
+              if(c){
+                return {user: true, data: JSON.parse(c)};
+              }
+              else{
+                return {user: false, data: null};
+              }
             },
             setCookie(){
-                let val = JSON.strigify(this.user);
+                let val = JSON.stringify(this.user);
                 window.localStorage.setItem("bobsWishList", val)
             },
             deleteCookie(){
@@ -100,10 +139,12 @@ $(document).ready(function () {
             },
             removeItem(item){},
             listItems(items){
-                let obj = {"title":"", "handle":"", "img":"", "price":""};
 
-                let hydrateLi = function(title, image, handle){
-                    var productURL = document.location.origin + '/collections/all/products/'+ handle +'.json';
+                //let obj = {"title":"", "handle":"", "img":"", "price":""};
+
+                let hydrateLi = function(handle){
+
+                    var productURL = document.location.origin + '/products/'+ handle +'.json';
                     var request = $.ajax({
                         url: productURL,
                         method: "GET",
@@ -112,14 +153,16 @@ $(document).ready(function () {
 
                     request.done(function( json ) {
                         console.log('hydrate product');
-                        var html = `<div class="remove"></div>
-                                    <a class="appened-product" href="`+document.location.origin +`/products/`+  + handle + `" />
-                                        <div class="appened-image" style="background-image: url(` + image  + `) "></div>
-                                        <div class="title">` + title + `</div>
+                        console.log(json)
+                        var html = `<div class="remove">x</div>
+                                    <a class="appened-product" href="`+document.location.origin +`/products/`+   json.product.handle + `" />
+                                        <div class="appened-image" style="background-image: url(` + json.product.image.src  + `) "></div>
+                                        <div class="title">` + json.product.title + `</div>
                                     </a>`;
 
-                        $('#product_'+handle).html(li);
-                        $('#product_'+handle).addClass('hydrated'); 
+                        $('#product_'+ handle).html(html);
+                        $('#product_'+ handle).addClass('hydrated'); 
+                        console.log( $('#product_'+ handle) );
                     });
 
                     request.fail(function( jqXHR, textStatus ) {
@@ -127,30 +170,58 @@ $(document).ready(function () {
                     });
                 }
 
-                // list items
+                // list items --------------------------------------------------------
                 for(i=0; i<items.length; i++){
-                    var li = `<li id="product_`+handle+`" ></li>`;
-                    $('ul.productList').append(li); 
-                    hydrateLi(items[i].title, items[i].images[0].src, items[i].handle);
+
+                    let li = `<li id="product_`+ items[i] +`"></li>`;
+
+                    $('ul.product-list').append(li); 
+                    hydrateLi(items[i]);
+
                 }
               
-                
-
             },
             init(){
+
+                //this.resetAll();
                 console.log('wishlist ready');
 
+                this.ready = true;
+                $('#wish-list-drawer #wish-list-header p').html(this.email.message);
+                if( window.location.hostname === '127.0.0.1'){
+                    this.endPoint = "http://dev.api/bobs/wishlist/"
+                }
                 //check for local object
-                this.user = this.getCookie();
-                if(this.user){
+                this.hasUser = this.getCookie();
+                console.log(this.hasUser);
+
+                if(this.hasUser.user){
                     //show whislist
-                    $('.wishlist').addClass('isActive');
+                    this.user = this.hasUser.data;
+                    console.log(this.user);
+                    $('#wish-list-drawer').addClass('isActive');
                     $('.account').html(this.user.email);
                     this.listItems(this.user.list);  
                 }              
-                else{
-                  //show email input
-                }
+                //bind ------------------------------------------
+
+                //close btn
+                $('#wish-list-drawer #wish-list-header .close').on('touchstart click',  () => {
+                    $('#wish-list-drawer').removeClass('on');
+                });
+
+                //email btn
+                $('#wish-list-drawer #wish-list-header .e-mail-input button').on('touchstart click',  () => {
+                    this.getUser();
+                });
+
+                //input on keydown
+                $('#wish-list-drawer #wish-list-header .e-mail-input input').on('keydown',  () => {
+                    this.onKeyDown();
+                });
+
+                // remove item from wishlist
+
             }
         };
 
