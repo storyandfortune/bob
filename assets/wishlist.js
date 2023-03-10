@@ -134,8 +134,28 @@ $(document).ready(function () {
                 window.localStorage.removeItem('bobsWishList')
             },
             addItem(item){
+                console.log('add item');
                 this.user.list.push(item);
+                console.log(this.user.list);
                 this.listItems(this.user.list);  
+                this.setCookie();
+
+                var request = $.ajax({
+                    method: "POST",
+                    url: this.endPoint +'update/',
+                    data: {id:this.user.userId, list: JSON.stringify(this.user.list)},
+                    dataType: "json"
+                });
+
+                request.done(function( json ) {
+                    console.log('update metadata');
+                    console.log(json);
+                });
+
+                request.fail(function( jqXHR, textStatus ) {
+                    console.log( "Request failed: " + textStatus );
+                });
+
             },
             removeItem(item){},
             listItems(items){
@@ -145,6 +165,7 @@ $(document).ready(function () {
                 let hydrateLi = function(handle){
 
                     var productURL = document.location.origin + '/products/'+ handle +'.json';
+
                     var request = $.ajax({
                         url: productURL,
                         method: "GET",
@@ -171,6 +192,7 @@ $(document).ready(function () {
                 }
 
                 // list items --------------------------------------------------------
+                $('ul.product-list').html(''); 
                 for(i=0; i<items.length; i++){
 
                     let li = `<li id="product_`+ items[i] +`"></li>`;
@@ -184,6 +206,17 @@ $(document).ready(function () {
             init(){
 
                 //this.resetAll();
+
+                 window.addEventListener(
+                    "wishlistAddItem",
+                    (e) => {
+                      console.log('add to wishlist event');
+                      console.log(e.detail);
+                      this.addItem(e.detail)
+                    },
+                    false
+                );
+
                 console.log('wishlist ready');
 
                 this.ready = true;
@@ -199,6 +232,7 @@ $(document).ready(function () {
                     //show whislist
                     this.user = this.hasUser.data;
                     console.log(this.user);
+
                     $('#wish-list-drawer').addClass('isActive');
                     $('.account').html(this.user.email);
                     this.listItems(this.user.list);  

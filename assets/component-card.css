@@ -253,6 +253,34 @@
 }
 
 
+/* CUSTOM WIHLIST STYLE --------------------------------- */
+.add-to-wishlist{
+  display:flex;
+  justify-content: center;
+  transition: all .25s ease;
+  cursor:pointer;
+  -webkit-transition: all .25s ease;
+  -moz-transition: all .25s ease;
+  -ms-transition: all .25s ease;
+  -o-transition: all .25s ease;
+}
+
+.add-to-wishlist:hover .icon{
+  color:red;
+}
+
+.add-to-wishlist .icon{
+  width:20px;
+  margin-right:5px;
+  transition: all .25s ease;
+  -webkit-transition: all .25s ease;
+  -moz-transition: all .25s ease;
+  -ms-transition: all .25s ease;
+  -o-transition: all .25s ease;
+}
+
+
+
 /*
 .card__badge > * {
   margin-right: 1rem;

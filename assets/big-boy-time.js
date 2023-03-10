@@ -624,22 +624,37 @@ $(document).ready(function () {
     }
     
 
-    /// wish list ----------------------------------------
+    /// wish list ----------------------------------------------------------
     $(".header .header__icons .header__icon--heart").on('touchstart click', function () {
 
-        // scroll down before opening wishlist if we are in the hero state.
+         // scroll down on home page before opening wishlist if we are in the hero state.
+        if($('body').hasClass('home-page')){
+            if($('.home-page #shopify-section-header').hasClass('sticky')){
+                $('#wish-list-drawer').toggleClass('on');
+            }
+            else{
+                $("html, body" ).animate({
+                    scrollTop: ($("#MainContent").offset().top - 120)
+                }, 1100, function() {
+                
+                    $('#wish-list-drawer').addClass('on');
 
-        if($('#shopify-section-header').hasClass('sticky')){
+                });
+            } 
+        }else{
             $('#wish-list-drawer').toggleClass('on');
-         }
-         else{
-            $("html, body" ).animate({
-                scrollTop: ($("#MainContent").offset().top - 120)
-              }, 1100, function() {
-             
-                $('#wish-list-drawer').addClass('on');
+        }
 
-            });
-         } 
+    });
+
+    let addToWishlist = function(item){
+        console.log(item);
+        const event = new CustomEvent("wishlistAddItem", { detail: item });
+        window.dispatchEvent(event);
+    }
+
+    $(".add-to-wishlist").on('touchstart click', function () {
+        let item = $(this).data("handle");
+        addToWishlist(item);
     });
 });
