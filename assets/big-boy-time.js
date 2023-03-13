@@ -467,10 +467,6 @@ $(document).ready(function () {
                             <div class="appened-image" style="background-image: url(` + image  + `) "></div>
                             <div class="title">` + title + `</div> 
                         </a>
-                        <div class="add-to-wishlist" data-handle="`+handle+`"> 
-                            <div class="icon">`+heartSvg+`</div>
-                            <div> Add to wishlist</div>
-                        </div>
                     </div>`;
 
         $('#'+id).append(html); 
