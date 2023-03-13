@@ -257,6 +257,7 @@
 .add-to-wishlist{
   display:flex;
   justify-content: center;
+  align-items: center;
   transition: all .25s ease;
   cursor:pointer;
   -webkit-transition: all .25s ease;
@@ -266,12 +267,12 @@
 }
 
 .add-to-wishlist:hover .icon{
-  color:red;
+  /*color:red;*/
 }
 
 .add-to-wishlist .icon{
   width:20px;
-  margin-right:5px;
+  margin:3px 10px 0 0;
   transition: all .25s ease;
   -webkit-transition: all .25s ease;
   -moz-transition: all .25s ease;

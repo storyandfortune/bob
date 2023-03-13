@@ -658,6 +658,7 @@ $(document).ready(function () {
 
     let addToWishlist = function(item){
         console.log(item);
+        ga('send', 'event', 'wishlist', 'click', 'Item added to wishlist: ' + item );
         const event = new CustomEvent("wishlistAddItem", { detail: item });
         window.dispatchEvent(event);
     }

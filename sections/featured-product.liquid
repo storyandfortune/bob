@@ -88,6 +88,7 @@
                   {%- endform -%}
                 </div>
               {%- endif -%}
+              
             {%- when 'quantity_selector' -%}
               <div class="product-form__input product-form__quantity" {{ block.shopify_attributes }}>
                 <label class="form__label" for="Quantity-{{ section.id }}">
@@ -112,6 +113,7 @@
                   </button>
                 </quantity-input>
               </div>
+
             {%- when 'share' -%}
               <script src="{{ 'share.js' | asset_url }}" defer="defer"></script>
               <share-button class="share-button" {{ block.shopify_attributes }}>
@@ -149,6 +151,10 @@
                   </div>
                 </details>
               </share-button>
+
+
+
+
             {%- when 'variant_picker' -%}
               {%- unless product.has_only_default_variant -%}
                 {%- if block.settings.picker_type == 'button' -%}
@@ -225,7 +231,9 @@
                   </div>
                 </div>
               </noscript>
-            {%- when 'buy_buttons' -%}
+
+           
+              {%- when 'buy_buttons' -%}
               <div {{ block.shopify_attributes }}>
                 {%- if product != blank -%}
                   <product-form class="product-form">
@@ -244,6 +252,9 @@
                               {{ 'products.product.sold_out' | t }}
                             {%- endif -%}
                         </button>
+
+
+
                         {%- if block.settings.show_dynamic_checkout -%}
                           {{ form | payment_button }}
                         {%- endif -%}
@@ -265,8 +276,11 @@
                   </div>
                 {%- endif -%}
               </div>
+
+
             {%- when 'custom_liquid' -%}
-              {{ block.settings.custom_liquid }}
+            {{ block.settings.custom_liquid }}
+
             {%- when 'rating' -%}
               {%- if product.metafields.reviews.rating.value != blank -%}
                 {% liquid

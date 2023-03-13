@@ -216,18 +216,27 @@
     }
 
     .wish-list .product-list li{
+        position:relative;
         margin-bottom:10px;
         text-align:center;
     }
 
     .wish-list .product-list li .remove{
         position:absolute;
-        top:0;
+        top:20px;
         right:0;
-        width:25px;
+        width:15px;
+        cursor:pointer;
+        aspect-ratio:1/1;
         color:black;
+        opacity:.5;
         transition:all .25s ease;
+        z-index:10;
+    }
 
+
+    .wish-list .product-list li .remove:hover{
+        opacity:1;
     }
 
     .wish-list .product-list li .appened-product{
