@@ -1,5 +1,6 @@
 $(document).ready(function () {
 
+    //todo rewrite as objects.
 
     // shop slug hack -------------------------------------------------
     if($.url('path') === "/shop"){
@@ -453,12 +454,24 @@ $(document).ready(function () {
     }
 
     //in-line products --------------------------------------------- */
-    var productMarkup = function(id, title, image, link){
+
+
+  
+    var productMarkup = function(id, title, image, handle){
+
         console.log('insert product');
-        var html = `<a class="appened-product" href="` + link + `" />
+
+        let heartSvg = '<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" role="presentation" class="icon icon-heart" viewBox="0 0 576 512" > <path fill="currentColor" d="M400,24c-41.4,0-80.7,22.8-112,49.8C256.6,46.8,217.4,24,176,24C80.8,24,24,84.1,24,174.8c0,73.3,61.4,132.2,68.5,138.8l164.8,161.8h0c17,16.8,44.4,16.8,61.4,0l164.8-161.5l0.4-0.4c36.3-35.2,68.1-86.7,68.1-138.7C552,80.5,491.7,24,400,24z"/> </svg>';
+        let html = `<div class="appened-product" > 
+                        <a href="`+ document.location.origin +`/products/`+ handle + `" />
                             <div class="appened-image" style="background-image: url(` + image  + `) "></div>
-                            <div class="title">` + title + `</div>
-                    </a>`;
+                            <div class="title">` + title + `</div> 
+                        </a>
+                        <div class="add-to-wishlist" data-handle="`+handle+`"> 
+                            <div class="icon">`+heartSvg+`</div>
+                            <div> Add to wishlist</div>
+                        </div>
+                    </div>`;
 
         $('#'+id).append(html); 
     }
@@ -482,7 +495,7 @@ $(document).ready(function () {
 
                 request.done(function( json ) {
                     console.log(document.location.origin +`/products/`+ json.product.handle);
-                    productMarkup(newID, json.product.title, json.product.image.src, document.location.origin +`/products/`+ json.product.handle);
+                    productMarkup(newID, json.product.title, json.product.image.src, json.product.handle);
                 });
 
                 request.fail(function( jqXHR, textStatus ) {
@@ -655,6 +668,8 @@ $(document).ready(function () {
 
     $(".add-to-wishlist").on('touchstart click', function () {
         let item = $(this).data("handle");
+        $('#wish-list-drawer').addClass('on');
         addToWishlist(item);
     });
+    
 });

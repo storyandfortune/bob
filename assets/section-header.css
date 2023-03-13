@@ -19,7 +19,7 @@
     left: 2rem;
     bottom: -11.7rem;
     overflow: hidden;
-    z-index: 7;
+    z-index: 15;
     transition: all 0.75s ease;
 }
 

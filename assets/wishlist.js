@@ -1,5 +1,4 @@
 $(document).ready(function () {
-
         let wl = {
             hasUser:{},
             user:{
@@ -134,74 +133,73 @@ $(document).ready(function () {
                 window.localStorage.removeItem('bobsWishList')
             },
             addItem(item){
-                console.log('add item');
-                this.user.list.push(item);
-                console.log(this.user.list);
-                this.listItems(this.user.list);  
-                this.setCookie();
+                console.log('add item: '+ item);
+
+                let post = {id: this.user.userId, list: this.user.list.toString()};
+                console.log(post);
 
                 var request = $.ajax({
                     method: "POST",
                     url: this.endPoint +'update/',
-                    data: {id:this.user.userId, list: JSON.stringify(this.user.list)},
+                    data: post,
+                    dataType: "json"
+                });
+
+                request.done(( json ) =>{
+                    console.log('update metadata');
+                    console.log(json);
+
+                    this.user.list.push(item);
+                    console.log(this.user.list);
+                    this.setCookie();
+                    this.addElement(item);  
+             
+                });
+
+                request.fail(( jqXHR, textStatus ) =>{
+                    console.log(jqXHR);
+                    console.log( "Request failed: " + textStatus );
+                });
+
+            },
+            addElement(handle){
+                let li = `<li id="product_`+ handle+`"></li>`;
+                $('ul.product-list').prepend(li);
+                this.hydrateElement(handle);
+            },
+            hydrateElement(handle){
+                let productURL = document.location.origin + '/products/'+ handle +'.json';
+
+                let request = $.ajax({
+                    url: productURL,
+                    method: "GET",
                     dataType: "json"
                 });
 
                 request.done(function( json ) {
-                    console.log('update metadata');
-                    console.log(json);
+                    console.log('hydrate product');
+                    console.log(json)
+                    var html = `<div class="remove">x</div>
+                                <a class="appened-product" href="`+document.location.origin +`/products/`+   json.product.handle + `" />
+                                    <div class="appened-image" style="background-image: url(` + json.product.image.src  + `) "></div>
+                                    <div class="title">` + json.product.title + `</div>
+                                </a>`;
+
+                    $('#product_'+ handle).html(html);
+                    $('#product_'+ handle).addClass('hydrated'); 
                 });
 
                 request.fail(function( jqXHR, textStatus ) {
                     console.log( "Request failed: " + textStatus );
                 });
-
             },
             removeItem(item){},
             listItems(items){
-
-                //let obj = {"title":"", "handle":"", "img":"", "price":""};
-
-                let hydrateLi = function(handle){
-
-                    var productURL = document.location.origin + '/products/'+ handle +'.json';
-
-                    var request = $.ajax({
-                        url: productURL,
-                        method: "GET",
-                        dataType: "json"
-                    });
-
-                    request.done(function( json ) {
-                        console.log('hydrate product');
-                        console.log(json)
-                        var html = `<div class="remove">x</div>
-                                    <a class="appened-product" href="`+document.location.origin +`/products/`+   json.product.handle + `" />
-                                        <div class="appened-image" style="background-image: url(` + json.product.image.src  + `) "></div>
-                                        <div class="title">` + json.product.title + `</div>
-                                    </a>`;
-
-                        $('#product_'+ handle).html(html);
-                        $('#product_'+ handle).addClass('hydrated'); 
-                        console.log( $('#product_'+ handle) );
-                    });
-
-                    request.fail(function( jqXHR, textStatus ) {
-                        console.log( "Request failed: " + textStatus );
-                    });
-                }
-
                 // list items --------------------------------------------------------
                 $('ul.product-list').html(''); 
                 for(i=0; i<items.length; i++){
-
-                    let li = `<li id="product_`+ items[i] +`"></li>`;
-
-                    $('ul.product-list').append(li); 
-                    hydrateLi(items[i]);
-
+                    this.addElement(items[i]);
                 }
-              
             },
             init(){
 
@@ -210,8 +208,6 @@ $(document).ready(function () {
                  window.addEventListener(
                     "wishlistAddItem",
                     (e) => {
-                      console.log('add to wishlist event');
-                      console.log(e.detail);
                       this.addItem(e.detail)
                     },
                     false
@@ -262,126 +258,3 @@ $(document).ready(function () {
         wl.init();
 
 });
-
-/*
-const wishlistApp = Vue.createApp({
-    data() {
-        return {
-            ready:false, 
-            active:false,
-            user:{
-                userId:null,
-                email:null,
-                fname:false,
-                lname:false,
-                list:[]
-            },
-            endPoint:"https://api.storyandfortune.com/bobs/wishlist/",
-            email:{
-                address:'something',
-                valid:true,
-                sending:false
-            },
-            date:null,
-            modalMessage:{display:false, content:[]}
-        }
-    },
-    methods: {
-        reset(){
-        },
-        validateEmail(val){
-            //console.log(val)
-            return String(val)
-            .toLowerCase()
-            .match(
-                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-            )
-        },
-        resetEmail(){
-            this.email.address = ""
-            this.email.valid = true
-        },
-        addEmail(){
-
-            this.email.valid = this.validateEmail(this.email.address)
-            console.log(this.email.address)
-            console.log(this.email.valid)
-
-          
-            if(this.email.valid){
-
-                this.email.sending = true
-
-                let dataObj = {
-                    'email': this.email.address, 
-                    'tags': '"wishlist"',
-                    'meta': {'key':wishlist, 'value':this.user.list}
-                }
-
-                
-                $.ajax({
-                    method: "POST",
-                    url: this.endPoint +'activate/',
-                    data: dataObj
-                }).done( (response)  => {
-
-                    
-                    this.email.sending = false
-
-                    if(response.data.customerCreate.userErrors.length){
-                        this.modalMessage.display = true 
-                        this.modalMessage.content = response.data.customerCreate.userErrors
-                        this.audio.loose.play(); //play sound
-                    }
-
-                    if(response.data.customerCreate.customer != null){
-                        this.playGame()
-                    }
-                
-                }).fail((error) => {
-                    console.log(error)
-                    this.email.sending = false
-                    this.modalMessage.display = true 
-                    this.modalMessage.content.push({"message":"Oopsie Daisy... Something went wrong."})
-                    this.audio.loose.play(); //play sound
-                });
-
-            }
-          
-        },
-        error(){},
-        getCookie(){
-          return window.localStorage.getItem('bobsWishList')
-        },
-        setCookie(){
-            let val = JSON.strigify(this.user);
-            window.localStorage.setItem("bobsWishList", val)
-        },
-        deleteCookie(){
-            window.localStorage.removeItem('bobsWishList')
-        },
-        addItem(item){},
-        removeItem(item){},
-        getUser(){},
-        init(){
-            this.ready = true;
-            console.log(this.email)
-            console.log('start wishlist')
-        }
-    },
-    delimiters: ['${', '}'],
-    beforeMount(){
-        this.ready = true;
-        if( window.location.hostname === '127.0.0.1'){
-            this.endPoint = "http://dev.api/bobs/wishlist/"
-        }
-    },
-    mounted(){
-        this.init()
- 
-    }
-})
-
-wishlistApp.mount("#wishlistApp");
-
-*/
