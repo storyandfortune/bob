@@ -664,9 +664,14 @@ $(document).ready(function () {
     }
 
     $(".add-to-wishlist").on('touchstart click', function () {
-        let item = $(this).data("handle");
-        $('#wish-list-drawer').addClass('on');
-        addToWishlist(item);
+
+
+        let item = { "handle": $(this).data("handle"), "variant_id": $('input[name=id]').val() };
+
+        console.log(item);
+
+       $('#wish-list-drawer').addClass('on');
+       addToWishlist(item);
     });
     
 });
