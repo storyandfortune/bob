@@ -453,40 +453,43 @@
 
   
         <!-- Sizing Chart Div --------------------------------------------------------------------------------------------------------------------------->
+
+         {% assign lc_tags = lc_tags %}
+
       
-        {% if product.tags | downcase contains 'size-pc-61p' %}
+        {% if lc_tags contains 'size-pc-61p' %}
           <div class="size-info" style="background-image: url(https://cdn.shopify.com/s/files/1/0593/5942/8759/files/PC-61P.png?v=1649261015)"></div>  
         {% endif %}
   
-        {% if product.tags | downcase contains 'size-indpndnt-4500' %}
+        {% if lc_tags contains 'size-indpndnt-4500' %}
           <div class="size-info" style="background-image: url(https://cdn.shopify.com/s/files/1/0593/5942/8759/files/INDPNDNT-4500.png?v=1649261015)"></div>  
         {% endif %}
   
-        {% if product.tags | downcase contains 'size-g-5400' %}
+        {% if lc_tags contains 'size-g-5400' %}
           <div class="size-info" style="background-image: url(https://cdn.shopify.com/s/files/1/0593/5942/8759/files/G-5400.png?v=1649261015)"></div>  
         {% endif %}
   
-        {% if product.tags | downcase contains 'size-bs-9500' %}
+        {% if lc_tags contains 'size-bs-9500' %}
           <div class="size-info" style="background-image: url(https://cdn.shopify.com/s/files/1/0593/5942/8759/files/BS-9500.png?v=1649261015)"></div>  
         {% endif %}
   
-        {% if product.tags | downcase contains 'size-bc-3100' %}
+        {% if lc_tags contains 'size-bc-3100' %}
           <div class="size-info" style="background-image: url(https://cdn.shopify.com/s/files/1/0593/5942/8759/files/BC-3100.png?v=1649261015)"></div>  
         {% endif %}
 
-        {% if product.tags | downcase contains 'size-g-2000' %}
+        {% if lc_tags contains 'size-g-2000' %}
           <div class="size-info" style="background-image: url(https://cdn.shopify.com/s/files/1/0593/5942/8759/files/G-2000_9f98a4f4-9d9f-48e6-a9e9-6426738c3219.png?v=1673473779)"></div>  
         {% endif %}
 
-        {% if product.tags | downcase contains 'size-cc-1717' %}
+        {% if lc_tags contains 'size-cc-1717' %}
           <div class="size-info" style="background-image: url(https://cdn.shopify.com/s/files/1/0593/5942/8759/files/CC-1717.png?v=1673473779)"></div>  
         {% endif %}
 
-        {% if product.tags | downcase contains 'size-cc-6014' %}
+        {% if lc_tags contains 'size-cc-6014' %}
           <div class="size-info" style="background-image: url(https://cdn.shopify.com/s/files/1/0593/5942/8759/files/size-CC-6014.png?v=1678903567)"></div>  
         {% endif %}
 
-        {% if product.tags | downcase contains 'size-fotl-4390r' %}
+        {% if lc_tags contains 'size-fotl-4390r' %}
           <div class="size-info" style="background-image: url(https://cdn.shopify.com/s/files/1/0593/5942/8759/files/size-FOTL-4390r.png?v=1678903567)"></div>  
         {% endif %}
 
