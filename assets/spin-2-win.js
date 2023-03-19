@@ -1,7 +1,7 @@
 
  // Enable pusher logging - don't include this in production -------------------------------------------------
 
-const app = Vue.createApp({
+ const app = Vue.createApp({
 
 	data() {
 		return {
@@ -118,6 +118,18 @@ const app = Vue.createApp({
 		}
 	},
 	methods: {
+		initBackdoor(){
+
+			Pusher.logToConsole = true;
+			var pusher = new Pusher('ef4df188e5c9152613bd', {
+			  cluster: 'us3'
+			});
+		   
+			var channel = pusher.subscribe('my-channel');
+			channel.bind('my-event', (data) => {
+				 this.backDoor(data)
+			});
+		},
 		backDoor(data){
 			// case switch in data that updates certian objects
 
@@ -176,7 +188,7 @@ const app = Vue.createApp({
 		},
 		playGame(){
 			this.gameState = "start"
-			window.localStorage.setItem('hasPlayed', 'true')
+			//window.localStorage.setItem('hasPlayed', 'true')
 			this.changeTitle(this.titleSvgs.playNow.file)
 			this.boy.jump = "jump-in"
 			this.audio.boing.play()
@@ -343,30 +355,38 @@ const app = Vue.createApp({
 		addEmail(){
 
 			this.email.valid = this.validateEmail(this.email.address)
-			//console.log(this.email.valid)
 
 			if(this.email.valid){
 
 				this.email.sending = true
 
+				let dataObj = {
+					'email': this.email.address, 
+					'note': 'Spin to Win',
+					'tags': '"spin2win","game"',
+					'meta': {'key':null, 'value':null}
+				}
+
+				
 				$.ajax({
 					method: "POST",
 					url: this.endPoint,
-					data: {'email': this.email.address, 'note': 'Spin to Win'}
+					data: dataObj
 				}).done( (response)  => {
 
-					
+					console.log(response)
 					this.email.sending = false
 
-					if(response.data.customerCreate.userErrors.length){
+					if(response.status){
+						this.playGame()
+					}
+					else{
 						this.modalMessage.display = true 
-						this.modalMessage.content = response.data.customerCreate.userErrors
+						this.modalMessage.content = response.data.userErrors
 						this.audio.loose.play(); //play sound
 					}
 
-					if(response.data.customerCreate.customer != null){
-						this.playGame()
-					}
+				
 				
 				}).fail((error) => {
 					console.log(error)
@@ -470,21 +490,7 @@ const app = Vue.createApp({
 	},
 	mounted(){
 		this.init()
-
-		/*
-		Pusher.logToConsole = true;
-
-		var pusher = new Pusher('ef4df188e5c9152613bd', {
-		  cluster: 'us3'
-		});
-	   
-		var channel = pusher.subscribe('my-channel');
-		channel.bind('my-event', (data) => {
-			 this.backDoor(data)
-		});
-		*/
 	}
-
 })
 
 app.mount("#app");
