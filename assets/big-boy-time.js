@@ -665,9 +665,7 @@ $(document).ready(function () {
 
     $(".add-to-wishlist").on('touchstart click', function () {
 
-
-        let item = { "handle": $(this).data("handle"), "variant_id": $('input[name=id]').val() };
-
+        let item = $(this).data("handle")+'&'+$('input[name=id]').val();
         console.log(item);
 
        $('#wish-list-drawer').addClass('on');

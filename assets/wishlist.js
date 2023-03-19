@@ -6,7 +6,7 @@ $(document).ready(function () {
                 email:null,
                 fname:false,
                 lname:false,
-                list:[]
+                list:0
             },
             endPoint:"https://api.storyandfortune.com/bobs/wishlist/",
             closeSVG:'<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" class="svg-inline--fa fa-times fa-w-11" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512"><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg>',
@@ -59,6 +59,7 @@ $(document).ready(function () {
                     
                     let dataObj = {
                         'email': this.email.address, 
+                        'list': JSON.stringify(this.user.list),
                         'tags': '"wishlist"'
                     }
     
@@ -82,6 +83,8 @@ $(document).ready(function () {
                             this.user.lname = response.data.lastName;
                             this.user.list = JSON.parse(response.data.metafield.value);
     
+                            console.log(this.user);
+
                             //save cookie
                             this.setCookie();
     
@@ -89,6 +92,7 @@ $(document).ready(function () {
                             $('.account').html(this.user.email);
                             $('#wish-list-drawer #wish-list-header').removeClass('isSending');
                             $('#wish-list-drawer').addClass('isActive');
+
                             this.listItems(this.user.list);
 
     
@@ -132,14 +136,15 @@ $(document).ready(function () {
             deleteCookie(){
                 window.localStorage.removeItem('bobsWishList')
             },
-            addItem(item){
-                console.log('add item: '+ item);
+            addItem(string){
 
-                this.user.list.push(item);
+                console.log('add item:');
+                console.log(string);
                 
-                let sendlist = {items:this.user.list};
+                this.user.list.hasList = true;
+                this.user.list.items.push(string);
 
-                let post = {"id": this.user.userId, "list": sendlist};
+                let post = {"id": this.user.userId, "list": this.user.list.toString()};
                 console.log(post);
 
                 var request = $.ajax({
@@ -153,8 +158,11 @@ $(document).ready(function () {
                     console.log('update metadata');
                     console.log(json);
                     console.log(this.user.list);
+                  
+                    $('#noItems').remove();
+
+                    this.addElement(string);
                     this.setCookie();
-                    this.addElement(item);  
              
                 });
 
@@ -162,15 +170,57 @@ $(document).ready(function () {
                     console.log(jqXHR);
                     console.log( "Request failed: " + textStatus );
                 });
+                
+               
 
             },
-            addElement(handle){
-                let li = `<li id="product_`+ handle+`" data-handle="`+handle+`"></li>`;
-                $('ul.product-list').prepend(li);
-                this.hydrateElement(handle);
+            removeItem(string, id){
+       
+                // remove element
+                $("#"+id).remove();
+
+                // find index
+                let index = this.user.list.items.indexOf(string); // change
+
+                // remove from array
+                this.user.list.items.splice(index, 1);
+                console.log(this.user.list);
+
+
+                // update metefield
+                let post = {"id": this.user.userId, "list": this.user.list.toString()};
+                console.log(post);
+
+                var request = $.ajax({
+                    method: "POST",
+                    url: this.endPoint +'update/',
+                    data: post,
+                    dataType: "json"
+                });
+
+                request.done(( json ) =>{
+                    console.log('update metadata');
+                    console.log(json);
+             
+                    this.setCookie();
+             
+                });
+
+                request.fail(( jqXHR, textStatus ) =>{
+                    console.log(jqXHR);
+                    console.log( "Request failed: " + textStatus );
+                });
+                
             },
-            hydrateElement(handle){
-                let productURL = document.location.origin + '/products/'+ handle +'.json';
+            addElement(string){
+                let li = `<li id="product_`+ arr[0]+`" data-string="`+string+`"></li>`;
+                $('ul.product-list').prepend(li);
+
+                let arr = string.split('&');
+                this.hydrateElement(arr);
+            },
+            hydrateElement(arr){
+                let productURL = document.location.origin + '/products/'+arr[0]+'.json';
 
                 let request = $.ajax({
                     url: productURL,
@@ -185,6 +235,7 @@ $(document).ready(function () {
                                 <a class="appened-product" href="`+document.location.origin +`/products/`+   json.product.handle + `" />
                                     <div class="appened-image" style="background-image: url(` + json.product.image.src  + `) "></div>
                                     <div class="title">` + json.product.title + `</div>
+                                    <button class="add_wishlist_btn" data-variant_id="`+arr[1]+`">Add to Cart</button>
                                 </a>`;
 
                     $('#product_'+ handle).html(html);
@@ -195,65 +246,26 @@ $(document).ready(function () {
                     console.log( "Request failed: " + textStatus );
                 });
             },
-            removeItem(handle, id){
-       
-                // remove element
-                $("#"+id).remove();
-
-                // find index
-                let index = this.user.list.indexOf(handle);
-
-                // remove from array
-                this.user.list.splice(index, 1);
-                console.log(this.user.list);
-
-                let sendlist;
-
-                if(this.user.list.length){
-                    sendlist = {items:this.user.list};
-                }
-                else{
-                    sendlist = {items:false};
-                }
-
-                // update metefield
-                let post = {"id": this.user.userId, "list": };
-                console.log(post);
-
-                var request = $.ajax({
-                    method: "POST",
-                    url: this.endPoint +'update/',
-                    data: post,
-                    dataType: "json"
-                });
-
-                request.done(( json ) =>{
-                    console.log('update metadata');
-                    console.log(json);
-             
-                    this.setCookie();
-             
-                });
-
-                request.fail(( jqXHR, textStatus ) =>{
-                    console.log(jqXHR);
-                    console.log( "Request failed: " + textStatus );
-                });
-                
-            
-            },
-            listItems(items){
+            listItems(list){
                 // list items --------------------------------------------------------
                 $('ul.product-list').html(''); 
-                for(i=0; i<items.length; i++){
-                    this.addElement(items[i]);
+                let noitems = '<li id="noItems">Add some items to your Wishlist.</li>';
+
+                if(list.hasList){
+                    for(i=0; i<list.items.length; i++){
+                        this.addElement(list.items[i]);
+                    }
+                }
+                
+                else{
+                   $('ul.product-list').html(noitems); 
                 }
             },
-            addItemtoCart(obj){
+            addItemtoCart(variant){
 
                 let items = [
                     {
-                     id: obj.variant_id,
+                     id: variant,
                      quantity: 1
                     }
                   ]
@@ -262,7 +274,7 @@ $(document).ready(function () {
             },
             init(){
 
-                //this.resetAll();
+                this.resetAll();
 
                  window.addEventListener(
                     "wishlistAddItem",
@@ -291,30 +303,40 @@ $(document).ready(function () {
                     $('#wish-list-drawer').addClass('isActive');
                     $('.account').html(this.user.email);
                     this.listItems(this.user.list);  
-                }              
-                //bind ------------------------------------------
+                }         
+                
+                
+                // bind ----------------------------------------------
 
-                //remove btn
+                // remove btn
                 $('.wish-list').on('touchstart click', '.product-list li .remove',  (event) => {
-                   let handle = $(event.target).parents('li').data('handle');
+                   let string = $(event.target).parents('li').data('string');
                    let id = $(event.target).parents('li').attr('id');
-                   this.removeItem(handle, id);
+                   this.removeItem(string, id);
                 });
 
-                //close btn
+                 // add to cart from wishlist btn
+                 $('.wish-list').on('touchstart click', '.product-list li .add_wishlist_btn',  (event) => {
+                    let variant = $(event.target).data('variant_id');
+                    this.addItemtoCart(variant);
+                 });
+
+                // close btn
                 $('#wish-list-drawer #wish-list-header .close').on('touchstart click',  () => {
                     $('#wish-list-drawer').removeClass('on');
                 });
 
-                //email btn
+                // email btn
                 $('#wish-list-drawer #wish-list-header .e-mail-input button').on('touchstart click',  () => {
                     this.getUser();
                 });
 
-                //input on keydown
+                // input on keydown
                 $('#wish-list-drawer #wish-list-header .e-mail-input input').on('keydown',  () => {
                     this.onKeyDown();
                 });
+
+                // end bind ------------------------------------------
 
 
             }
