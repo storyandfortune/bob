@@ -62,7 +62,6 @@ $(document).ready(function () {
             }
             else {
                 $('#big-boy-header').removeClass('hide');
-                $('#wish-list-drawer').removeClass('on');
             }
 
         }, {
@@ -86,6 +85,7 @@ $(document).ready(function () {
             }
             else {
                 $('#shopify-section-header').removeClass('sticky');
+                $('#wish-list-drawer').removeClass('on');
             }
 
         }, {
@@ -657,17 +657,13 @@ $(document).ready(function () {
     });
 
     let addToWishlist = function(item){
-        console.log(item);
         ga('send', 'event', 'wishlist', 'click', 'Item added to wishlist: ' + item );
         const event = new CustomEvent("wishlistAddItem", { detail: item });
         window.dispatchEvent(event);
     }
 
     $(".add-to-wishlist").on('touchstart click', function () {
-
-        let item = $(this).data("handle")+'&'+$('input[name=id]').val();
-        console.log(item);
-
+       let item = {"handle":$(this).data("handle"), "variant":$('input[name=id]').val()};
        $('#wish-list-drawer').addClass('on');
        addToWishlist(item);
     });

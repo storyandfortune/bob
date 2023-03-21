@@ -71,7 +71,7 @@ $(document).ready(function () {
                     }).done( (response)  => {
 
                         console.log(response);
-
+                     
                         if(response.status){
 
                             this.email.sending = false
@@ -84,7 +84,7 @@ $(document).ready(function () {
                             this.user.list = JSON.parse(response.data.metafield.value);
     
                             console.log(this.user);
-
+                            
                             //save cookie
                             this.setCookie();
     
@@ -94,12 +94,12 @@ $(document).ready(function () {
                             $('#wish-list-drawer').addClass('isActive');
 
                             this.listItems(this.user.list);
-
     
                         }
                         else{
                             alert('error');
                         }
+                    
 
                 
                     }).fail((error) => {
@@ -136,15 +136,15 @@ $(document).ready(function () {
             deleteCookie(){
                 window.localStorage.removeItem('bobsWishList')
             },
-            addItem(string){
+            addItem(obj){
 
                 console.log('add item:');
-                console.log(string);
+                console.log(obj);
                 
                 this.user.list.hasList = true;
-                this.user.list.items.push(string);
+                this.user.list.items.push(obj);
 
-                let post = {"id": this.user.userId, "list": this.user.list.toString()};
+                let post = {"id": this.user.userId, "list": JSON.stringify(this.user.list)};
                 console.log(post);
 
                 var request = $.ajax({
@@ -161,7 +161,7 @@ $(document).ready(function () {
                   
                     $('#noItems').remove();
 
-                    this.addElement(string);
+                    this.addElement(obj);
                     this.setCookie();
              
                 });
@@ -174,21 +174,21 @@ $(document).ready(function () {
                
 
             },
-            removeItem(string, id){
+            removeItem(handle, id){
        
                 // remove element
                 $("#"+id).remove();
 
-                // find index
-                let index = this.user.list.items.indexOf(string); // change
+                // find obj index
+                let index = this.user.list.items.findIndex(item => item.handle == handle);
 
-                // remove from array
+                // remove obj from array
                 this.user.list.items.splice(index, 1);
                 console.log(this.user.list);
 
 
                 // update metefield
-                let post = {"id": this.user.userId, "list": this.user.list.toString()};
+                let post = {"id": this.user.userId, "list": JSON.stringify(this.user.list)};
                 console.log(post);
 
                 var request = $.ajax({
@@ -203,7 +203,6 @@ $(document).ready(function () {
                     console.log(json);
              
                     this.setCookie();
-             
                 });
 
                 request.fail(( jqXHR, textStatus ) =>{
@@ -212,15 +211,13 @@ $(document).ready(function () {
                 });
                 
             },
-            addElement(string){
-                let li = `<li id="product_`+ arr[0]+`" data-string="`+string+`"></li>`;
+            addElement(obj){
+                let li = `<li id="product_`+ obj.handle + "-" + obj.variant + `" data-handle="`+obj.handle+`" ></li>`;
                 $('ul.product-list').prepend(li);
-
-                let arr = string.split('&');
-                this.hydrateElement(arr);
+                this.hydrateElement(obj);
             },
-            hydrateElement(arr){
-                let productURL = document.location.origin + '/products/'+arr[0]+'.json';
+            hydrateElement(obj){
+                let productURL = document.location.origin + '/products/'+obj.handle+'.json';
 
                 let request = $.ajax({
                     url: productURL,
@@ -231,15 +228,17 @@ $(document).ready(function () {
                 request.done(( json ) => {
                     console.log('hydrate product');
                     console.log(json) 
+                    let id = '#product_'+ obj.handle +'-'+obj.variant;
+
                     var html = `<div class="remove">` + this.closeSVG + `</div>
                                 <a class="appened-product" href="`+document.location.origin +`/products/`+   json.product.handle + `" />
                                     <div class="appened-image" style="background-image: url(` + json.product.image.src  + `) "></div>
                                     <div class="title">` + json.product.title + `</div>
-                                    <button class="add_wishlist_btn" data-variant_id="`+arr[1]+`">Add to Cart</button>
+                                    <button class="add_wishlist_btn" data-variant="`+obj.variant+`">Add to Cart</button>
                                 </a>`;
 
-                    $('#product_'+ handle).html(html);
-                    $('#product_'+ handle).addClass('hydrated'); 
+                    $(id).html(html);
+                    $().addClass('hydrated'); 
                 });
 
                 request.fail(( jqXHR, textStatus ) => {
@@ -268,13 +267,17 @@ $(document).ready(function () {
                      id: variant,
                      quantity: 1
                     }
-                  ]
+                ]
 
-                  $.post(window.Shopify.routes.root + 'cart/add.js', items.serialize());
+                console.log(items);
+                console.log(items.serialize());
+                console.log(JSON.stringify(items));
+
+                $.post(window.Shopify.routes.root + 'cart/add.js', items.serialize());
             },
             init(){
 
-                this.resetAll();
+                //this.resetAll();
 
                  window.addEventListener(
                     "wishlistAddItem",
@@ -310,14 +313,14 @@ $(document).ready(function () {
 
                 // remove btn
                 $('.wish-list').on('touchstart click', '.product-list li .remove',  (event) => {
-                   let string = $(event.target).parents('li').data('string');
+                   let handle = $(event.target).parents('li').data('handle');
                    let id = $(event.target).parents('li').attr('id');
-                   this.removeItem(string, id);
+                   this.removeItem(handle, id);
                 });
 
                  // add to cart from wishlist btn
                  $('.wish-list').on('touchstart click', '.product-list li .add_wishlist_btn',  (event) => {
-                    let variant = $(event.target).data('variant_id');
+                    let variant = $(event.target).data('variant');
                     this.addItemtoCart(variant);
                  });
 
