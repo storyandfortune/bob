@@ -227,19 +227,19 @@
         </a>
     {% endif %}
 
- 
-    {% if template != 'page.blank' %}
-      {% section 'announcement-bar' %}
-      {% section 'header' %}
-    {% endif %}
+
+    {% section 'announcement-bar' %}
+    {% section 'header' %}
+    {% section 'wish-list' %}
+
 
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
       {{ content_for_layout }}
     </main>
     
-    {% if template != 'page.blank' %}
-      {% section 'footer' %}
-    {% endif %}
+
+    {% section 'footer' %}
+   
 
     <ul hidden>
       <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>
@@ -278,7 +278,6 @@
 
     <!-- jquery -->
     <script src="{{ 'jquery-3.6.0.min.js' | asset_url }}" defer="defer"></script>
-
     <script src="{{ 'jquery-url-min.js' | asset_url }}" defer="defer"></script>
 
      <!-- axios -->
@@ -295,6 +294,10 @@
 
     <!-- scroll -->
     <script src="{{ 'big-boy-time.js' | asset_url }}" defer="defer"></script>
+
+    <!--wishlist -->
+    <script src="{{ 'wishlist.js' | asset_url }}" defer="defer"></script>
+
 
 
   

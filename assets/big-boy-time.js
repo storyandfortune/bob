@@ -1,5 +1,6 @@
 $(document).ready(function () {
 
+    //todo rewrite as objects.
 
     // shop slug hack -------------------------------------------------
     if($.url('path') === "/shop"){
@@ -84,6 +85,7 @@ $(document).ready(function () {
             }
             else {
                 $('#shopify-section-header').removeClass('sticky');
+                $('#wish-list-drawer').removeClass('on');
             }
 
         }, {
@@ -144,7 +146,9 @@ $(document).ready(function () {
     }, {
         offset: footerOffset
     });
-   
+
+
+
    
     /* forms ------------------------------------ */
 
@@ -450,14 +454,22 @@ $(document).ready(function () {
     }
 
     //in-line products --------------------------------------------- */
-    var productMarkup = function(id, title, image, link){
-        console.log('insert product');
-        var html = `<a class="appened-product" href="` + link + `" />
-                            <div class="appened-image" style="background-image: url(` + image  + `) "></div>
-                            <div class="title">` + title + `</div>
-                    </a>`;
 
-        $('#'+id).append(html);
+
+  
+    var productMarkup = function(id, title, image, handle){
+
+        console.log('insert product');
+
+        let heartSvg = '<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" role="presentation" class="icon icon-heart" viewBox="0 0 576 512" > <path fill="currentColor" d="M400,24c-41.4,0-80.7,22.8-112,49.8C256.6,46.8,217.4,24,176,24C80.8,24,24,84.1,24,174.8c0,73.3,61.4,132.2,68.5,138.8l164.8,161.8h0c17,16.8,44.4,16.8,61.4,0l164.8-161.5l0.4-0.4c36.3-35.2,68.1-86.7,68.1-138.7C552,80.5,491.7,24,400,24z"/> </svg>';
+        let html = `<div class="appened-product" > 
+                        <a href="`+ document.location.origin +`/products/`+ handle + `" />
+                            <div class="appened-image" style="background-image: url(` + image  + `) "></div>
+                            <div class="title">` + title + `</div> 
+                        </a>
+                    </div>`;
+
+        $('#'+id).append(html); 
     }
     
     // inline product
@@ -478,7 +490,8 @@ $(document).ready(function () {
                 });
 
                 request.done(function( json ) {
-                    productMarkup(newID, json.product.title, json.product.image.src, document.location.origin +`/products/`+ json.product.handle);
+                    console.log(document.location.origin +`/products/`+ json.product.handle);
+                    productMarkup(newID, json.product.title, json.product.image.src, json.product.handle);
                 });
 
                 request.fail(function( jqXHR, textStatus ) {
@@ -618,5 +631,41 @@ $(document).ready(function () {
         }, 500);
     
     }
+    
 
+    /// wish list ----------------------------------------------------------
+    $(".header .header__icons .header__icon--heart").on('touchstart click', function () {
+
+         // scroll down on home page before opening wishlist if we are in the hero state.
+        if($('body').hasClass('home-page')){
+            if($('.home-page #shopify-section-header').hasClass('sticky')){
+                $('#wish-list-drawer').toggleClass('on');
+            }
+            else{
+                $("html, body" ).animate({
+                    scrollTop: ($("#MainContent").offset().top - 120)
+                }, 1100, function() {
+                
+                    $('#wish-list-drawer').addClass('on');
+
+                });
+            } 
+        }else{
+            $('#wish-list-drawer').toggleClass('on');
+        }
+
+    });
+
+    let addToWishlist = function(item){
+        ga('send', 'event', 'wishlist', 'click', 'Item added to wishlist: ' + item );
+        const event = new CustomEvent("wishlistAddItem", { detail: item });
+        window.dispatchEvent(event);
+    }
+
+    $(".add-to-wishlist").on('touchstart click', function () {
+       let item = {"handle":$(this).data("handle"), "variant":$('input[name=id]').val()};
+       $('#wish-list-drawer').addClass('on');
+       addToWishlist(item);
+    });
+    
 });

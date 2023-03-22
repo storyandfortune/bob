@@ -188,7 +188,7 @@
 		},
 		playGame(){
 			this.gameState = "start"
-			window.localStorage.setItem('hasPlayed', 'true')
+			//window.localStorage.setItem('hasPlayed', 'true')
 			this.changeTitle(this.titleSvgs.playNow.file)
 			this.boy.jump = "jump-in"
 			this.audio.boing.play()

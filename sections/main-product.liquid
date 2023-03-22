@@ -101,7 +101,7 @@
                     {% if tag contains 'size' %}
                           <span class="size-details">Size Guide</span>
                     {% endif %}
-                  {% endfor %}
+                  {% endfor %}   {% render 'ascii-art' %}
              
 
                 </div>
@@ -300,6 +300,15 @@
                     {%- if block.settings.show_dynamic_checkout -%}
                       {{ form | payment_button }}
                     {%- endif -%}
+
+
+                   
+                    <div class="add-to-wishlist button button--full-width " data-handle="{{ product.handle | escape }}"> 
+
+                      <div class="icon">{% render 'icon-heart' %}</div>
+                      <div> Add to wishlist</div>
+                      
+                    </div>
                   </div>
                 {%- endform -%}
               </product-form>
@@ -451,11 +460,11 @@
         {%- render 'icon-times-solid' %}
       </div>
 
-  
+
         <!-- Sizing Chart Div --------------------------------------------------------------------------------------------------------------------------->
 
         {% assign lc_tags = product.tags | downcase %}
-         
+   
       
         {% if lc_tags contains 'size-pc-61p' %}
           <div class="size-info" style="background-image: url(https://cdn.shopify.com/s/files/1/0593/5942/8759/files/PC-61P.png?v=1649261015)"></div>  
@@ -484,16 +493,6 @@
         {% if lc_tags contains 'size-cc-1717' %}
           <div class="size-info" style="background-image: url(https://cdn.shopify.com/s/files/1/0593/5942/8759/files/CC-1717.png?v=1673473779)"></div>  
         {% endif %}
-
-        {% if lc_tags contains 'size-cc-6014' %}
-          <div class="size-info" style="background-image: url(https://cdn.shopify.com/s/files/1/0593/5942/8759/files/size-CC-6014.png?v=1678903567)"></div>  
-        {% endif %}
-
-        {% if lc_tags contains 'size-fotl-4390r' %}
-          <div class="size-info" style="background-image: url(https://cdn.shopify.com/s/files/1/0593/5942/8759/files/size-FOTL-4390r.png?v=1678903567)"></div>  
-        {% endif %}
-
-         <!-- End Sizing Chart Div ----------------------------------------------------------------------------------------------------------------------->
 
       </div>
 
