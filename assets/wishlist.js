@@ -231,11 +231,24 @@ $(document).ready(function () {
                     let id = '#product_'+ obj.handle +'-'+obj.variant;
 
                     var html = `<div class="remove">` + this.closeSVG + `</div>
-                                <a class="appened-product" href="`+document.location.origin +`/products/`+   json.product.handle + `" />
-                                    <div class="appened-image" style="background-image: url(` + json.product.image.src  + `) "></div>
-                                    <div class="title">` + json.product.title + `</div>
-                                    <button class="add_wishlist_btn" data-variant="`+obj.variant+`">Add to Cart</button>
-                                </a>`;
+                                <div class="appened-product">
+                                    <a href="`+document.location.origin +`/products/`+   json.product.handle + `" >
+                                        <div class="appened-image" style="background-image: url(` + json.product.image.src  + `) "></div>
+                                        <div class="title">` + json.product.title + `</div>
+                                    </a>
+                                    <product-form class="product-form">
+                                        <form method="post" action="/cart/add" id="product-form-template--16700077998321__main" accept-charset="UTF-8" class="form" enctype="multipart/form-data" novalidate="novalidate" data-type="add-to-cart-form">
+                                            <input type="hidden" name="form_type" value="product">
+                                            <input type="hidden" name="utf8" value="✓">
+                                            <input type="hidden" name="id" value="`+obj.variant+`">
+
+                                            <div class="product-form__buttons" style="display: block !important;">
+                                                <button type="submit" name="add" class="product-form__submit button button--full-width button--primary">Add to cart</div>
+                                            </div>
+
+                                        </form>
+                                    </product-form>
+                                </div>`;
 
                     $(id).html(html);
                     $().addClass('hydrated'); 
@@ -262,18 +275,16 @@ $(document).ready(function () {
             },
             addItemtoCart(variant){
 
-                let items = [
-                    {
-                     id: variant,
-                     quantity: 1
-                    }
-                ]
+                fetch("/cart/add.json", {
+                    method: 'post',
+                    headers: {
+                        'Content-Type': 'application/json'
+                },
+                    body: 'items:'+ JSON.stringify('[ { id: '+variant+', quantity: 1 } ]')
+                }).then(response => response.json())
+                .then(data => processCartAdd(data))
+                .catch(error => console.error('Unable to add to cart.', error));
 
-                console.log(items);
-                console.log(items.serialize());
-                console.log(JSON.stringify(items));
-
-                $.post(window.Shopify.routes.root + 'cart/add.js', items.serialize());
             },
             init(){
 
