@@ -1108,7 +1108,7 @@ header {
 
     .list-menu li.nav-shop  .header__submenu li.nav-seasoning-salt, 
     .list-menu li.nav-shop .header__submenu li.nav-11-plushie, 
-  .list-menu li.nav-shop .header__submenu li.nav-coin-bank {
+  .list-menu li.nav-shop .header__submenu li.nav-bronze-paperweight {
        padding: 0 2rem 2rem 2rem;
     }
 
@@ -1126,8 +1126,8 @@ header {
      
     }
 
-    .list-menu li.nav-shop .header__submenu li.nav-coin-bank .nav-image {
-        background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/t/2/assets/bank.jpg?v=1638926636");
+    .list-menu li.nav-shop .header__submenu li.nav-bronze-paperweight .nav-image {
+        background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/Bobs-Big-Boy-Paperweight-los-res.jpg?v=1679784822");
         background-size: contain;
         height: 30rem;
     }
