@@ -84,6 +84,11 @@
         "type": "hero-video-scroll",
         "settings": {
         }
+      },
+      "wish-list": {
+        "type": "wish-list",
+        "settings": {
+        }
       }
     },
     "content_for_index": [
