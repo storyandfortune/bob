@@ -1,7 +1,7 @@
 
  // Enable pusher logging - don't include this in production -------------------------------------------------
 
-const app = Vue.createApp({
+ const app = Vue.createApp({
 
 	data() {
 		return {
