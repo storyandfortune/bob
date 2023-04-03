@@ -1,7 +1,7 @@
 {{ 'landing-social.css' | asset_url | stylesheet_tag }}
 
 <div id="app">
-    <div v-if="loaded" class="landing-container">
+    <div v-if="ready" class="landing-container">
 
         <div class="col left">
 
@@ -9,40 +9,44 @@
 
                 <div class="form">
 
-                    <div class="name">
+                    <div v-if="!email.sending">
 
-                        <input v-model="fname" 
-                        type="text" 
-                        placeholder="First Name"/>
+                        <div class="name">
 
-                        <input v-model="lname" 
+                            <input v-model="firstName" 
                             type="text" 
-                            placeholder="Last Name"/>
-                    </div>
+                            placeholder="First Name"/>
 
-                    <div class="email" 
-                        :class="{'error': !email.valid}">
+                            <input v-model="lastName" 
+                                type="text" 
+                                placeholder="Last Name"/>
+                        </div>
 
-                        <div v-if="!email.sending" 
-                            class="email-container">
+                        <div class="email" 
+                            :class="{'error': !email.valid}">
 
-                            <input v-model="email.address" 
-                                id="email"  
-                                type="email" 
-                                placeholder="Enter your Email"
-                                v-on:keyup.enter="addEmail()"
-                                @focus="resetEmail()"/>
+                            <div class="email-container">
 
-                            <div class="submit_btn" 
-                                @click="addEmail()"> 
-                                Submit
+                                <input v-model="email.address" 
+                                    id="email"  
+                                    type="email" 
+                                    placeholder="Email"
+                                    v-on:keyup.enter="addEmail()"
+                                    @focus="resetEmail()"/>
+
+                                <div class="submit_btn" 
+                                    @click="addEmail()"> 
+                                    Submit
+                                </div>
+
                             </div>
 
                         </div>
 
-                        <div v-else class="sending"> Sending... </div>
-
                     </div>
+
+                    <div v-else class="sending"> Sending... </div>
+
                 </div>
 
             </div>
@@ -50,21 +54,41 @@
         </div>
 
         <div class="col right">
-            <ul>
-                <li><img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/Welcome.gif?v=1674509778"></li>
-                <li><img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/Contest.gif?v=1674602064"></li>
-                <li><img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/Pin.gif?v=1674597930"></li>
-                <li><img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/HFC.jpg?v=1674596468"></li>
-                <li><img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/HOF2.gif?v=1674595864"></li>
-                <li><img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/finish.gif?v=1673656277"></li>
-         
-            </ul>
+            <div class="swiper mySwiper">
+                <ul class="swiper-wrapper">
+                    <li class="swiper-slide"><img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/Welcome.gif?v=1674509778"></li>
+                    <li class="swiper-slide"><img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/Contest.gif?v=1674602064"></li>
+                    <li class="swiper-slide"><img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/Pin.gif?v=1674597930"></li>
+                    <li class="swiper-slide"><img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/HFC.jpg?v=1674596468"></li>
+                    <li class="swiper-slide"><img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/HOF2.gif?v=1674595864"></li>
+                    <li class="swiper-slide"><img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/finish.gif?v=1673656277"></li>
+                </ul>
+            </div>
         </div>
 
     </div>
 </div>
 
+<!-- Scripts -->
 <script src="{{ 'vue@3.0.11.js' | asset_url }}" defer="defer"></script>
+
 <script src="{{ 'jquery-3.6.0.min.js' | asset_url }}" defer="defer"></script>
+
 <script src="{{ 'moment-with-locales.min.js' | asset_url }}" defer="defer"></script>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      direction: "vertical",
+      loop="true",
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      }
+    });
+  </script>
+
 <script src="{{ 'landing-social.js' | asset_url }}" defer="defer"></script>
