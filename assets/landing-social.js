@@ -13,14 +13,10 @@
 				address:'',
 				valid:true,
 				sending:false
-			},
-			date:null
+			}
 		}
 	},
 	methods: {
-		returnDate(){
-			return "Valid on " + moment().format('MMM Do')
-		},
 		validateEmail(val){
 			//console.log(val)
 			return String(val)
@@ -40,11 +36,11 @@
 			if(this.email.valid){
 
 				this.email.sending = true
+
 				let dataObj = {
-                    'firstName':this.firstName,
-                    'lastName':this.lastName,
-					'email': this.email.address, 
-					'tags': '"soscial-landing"',
+                    'fname':this.firstName,
+                    'lname':this.lastName,
+					'email': this.email.address
 				}
 
 				$.ajax({
@@ -56,26 +52,14 @@
 					console.log(response)
 					this.email.sending = false
 
-					if(response.status){
-						this.playGame()
-					}
-					else{
-						this.modalMessage.display = true 
-						this.modalMessage.content = response.data.userErrors
-						this.audio.loose.play(); //play sound
-					}
 
-				
-				
 				}).fail((error) => {
 					console.log(error)
 					this.email.sending = false
-					this.modalMessage.display = true 
-					this.modalMessage.content.push({"message":"Oopsie Daisy... Something went wrong."})
-					this.audio.loose.play(); //play sound
 				});
 
 			}
+
 		},
 		init(){
 			this.ready = true
@@ -86,7 +70,6 @@
 		if( window.location.hostname === '127.0.0.1'){
 			this.endPoint = "http://dev.api/bobs/social/"
 		}
-		this.date =  this.returnDate()
 	},
 	mounted(){
 		this.init()

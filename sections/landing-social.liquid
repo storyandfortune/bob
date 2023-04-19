@@ -1,94 +1,76 @@
 {{ 'landing-social.css' | asset_url | stylesheet_tag }}
 
 <div id="app">
-    <div v-if="ready" class="landing-container">
+    <div v-if="ready" >
+        <div class="landing-container">
 
-        <div class="col left">
+            <div class="form">
 
-            <div class="left-col-container">
+                <div v-if="!email.sending">
 
-                <div class="form">
+                    <div class="name">
 
-                    <div v-if="!email.sending">
+                        <input v-model="firstName" 
+                        type="text" 
+                        placeholder="First Name"/>
 
-                        <div class="name">
-
-                            <input v-model="firstName" 
+                        <input v-model="lastName" 
                             type="text" 
-                            placeholder="First Name"/>
+                            placeholder="Last Name"/>
+                    </div>
 
-                            <input v-model="lastName" 
-                                type="text" 
-                                placeholder="Last Name"/>
-                        </div>
+                    <div class="email" 
+                        :class="{'error': !email.valid}">
 
-                        <div class="email" 
-                            :class="{'error': !email.valid}">
+                        <div class="email-container">
 
-                            <div class="email-container">
+                            <input v-model="email.address" 
+                                id="email"  
+                                type="email" 
+                                placeholder="Email"
+                                v-on:keyup.enter="addEmail()"
+                                @focus="resetEmail()"/>
 
-                                <input v-model="email.address" 
-                                    id="email"  
-                                    type="email" 
-                                    placeholder="Email"
-                                    v-on:keyup.enter="addEmail()"
-                                    @focus="resetEmail()"/>
-
-                                <div class="submit_btn" 
-                                    @click="addEmail()"> 
-                                    Submit
-                                </div>
-
+                            <div class="submit_btn" 
+                                @click="addEmail()"> 
+                                Submit
                             </div>
 
                         </div>
 
                     </div>
 
-                    <div v-else class="sending"> Sending... </div>
-
                 </div>
 
+                <div v-else class="sending"> Sending... </div>
+
+            </div>
+
+            <div class="bg">
+            
+                <div class="logo"> <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/social-landing-logo.png?v=1681859802"> </div>
+
+                <div class="big-boy">
+                    <div class="big-boy-container">
+                        <div class="boy"> <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/social-boy.svg?v=1681864411">  </div>
+                        <div class="arm"> <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/social-arm.svg?v=1681864411">  </div>
+                    </div>
+                </div>
+
+
+                <div class="star green"> <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/social-landing-star-green.svg?v=1681859802"> </div>
+                <div class="star orange"> <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/social-landing-star-orange.svg?v=1681859802"> </div>
+                <div class="star rose"> <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/social-landing-star-rose.svg?v=1681859802"> </div>
+                <div class="star jap"> <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/social-landing-star-pink-star.svg?v=1681859802"> </div>
+    
             </div>
 
         </div>
-
-        <div class="col right">
-            <div class="swiper mySwiper">
-                <ul class="swiper-wrapper">
-                    <li class="swiper-slide"><img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/Welcome.gif?v=1674509778"></li>
-                    <li class="swiper-slide"><img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/Contest.gif?v=1674602064"></li>
-                    <li class="swiper-slide"><img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/Pin.gif?v=1674597930"></li>
-                    <li class="swiper-slide"><img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/HFC.jpg?v=1674596468"></li>
-                    <li class="swiper-slide"><img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/HOF2.gif?v=1674595864"></li>
-                    <li class="swiper-slide"><img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/finish.gif?v=1673656277"></li>
-                </ul>
-            </div>
-        </div>
-
     </div>
 </div>
 
 <!-- Scripts -->
+
 <script src="{{ 'vue@3.0.11.js' | asset_url }}" defer="defer"></script>
 
 <script src="{{ 'jquery-3.6.0.min.js' | asset_url }}" defer="defer"></script>
-
-<script src="{{ 'moment-with-locales.min.js' | asset_url }}" defer="defer"></script>
-
-  <!-- Swiper JS -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-
-  <!-- Initialize Swiper -->
-  <script>
-    var swiper = new Swiper(".mySwiper", {
-      direction: "vertical",
-      loop="true",
-      autoplay: {
-        delay: 2500,
-        disableOnInteraction: false,
-      }
-    });
-  </script>
-
-<script src="{{ 'landing-social.js' | asset_url }}" defer="defer"></script>
