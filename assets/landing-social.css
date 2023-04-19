@@ -170,6 +170,11 @@ input,
 .bg .star{
     position:absolute;
     z-index:0;
+
+    animation-name: spin;   
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
 }
 
 .bg .star.green{
@@ -180,7 +185,8 @@ input,
 
 .bg .star.orange{
     left:50vw;
-    bottom:10vw;
+    top:5vw;
+    width:3rem;
 }
 
 
@@ -190,9 +196,20 @@ input,
 }
 
 .bg .star.jap{
-    left:10vw;
+    left:1vw;
     bottom:7vw;
+    width:10rem;
     
+}
+
+@keyframes spin{
+    from {
+        transform:rotate(0deg) scale(1.5);
+      }
+    
+      to {
+        transform:rotate(360deg) scale(1.5);
+      }
 }
 
 
