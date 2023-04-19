@@ -62,6 +62,7 @@
 
 		},
 		init(){
+			console.log(this.email.sending)
 			this.ready = true
 	   }
 	},
