@@ -45,14 +45,22 @@ img{
     width:100%;
     height:100vh;
     margin:0 auto;
+    border:1px solid red;
 }
 
-
+.form-container{
+    position:relative;
+    max-width:1200px;
+    width:100%;
+    margin:0 auto;
+    height:100vh;
+    border:1px solid red;
+}
 
 .form{
     position:absolute;
     bottom:5rem;
-    right:5rem;
+    right:10rem;
     padding:1rem;
     width:50%;
     background-color: var(--social-color);
@@ -91,27 +99,30 @@ input,
     height:100vh;
 }
 
-.bg .logo{
+.logo{
     position:absolute;
     width:25vw;
+    top:2rem;
+    right:15rem;
+    max-width:375px;
 }
 
-.bg .big-boy{
+.big-boy{
     position:absolute;
-    bottom:10rem;
-    left:2rem;
+    bottom:0rem;
+    left: 0rem;
     width:450px;
     height:600px;
     z-index:10;
 }
 
-.bg .big-boy .big-boy-container{
+.big-boy .big-boy-container{
     position:relative;
     width:100%;
     height:100%;
 }
 
-.bg .big-boy .boy{
+.big-boy .boy{
     position:absolute;
     top:0;
     left:0;
@@ -120,7 +131,7 @@ input,
 
 }
 
-.bg .big-boy .arm{
+.big-boy .arm{
     position:absolute;
     top: 20px;
     right:-20px;
@@ -166,9 +177,7 @@ input,
 .bg .star{
     position:absolute;
     z-index:0;
-
     animation-name: spin;   
-    animation-duration: 10s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
 }
@@ -177,34 +186,37 @@ input,
     width:10rem;
     left:20vw;
     top:10vw;
+    animation-duration: 5s;
 }
 
 .bg .star.orange{
     left:50vw;
     top:5vw;
     width:3rem;
+    animation-duration: 8s;
 }
 
 
 .bg .star.rose{
     left:50vw;
     bottom:0px;
+    animation-duration: 10s;
 }
 
 .bg .star.jap{
     left:1vw;
     bottom:7vw;
     width:10rem;
-    
+    animation-duration: 12s;
 }
 
 @keyframes spin{
     from {
-        transform:rotate(0deg) scale(1.5);
+        transform:rotate(0deg) scale(1x);
       }
     
       to {
-        transform:rotate(360deg) scale(1.5);
+        transform:rotate(360deg) scale(2);
       }
 }
 

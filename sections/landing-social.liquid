@@ -3,61 +3,59 @@
 <div id="app">
     <div v-if="ready" >
         <div class="landing-container">
+            
+            <div class="logo"> <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/social-landing-logo.png?v=1681859802"> </div>
 
+            <div class="big-boy">
+                <div class="big-boy-container">
+                    <div class="boy"> <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/social-boy.svg?v=1681864411">  </div>
+                    <div class="arm"> <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/social-arm.svg?v=1681864411">  </div>
+                </div>
+            </div>
+
+       
             <div class="form">
 
-                <div v-if="!email.sending">
+                    <div v-if="!email.sending">
 
-                    <div class="name">
+                        <div class="name">
 
-                        <input v-model="firstName" 
-                        type="text" 
-                        placeholder="First Name"/>
-
-                        <input v-model="lastName" 
+                            <input v-model="firstName" 
                             type="text" 
-                            placeholder="Last Name"/>
-                    </div>
+                            placeholder="First Name"/>
 
-                    <div class="email" 
-                        :class="{'error': !email.valid}">
+                            <input v-model="lastName" 
+                                type="text" 
+                                placeholder="Last Name"/>
+                        </div>
 
-                        <div class="email-container">
+                        <div class="email" 
+                            :class="{'error': !email.valid}">
 
-                            <input v-model="email.address" 
-                                id="email"  
-                                type="email" 
-                                placeholder="Email"
-                                v-on:keyup.enter="addEmail()"
-                                @focus="resetEmail()"/>
+                            <div class="email-container">
 
-                            <div class="submit_btn" 
-                                @click="addEmail()"> 
-                                Submit
+                                <input v-model="email.address" 
+                                    id="email"  
+                                    type="email" 
+                                    placeholder="Email"
+                                    v-on:keyup.enter="addEmail()"
+                                    @focus="resetEmail()"/>
+
+                                <div class="submit_btn" 
+                                    @click="addEmail()"> 
+                                    Submit
+                                </div>
+
                             </div>
 
                         </div>
 
                     </div>
-
-                </div>
-        
-                <div v-if="email.sending" class="sending"> Sending... </div>
-
-            </div>
-
-            <div class="bg">
             
-                <div class="logo"> <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/social-landing-logo.png?v=1681859802"> </div>
-
-                <div class="big-boy">
-                    <div class="big-boy-container">
-                        <div class="boy"> <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/social-boy.svg?v=1681864411">  </div>
-                        <div class="arm"> <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/social-arm.svg?v=1681864411">  </div>
-                    </div>
+                    <div v-if="email.sending" class="sending"> Sending... </div>
                 </div>
-
-
+           
+            <div class="bg">
                 <div class="star green"> <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/social-landing-star-green.svg?v=1681859802"> </div>
                 <div class="star orange"> <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/social-landing-star-orange.svg?v=1681859802"> </div>
                 <div class="star rose"> <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/social-landing-star-rose.svg?v=1681859802"> </div>
