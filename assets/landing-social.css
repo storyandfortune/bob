@@ -49,24 +49,20 @@ img{
 }
 
 .form-container{
-    position:relative;
-    max-width:1200px;
+    position:absolute;
+    bottom:1rem;
+    display:flex;
+
     width:100%;
     margin:0 auto;
-    height:100vh;
-    border:1px solid red;
 }
 
 .form{
-    position:absolute;
-    bottom:5rem;
-    right:10rem;
     padding:1rem;
     width:50%;
     background-color: var(--social-color);
     border: 2px solid var(--social-accent);
     border-radius: 15px;
-
     z-index:1;
 }
 
@@ -108,12 +104,11 @@ input,
 }
 
 .big-boy{
-    position:absolute;
-    bottom:0rem;
-    left: 0rem;
+    flex-shrink: 2;
     width:450px;
     height:600px;
     z-index:10;
+    border:1px solid red;
 }
 
 .big-boy .big-boy-container{
