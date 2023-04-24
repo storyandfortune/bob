@@ -45,21 +45,25 @@ img{
     width:100%;
     height:100vh;
     margin:0 auto;
-    border:1px solid red;
 }
 
 .form-container{
     position:absolute;
-    bottom:1rem;
+    bottom:3vh;
     display:flex;
+    align-items: center;
+    justify-content: center;
 
     width:100%;
     margin:0 auto;
+    border:1px solid red;
 }
 
 .form{
     padding:1rem;
     width:50%;
+    text-align: center;
+    margin:0 auto;
     background-color: var(--social-color);
     border: 2px solid var(--social-accent);
     border-radius: 15px;
@@ -77,7 +81,7 @@ input,
 .submit_btn{
     font-size:1.5rem;
     width:100%;
-    padding:.75rem;
+    padding:.5rem;
     margin:.5rem 0;
     border-radius: 10px;
     border: 1px solid var(--social-accent);
@@ -100,15 +104,34 @@ input,
     width:25vw;
     top:2rem;
     right:15rem;
-    max-width:375px;
+    max-width:325px;
+    min-width:200px;
 }
 
 .big-boy{
-    flex-shrink: 2;
     width:450px;
     height:600px;
     z-index:10;
-    border:1px solid red;
+    border:1px solid green;
+
+    transition: all .25s ease;
+}
+
+@media screen and (max-width: 990px) {
+    .big-boy{
+        margin-left:-5rem;
+        border:1px solid red;
+    }
+}
+
+@media screen and (max-width: 790px) {
+    .big-boy{
+        position:absolute;
+        left:-5rem;
+        bottom:3vh;
+        transform: scale(.8);
+        border:1px solid orange;
+    }
 }
 
 .big-boy .big-boy-container{
@@ -122,8 +145,6 @@ input,
     top:0;
     left:0;
     z-index:5;
-
-
 }
 
 .big-boy .arm{
@@ -187,7 +208,7 @@ input,
 .bg .star.orange{
     left:50vw;
     top:5vw;
-    width:3rem;
+    width:5rem;
     animation-duration: 8s;
 }
 
