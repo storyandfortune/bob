@@ -120,7 +120,7 @@ input,
 @media screen and (max-width: 990px) {
     .big-boy{
         margin-left:-5rem;
-        border:1px solid red;
+        border:1px solid purple;
     }
 }
 
