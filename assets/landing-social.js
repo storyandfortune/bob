@@ -17,6 +17,7 @@
 		}
 	},
 	methods: {
+		newMethod(){},
 		validateEmail(val){
 			//console.log(val)
 			return String(val)

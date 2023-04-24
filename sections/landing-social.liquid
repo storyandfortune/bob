@@ -9,55 +9,56 @@
 
 
             <div class="form-container">
-            <div class="big-boy">
-                <div class="big-boy-container">
-                    <div class="boy"> <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/social-boy.svg?v=1681864411">  </div>
-                    <div class="arm"> <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/social-arm.svg?v=1681864411">  </div>
-                </div>
-            </div>
 
-       
-            <div class="form">
-                <h1>Join Now!</h1>
-                <div v-if="!email.sending">
-
-                    <div class="name">
-
-                        <input v-model="firstName" 
-                        type="text" 
-                        placeholder="First Name"/>
-
-                        <input v-model="lastName" 
-                            type="text" 
-                            placeholder="Last Name"/>
+                <div class="big-boy">
+                    <div class="big-boy-container">
+                        <div class="boy"> <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/social-boy.svg?v=1681864411">  </div>
+                        <div class="arm"> <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/social-arm.svg?v=1681864411">  </div>
                     </div>
+                </div>
 
-                    <div class="email" 
-                        :class="{'error': !email.valid}">
+        
+                <div class="form">
+                    <h1>Join Now!</h1>
+                    <div v-if="!email.sending">
 
-                        <div class="email-container">
+                        <div class="name">
 
-                            <input v-model="email.address" 
-                                id="email"  
-                                type="email" 
-                                placeholder="Email"
-                                v-on:keyup.enter="addEmail()"
-                                @focus="resetEmail()"/>
+                            <input v-model="firstName" 
+                            type="text" 
+                            placeholder="First Name"/>
 
-                            <div class="submit_btn" 
-                                @click="addEmail()"> 
-                                Submit
+                            <input v-model="lastName" 
+                                type="text" 
+                                placeholder="Last Name"/>
+                        </div>
+
+                        <div class="email" 
+                            :class="{'error': !email.valid}">
+
+                            <div class="email-container">
+
+                                <input v-model="email.address" 
+                                    id="email"  
+                                    type="email" 
+                                    placeholder="Email"
+                                    v-on:keyup.enter="addEmail()"
+                                    @focus="resetEmail()"/>
+
+                                <div class="submit_btn" 
+                                    @click="addEmail()"> 
+                                    Submit
+                                </div>
+
                             </div>
 
                         </div>
 
                     </div>
-
+                    <div v-if="email.sending" class="sending"> Sending... </div>
                 </div>
-                <div v-if="email.sending" class="sending"> Sending... </div>
-            </div>
             
-        </div>
+            </div>
            
             <div class="bg">
                 <div class="star green"> <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/social-landing-star-green.svg?v=1681859802"> </div>
@@ -71,7 +72,7 @@
     </div>
 </div>
 
-<!-- Scripts -->
+
 
 <script src="{{ 'vue@3.0.11.js' | asset_url }}" defer="defer"></script>
 
