@@ -5,6 +5,7 @@
 
 	data() {
 		return {
+			gameover:true,
 			ready:false, 
 			testing:{'test':false, 'index':null, "extra-param":true},
 			gameState:"init", // init, enter-email, start, reset-wheel, show-prize, your-code, game-over
