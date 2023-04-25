@@ -51,7 +51,7 @@ img{
 
 .form-container{
     position:absolute;
-    bottom:3vh;
+    bottom:10vh;
     display:flex;
     align-items: center;
     justify-content: center;
@@ -112,8 +112,7 @@ input,
     width:25vw;
     top:2rem;
     right:15rem;
-    max-width:325px;
-    min-width:200px;
+    width:325px;
 }
 
 .big-boy{
@@ -130,6 +129,18 @@ input,
 }
 
 @media screen and (max-width: 790px) {
+
+    .logo{
+        right:0;
+        left:0;
+        margin:0 auto;
+    }
+
+    .form{
+        width:100%;
+        margin:0 3rem 0 10rem;
+    }
+
     .big-boy{
         position:absolute;
         left:-5rem;
@@ -203,40 +214,41 @@ input,
 }
 
 .bg .star.green{
-    width:10rem;
+    width:7rem;
     left:20vw;
-    top:10vw;
+    top:30vh;
     animation-duration: 5s;
 }
 
 .bg .star.orange{
-    left:50vw;
-    top:5vw;
+    right:5vw;
+    top:20vh;
     width:5rem;
     animation-duration: 8s;
 }
 
 
 .bg .star.rose{
-    left:50vw;
+    right:25vw;
     bottom:0px;
+    width:10rem;
     animation-duration: 10s;
 }
 
 .bg .star.jap{
     left:1vw;
-    bottom:7vw;
-    width:10rem;
+    bottom:7vh;
+    width:8rem;
     animation-duration: 12s;
 }
 
 @keyframes spin{
     from {
-        transform:rotate(0deg) scale(1x);
+        transform:rotate(0deg) scale(.8);
       }
     
       to {
-        transform:rotate(360deg) scale(2);
+        transform:rotate(360deg) scale(1.5);
       }
 }
 
