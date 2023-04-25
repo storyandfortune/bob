@@ -6,7 +6,7 @@
 	data() {
 		return {
 			ready:false,
-            endpoint:"https://api.storyandfortune.com/social/",
+            endpoint:"https://api.storyandfortune.com/bobs/social/",
             firstName:"",
             lastName:"",
 			email:{
