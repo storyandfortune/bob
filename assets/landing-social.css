@@ -110,9 +110,16 @@ input,
 .logo{
     position:absolute;
     width:25vw;
-    top:2rem;
+    top:0;
     right:15rem;
-    width:325px;
+    width:25vw;
+    max-width:375px;
+    min-width: 300px;
+}
+
+.logo svg{
+    width:100%;
+    height:auto;
 }
 
 .big-boy{
@@ -141,11 +148,16 @@ input,
         margin:0 3rem 0 10rem;
     }
 
+    .form h1{
+        font-size:2rem;
+    }
+
+
     .big-boy{
         position:absolute;
-        left:-6rem;
+        left:-5rem;
         bottom:3vh;
-        transform: scale(0.75);
+        transform: scale(0.65);
     }
 }
 
@@ -215,23 +227,23 @@ input,
 
 .bg .star.green{
     width:7rem;
-    left:20vw;
+    left:25vw;
     top:30vh;
     animation-duration: 5s;
 }
 
 .bg .star.orange{
     right:5vw;
-    top:20vh;
+    top:35vh;
     width:5rem;
     animation-duration: 8s;
 }
 
 
 .bg .star.rose{
-    right:25vw;
-    bottom:0px;
-    width:10rem;
+    right:5vw;
+    bottom:3rem;
+    width:5rem;
     animation-duration: 10s;
 }
 
@@ -251,5 +263,22 @@ input,
         transform:rotate(360deg) scale(1.5);
       }
 }
+
+
+/* SVG ---------------------------------------------- */
+.st0{fill:#B2966E;}
+.st1{display:none;fill:#FFFFFF;}
+.st2{font-family:'FlashD-Ligh';}
+.st3{font-size:102.9305px;}
+.st4{fill:#FFFFFF;}
+.st5{fill:#FFFFFF;stroke:#FFFFFF;stroke-width:0.5;stroke-miterlimit:10;}
+.st6{display:none;}
+.st7{display:inline;fill:#3A211C;stroke:#3A211C;stroke-miterlimit:10;}
+.st8{font-size:254.1881px;}
+.st9{font-size:211.5894px;}
+.st10{fill:#3A211C;stroke:#3A211C;stroke-width:3;stroke-miterlimit:10;}
+.st11{display:none;fill:#F9EA6D;}
+.st12{font-size:164.2051px;}
+.st13{fill:#F7E15C;stroke:#F7E15C;stroke-miterlimit:10;}
 
 
