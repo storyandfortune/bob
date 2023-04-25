@@ -22,7 +22,7 @@
         <div class="landing-container">
 
 
-            <div class="logo animate__animated animate__zoomIn"> <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/social-landing-logo.png?v=1681859802"> </div>
+            <div class="logo animate__animated animate__zoomIn animate__delay-1s"> <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/social-landing-logo.png?v=1681859802"> </div>
 
             <div class="form-container">
                 <div class="big-boy animate__animated animate__bounceInUp animate__delay-2s">
@@ -32,8 +32,11 @@
                     </div>
                 </div>
 
-        
-                <div class="form animate__animated animate__zoomIn animate__delay-1s">
+                <div v-if="sent" class="form animate__animated animate__jello">
+                    <h1>Thanks!</h1>
+                </div>
+
+                <div v-else class="form animate__animated animate__zoomIn">
                     <h1>Join Now!</h1>
                     <div v-if="!email.sending">
 

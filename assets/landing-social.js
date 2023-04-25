@@ -9,6 +9,7 @@
             endPoint:"https://api.storyandfortune.com/bobs/social/",
             firstName:"",
             lastName:"",
+			sent:false,
 			email:{
 				address:'',
 				valid:true,
@@ -51,6 +52,7 @@
 
 					console.log(response)
 					this.email.sending = false
+					this.sent = true
 
 
 				}).fail((error) => {

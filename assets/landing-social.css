@@ -55,8 +55,8 @@ img{
     display:flex;
     align-items: center;
     justify-content: center;
-
     width:100%;
+    height:600px;
     margin:0 auto;
 }
 
@@ -143,9 +143,9 @@ input,
 
     .big-boy{
         position:absolute;
-        left:-5rem;
+        left:-6rem;
         bottom:3vh;
-        transform: scale(.8);
+        transform: scale(0.75);
     }
 }
 
