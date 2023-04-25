@@ -19,7 +19,6 @@
 	methods: {
 		newMethod(){},
 		validateEmail(val){
-			//console.log(val)
 			return String(val)
 			.toLowerCase()
 			.match(
@@ -43,9 +42,6 @@
                     'lname':this.lastName,
 					'email': this.email.address
 				}
-
-
-				console.log(this.endPoint);
 
 				$.ajax({
 					method: "POST",
