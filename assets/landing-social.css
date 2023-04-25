@@ -1,4 +1,5 @@
 
+
 :root {
     --social-color:#b7966b;
     --social-accent:#3e1f1c;
@@ -56,7 +57,6 @@ img{
 
     width:100%;
     margin:0 auto;
-    border:1px solid red;
 }
 
 .form{
@@ -68,6 +68,13 @@ img{
     border: 2px solid var(--social-accent);
     border-radius: 15px;
     z-index:1;
+}
+
+.form h1{
+    font-family: 'Harvard';
+    font-size:3rem;
+    padding:0;
+    margin:0;
 }
 
 .submit_btn{
@@ -112,15 +119,12 @@ input,
     width:450px;
     height:600px;
     z-index:10;
-    border:1px solid green;
-
     transition: all .25s ease;
 }
 
 @media screen and (max-width: 990px) {
     .big-boy{
         margin-left:-5rem;
-        border:1px solid purple;
     }
 }
 
@@ -130,7 +134,6 @@ input,
         left:-5rem;
         bottom:3vh;
         transform: scale(.8);
-        border:1px solid orange;
     }
 }
 
