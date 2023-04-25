@@ -13,20 +13,21 @@
 
 </style>
 
-
+{{ 'animate.min.css' | asset_url | stylesheet_tag }}
 {{ 'landing-social.css' | asset_url | stylesheet_tag }}
 
 <div id="app">
     <div v-if="ready" >
+
         <div class="landing-container">
 
 
-            <div class="logo"> <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/social-landing-logo.png?v=1681859802"> </div>
+            <div class="logo animate__animated animate__zoomIn"> <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/social-landing-logo.png?v=1681859802"> </div>
 
 
             <div class="form-container">
 
-                <div class="big-boy">
+                <div class="big-boy animate__animated animate__bounceInUp animate__delay-2s">
                     <div class="big-boy-container">
                         <div class="boy"> <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/social-boy.svg?v=1682382250">  </div>
                         <div class="arm"> <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/social-arm.svg?v=1682382250">  </div>
@@ -34,7 +35,7 @@
                 </div>
 
         
-                <div class="form">
+                <div class="form animate__animated animate__zoomIn animate__delay-1s">
                     <h1>Join Now!</h1>
                     <div v-if="!email.sending">
 
@@ -76,15 +77,15 @@
             
             </div>
            
-            <div class="bg">
+            <div class="bg animate__animated animate__jello">
                 <div class="star green"> <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/social-landing-star-green.svg?v=1681859802"> </div>
                 <div class="star orange"> <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/social-landing-star-orange.svg?v=1681859802"> </div>
                 <div class="star rose"> <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/social-landing-star-rose.svg?v=1681859802"> </div>
                 <div class="star jap"> <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/social-landing-star-pink-star.svg?v=1681859802"> </div>
-    
             </div>
 
         </div>
+
     </div>
 </div>
 
