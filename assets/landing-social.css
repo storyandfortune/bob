@@ -156,7 +156,7 @@ input,
     .big-boy{
         position:absolute;
         left:-5rem;
-        bottom:3vh;
+        bottom:10vh;
         transform: scale(0.65);
     }
 }
