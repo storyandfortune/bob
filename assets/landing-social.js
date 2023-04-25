@@ -44,6 +44,9 @@
 					'email': this.email.address
 				}
 
+
+				console.log(this.endPoint);
+
 				$.ajax({
 					method: "POST",
 					url: this.endPoint,
