@@ -478,6 +478,13 @@
 				   }
 				   el++;
 			   });
+
+
+			   if(this.gameover){
+					setTimeout(() => {
+						window.location.href = "https://bobs.net/pages/social/"
+					}, 3000);
+			   }
 			  
 			
 	   }
