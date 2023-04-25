@@ -66,7 +66,7 @@
 
 		},
 		init(){
-			console.log(this.email.sending)
+			console.log('init social')
 			this.ready = true
 	   }
 	},
