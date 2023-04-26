@@ -110,14 +110,14 @@ input,
 .logo{
     position:absolute;
     width:25vw;
-    top:0;
+    top:2rem;
     right:15rem;
     width:20vw;
-    max-width:375px;
-    min-width: 250px;
+    max-width:350px;
+    min-width:250px;
 }
 
-.logo svg{
+.logo img{
     width:100%;
     height:auto;
 }
@@ -143,7 +143,7 @@ input,
     }
 
     .logo{
-        top:1rem;
+        top:10vh;
         right:0;
         left:0;
         margin:0 auto;
