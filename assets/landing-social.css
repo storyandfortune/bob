@@ -137,6 +137,10 @@ input,
 
 @media screen and (max-width: 790px) {
 
+    .form-container{
+        bottom:3rem;
+    }
+
     .logo{
         right:0;
         left:0;
