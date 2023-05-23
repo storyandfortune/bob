@@ -1343,6 +1343,21 @@ h1.product__title {
 }
 
 
+/* ---------- Appstle Subscriptions ---------------------*/
+.appstle_sub_widget .appstleSellingPlanDescription {
+    padding: 1rem;
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
+
+.appstle_sub_widget .appstleSellingPlanDescription {
+    padding: 1rem;
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
+
+
+
 /* ------- mobile styles ------------- */
 
 @media screen and (min-width: 990px) {
