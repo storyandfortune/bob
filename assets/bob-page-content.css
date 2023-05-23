@@ -1344,15 +1344,22 @@ h1.product__title {
 
 
 /* ---------- Appstle Subscriptions ---------------------*/
+
+.appstle_sub_widget .appstleRadioSellingPlanWrapper>div {
+    display: flex;
+    align-items: top !important;
+}
+
 .appstle_sub_widget .appstleSellingPlanDescription {
     padding: 1rem;
     font-size: 1.5rem;
     line-height: 2rem;
 }
 
-.appstle_sub_widget .appstleSellingPlanDescription {
+.appstle_sub_widget .sellingplan {
     padding: 1rem;
     font-size: 1.5rem;
+    font-weight: 800;
     line-height: 2rem;
 }
 
