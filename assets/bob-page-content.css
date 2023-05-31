@@ -1346,7 +1346,6 @@ h1.product__title {
 /* ---------- Appstle Subscriptions ---------------------*/
 
 .appstleRadioSellingPlanWrapper>div {
-    display: flex;
     align-items: top !important;
 }
 

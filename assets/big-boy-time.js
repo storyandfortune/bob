@@ -75,13 +75,6 @@ $(document).ready(function () {
 
             if (direction === "down") {
                 $('#shopify-section-header').addClass('sticky');
-
-                if(bricked){
-                    // google analytics scroll past brick wall
-                    ga('send', 'event', 'BrickWall', 'scroll', 'Scroll past hero');
-                    console.log('scroll past brick wall');
-                    bricked = false;
-                }
             }
             else {
                 $('#shopify-section-header').removeClass('sticky');
@@ -102,15 +95,6 @@ $(document).ready(function () {
     $("#shopify-section-header nav .list-menu li").on('click', function (e) {
 
         var up = $('#shopify-section-header').hasClass('sticky');
-
-        if(up){
-            ga('send', 'event', 'BrickWall', 'click', 'Click main nav after scroll');
-            console.log('click on main nav on top');
-        }
-        else{
-            ga('send', 'event', 'BrickWall', 'click', 'Click main nav before scroll');
-            console.log('click on main nav brickwall'); 
-        }
 
     });
 
@@ -657,7 +641,6 @@ $(document).ready(function () {
     });
 
     let addToWishlist = function(item){
-        ga('send', 'event', 'wishlist', 'click', 'Item added to wishlist: ' + item );
         const event = new CustomEvent("wishlistAddItem", { detail: item });
         window.dispatchEvent(event);
     }
