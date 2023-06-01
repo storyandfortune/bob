@@ -1,5 +1,6 @@
 $(document).ready(function () {
-
+    
+    console.log("microphone check 1");
     //todo rewrite as objects.
 
     // shop slug hack -------------------------------------------------
