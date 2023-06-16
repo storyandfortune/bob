@@ -1,0 +1,69 @@
+
+{{ 'animate.min.css' | asset_url | stylesheet_tag }}
+{{ 'subscribe-pop-up.css' | asset_url | stylesheet_tag }}
+
+<div class="pop-up-container">
+
+
+    <div class="form-container">
+
+        <!-- close button -->
+
+        <div class="close">
+            {% render 'icon-times-solid' %}
+        </div>
+
+        <!-- left column -->
+        <div class="big-boy">
+            <div class="big-boy-container">
+                <div class="boy"> <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/social-boy.svg?v=1682382250">  </div>
+                <div class="arm"> <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/social-arm.svg?v=1682382250">  </div>
+            </div>
+        </div>
+
+        <!-- Right column -->
+        <div class="form animate__animated animate__zoomIn">
+
+            <div class="input">
+                <h1>Join Now!</h1>
+                
+                <div class="name">
+
+                    <input v-model="firstName" 
+                    type="text" 
+                    placeholder="First Name"/>
+
+                    <input v-model="lastName" 
+                        type="text" 
+                        placeholder="Last Name"/>
+                </div>
+
+                <div class="email">
+
+                    <div class="email-container">
+
+                        <input 
+                            id="email"  
+                            type="email" 
+                            placeholder="Email"/>
+
+                        <div class="submit_btn"> 
+                            Submit
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="subscribed">
+                <h1>Thanks!</h1>
+            </div>
+            
+        </div>
+    
+    </div>
+   
+</div>
+
+<script src="{{ 'subscribe-pop-up.js' | asset_url }}" defer="defer"></script>

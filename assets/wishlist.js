@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    
         let wl = {
             hasUser:{},
             user:{
