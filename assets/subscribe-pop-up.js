@@ -1,9 +1,9 @@
-$(document).ready(() => {
-    
-    console.log('subscribe pop up');
+document.addEventListener('DOMContentLoaded',  () => {
+
+    console.log('ready subscribe pop up');
 
     let popUp = {
-        endPoint:"https://api.storyandfortune.com/bobs/wishlist/",
+        endPoint:"https://api.storyandfortune.com/bobs/email/",
         email:{
             address:'something',
             valid:true,
@@ -70,37 +70,51 @@ $(document).ready(() => {
             $('#wish-list-drawer #wish-list-header p').html(this.email.message);
         },
         getCookie(){
-          let c = window.localStorage.getItem('bobsWishList')
+          let c = window.localStorage.getItem('bobsPopUp')
           if(c){
-            return {user: true, data: JSON.parse(c)};
+            return true
           }
           else{
-            return {user: false, data: null};
+            return false
           }
         },
         setCookie(){
-            let val = JSON.stringify(this.user);
-            window.localStorage.setItem("bobsWishList", val)
+            window.localStorage.setItem("bobsPopUp", true)
         },
         deleteCookie(){
-            window.localStorage.removeItem('bobsWishList')
+            window.localStorage.removeItem('bobsPopUp')
         },
         refreshCookie(){
-
+            this.deleteCookie()
+            this.setCookie()
         },
         bind(){
-            $("#some-id").on('click',  (e) => {
-                console.log('do something');
+
+            $(".pop-up-container .close").on('click',  (e) => {
+                $('.pop-up-container').removeClass('show');
             });
+      
         },
         init(){
-            setTimeout(() => {
-                console.log('pop up this motherfucker up!');
-            },10000);
+
+            if(this.getCookie()){
+                this.refreshCookie();
+            }
+            else{
+                this.bind();
+                console.log(this.email);
+
+                //launch pop-up
+                setTimeout(() => {
+                    $('.pop-up-container').addClass('show');
+                    $('.form-container').addClass('animate__animated animate__zoomIn');
+                },5000); 
+            }
+
         }
-    }
+    };
 
     // start me up!
     popUp.init();
 
-});
+  }, false);

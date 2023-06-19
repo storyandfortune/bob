@@ -1,6 +1,5 @@
 
 {{ 'animate.min.css' | asset_url | stylesheet_tag }}
-{{ 'subscribe-pop-up.css' | asset_url | stylesheet_tag }}
 
 <div class="pop-up-container">
 
@@ -14,19 +13,15 @@
         </div>
 
         <!-- left column -->
-        <div class="big-boy">
-            <div class="big-boy-container">
-                <div class="boy"> <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/social-boy.svg?v=1682382250">  </div>
-                <div class="arm"> <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/social-arm.svg?v=1682382250">  </div>
-            </div>
-        </div>
+        <div class="left-col"></div>
 
         <!-- Right column -->
-        <div class="form animate__animated animate__zoomIn">
+        <div class="form">
 
             <div class="input">
-                <h1>Join Now!</h1>
-                
+                <h1>Enter to Win </h1>
+                <div>A pair of tickets to the Beach Boys at the Hollywood Bowl!</div>
+
                 <div class="name">
 
                     <input v-model="firstName" 
