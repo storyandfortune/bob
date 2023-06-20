@@ -1,25 +1,21 @@
 document.addEventListener('DOMContentLoaded',  () => {
 
-    console.log('ready subscribe pop up');
-
     let popUp = {
-        endPoint:"https://api.storyandfortune.com/bobs/email/",
+        endPoint:"https://api.storyandfortune.com/bobs/social/",
         email:{
             address:'something',
             valid:true,
             sending:false,
-            message:'Enter your e-mail address to activate & save your wishlist.',
             errorMessage:'Enter a vailid e-mail address.'
         },
         reset(){
-            $('.wishlist').removeClass('isActive');
-            $('#emailAddress').val('');
+            $('#email').val('');
+            $('#firstName').val('');
+            $('#lastName').val('');
         },
         resetAll(){
             this.deleteCookie();
-            $('.wishlist').removeClass('isActive');
-            $('#emailAddress').val('');
-            $('ul.productList').html('');
+            this.reset();
         },
         validateEmail(val){
             return String(val)
@@ -64,11 +60,13 @@ document.addEventListener('DOMContentLoaded',  () => {
                 });
         
             }
+            else{
+                $('.pop-up-container .input').addClass('error');
+            }
         
         },
         onKeyDown(){
-            $('#wish-list-drawer #wish-list-header').removeClass('error');
-            $('#wish-list-drawer #wish-list-header p').html(this.email.message);
+            $('.pop-up-container .input').removeClass('error');
         },
         getCookie(){
           let c = window.localStorage.getItem('bobsPopUp')
@@ -93,18 +91,29 @@ document.addEventListener('DOMContentLoaded',  () => {
 
             // close button --------
             $(".pop-up-container .close").on('click',  (e) => {
-                $('.pop-up-container').removeClass('animate__zoomIn').addClass('animate__zoomOut');
+                $('.pop-up-container').removeClass('animate__animated animate__zoomIn').addClass('animate__animated animate__zoomOut');
                 setTimeout(() => {
                     $('.pop-up-container').removeClass('show');
                 },500); 
             });
+
+            // submit button ---------
+            $(".pop-up-container .submit_btn").on('click',  (e) => {
+               this.addEmail();
+            });
+
+            // key down
+            $(".pop-up-container inut").on('keydown',  (e) => {
+                this.onKeyDown();
+             });
+
       
-        },
+        }, 
         init(){
 
-            //this.deleteCookie();
+            this.deleteCookie();
 
-            console.log(this.getCookie());
+            console.log("cookie: " + this.getCookie());
 
             if(this.getCookie()){
                 this.refreshCookie();
@@ -113,7 +122,7 @@ document.addEventListener('DOMContentLoaded',  () => {
 
                 console.log(this.email);
 
-                this.setCookie();
+                //this.setCookie();
                 this.bind();
          
                 //launch pop-up
@@ -122,6 +131,8 @@ document.addEventListener('DOMContentLoaded',  () => {
                     $('.form-container').addClass('animate__animated animate__zoomIn');
                 },5000); 
             }
+
+           
 
         }
     };
