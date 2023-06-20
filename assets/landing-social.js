@@ -41,7 +41,8 @@
 				let dataObj = {
                     'fname':this.firstName,
                     'lname':this.lastName,
-					'email': this.email.address
+					'email': this.email.address,
+					'tag':'social-landing'
 				}
 
 				$.ajax({

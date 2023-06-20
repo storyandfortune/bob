@@ -43,7 +43,8 @@ document.addEventListener('DOMContentLoaded',  () => {
                 let dataObj = {
                     'fname':this.firstName,
                     'lname':this.lastName,
-                    'email': this.email.address
+                    'email': this.email.address,
+                    'tag':'Beach-Boys, Pop-Up'
                 }
         
                 $.ajax({
@@ -90,20 +91,31 @@ document.addEventListener('DOMContentLoaded',  () => {
         },
         bind(){
 
+            // close button --------
             $(".pop-up-container .close").on('click',  (e) => {
-                $('.pop-up-container').removeClass('show');
+                $('.pop-up-container').removeClass('animate__zoomIn').addClass('animate__zoomOut');
+                setTimeout(() => {
+                    $('.pop-up-container').removeClass('show');
+                },500); 
             });
       
         },
         init(){
 
+            //this.deleteCookie();
+
+            console.log(this.getCookie());
+
             if(this.getCookie()){
                 this.refreshCookie();
             }
             else{
-                this.bind();
+
                 console.log(this.email);
 
+                this.setCookie();
+                this.bind();
+         
                 //launch pop-up
                 setTimeout(() => {
                     $('.pop-up-container').addClass('show');

@@ -22,6 +22,7 @@
     display:flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
 }
 
 .pop-up-container .form-container{
@@ -30,6 +31,7 @@
     justify-content: flex-start;
     margin:0 auto;
     background-color: #FFF;
+    border:1px solid #666;
 }
 
 .pop-up-container .close{
@@ -92,6 +94,7 @@
     background-image: url(https://cdn.shopify.com/s/files/1/0593/5942/8759/files/1.png?v=1687211704);
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: center center;
 
 }
 
