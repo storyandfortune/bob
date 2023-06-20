@@ -2,12 +2,6 @@ document.addEventListener('DOMContentLoaded',  () => {
 
     let popUp = {
         endPoint:"https://api.storyandfortune.com/bobs/social/",
-        email:{
-            address:'something',
-            valid:true,
-            sending:false,
-            errorMessage:'Enter a vailid e-mail address.'
-        },
         reset(){
             $('#email').val('');
             $('#firstName').val('');
@@ -25,21 +19,20 @@ document.addEventListener('DOMContentLoaded',  () => {
             )
         },
         resetEmail(){
-            this.email.address = ""
-            this.email.valid = true
+            $('.form').removeClass('sending').addClass('sent');
         },
         addEmail(){
         
-            this.email.valid = this.validateEmail(this.email.address)
+            let valid = this.validateEmail(this.email.address)
         
-            if(this.email.valid){
+            if(valid){
         
-                this.email.sending = true
+                $('.form').addClass('sending');
         
                 let dataObj = {
-                    'fname':this.firstName,
-                    'lname':this.lastName,
-                    'email': this.email.address,
+                    'fname':$('#firstName').val(),
+                    'lname':$('#lastName').val(),
+                    'email': $('#email').val(),
                     'tag':'Beach-Boys, Pop-Up'
                 }
         
@@ -48,15 +41,11 @@ document.addEventListener('DOMContentLoaded',  () => {
                     url: this.endPoint,
                     data: dataObj
                 }).done( (response)  => {
-        
                     console.log(response)
-                    this.email.sending = false
-                    this.sent = true
-        
-        
+                    $('.form').removeClass('sending').addClass('sent');
                 }).fail((error) => {
                     console.log(error)
-                    this.email.sending = false
+                    $('.form').removeClass('sending').addClass('opps');
                 });
         
             }

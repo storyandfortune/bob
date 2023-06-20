@@ -25,6 +25,9 @@
     margin:0 auto;
     background-color: #FFF;
     border:1px solid #666;
+    width:65vw;
+    min-width:300px;
+    max-width:1000px;
 }
 
 .pop-up-container .close{
@@ -65,6 +68,8 @@
     margin:0;
     padding:0;
     font-size:2rem;
+    line-height: 2rem;
+    margin-bottom:1rem;
 }
 
 .pop-up-container .submit_btn{
@@ -113,7 +118,8 @@
 
 }
 
-.pop-up-container  .subscribed{
+.pop-up-container  .subscribed,
+.pop-up-container  .sending{
     display:none;
 }
 
