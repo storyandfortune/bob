@@ -123,6 +123,8 @@
     color:white;
     background-color:#e62544;
     transition: all .25s ease;
+    cursor:pointer;
+    border:none;
 }
 
 .pop-up-container .submit_btn:hover{

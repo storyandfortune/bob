@@ -128,8 +128,6 @@ document.addEventListener('DOMContentLoaded',  () => {
       
         }, 
         init(){
-    
-
             // set local endpoint
             let host = window.location.hostname.indexOf('bobs');
             if(host < 0){
