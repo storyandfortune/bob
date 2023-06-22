@@ -87,11 +87,12 @@ document.addEventListener('DOMContentLoaded',  () => {
         },
         popUp(){
             console.log('pop up');
+            console.log(this.getCookie());
             if(this.getCookie()){
                 this.refreshCookie();
             }
             else{
-                //this.setCookie();
+                this.setCookie();
                 $('.pop-up-btn').addClass('on');
             }
         },
@@ -102,7 +103,6 @@ document.addEventListener('DOMContentLoaded',  () => {
                 $('.pop-up-container').addClass('show');
                 $('.form-container').addClass('animate__animated animate__zoomIn');
                 $(".pop-up-btn").removeClass('on');
-
              });
 
 
@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded',  () => {
       
         }, 
         init(){
-            //this.deleteCookie();
+    
 
             // set local endpoint
             let host = window.location.hostname.indexOf('bobs');
