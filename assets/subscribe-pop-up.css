@@ -1,5 +1,33 @@
 
 
+
+.pop-up-btn{
+   display:none;
+   position:fixed;
+   bottom:15rem;
+   right:5rem;
+   z-index:100;
+   background-color: #e62544;
+   border:1px solid #fff;
+   color:#FFF;
+   padding:1rem 2rem;
+   font-weight: 800;
+   font-size: 2rem;
+   cursor:pointer;
+   transition: all .25s ease;
+
+   animation: btn-in;
+   animation-duration: .75s;
+}
+
+.pop-up-btn:hover{
+    transform:scale(1.25);
+}
+
+.pop-up-btn.on{
+    display:block;
+}
+
 .pop-up-container{
     position:fixed;
     display:none;
@@ -18,17 +46,6 @@
     text-align: center;
 }
 
-.pop-up-container .form-container{
-    display:flex;
-    align-items: center;
-    justify-content: flex-start;
-    margin:0 auto;
-    background-color: #FFF;
-    border:1px solid #666;
-    width:65vw;
-    min-width:300px;
-    max-width:1000px;
-}
 
 .pop-up-container .close{
     position:absolute;
@@ -45,7 +62,31 @@
     transform: scale(1.5);
 }
 
+
+.pop-up-container .form-container{
+    display:flex;
+    margin:0 auto;
+    background-color: #FFF;
+    border:1px solid #666;
+    width:75vw;
+    min-width:300px;
+    max-width:1000px;
+}
+
+
+.pop-up-container .left-col{
+    width:50%;
+    height:100%;
+}
+
+.pop-up-container img{
+    width:100%;
+    height:auto;
+}
+
+
 .pop-up-container .form{
+    width:50%;
     display:flex;
     align-items: center;
     justify-content: center;
@@ -59,6 +100,7 @@
 .pop-up-container .form h1{
     font-family: 'Harvard';
     font-size:5rem;
+    line-height:5.5rem;
     color:#e62544;
     padding:0;
     margin:0;
@@ -68,7 +110,7 @@
     margin:0;
     padding:0;
     font-size:2rem;
-    line-height: 2rem;
+    line-height: 2.5rem;
     margin-bottom:1rem;
 }
 
@@ -102,20 +144,15 @@
     border: 1px solid #666;
 }
 
+.pop-up-container .legal{
+    margin-top:1rem;
+    font-size:13px;
+    line-height: 15px;
+}
+
 .pop-up-container .sending{
     text-align: center;
     text-transform: uppercase;
-}
-
-.pop-up-container .left-col{
-    width:450px;
-    height:600px;
-    z-index:10;
-    background-image: url(https://cdn.shopify.com/s/files/1/0593/5942/8759/files/1.png?v=1687211704);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-
 }
 
 .pop-up-container  .subscribed,
@@ -124,19 +161,61 @@
 }
 
 
-@media screen and (max-width: 790px) {
- /* mobile */
+@media screen and (max-width: 1200px) {
+
+    .pop-up-btn{
+        bottom:90vh;
+    }
+
+    .pop-up-container.show{
+        position:absolute;
+        display:block;
+        padding-top:5rem;
+    }
+    
+
+    .pop-up-container .form-container{
+
+        display:block;
+        max-width:500px;
+        margin:0 auto;
+        left:0;
+        right:0;
+    }
+
+    .pop-up-container .left-col{
+        padding-top:5rem;
+        width:100%;
+    }
+
+    .pop-up-container .form{
+        padding-top:0;
+        width:100%;
+    }
+
+    .pop-up-container .close{
+        right:2rem;
+        top:1rem;
+        width:25px;
+        height:25px;
+    }
+
 }
 
 
-@keyframes smaple{
-    from {
-        transform:rotate(0deg) skew(0);
-      }
+@keyframes btn-in {
+
+    0%{
+        transform: scale(.01);
+    }
+    80%{
+        transform: scale(1.75);
+        right:10rem;
+    }
+    100%{
+        transform: scale(1);
+    }
     
-      to {
-        transform:rotate(15deg) skew(20deg);
-      }
 }
 
 

@@ -41,11 +41,16 @@ document.addEventListener('DOMContentLoaded',  () => {
                     url: this.endPoint,
                     data: dataObj
                 }).done( (response)  => {
+
                     console.log(response)
                     $('.form').removeClass('sending').addClass('sent');
+                    $('pop-up-btn').removeClass('on');
+
                 }).fail((error) => {
+
                     console.log(error)
                     $('.form').removeClass('sending').addClass('opps');
+
                 });
         
             }
@@ -78,11 +83,22 @@ document.addEventListener('DOMContentLoaded',  () => {
         },
         bind(){
 
+            // open button --------
+            $(".pop-up-btn").on('click',  (e) => {
+                $('.pop-up-container').addClass('show');
+                $('.form-container').addClass('animate__animated animate__zoomIn');
+                $(".pop-up-btn").removeClass('on');
+
+             });
+
+
             // close button --------
             $(".pop-up-container .close").on('click',  (e) => {
-                $('.pop-up-container').removeClass('animate__animated animate__zoomIn').addClass('animate__animated animate__zoomOut');
+                $('.form-container').removeClass('animate__animated animate__zoomIn').addClass('animate__animated animate__zoomOut');
                 setTimeout(() => {
                     $('.pop-up-container').removeClass('show');
+                    $('.form-container').removeClass('animate__animated animate__zoomOut');
+                    $(".pop-up-btn").addClass('on');
                 },500); 
             });
 
@@ -91,16 +107,15 @@ document.addEventListener('DOMContentLoaded',  () => {
                this.addEmail();
             });
 
-            // key down
+            // key down ------
             $(".pop-up-container inut").on('keydown',  (e) => {
                 this.onKeyDown();
              });
-
       
         }, 
         init(){
 
-            this.deleteCookie();
+            //this.deleteCookie();
 
             console.log("cookie: " + this.getCookie());
 
@@ -108,20 +123,10 @@ document.addEventListener('DOMContentLoaded',  () => {
                 this.refreshCookie();
             }
             else{
-
-                console.log(this.email);
-
                 //this.setCookie();
+                $('.pop-up-btn').addClass('on');
                 this.bind();
-         
-                //launch pop-up
-                setTimeout(() => {
-                    $('.pop-up-container').addClass('show');
-                    $('.form-container').addClass('animate__animated animate__zoomIn');
-                },5000); 
             }
-
-           
 
         }
     };
