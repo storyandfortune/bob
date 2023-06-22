@@ -1,5 +1,8 @@
 
 
+*{
+    box-sizing: border-box;
+}
 
 .pop-up-btn{
    display:none;
@@ -29,6 +32,7 @@
 }
 
 .pop-up-container{
+    font-family: "AvenirNextLTPro-Medium";
     position:fixed;
     display:none;
     top:0;
@@ -84,7 +88,6 @@
     height:auto;
 }
 
-
 .pop-up-container .form{
     width:50%;
     display:flex;
@@ -119,21 +122,56 @@
     text-transform: uppercase;
     color:white;
     background-color:#e62544;
+    transition: all .25s ease;
 }
 
-.pop-up-container .input .errormsg{
+.pop-up-container .submit_btn:hover{
+
+}
+
+
+/* ------------------------------- sending / sent */
+.pop-up-container .form .errormsg{
     display:none;
     color:#e62544;
 }
 
-.pop-up-container .input.error .errormsg{
+.pop-up-container .form.error .errormsg{
     display:block;
 }
 
-.pop-up-container .input.error input{
+.pop-up-container .form.error input{
     color:#e62544;
     border: 1px solid #e62544;
 }
+
+.pop-up-container .form.sending .input,
+.pop-up-container .form.sent .input{
+     display:none;
+}
+
+.pop-up-container  .sent-msg,
+.pop-up-container  .sending-msg{
+    display:none;
+}
+
+.pop-up-container .form.sent .sent-msg,
+.pop-up-container .form.sending .sending-msg{
+    display:block;
+}
+
+.pop-up-container .msg{
+    font-family: 'Harvard';
+    font-size:5rem;
+    line-height:5.5rem;
+    color:#e62544;
+}
+
+
+/* ------------------------------------------ */
+
+
+
 
 .pop-up-container input, 
 .submit_btn{
@@ -148,16 +186,6 @@
     margin-top:1rem;
     font-size:13px;
     line-height: 15px;
-}
-
-.pop-up-container .sending{
-    text-align: center;
-    text-transform: uppercase;
-}
-
-.pop-up-container  .subscribed,
-.pop-up-container  .sending{
-    display:none;
 }
 
 

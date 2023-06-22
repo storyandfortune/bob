@@ -22,12 +22,13 @@ document.addEventListener('DOMContentLoaded',  () => {
             $('.form').removeClass('sending').addClass('sent');
         },
         addEmail(){
-        
-            let valid = this.validateEmail(this.email.address)
+
+            let email = $('#email').val();
+            let valid = this.validateEmail(email);
         
             if(valid){
         
-                $('.form').addClass('sending');
+                $('.pop-up-container .form').addClass('sending');
         
                 let dataObj = {
                     'fname':$('#firstName').val(),
@@ -43,24 +44,21 @@ document.addEventListener('DOMContentLoaded',  () => {
                 }).done( (response)  => {
 
                     console.log(response)
-                    $('.form').removeClass('sending').addClass('sent');
+                    $('.pop-up-container .form').removeClass('sending').addClass('sent');
                     $('pop-up-btn').removeClass('on');
 
                 }).fail((error) => {
 
                     console.log(error)
-                    $('.form').removeClass('sending').addClass('opps');
+                    $('.pop-up-container .form').removeClass('sending').addClass('opps');
 
                 });
         
             }
             else{
-                $('.pop-up-container .input').addClass('error');
+                $('.pop-up-container .form').addClass('error');
             }
         
-        },
-        onKeyDown(){
-            $('.pop-up-container .input').removeClass('error');
         },
         getCookie(){
           let c = window.localStorage.getItem('bobsPopUp')
@@ -80,6 +78,22 @@ document.addEventListener('DOMContentLoaded',  () => {
         refreshCookie(){
             this.deleteCookie()
             this.setCookie()
+        },
+        landing(){
+            console.log('landing');
+            $('.pop-up-btn').remove();
+            $('.pop-up-container .close').remove();
+            $('.pop-up-container').addClass('show');
+        },
+        popUp(){
+            console.log('pop up');
+            if(this.getCookie()){
+                this.refreshCookie();
+            }
+            else{
+                //this.setCookie();
+                $('.pop-up-btn').addClass('on');
+            }
         },
         bind(){
 
@@ -108,26 +122,30 @@ document.addEventListener('DOMContentLoaded',  () => {
             });
 
             // key down ------
-            $(".pop-up-container inut").on('keydown',  (e) => {
-                this.onKeyDown();
+            $(".pop-up-container input").on('keydown',  (e) => {
+                $('.pop-up-container .form').removeClass('error');
              });
       
         }, 
         init(){
-
             //this.deleteCookie();
 
-            console.log("cookie: " + this.getCookie());
+            // set local endpoint
+            let host = window.location.hostname.indexOf('bobs');
+            if(host < 0){
+                this.endPoint = "http://dev.api/bobs/social/";
+            }
+          
 
-            if(this.getCookie()){
-                this.refreshCookie();
+            let path = window.location.pathname.indexOf('social');
+            this.bind();
+
+            if(path >= 0){
+                this.landing();
             }
             else{
-                //this.setCookie();
-                $('.pop-up-btn').addClass('on');
-                this.bind();
+                this.popUp();
             }
-
         }
     };
 
