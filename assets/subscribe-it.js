@@ -2158,7 +2158,7 @@ function getRandomSubscribeAPIPath() {
                 "empty_email_phone_validation_message": "Please provide email or phone number.",
                  "terms_and_conditions_text": "I accept the terms and conditions"
       },
-        "form_display_type": "INLINE",
+        "form_display_type": "POPUP",
         "madeby_link_visible": true,
         "hide_for_product_tag": "notify-it-hidden",
         "hide_for_collections": "",
@@ -2779,10 +2779,10 @@ if(SI.Config.isInlineFormEnabled) {
     }
 }
 
-      if (typeof SI.popup != 'undefined') {
+      if (SI.urlIsProductPage() === true) {
   SIPopover.ready.then(function() {
     if (SI.popup.variants.length < 1 || !SI.Config.button.widget_button_enabled) {
-        return;
+      return;
     }
 
     var KT_TOTAL = 0;
@@ -3168,40 +3168,26 @@ if(SI.Config.isInlineFormEnabled) {
 
     }
 
-    var countdownTimer = $('<div class="countdown-KT-full-width hide-KT"id="countdownultimate-KT"><div class="countdown-KT"><div class="message-KT">Product Becoming Available in</div><br style="height: 0px;"><div class="countdown-section-KT day"><div class="digit-KT days0"><div class="card-KT"><div class="card-text-KT"></div></div><div class="card-back-KT"><div class="card-back-text-KT"></div></div><div class="card-bottom-KT"><div class="card-bottom-text-KT"></div></div><div class="card-bottom-back-KT"><div class="card-bottom-back-text-KT"></div></div></div><div class="digit-KT days1"><div class="card-KT"><div class="card-text-KT"></div></div><div class="card-back-KT"><div class="card-back-text-KT"></div></div><div class="card-bottom-KT"><div class="card-bottom-text-KT"></div></div><div class="card-bottom-back-KT"><div class="card-bottom-back-text-KT"></div></div></div><div class="title-KT">DAYS</div></div><div class="separator-KT sday">:</div><div class="countdown-section-KT hour"><div class="digit-KT hrs0"><div class="card-KT"><div class="card-text-KT"></div></div><div class="card-back-KT"><div class="card-back-text-KT"></div></div><div class="card-bottom-KT"><div class="card-bottom-text-KT"></div></div><div class="card-bottom-back-KT"><div class="card-bottom-back-text-KT"></div></div></div><div class="digit-KT hrs1"><div class="card-KT"><div class="card-text-KT"></div></div><div class="card-back-KT"><div class="card-back-text-KT"></div></div><div class="card-bottom-KT"><div class="card-bottom-text-KT"></div></div><div class="card-bottom-back-KT"><div class="card-bottom-back-text-KT"></div></div></div><div class="title-KT">HRS</div></div><div class="separator-KT shour">:</div><div class="countdown-section-KT minute"><div class="digit-KT mins0"><div class="card-KT"><div class="card-text-KT"></div></div><div class="card-back-KT"><div class="card-back-text-KT"></div></div><div class="card-bottom-KT"><div class="card-bottom-text-KT"></div></div><div class="card-bottom-back-KT"><div class="card-bottom-back-text-KT"></div></div></div><div class="digit-KT mins1"><div class="card-KT"><div class="card-text-KT"></div></div><div class="card-back-KT"><div class="card-back-text-KT"></div></div><div class="card-bottom-KT"><div class="card-bottom-text-KT"></div></div><div class="card-bottom-back-KT"><div class="card-bottom-back-text-KT"></div></div></div><div class="title-KT">MINS</div></div><div class="separator-KT sminute">:</div><div class="countdown-section-KT second"><div class="digit-KT secs0"><div class="card-KT"><div class="card-text-KT"></div></div><div class="card-back-KT"><div class="card-back-text-KT"></div></div><div class="card-bottom-KT"><div class="card-bottom-text-KT"></div></div><div class="card-bottom-back-KT"><div class="card-bottom-back-text-KT"></div></div></div><div class="digit-KT secs1"><div class="card-KT"><div class="card-text-KT"></div></div><div class="card-back-KT"><div class="card-back-text-KT"></div></div><div class="card-bottom-KT"><div class="card-bottom-text-KT"></div></div><div class="card-bottom-back-KT"><div class="card-bottom-back-text-KT"></div></div></div><div class="title-KT">SECS</div></div><div style="text-align: right;display: block !important;width: 100% !important; max-width: 100% !important; height: 100% !important; max-height: 100% !important;"></div></div></div>');
+    var link = $('<button>', {
+      text: SI.Config.button.caption,
+      class: 'button button--alt',
+      href: '#',
+      id: 'SI_trigger',
+      css: { display: 'none', marginTop: '1em' }
+    });
 
-    var link;
-    var root = $('.module.unavailable');
-    if (root[0]) {
-      link = $('<span>', {
-        text: SIConfig.labels.button_label,
-        type: 'button',
-        class: 'action-button',
-        id: 'SI_trigger',
-        css: { display: 'none' }
-      });
-      
-      if(SI.Config.isInlineFormEnabled) {
-       link = appikonBisInlineForm;
-      }
-
-      root.eq(0).append(link);
-        if(SI.Config.button.countdown_timer_enabled && KT_TOTAL >= 0) {
-          root.eq(0).append(countdownTimer);
-        }
-    } else {
-      link = $('<input>', {
-        value: SIConfig.labels.button_label,
-        type: 'button',
-        class: 'action-button',
-        id: 'SI_trigger',
-        css: { display: 'none' }
-      });
-      $('.submit-wrapper').eq(0).append(link);
-        if(SI.Config.button.countdown_timer_enabled && KT_TOTAL >= 0) {
-          $('.submit-wrapper').eq(0).append(countdownTimer);
-        }
+    if(SI.Config.isInlineFormEnabled) {
+        link = appikonBisInlineForm;
     }
+    
+    $('.product-add').append(link);
+
+
+    var countdownTimer = $('<div class="countdown-KT-full-width hide-KT"id="countdownultimate-KT"><div class="countdown-KT"><div class="message-KT">Product Becoming Available in</div><br style="height: 0px;"><div class="countdown-section-KT day"><div class="digit-KT days0"><div class="card-KT"><div class="card-text-KT"></div></div><div class="card-back-KT"><div class="card-back-text-KT"></div></div><div class="card-bottom-KT"><div class="card-bottom-text-KT"></div></div><div class="card-bottom-back-KT"><div class="card-bottom-back-text-KT"></div></div></div><div class="digit-KT days1"><div class="card-KT"><div class="card-text-KT"></div></div><div class="card-back-KT"><div class="card-back-text-KT"></div></div><div class="card-bottom-KT"><div class="card-bottom-text-KT"></div></div><div class="card-bottom-back-KT"><div class="card-bottom-back-text-KT"></div></div></div><div class="title-KT">DAYS</div></div><div class="separator-KT sday">:</div><div class="countdown-section-KT hour"><div class="digit-KT hrs0"><div class="card-KT"><div class="card-text-KT"></div></div><div class="card-back-KT"><div class="card-back-text-KT"></div></div><div class="card-bottom-KT"><div class="card-bottom-text-KT"></div></div><div class="card-bottom-back-KT"><div class="card-bottom-back-text-KT"></div></div></div><div class="digit-KT hrs1"><div class="card-KT"><div class="card-text-KT"></div></div><div class="card-back-KT"><div class="card-back-text-KT"></div></div><div class="card-bottom-KT"><div class="card-bottom-text-KT"></div></div><div class="card-bottom-back-KT"><div class="card-bottom-back-text-KT"></div></div></div><div class="title-KT">HRS</div></div><div class="separator-KT shour">:</div><div class="countdown-section-KT minute"><div class="digit-KT mins0"><div class="card-KT"><div class="card-text-KT"></div></div><div class="card-back-KT"><div class="card-back-text-KT"></div></div><div class="card-bottom-KT"><div class="card-bottom-text-KT"></div></div><div class="card-bottom-back-KT"><div class="card-bottom-back-text-KT"></div></div></div><div class="digit-KT mins1"><div class="card-KT"><div class="card-text-KT"></div></div><div class="card-back-KT"><div class="card-back-text-KT"></div></div><div class="card-bottom-KT"><div class="card-bottom-text-KT"></div></div><div class="card-bottom-back-KT"><div class="card-bottom-back-text-KT"></div></div></div><div class="title-KT">MINS</div></div><div class="separator-KT sminute">:</div><div class="countdown-section-KT second"><div class="digit-KT secs0"><div class="card-KT"><div class="card-text-KT"></div></div><div class="card-back-KT"><div class="card-back-text-KT"></div></div><div class="card-bottom-KT"><div class="card-bottom-text-KT"></div></div><div class="card-bottom-back-KT"><div class="card-bottom-back-text-KT"></div></div></div><div class="digit-KT secs1"><div class="card-KT"><div class="card-text-KT"></div></div><div class="card-back-KT"><div class="card-back-text-KT"></div></div><div class="card-bottom-KT"><div class="card-bottom-text-KT"></div></div><div class="card-bottom-back-KT"><div class="card-bottom-back-text-KT"></div></div></div><div class="title-KT">SECS</div></div><div style="text-align: right;display: block !important;width: 100% !important; max-width: 100% !important; height: 100% !important; max-height: 100% !important;"></div></div></div>');
+    if(SI.Config.button.countdown_timer_enabled && KT_TOTAL >= 0) {
+        $('.product-add').append(countdownTimer);
+    }
+    
 
     var variant_id;
     var reload = function() {
@@ -3233,22 +3219,11 @@ if(SI.Config.isInlineFormEnabled) {
     };
 
     link.click(function() {
-      SIPopover.form.selectVariant(variant_id);
+      SIPopover.form.selectVariant(variant_id)
     });
 
     setTimeout(reload, 13);
-
-    // sold out products don't have that element
-    var elm = $('.single-option-selector')
-    if (elm[0]) {
-      elm.on('change', reload);
-
-      // prepend event since this theme swallows it
-      event = $._data(elm[0], 'events').change.pop()
-      $._data(elm[0], 'events').change.unshift(event);
-    } else {
-      link.show();
-    }
+    $(document).on('change', reload);
   });
 }
 
