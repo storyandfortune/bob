@@ -2780,7 +2780,7 @@ if(SI.Config.isInlineFormEnabled) {
 }
 
       if (SI.urlIsProductPage() === true) {
-  SIPopover.ready.then(function() {
+  SI.popup.ready.then(function() {
     if (SI.popup.variants.length < 1 || !SI.Config.button.widget_button_enabled) {
       return;
     }
@@ -3168,26 +3168,23 @@ if(SI.Config.isInlineFormEnabled) {
 
     }
 
-    var link = $('<button>', {
+    var link = $('<a>', {
       text: SI.Config.button.caption,
-      class: 'button button--alt',
+      class: 'button',
       href: '#',
       id: 'SI_trigger',
-      css: { display: 'none', marginTop: '1em' }
+      css: { display: 'none' }
     });
-
+    
     if(SI.Config.isInlineFormEnabled) {
-        link = appikonBisInlineForm;
+       link = appikonBisInlineForm;
     }
-    
-    $('.product-add').append(link);
 
-
+    $('form[action="/cart/add"] .add-to-cart').eq(0).append(link);
     var countdownTimer = $('<div class="countdown-KT-full-width hide-KT"id="countdownultimate-KT"><div class="countdown-KT"><div class="message-KT">Product Becoming Available in</div><br style="height: 0px;"><div class="countdown-section-KT day"><div class="digit-KT days0"><div class="card-KT"><div class="card-text-KT"></div></div><div class="card-back-KT"><div class="card-back-text-KT"></div></div><div class="card-bottom-KT"><div class="card-bottom-text-KT"></div></div><div class="card-bottom-back-KT"><div class="card-bottom-back-text-KT"></div></div></div><div class="digit-KT days1"><div class="card-KT"><div class="card-text-KT"></div></div><div class="card-back-KT"><div class="card-back-text-KT"></div></div><div class="card-bottom-KT"><div class="card-bottom-text-KT"></div></div><div class="card-bottom-back-KT"><div class="card-bottom-back-text-KT"></div></div></div><div class="title-KT">DAYS</div></div><div class="separator-KT sday">:</div><div class="countdown-section-KT hour"><div class="digit-KT hrs0"><div class="card-KT"><div class="card-text-KT"></div></div><div class="card-back-KT"><div class="card-back-text-KT"></div></div><div class="card-bottom-KT"><div class="card-bottom-text-KT"></div></div><div class="card-bottom-back-KT"><div class="card-bottom-back-text-KT"></div></div></div><div class="digit-KT hrs1"><div class="card-KT"><div class="card-text-KT"></div></div><div class="card-back-KT"><div class="card-back-text-KT"></div></div><div class="card-bottom-KT"><div class="card-bottom-text-KT"></div></div><div class="card-bottom-back-KT"><div class="card-bottom-back-text-KT"></div></div></div><div class="title-KT">HRS</div></div><div class="separator-KT shour">:</div><div class="countdown-section-KT minute"><div class="digit-KT mins0"><div class="card-KT"><div class="card-text-KT"></div></div><div class="card-back-KT"><div class="card-back-text-KT"></div></div><div class="card-bottom-KT"><div class="card-bottom-text-KT"></div></div><div class="card-bottom-back-KT"><div class="card-bottom-back-text-KT"></div></div></div><div class="digit-KT mins1"><div class="card-KT"><div class="card-text-KT"></div></div><div class="card-back-KT"><div class="card-back-text-KT"></div></div><div class="card-bottom-KT"><div class="card-bottom-text-KT"></div></div><div class="card-bottom-back-KT"><div class="card-bottom-back-text-KT"></div></div></div><div class="title-KT">MINS</div></div><div class="separator-KT sminute">:</div><div class="countdown-section-KT second"><div class="digit-KT secs0"><div class="card-KT"><div class="card-text-KT"></div></div><div class="card-back-KT"><div class="card-back-text-KT"></div></div><div class="card-bottom-KT"><div class="card-bottom-text-KT"></div></div><div class="card-bottom-back-KT"><div class="card-bottom-back-text-KT"></div></div></div><div class="digit-KT secs1"><div class="card-KT"><div class="card-text-KT"></div></div><div class="card-back-KT"><div class="card-back-text-KT"></div></div><div class="card-bottom-KT"><div class="card-bottom-text-KT"></div></div><div class="card-bottom-back-KT"><div class="card-bottom-back-text-KT"></div></div></div><div class="title-KT">SECS</div></div><div style="text-align: right;display: block !important;width: 100% !important; max-width: 100% !important; height: 100% !important; max-height: 100% !important;"></div></div></div>');
-    if(SI.Config.button.countdown_timer_enabled && KT_TOTAL >= 0) {
-        $('.product-add').append(countdownTimer);
-    }
-    
+        if(SI.Config.button.countdown_timer_enabled && KT_TOTAL >= 0) {
+            $('form[action="/cart/add"] .add-to-cart').eq(0).append(countdownTimer);
+        }
 
     var variant_id;
     var reload = function() {
