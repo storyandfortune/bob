@@ -1,0 +1,19 @@
+{
+    "layout":"blank",  
+    "sections": {
+        "main": {
+          "type": "blank-page"
+        },
+        "form": {
+          "type": "landing-ar",
+          "settings": {
+            "heading": ""
+          }
+        }
+      },
+      "order": [
+        "main",
+        "form"
+      ]
+    }
+    
