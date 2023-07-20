@@ -1365,7 +1365,19 @@ h1.product__title {
 
 /* ---------- Appikon Pre-Order Button ---------------------*/
 
+.si-reset.si-rotate-270{
+    -webkit-transform: rotate(0deg) !important;
+    -moz-transform: rotate(0deg)  !important;
+    -ms-transform: rotate(0deg)  !important;
+    -o-transform: rotate(0deg)  !important;
 
+    transform: rotate(0deg)  !important;
+}
+
+.si-reset.si-edge-right {
+    margin-top: 75px !important;
+    right: 300px !important;
+}
 
 /* ------- mobile styles ------------- */
 
