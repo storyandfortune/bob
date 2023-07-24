@@ -193,6 +193,18 @@ $(document).ready(function () {
             post = true;
         }
 
+        let isInstagram = $(".bob-page-content").hasClass('instagram');
+        console.log(isInstagram);
+
+        if(isInstagram){
+            let endpoint = "https://api.storyandfortune.com/bobs/forms/instagram_winner";
+        }
+        else{
+            let endpoint = "https://api.storyandfortune.com/bobs/";
+        }
+
+        console.log(endpoint);
+
 
 
         if(post){
@@ -200,16 +212,6 @@ $(document).ready(function () {
             $(".conformation h3").html("Connecting...");
             $(".conformation p").html("One moment please.");
 
-            let isInstagram = $(".bob-page-content").hasClass('instagram');
-
-            if(isInstagram){
-                let endpoint = "https://api.storyandfortune.com/bobs/forms/instagram_winner";
-            }
-            else{
-                let endpoint = "https://api.storyandfortune.com/bobs/";
-            }
-
-            console.log(endpoint);
 
 
 
