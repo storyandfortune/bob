@@ -215,7 +215,7 @@ $(document).ready(function () {
 
             $.ajax({
                 method: "POST",
-                url: "https://api.storyandfortune.com/bobs/",
+                url: endpoint,
                 data: { "data": d }
             }).done(function (msg) {
 
