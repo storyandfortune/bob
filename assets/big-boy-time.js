@@ -193,14 +193,12 @@ $(document).ready(function () {
             post = true;
         }
 
+        let endpoint = "https://api.storyandfortune.com/bobs/";
         let isInstagram = $(".bob-page-content").hasClass('instagram');
         console.log(isInstagram);
 
         if(isInstagram){
-            let endpoint = "https://api.storyandfortune.com/bobs/forms/instagram_winner";
-        }
-        else{
-            let endpoint = "https://api.storyandfortune.com/bobs/";
+            endpoint = "https://api.storyandfortune.com/bobs/forms/instagram_winner";
         }
 
         console.log(endpoint);
