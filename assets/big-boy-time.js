@@ -198,12 +198,10 @@ $(document).ready(function () {
         console.log(isInstagram);
 
         if(isInstagram){
-            endpoint = "https://api.storyandfortune.com/bobs/forms/instagram_winner";
+            endpoint = "https://api.storyandfortune.com/bobs/forms/instagram_winner/";
         }
 
         console.log(endpoint);
-
-
 
         if(post){
             $("form").addClass("complete");
