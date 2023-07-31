@@ -1,6 +1,6 @@
 $(document).ready(function () {
     
-    console.log("microphone check 1");
+  
     //todo rewrite as objects.
 
     // shop slug hack -------------------------------------------------
@@ -133,9 +133,18 @@ $(document).ready(function () {
     });
 
 
-
-   
     /* forms ------------------------------------ */
+
+    var endpointURL;
+
+    if(window.location.hostname === "127.0.0.1"){
+        endpointURL = 'http://dev.api/bobs/'
+    }
+    else{
+        endpointURL = 'http://api.storyandfortune.com/bobs/'
+    }
+
+    var endpoint = endpointURL + "forms/";
 
     var formsData = function () {
 
@@ -157,7 +166,7 @@ $(document).ready(function () {
         };
 
         var post = false;
-        var check = 0;
+        var check = 0; 
 
         $.each($('.data'), function (key, value) {
             var v = { "name": "", "value": "" };
@@ -193,22 +202,10 @@ $(document).ready(function () {
             post = true;
         }
 
-        let endpoint = "https://api.storyandfortune.com/bobs/";
-        let isInstagram = $(".bob-page-content").hasClass('instagram');
-        console.log(isInstagram);
-
-        if(isInstagram){
-            endpoint = "https://api.storyandfortune.com/bobs/forms/instagram_winner/";
-        }
-
-        console.log(endpoint);
-
         if(post){
             $("form").addClass("complete");
             $(".conformation h3").html("Connecting...");
             $(".conformation p").html("One moment please.");
-
-
 
 
             $.ajax({
@@ -240,7 +237,8 @@ $(document).ready(function () {
                     $(".conformation p").html("Something went wrong.");
                   }
 
-            }).fail(function() {
+            }).fail(function(error) {
+                console.log(error);
                 $(".conformation h3").html("Opps !");
                 $(".conformation p").html("Something went wrong.");
             });
@@ -453,8 +451,6 @@ $(document).ready(function () {
 
     //in-line products --------------------------------------------- */
 
-
-  
     var productMarkup = function(id, title, image, handle){
 
         console.log('insert product');
