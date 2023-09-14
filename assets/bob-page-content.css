@@ -7,7 +7,9 @@
 
 :root {
     --bob-red:#e62544;
-    --bob-gold:#e7c391;
+    --bob-gold:#8e6f44;
+    --bob-gold-old:#b79668;
+    --bob-gold-ada:#8e6f44;
     --bob-blue:#1e80ff;
     --scale: 1;
     --bold: "AvenirNextLTPro-Bold", sans;
@@ -21,7 +23,7 @@ h1.collection-hero__title,
     font-family: "TradeGothicLTStd-Cn18";
     font-size: 1.8rem;
     text-transform: uppercase;
-    color: #e62544;
+    color: var(--bob-red);
     width: 100%;
     text-align: center;
     margin: 0;
@@ -79,7 +81,7 @@ h1.collection-title{
     font-size: 6.5rem;
     letter-spacing: 0rem;
     line-height: 8.5rem;
-    color: #e62544;
+    color: var(--bob-red);
 }
 
 .bob-page-content section .col {
@@ -149,12 +151,12 @@ h1.collection-title{
 
 .bob-page-content section .col a {
     text-decoration: none;
-    color: #b79668;
+    color: var(--bob-gold-ada);
 }
 
 .bob-page-content section .col a:hover {
     text-decoration: underline;
-    color: #e62544;
+    color: var(--bob-red);
 }
 
 .bob-page-content img {
@@ -312,7 +314,7 @@ h1.collection-title{
     font-size: 6rem;
     line-height: 3rem;
     font-size: 6.5rem;
-    color:#e62544;
+    color:var(--bob-red);
     margin: 0 0 3rem 0;
 }
 
@@ -378,7 +380,7 @@ h1.collection-title{
 
 .bob-page-content.hof.index ul li a{
     display:block;
-    background-color: #e62544;
+    background-color: var(--bob-red);
     color:#ffffff;
     text-transform: uppercase;
     font-size: 2rem;
@@ -858,7 +860,7 @@ h1.collection-title{
 }
 
 .bob-page-content.menu .disclaimer p:nth-child(2) {
-    color: #e62544;
+    color: var(--bob-red);
 }
 
 .bob-page-content.menu .disclaimer ul li {
@@ -873,7 +875,7 @@ h1.collection-title{
 }
 
 .bob-page-content.menu .disclaimer ul li:nth-child(2) sup {
-    color: #e62544;
+    color: var(--bob-red);
     font-size: 2.8rem;
     padding: 0;
     margin: 0;
@@ -925,7 +927,7 @@ h1.collection-title{
 }
 
 .bob-page-content.events h4 {
-    color: #e62544;
+    color: var(--bob-red);
 }
 
 .bob-page-content.events h4 sup {
@@ -953,13 +955,13 @@ h1.collection-title{
 .bob-page-content .big-image p a {
     text-decoration: none;
     padding: 2rem;
-    background-color: #e62544;
+    background-color: var(--bob-red);
     color: #ffffff;
     text-transform: uppercase;
 }
 
 .bob-page-content section .col a.blog-post {
-    color: #e62544;
+    color: var(--bob-red);
     font-family: "AvenirNextLTPro-Bold";
 }
 
@@ -1015,7 +1017,7 @@ h1.collection-title{
     text-transform: uppercase;
     font-size: 3rem;
     margin-bottom:5rem;
-    color:#e62544;
+    color:var(--bob-red);
 }
 
 
@@ -1056,22 +1058,22 @@ h1.collection-title{
 }
 
 .bob-page-content.events.form section .data.inc{
-    border: 3px solid #e62544;
+    border: 3px solid var(--bob-red);
  }
  .bob-page-content.events.form section .data.inc::-webkit-input-placeholder{
-     color:#e62544;
+     color:var(--bob-red);
  }
  .bob-page-content.events.form section .data.inc::-moz-placeholder{
-     color:#e62544;
+     color:var(--bob-red);
  }
  .bob-page-content.events.form section .data.inc:-ms-input-placeholder{
-     color:#e62544;
+     color:var(--bob-red);
  }
  .bob-page-content.events.form section .data.inc::-ms-input-placeholder{
-     color:#e62544;
+     color:var(--bob-red);
  }
  .bob-page-content.events.form section .data.inc::placeholder{
-     color:#e62544;
+     color:var(--bob-red);
  }
 
 .bob-page-content.events.form section textarea {
@@ -1101,7 +1103,7 @@ h1.collection-title{
 }
 
 .bob-page-content.events.form section button:hover {
-    background-color: #e62544;
+    background-color: var(--bob-red);
 }
 
 .bob-page-content.events.form section .two input {
@@ -1189,7 +1191,7 @@ article.article-template {
 .vendor {
     font-family: "AvenirNextLTPro-Bold";
     font-size: 2rem;
-    color: #e62544;
+    color: var(--bob-red);
 }
 
 h1.product__title {
@@ -1218,7 +1220,7 @@ h1.product__title {
 .bob-page-content.privacy section h3,
 .bob-page-content.faq section h3,
 .shopify-policy__container .shopify-policy__title h1{
-    color:#e62544;
+    color:var(--bob-red);
     margin:5rem 0 0 0;
     font-family: "RoadRadio-Black";
     text-transform: uppercase;
