@@ -19,7 +19,7 @@
       </div>
       <div id="cart-notification-product" class="cart-notification-product"></div>
       <div class="cart-notification__links">
-        <a href="{{ routes.cart_url }}" id="cart-notification-button" class="button button--secondary button--full-width"></a>
+        <a href="{{ routes.cart_url }}" id="cart-notification-button" class="button button--secondary button--full-width"><span class="empty-element">Cart Notification</span></a>
         <form action="{{ routes.cart_url }}" method="post" id="cart">
           <label class="hidden-label" for="checkout">Checkout Button</label> 
           <button class="button button--primary button--full-width" name="checkout" form="cart">{{ 'sections.cart.checkout' | t }}</button>

@@ -12,7 +12,7 @@
 }
 
 .map-overlay a {
-  color: #e62544;
+  color: var(--bob-btn-red-ada);
   font-weight: 600;
   font-size: 1.4rem;
   text-decoration: none;
@@ -230,7 +230,7 @@
 }
 
 .footer-nav li a:hover {
-  color: #e62544;
+  color: var(--bob-red);
   text-decoration: none;
 }
 

@@ -946,7 +946,8 @@ h1.collection-title{
 }
 
 .bob-page-content section .col a.blog-post {
-    color: var(--bob-red);
+    color: var(--bob-btn-red-ada);
+    font-size:2.25rem;
     font-family: "AvenirNextLTPro-Bold";
 }
 

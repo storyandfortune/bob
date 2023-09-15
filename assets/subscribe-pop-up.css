@@ -10,7 +10,7 @@
    bottom:15rem;
    right:5rem;
    z-index:100;
-   background-color: #e62544;
+   background-color: var(--bob-red);
    border:1px solid #fff;
    color:#FFF;
    padding:1rem 2rem;
@@ -104,7 +104,7 @@
     font-family: 'Harvard';
     font-size:5rem;
     line-height:5.5rem;
-    color:#e62544;
+    color:var(--bob-red);
     padding:0;
     margin:0;
 }
@@ -121,7 +121,7 @@
     text-align: center;
     text-transform: uppercase;
     color:white;
-    background-color:#e62544;
+    background-color:var(--bob-red);
     transition: all .25s ease;
     cursor:pointer;
     border:none;
@@ -135,7 +135,7 @@
 /* ------------------------------- sending / sent */
 .pop-up-container .form .errormsg{
     display:none;
-    color:#e62544;
+    color:var(--bob-red);
 }
 
 .pop-up-container .form.error .errormsg{
@@ -143,8 +143,8 @@
 }
 
 .pop-up-container .form.error input{
-    color:#e62544;
-    border: 1px solid #e62544;
+    color:var(--bob-red);
+    border: 1px solid var(--bob-red);
 }
 
 .pop-up-container .form.sending .input,
@@ -166,7 +166,7 @@
     font-family: 'Harvard';
     font-size:5rem;
     line-height:5.5rem;
-    color:#e62544;
+    color:var(--bob-red);
 }
 
 

@@ -1033,7 +1033,8 @@ header {
         margin-top: 2rem;
         font-family: "AvenirNextLTPro-Bold";
         text-transform: capitalize;
-        color: #e62544;
+        font-size: 2.25rem;
+        color: var(--bob-btn-red-ada);
     }
 
     /* events -------------------------------------------------------------------- */
@@ -1066,7 +1067,7 @@ header {
         margin-top: 2rem;
         font-family: "AvenirNextLTPro-Bold";
         text-transform: capitalize;
-        color: #e62544;
+        color: var(--bob-red);
     }
 
     /* photos */
@@ -1100,10 +1101,11 @@ header {
 
     .list-menu li.nav-shop .header__submenu li.nav-apparel li:last-child a,
     .list-menu li.nav-shop .header__submenu li.nav-merchandise li:last-child a {
-        margin-top: 1rem;
-        color: #e62544;
+        margin-top: 2rem;
         font-family: "AvenirNextLTPro-Bold";
-
+        text-transform: capitalize;
+        font-size: 2.5rem;
+        color: var(--bob-btn-red-ada);
     }
 
     .list-menu li.nav-shop  .header__submenu li.nav-seasoning-salt, 
