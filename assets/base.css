@@ -3,6 +3,7 @@ button, .bttn, .btn {
   border-radius: 0 !important;
 }
 
+
 :root,
 .color-background-1 {
   --color-foreground: var(--color-base-text);
@@ -153,6 +154,10 @@ button, .bttn, .btn {
 }
 
 /* base */
+
+.empty-link{
+  display:none;
+}
 
 .no-js:not(html) {
   display: none !important;
