@@ -4,7 +4,6 @@
   <head>
     {% if template == '404' %}<meta http-equiv="refresh" content="0;URL={{ shop.url }}" />{% endif %}
 
-    {% render 'ascii-art' %}
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -321,5 +320,9 @@
 {% render 'amai_stp-product-snippet' %}
 <!-- /amai_stp-added -->
 
-{% include 'subscribe-it-helper' %}{% include 'appikon-pre-order-helper' %}{% include 'appikon-pre-order-cart-items-liquid-helper' %}{% include 'appikon-pre-order-product-liquid-helper' %}</body>
+{% include 'subscribe-it-helper' %}
+
+
+
+</body>
 </html>
