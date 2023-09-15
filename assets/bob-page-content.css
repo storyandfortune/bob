@@ -1,20 +1,3 @@
-/*
-* Prefixed by https://autoprefixer.github.io
-* PostCSS: v8.4.14,
-* Autoprefixer: v10.4.7
-* Browsers: last 4 version
-*/
-
-:root {
-    --bob-red:#e62544;
-    --bob-btn-red-ada:#ad142d;
-    --bob-gold:#8e6f44;
-    --bob-gold-old:#b79668; /* original gold */
-    --bob-gold-ada:#8e6f44;
-    --bob-blue:#1e80ff;
-    --scale: 1;
-    --bold: "AvenirNextLTPro-Bold", sans;
-  }
 
 /* ------ Bobs secondary page styles ------------ */
 
@@ -411,6 +394,7 @@ h1.collection-title{
     height: calc((100vh - 117px) / 2);
     margin: 0;
     padding: 0;
+    background-color: #000;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
