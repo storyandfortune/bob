@@ -1067,7 +1067,8 @@ header {
         margin-top: 2rem;
         font-family: "AvenirNextLTPro-Bold";
         text-transform: capitalize;
-        color: var(--bob-red);
+        font-size: 2.25rem;
+        color: var(--bob-btn-red-ada);
     }
 
     /* photos */
