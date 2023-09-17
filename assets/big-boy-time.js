@@ -622,7 +622,15 @@ $(document).ready(function () {
         }, 500);
     
     }
-    
+
+    //HACK!!!! empty div
+    setTimeout(() => {
+       // $('body > div:first').remove();
+       let emptyDiv = $('body > div:first');
+       console.log(emptyDiv);
+       $('body > div:first').remove();
+      }, 5500);
+
 
     /// wish list ----------------------------------------------------------
     $(".header .header__icons .header__icon--heart").on('touchstart click', function () {
