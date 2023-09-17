@@ -455,7 +455,7 @@ $(document).ready(function () {
 
         let html = `<div class="appened-product" role="img" aria-label="`+ title +`"> 
                         <a href="`+ document.location.origin +`/products/`+ handle + `" />
-                            <div class="appened-image" style="background-image: url(` + image  + `) "></div>
+                            <div class="appened-image" style="background-image: url(` + image  + `) " role="img"></div>
                             <div class="title">` + title + `</div> 
                         </a>
                     </div>`;
