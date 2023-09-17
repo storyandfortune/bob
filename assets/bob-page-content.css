@@ -65,7 +65,7 @@ h1.collection-title{
     font-size: 6.5rem;
     letter-spacing: 0rem;
     line-height: 8.5rem;
-    color: var(--bob-red);
+    color: var(--bob-btn-red-ada);
 }
 
 .bob-page-content section .col {
