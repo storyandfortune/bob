@@ -296,7 +296,7 @@
       <!-- Logo - SVG Hardcoded -->
       <h1 class="header__heading">
         <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
-          {{ 'logo.svg' | asset_url | img_tag: "Bob's Big Boy Logo and Home Button" }}
+          {{ 'logo.svg' | asset_url | img_tag: "Bob's Big Boy Logo and Home Button" }} <span class="vissualy-hidden">Bob's Big Boy Logo and Home Button</span>
         </a>
       </h1>
       <!-- end logo -->
@@ -362,8 +362,8 @@
     <!-- right icons -->
     <div class="header__icons">
 
-      <div class="header__link header__icon header__icon--heart link">
-        {% render 'icon-heart' %} 
+      <div class="header__link header__icon header__icon--heart link" role="button">
+        {% render 'icon-heart' %} <span class="vissualy-hidden">Whishlist Button</span>
       </div>
 
       <details-modal class="header__link header__search">
