@@ -308,9 +308,9 @@
           {%- for link in section.settings.menu.links -%}
             <li class="nav-{{link.title | handleize}}" data-link="{{link.url}}" >
               {%- if link.links != blank -%}
-                <details-disclosure>
+                <details-disclosure aria-expanded="true">
                   <details>
-                    <summary class="header__menu-item list-menu__item link focus-inset">
+                    <summary class="header__menu-item list-menu__item link focus-inset"tabindex="0" >
                       <span {%- if link.child_active %} class="header__active-menu-item"{% endif %}>{{ link.title | escape }}</span>
                       {% render 'icon-caret' %}
                     </summary>
@@ -320,13 +320,13 @@
                         <li class="nav-{{ childlink.title | handleize | replace: '™', ''}}">
                           {%- if childlink.links == blank -%}
                             <a href="{{ childlink.url }}" class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if childlink.current %} list-menu__item--active{% endif %}"{% if childlink.current %} aria-current="page"{% endif %}>
-                              <div class="nav-image"></div>
+                              <div class="nav-image" role="img" aria-label="{{ childlink.title | escape }}"></div>
                               <div class="nav-title">{{ childlink.title | escape }}</div>
                             </a>
                           {%- else -%}
                           <!--  <details class="open"> -->
                           <div>
-                              <summary class="header__menu-item link link--text list-menu__item">
+                              <summary class="header__menu-item link link--text list-menu__item" tabindex="0">
                                <a href="{{childlink.url}}">{{ childlink.title | escape }}</a>
                                 {% render 'icon-caret' %}
                               </summary>
