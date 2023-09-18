@@ -230,7 +230,8 @@
 }
 
 .footer-nav li a:hover {
-  color: var(--red text-decoration: none;
+  color: var(--bob-red);
+  text-decoration: none;
 }
 
 .copyright {
