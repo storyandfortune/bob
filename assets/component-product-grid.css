@@ -12,6 +12,12 @@
   margin-bottom: -2rem;
 }
 
+.product-margin{
+  padding-top:5rem;
+  padding-bottom:10rem;
+  border-bottom: 1px solid var(--bob-gold);
+}
+
 @media screen and (min-width: 750px) {
   .product-grid .grid__item {
     padding-bottom: 5rem;
