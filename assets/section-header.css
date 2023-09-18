@@ -459,7 +459,7 @@ details.menu-drawer-container[open] .close-icon{
 }
 
 .header-wrapper--border-bottom {
-    border-bottom-color: #b79668;
+    border-bottom-color: var(--bob-gold);
     border-bottom-width: 5px;
     border-bottom-style: solid;
 }
@@ -767,8 +767,8 @@ summary.header__menu-item {
 }
 
 summary.header__menu-item:hover {
-    color: #b79668;
-    border-bottom: 5px solid #b79668;
+    color: var(--bob-gold);
+    border-bottom: 5px solid var(--bob-gold);
 }
 
 .header__menu-item span {
@@ -1034,7 +1034,7 @@ header {
         font-family: "AvenirNextLTPro-Bold";
         text-transform: capitalize;
         font-size: 2.25rem;
-        color: var(--bob-btn-red-ada);
+        color: var(--bob-btn-red);
     }
 
     /* events -------------------------------------------------------------------- */
@@ -1068,7 +1068,7 @@ header {
         font-family: "AvenirNextLTPro-Bold";
         text-transform: capitalize;
         font-size: 2.25rem;
-        color: var(--bob-btn-red-ada);
+        color: var(--bob-red);
     }
 
     /* photos */
@@ -1106,7 +1106,7 @@ header {
         font-family: "AvenirNextLTPro-Bold";
         text-transform: capitalize;
         font-size: 2.5rem;
-        color: var(--bob-btn-red-ada);
+        color: var(--bob-btn-red);
     }
 
     .list-menu li.nav-shop  .header__submenu li.nav-seasoning-salt, 

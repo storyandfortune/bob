@@ -553,7 +553,7 @@ h6:empty {
 }
 
 .link--text:hover {
-  color: #b79668;
+  color: var(--bob-gold);
 }
 
 .link-with-icon {
@@ -1145,7 +1145,7 @@ deferred-media {
   text-decoration: none;
   border: 0;
   border-radius: 0;
-  background-color:var(--bob-btn-red-ada);
+  background-color:var(--bob-red);
   color: rgb(var(--color-button-text));
   min-width: 12rem;
   min-height: 4.5rem;

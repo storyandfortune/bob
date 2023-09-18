@@ -7,7 +7,7 @@
   top: 121px;
   left: 0;
   width: 100vw;
-  border: 1px solid #b79668;
+  border: 1px solid var(--bob-gold);
   background-color: rgb(var(--color-background));
 }
 

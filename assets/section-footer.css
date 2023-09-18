@@ -2,7 +2,7 @@
 
 .map-wrapper {
   position: relative;
-  border-top: 1px solid #b79668;
+  border-top: 1px solid var(--bob-gold);
   overflow: hidden;
 }
 
@@ -12,7 +12,7 @@
 }
 
 .map-overlay a {
-  color: var(--bob-btn-red-ada);
+  color: var(--bob-red);
   font-weight: 600;
   font-size: 1.4rem;
   text-decoration: none;
@@ -40,7 +40,7 @@
 }
 
 .coupon-code a:hover{
-  color: #b79668;
+  color: var(--bob-gold);
   text-decoration: none;
   transition: all .25s ease;
 }
@@ -230,8 +230,7 @@
 }
 
 .footer-nav li a:hover {
-  color: var(--bob-red);
-  text-decoration: none;
+  color: var(--red text-decoration: none;
 }
 
 .copyright {

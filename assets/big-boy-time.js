@@ -625,7 +625,6 @@ $(document).ready(function () {
 
     //HACK!!!! empty div
     setTimeout(() => {
-       // $('body > div:first').remove();
        let emptyDiv = $('body > div:first');
        console.log(emptyDiv);
        $('body > div:first').remove();

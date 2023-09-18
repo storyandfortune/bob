@@ -1,7 +1,7 @@
 
 .product{
   padding-bottom:10rem;
-  border-bottom: 1px solid #b79668;
+  border-bottom: 1px solid var(--bob-gold);
 }
 
 .product-grid .grid__item {
