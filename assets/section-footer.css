@@ -235,7 +235,9 @@
 }
 
 .copyright {
-  display: inline-block;
+  display: block;
+  font-size: 10px;
+  margin-right:5rem;
 }
 
 .back-to-top {
@@ -291,6 +293,9 @@
   }
 
   .footer__content-bottom-wrapper {
+    border:1px solid red;
+    display: block;
+    width:100%;
     text-align: center !important;
   }
 
@@ -362,6 +367,7 @@
 }
 
 .footer__content-bottom {
+  max-width:100vw;
   border-top: solid 0.1rem rgba(var(--color-foreground), 0.08);
   padding-top: 3rem;
   padding-bottom: 3rem;
