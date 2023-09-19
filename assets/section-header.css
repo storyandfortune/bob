@@ -780,7 +780,7 @@ summary.header__menu-item:hover {
 }
 
 .header__active-menu-item {
-    color: #e42948;
+    color: var(--bob-red);
 }
 
 .header__menu-item:hover .header__active-menu-item {
@@ -896,13 +896,13 @@ header {
         margin-top: 1rem;
         width: 100%;
         font-size: 2.2rem;
-        color:#e42948;
+        color:var(--bob-red);
     }
 
     .header__submenu summary.header__menu-item a{
         margin: 0 0 1rem 0;
         font-size: 2.5rem;
-        color:#e42948;
+        color:var(--bob-red);
         text-decoration: none;
         padding:0;
     }
@@ -1059,7 +1059,7 @@ header {
         margin: 2rem 0 1rem 0;
         font-size: 2.5rem;
         text-transform: uppercase;
-        color:#e42948;
+        color:var(--bob-red);
     }
     
 
