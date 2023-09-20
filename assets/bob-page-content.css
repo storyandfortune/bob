@@ -32,7 +32,8 @@ section.shopify-section {
 
 .bob-page-content.history section,
 .bob-page-content.events section,
-.bob-page-content.menu section{
+.bob-page-content.menu section,
+.bob-page-content.accessibility section{
     max-width: 1500px;
     margin: 10rem auto;
 }
@@ -1190,13 +1191,15 @@ h1.product__title {
 /* ----------------------------- footer link styles ----------------------------- */
 .bob-page-content.site-map section,
 .bob-page-content.privacy section,
-.bob-page-content.faq section {
+.bob-page-content.faq section,
+.bob-page-content.accessibility section {
     text-align: left;
 }
 
 .bob-page-content.site-map section,
 .bob-page-content.privacy section,
-.bob-page-content.faq section {
+.bob-page-content.faq section,
+.bob-page-content.accessibility section {
     margin:0 10rem 5rem 10rem;
   
 }
@@ -1204,6 +1207,7 @@ h1.product__title {
 .bob-page-content.site-map h3,
 .bob-page-content.privacy section h3,
 .bob-page-content.faq section h3,
+.bob-page-content.accessibility section h3,
 .shopify-policy__container .shopify-policy__title h1{
     color:var(--bob-red);
     margin:5rem 0 0 0;
