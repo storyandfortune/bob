@@ -65,6 +65,12 @@
 }
 
 
+footer.footer.color-inverse.gradient{
+  border: red 1px solid !important;
+  padding-bottom:5rem;
+}
+
+
 .footer-b-boy {
   position: absolute;
   cursor: pointer;
