@@ -268,6 +268,11 @@ footer.footer.color-inverse.gradient{
 
 @media screen and (max-width: 990px) {
 
+  footer.footer.color-inverse.gradient{
+    padding-bottom:20vh;
+  }
+  
+
   .flex-block-container {
     position: relative;
     flex-flow: column;
@@ -298,7 +303,6 @@ footer.footer.color-inverse.gradient{
   }
 
   .footer__content-bottom-wrapper {
-    border:1px solid red;
     display: block;
     width:100%;
     text-align: center !important;
