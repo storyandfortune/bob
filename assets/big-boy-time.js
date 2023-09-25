@@ -562,7 +562,7 @@ $(document).ready(function () {
                 let rand = Math.random() * json.products.length;
                 rand = Math.floor(rand);
 
-                productMarkup(id, json.products[rand].title, json.products[rand].images[0].src, document.location.origin +`/products/`+ json.products[rand].handle);
+                productMarkup(id, json.products[rand].title, json.products[rand].images[0].src, json.products[rand].handle);
             
            
             });
@@ -607,7 +607,7 @@ $(document).ready(function () {
                     }
 
                     for(let i = 0; i < max; i++){
-                        productMarkup(id, json.products[i].title, json.products[i].images[0].src, document.location.origin +`/products/`+ json.products[i].handle);
+                        productMarkup(id, json.products[i].title, json.products[i].images[0].src, json.products[i].handle);
                     }
                 });
 
