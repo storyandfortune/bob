@@ -888,12 +888,12 @@ summary::-webkit-details-marker {
 /* component-grid */
 .grid {
   display: flex;
-  flex-wrap: wrap;
   margin-bottom: 2rem;
   margin-left: -0.5rem;
   padding: 0;
   list-style: none;
 }
+
 
 @media screen and (min-width: 750px) {
   .grid {
@@ -904,7 +904,6 @@ summary::-webkit-details-marker {
 .grid__item {
   padding-left: 0.5rem;
   padding-bottom: 0.5rem;
-  width: calc(25% - 0.5rem * 3 / 4);
   max-width: 50%;
   flex-grow: 1;
   flex-shrink: 0;
@@ -914,7 +913,7 @@ summary::-webkit-details-marker {
   .grid__item {
     padding-left: 1rem;
     padding-bottom: 1rem;
-    width: calc(25% - 1rem * 3 / 4);
+    width: calc(25% - 1rem);
     max-width: 50%;
   }
 }
