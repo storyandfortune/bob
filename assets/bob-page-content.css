@@ -1310,6 +1310,11 @@ h1.product__title {
 /* home page */
 
 /* ---------- rivo-reviews- ---------------------*/
+.rivo-reviews-iframe-panel-wrapper.page-width{
+    box-sizing: border-box;
+
+}
+
 .rivo-reviews-star-rating {
     display: flex;
     justify-content: center;
