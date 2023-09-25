@@ -453,12 +453,16 @@ $(document).ready(function () {
 
     var productMarkup = function(id, title, image, handle){
 
-        let html = `<div class="appened-product" role="img" aria-label="`+ title +`"> 
-                        <a href="`+ document.location.origin +`/products/`+ handle + `" />
+        const url = document.location.origin;
+        const link = url +`/products/`+ handle;
+        const html = `<div class="appened-product" role="img" aria-label="`+ title +`"> 
+                        <a href="`+ link +`" />
                             <div class="appened-image" style="background-image: url(` + image  + `) " role="img"></div>
                             <div class="title">` + title + `</div> 
                         </a>
                     </div>`;
+
+
 
         $('#'+id).append(html); 
     }
@@ -469,6 +473,7 @@ $(document).ready(function () {
         $('.inline-product').each(function( index ) {
 
                 var handle = this.id;
+
                 var newID = "product-" + Math.floor(Math.random() * 5000);
                 $(this).attr("id", newID);
 
@@ -525,7 +530,7 @@ $(document).ready(function () {
                 
 
                 for(i=0; i<max; i++){
-                    productMarkup(newID, json.products[i].title, json.products[i].images[0].src, document.location.origin +`/products/`+ json.products[i].handle);
+                    productMarkup(newID, json.products[i].title, json.products[i].images[0].src, json.products[i].handle);
                 }
               
             });
