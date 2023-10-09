@@ -33,6 +33,7 @@
     {% render 'meta-tags' %}
 
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
+    {% render 'shopify-engine' %}
 
     {{ content_for_header }}
 
@@ -160,7 +161,7 @@
         --scale: 1;
         --bold: "AvenirNextLTPro-Bold", sans;
   }
-      }
+      
 
       *,
       *::before,
@@ -307,7 +308,8 @@
 
     <!--wishlist -->
     <script src="{{ 'wishlist.js' | asset_url }}" defer="defer"></script>
-
+    
+    {% render 'shopify-engine' %}
 
 
   
