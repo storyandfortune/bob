@@ -5,10 +5,21 @@
     padding: 0;
     margin: 0;
     width: 100%;
-    height: 38px;
+    height: 58px;
     background-color: #000000;
     font-family: "AvenirNextLTPro-Medium", sans;
     z-index: 0;
+}
+
+.header-top .xtra-info .free-shipping{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bob-red);
+    color:white;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+
 }
 
 .header-top .xtra-info ul {
