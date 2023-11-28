@@ -60,9 +60,11 @@ $(document).ready(function () {
 
             if (direction === "down") {
                 $('#big-boy-header').addClass('hide');
+                $('.free-shipping').addClass('up');
             }
             else {
                 $('#big-boy-header').removeClass('hide');
+                $('.free-shipping').removeClass('up');
             }
 
         }, {

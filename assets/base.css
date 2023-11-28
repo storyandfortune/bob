@@ -1914,3 +1914,69 @@ details[open] > .header__icon--menu .icon-hamburger {
   background: var(--gradient-background);
   background-attachment: fixed;
 }
+
+.free-shipping{
+    position:fixed;
+    top:0;
+    right:0;
+    width:100%;
+    display:block;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bob-red);
+
+    color:white;
+    height:25px;
+    text-transform: capitalize;
+    text-align: center;
+    font-size: 1.2rem;
+    z-index:10;
+}
+
+
+
+.free-shipping .mobile-left,
+.free-shipping .mobile-right{
+    position:absolute;
+    display:none;
+}
+
+@media screen and (max-width: 990px) {
+
+  .free-shipping .desktop{
+    display:none;
+  }
+
+  .free-shipping .mobile-left{
+    padding-right:.5rem;
+  }
+
+
+  .free-shipping .mobile-left,
+  .free-shipping .mobile-right{
+      position:relative;
+      display:block;
+  }
+
+
+  /* ---up --------------*/
+  .free-shipping.up .mobile-left,
+  .free-shipping.up .mobile-right{
+      position:absolute;
+      display:block;
+  }
+
+
+  .free-shipping.up .mobile-left{
+    left:2rem;
+  }
+
+  .free-shipping.up .mobile-right{
+    right:2rem;
+  }
+
+  /* ------------------------ */
+
+
+}
