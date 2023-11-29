@@ -28,5 +28,5 @@
 }
 
 .list-social__item .icon:hover {
-  color: #e62544;
+  color: var(--bob-red);
 }

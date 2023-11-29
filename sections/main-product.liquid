@@ -18,7 +18,8 @@
 {%- endif -%}
 
 <section class="page-width">
-  <div class="product grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
+  <!--  <div class="product grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}"> -->
+  <div class="product-margin grid grid--3-col">
 
   <!-- ////////////////////////////////// Product ///////////////////////////////////////////// -->
 
@@ -33,7 +34,7 @@
       <ul id="{{variant_list_id}}" class="product__media-thumb-list list-unstyled" role="list">
         {%- for image in product.media -%}
             <li class="product__media-item" data-indx="{{forloop.index0}}" data-media-id="{{ section.id }}-{{ media.id }}" data-src="{{image | img_url:'1200x' }}">
-              {{ image | img_url:'1200x' | img_tag }}
+              {{ image | img_url:'1200x' | img_tag:"product image"}}
             </li>
         {%- endfor-%}
       </ul>
@@ -46,11 +47,8 @@
       <div class="product_media-detail" data-indx="0" data-src="{{first | img_url:'1200x' }}">
         <div class="product-information">
       </div>
-         {{ first | img_url:'1200x' | img_tag }}
+         {{ first | img_url:'1200x' | img_tag:"product image" }}
       </div>
-
-
-
 
     </div>
  </div>
@@ -490,6 +488,10 @@
           <div class="size-info" style="background-image: url(https://cdn.shopify.com/s/files/1/0593/5942/8759/files/CC-1717.png?v=1673473779)"></div>  
         {% endif %}
 
+        {% if lc_tags contains 'size-bs-9515' %}
+          <div class="size-info" style="background-image: url(https://cdn.shopify.com/s/files/1/0593/5942/8759/files/BS-9515.png?v=1686871298)"></div>  
+        {% endif %}
+
       </div>
 
 
@@ -600,6 +602,8 @@
     ]
   }
 </script>
+
+{% render 'shopify-engine' %}
 
 {% schema %}
 {

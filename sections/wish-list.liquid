@@ -18,7 +18,9 @@
 
                 <div class="sign-on">
                     <div class="e-mail-input">
-                        <input id="emailAddress"type="text" v-bind="email.address" placeholder="Enter your e-mail" /> <button>Enter</button>
+                        <label class="visually-hidden" for="emailAddress">Email Address</label>
+                        <input id="emailAddress" type="text" name="emailAddress" placeholder="Enter your e-mail" /> 
+                        <button name="enterButton">Enter</button>
                     </div>
                     <p></p>
                 </div>

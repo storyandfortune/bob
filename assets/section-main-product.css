@@ -235,8 +235,8 @@ fieldset.product-form__input .form__label {
 
 .product__description {
   padding: 2rem 0 2rem 0;
-  border-top: 1px solid #b79668;
-  border-bottom:1px solid #b79668;
+  border-top: 1px solid var(--bob-gold);
+  border-bottom:1px solid var(--bob-gold);
 }
 
 .product__description .size-details{
@@ -249,7 +249,7 @@ fieldset.product-form__input .form__label {
 }
 
 .product__description .size-details:hover{
-  color:#b79668;
+  color:var(--bob-gold);
 }
 
 
@@ -536,8 +536,8 @@ html.size-modal{
 
 .sizing-information ul{
   color:#000;
-  border-top: 1px solid #b79668;
-  border-bottom: 1px solid #b79668;
+  border-top: 1px solid var(--bob-gold);
+  border-bottom: 1px solid var(--bob-gold);
   margin:0;
   padding:20px;
   font-size: 11px;

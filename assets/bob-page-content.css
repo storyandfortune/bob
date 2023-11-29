@@ -1,17 +1,3 @@
-/*
-* Prefixed by https://autoprefixer.github.io
-* PostCSS: v8.4.14,
-* Autoprefixer: v10.4.7
-* Browsers: last 4 version
-*/
-
-:root {
-    --bob-red:#e62544;
-    --bob-gold:#e7c391;
-    --bob-blue:#1e80ff;
-    --scale: 1;
-    --bold: "AvenirNextLTPro-Bold", sans;
-  }
 
 /* ------ Bobs secondary page styles ------------ */
 
@@ -21,12 +7,12 @@ h1.collection-hero__title,
     font-family: "TradeGothicLTStd-Cn18";
     font-size: 1.8rem;
     text-transform: uppercase;
-    color: #e62544;
+    color: var(--bob-red);
     width: 100%;
     text-align: center;
     margin: 0;
     padding: 0.75rem;
-    border-bottom: #b79668 1px solid;
+    border-bottom: var(--bob-gold) 1px solid;
 }
 
 .home-page section {
@@ -46,7 +32,8 @@ section.shopify-section {
 
 .bob-page-content.history section,
 .bob-page-content.events section,
-.bob-page-content.menu section{
+.bob-page-content.menu section,
+.bob-page-content.accessibility section{
     max-width: 1500px;
     margin: 10rem auto;
 }
@@ -79,7 +66,7 @@ h1.collection-title{
     font-size: 6.5rem;
     letter-spacing: 0rem;
     line-height: 8.5rem;
-    color: #e62544;
+    color: var(--bob-red);
 }
 
 .bob-page-content section .col {
@@ -149,12 +136,12 @@ h1.collection-title{
 
 .bob-page-content section .col a {
     text-decoration: none;
-    color: #b79668;
+    color: var(--bob-gold);
 }
 
 .bob-page-content section .col a:hover {
     text-decoration: underline;
-    color: #e62544;
+    color: var(--bob-red);
 }
 
 .bob-page-content img {
@@ -164,13 +151,13 @@ h1.collection-title{
 
 .bob-page-content section .col .bob-box {
     padding: 3rem 4rem;
-    border: 4px solid #b79668;
+    border: 4px solid var(--bob-gold);
     margin-bottom: 4rem;
     list-style-type: none;
 }
 
 .bob-page-content section .col .bob-box h3,
-.bob-page-content section h4 {
+.bob-page-content section .h4-title {
     font-family: "AvenirNextLTPro-Bold";
     text-align: left;
     padding:0;
@@ -312,7 +299,7 @@ h1.collection-title{
     font-size: 6rem;
     line-height: 3rem;
     font-size: 6.5rem;
-    color:#e62544;
+    color:var(--bob-red);
     margin: 0 0 3rem 0;
 }
 
@@ -359,7 +346,7 @@ h1.collection-title{
 }
 
 .bob-page-content.hof section p a{
-    color:#b79668;
+    color:var(--bob-gold);
 }
 .bob-page-content.hof section p a:hover{
     text-decoration: underline;
@@ -378,7 +365,7 @@ h1.collection-title{
 
 .bob-page-content.hof.index ul li a{
     display:block;
-    background-color: #e62544;
+    background-color: var(--bob-red);
     color:#ffffff;
     text-transform: uppercase;
     font-size: 2rem;
@@ -408,6 +395,7 @@ h1.collection-title{
     height: calc((100vh - 117px) / 2);
     margin: 0;
     padding: 0;
+    background-color: #000;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -674,8 +662,8 @@ h1.collection-title{
 .bob-page-content.menu .double-border {
     margin-top: 5rem;
     padding: 3rem;
-    border-top: 4px #b79668 solid;
-    border-bottom: 4px #b79668 solid;
+    border-top: 4px var(--bob-gold) solid;
+    border-bottom: 4px var(--bob-gold) solid;
     vertical-align: middle;
 }
 
@@ -744,7 +732,7 @@ h1.collection-title{
 .bob-page-content.menu .big-boy-box,
 .bob-page-content.menu .menu-box {
     position: relative;
-    border: 4px #b79668 solid;
+    border: 4px var(--bob-gold) solid;
 }
 
 .bob-page-content.menu .menu-box {
@@ -858,7 +846,7 @@ h1.collection-title{
 }
 
 .bob-page-content.menu .disclaimer p:nth-child(2) {
-    color: #e62544;
+    color: var(--bob-red);
 }
 
 .bob-page-content.menu .disclaimer ul li {
@@ -873,7 +861,7 @@ h1.collection-title{
 }
 
 .bob-page-content.menu .disclaimer ul li:nth-child(2) sup {
-    color: #e62544;
+    color: var(--bob-red);
     font-size: 2.8rem;
     padding: 0;
     margin: 0;
@@ -925,7 +913,7 @@ h1.collection-title{
 }
 
 .bob-page-content.events h4 {
-    color: #e62544;
+    color: var(--bob-red);
 }
 
 .bob-page-content.events h4 sup {
@@ -953,13 +941,13 @@ h1.collection-title{
 .bob-page-content .big-image p a {
     text-decoration: none;
     padding: 2rem;
-    background-color: #e62544;
+    background-color: var(--bob-red);
     color: #ffffff;
     text-transform: uppercase;
 }
 
 .bob-page-content section .col a.blog-post {
-    color: #e62544;
+    color: var(--bob-red);
     font-family: "AvenirNextLTPro-Bold";
 }
 
@@ -1015,7 +1003,7 @@ h1.collection-title{
     text-transform: uppercase;
     font-size: 3rem;
     margin-bottom:5rem;
-    color:#e62544;
+    color:var(--bob-red);
 }
 
 
@@ -1056,22 +1044,22 @@ h1.collection-title{
 }
 
 .bob-page-content.events.form section .data.inc{
-    border: 3px solid #e62544;
+    border: 3px solid var(--bob-red);
  }
  .bob-page-content.events.form section .data.inc::-webkit-input-placeholder{
-     color:#e62544;
+     color:var(--bob-red);
  }
  .bob-page-content.events.form section .data.inc::-moz-placeholder{
-     color:#e62544;
+     color:var(--bob-red);
  }
  .bob-page-content.events.form section .data.inc:-ms-input-placeholder{
-     color:#e62544;
+     color:var(--bob-red);
  }
  .bob-page-content.events.form section .data.inc::-ms-input-placeholder{
-     color:#e62544;
+     color:var(--bob-red);
  }
  .bob-page-content.events.form section .data.inc::placeholder{
-     color:#e62544;
+     color:var(--bob-red);
  }
 
 .bob-page-content.events.form section textarea {
@@ -1101,7 +1089,7 @@ h1.collection-title{
 }
 
 .bob-page-content.events.form section button:hover {
-    background-color: #e62544;
+    background-color: var(--bob-red);
 }
 
 .bob-page-content.events.form section .two input {
@@ -1189,7 +1177,7 @@ article.article-template {
 .vendor {
     font-family: "AvenirNextLTPro-Bold";
     font-size: 2rem;
-    color: #e62544;
+    color: var(--bob-red);
 }
 
 h1.product__title {
@@ -1203,13 +1191,15 @@ h1.product__title {
 /* ----------------------------- footer link styles ----------------------------- */
 .bob-page-content.site-map section,
 .bob-page-content.privacy section,
-.bob-page-content.faq section {
+.bob-page-content.faq section,
+.bob-page-content.accessibility section {
     text-align: left;
 }
 
 .bob-page-content.site-map section,
 .bob-page-content.privacy section,
-.bob-page-content.faq section {
+.bob-page-content.faq section,
+.bob-page-content.accessibility section {
     margin:0 10rem 5rem 10rem;
   
 }
@@ -1217,8 +1207,9 @@ h1.product__title {
 .bob-page-content.site-map h3,
 .bob-page-content.privacy section h3,
 .bob-page-content.faq section h3,
+.bob-page-content.accessibility section h3,
 .shopify-policy__container .shopify-policy__title h1{
-    color:#e62544;
+    color:var(--bob-red);
     margin:5rem 0 0 0;
     font-family: "RoadRadio-Black";
     text-transform: uppercase;
@@ -1240,7 +1231,7 @@ h1.product__title {
     list-style: none;
 }
 .bob-page-content.site-map ul li a {
-    color: #b79668;
+    color: var(--bob-gold);
     font-family: "AvenirNextLTPro-Bold";
     font-size: 1.8rem;
     line-height: .01rem;
@@ -1292,7 +1283,7 @@ h1.product__title {
     padding:2rem;
     text-align: center;
     font-size: 12px;
-    background-color: #b79668;
+    background-color: var(--bob-gold);
     color:white;
     border:white dashed 5px;
     margin-left: auto;
@@ -1319,6 +1310,11 @@ h1.product__title {
 /* home page */
 
 /* ---------- rivo-reviews- ---------------------*/
+.rivo-reviews-iframe-panel-wrapper.page-width{
+    box-sizing: border-box;
+
+}
+
 .rivo-reviews-star-rating {
     display: flex;
     justify-content: center;
@@ -1342,6 +1338,42 @@ h1.product__title {
     width:45vw;
 }
 
+
+/* ---------- Appstle Subscriptions ---------------------*/
+
+.appstleRadioSellingPlanWrapper>div {
+    align-items: top !important;
+}
+
+.appstle_sub_widget .appstleSellingPlanDescription {
+    padding: 1rem;
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
+
+.appstle_sub_widget .sellingplan {
+    padding: 1rem;
+    font-size: 1.5rem;
+    font-weight: 800;
+    line-height: 2rem;
+}
+
+
+/* ---------- Appikon Pre-Order Button ---------------------*/
+
+.si-reset.si-rotate-270{
+    -webkit-transform: rotate(0deg) !important;
+    -moz-transform: rotate(0deg)  !important;
+    -ms-transform: rotate(0deg)  !important;
+    -o-transform: rotate(0deg)  !important;
+
+    transform: rotate(0deg)  !important;
+}
+
+.si-reset.si-edge-right {
+    margin-top: 75px !important;
+    right: 300px !important;
+}
 
 /* ------- mobile styles ------------- */
 

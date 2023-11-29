@@ -1,5 +1,6 @@
 $(document).ready(function () {
-
+    
+  
     //todo rewrite as objects.
 
     // shop slug hack -------------------------------------------------
@@ -59,9 +60,11 @@ $(document).ready(function () {
 
             if (direction === "down") {
                 $('#big-boy-header').addClass('hide');
+                $('.free-shipping').addClass('up');
             }
             else {
                 $('#big-boy-header').removeClass('hide');
+                $('.free-shipping').removeClass('up');
             }
 
         }, {
@@ -75,13 +78,6 @@ $(document).ready(function () {
 
             if (direction === "down") {
                 $('#shopify-section-header').addClass('sticky');
-
-                if(bricked){
-                    // google analytics scroll past brick wall
-                    ga('send', 'event', 'BrickWall', 'scroll', 'Scroll past hero');
-                    console.log('scroll past brick wall');
-                    bricked = false;
-                }
             }
             else {
                 $('#shopify-section-header').removeClass('sticky');
@@ -102,15 +98,6 @@ $(document).ready(function () {
     $("#shopify-section-header nav .list-menu li").on('click', function (e) {
 
         var up = $('#shopify-section-header').hasClass('sticky');
-
-        if(up){
-            ga('send', 'event', 'BrickWall', 'click', 'Click main nav after scroll');
-            console.log('click on main nav on top');
-        }
-        else{
-            ga('send', 'event', 'BrickWall', 'click', 'Click main nav before scroll');
-            console.log('click on main nav brickwall'); 
-        }
 
     });
 
@@ -148,9 +135,18 @@ $(document).ready(function () {
     });
 
 
-
-   
     /* forms ------------------------------------ */
+
+    var endpointURL;
+
+    if(window.location.hostname === "127.0.0.1"){
+        endpointURL = 'http://dev.api/bobs/'
+    }
+    else{
+        endpointURL = 'http://api.storyandfortune.com/bobs/'
+    }
+
+    var endpoint = endpointURL + "forms/";
 
     var formsData = function () {
 
@@ -172,7 +168,7 @@ $(document).ready(function () {
         };
 
         var post = false;
-        var check = 0;
+        var check = 0; 
 
         $.each($('.data'), function (key, value) {
             var v = { "name": "", "value": "" };
@@ -213,9 +209,10 @@ $(document).ready(function () {
             $(".conformation h3").html("Connecting...");
             $(".conformation p").html("One moment please.");
 
+
             $.ajax({
                 method: "POST",
-                url: "https://api.storyandfortune.com/bobs/",
+                url: endpoint,
                 data: { "data": d }
             }).done(function (msg) {
 
@@ -242,7 +239,8 @@ $(document).ready(function () {
                     $(".conformation p").html("Something went wrong.");
                   }
 
-            }).fail(function() {
+            }).fail(function(error) {
+                console.log(error);
                 $(".conformation h3").html("Opps !");
                 $(".conformation p").html("Something went wrong.");
             });
@@ -455,19 +453,18 @@ $(document).ready(function () {
 
     //in-line products --------------------------------------------- */
 
-
-  
     var productMarkup = function(id, title, image, handle){
 
-        console.log('insert product');
-
-        let heartSvg = '<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" role="presentation" class="icon icon-heart" viewBox="0 0 576 512" > <path fill="currentColor" d="M400,24c-41.4,0-80.7,22.8-112,49.8C256.6,46.8,217.4,24,176,24C80.8,24,24,84.1,24,174.8c0,73.3,61.4,132.2,68.5,138.8l164.8,161.8h0c17,16.8,44.4,16.8,61.4,0l164.8-161.5l0.4-0.4c36.3-35.2,68.1-86.7,68.1-138.7C552,80.5,491.7,24,400,24z"/> </svg>';
-        let html = `<div class="appened-product" > 
-                        <a href="`+ document.location.origin +`/products/`+ handle + `" />
-                            <div class="appened-image" style="background-image: url(` + image  + `) "></div>
+        const url = document.location.origin;
+        const link = url +`/products/`+ handle;
+        const html = `<div class="appened-product" role="img" aria-label="`+ title +`"> 
+                        <a href="`+ link +`" />
+                            <div class="appened-image" style="background-image: url(` + image  + `) " role="img"></div>
                             <div class="title">` + title + `</div> 
                         </a>
                     </div>`;
+
+
 
         $('#'+id).append(html); 
     }
@@ -478,6 +475,7 @@ $(document).ready(function () {
         $('.inline-product').each(function( index ) {
 
                 var handle = this.id;
+
                 var newID = "product-" + Math.floor(Math.random() * 5000);
                 $(this).attr("id", newID);
 
@@ -534,7 +532,7 @@ $(document).ready(function () {
                 
 
                 for(i=0; i<max; i++){
-                    productMarkup(newID, json.products[i].title, json.products[i].images[0].src, document.location.origin +`/products/`+ json.products[i].handle);
+                    productMarkup(newID, json.products[i].title, json.products[i].images[0].src, json.products[i].handle);
                 }
               
             });
@@ -566,7 +564,7 @@ $(document).ready(function () {
                 let rand = Math.random() * json.products.length;
                 rand = Math.floor(rand);
 
-                productMarkup(id, json.products[rand].title, json.products[rand].images[0].src, document.location.origin +`/products/`+ json.products[rand].handle);
+                productMarkup(id, json.products[rand].title, json.products[rand].images[0].src, json.products[rand].handle);
             
            
             });
@@ -611,7 +609,7 @@ $(document).ready(function () {
                     }
 
                     for(let i = 0; i < max; i++){
-                        productMarkup(id, json.products[i].title, json.products[i].images[0].src, document.location.origin +`/products/`+ json.products[i].handle);
+                        productMarkup(id, json.products[i].title, json.products[i].images[0].src, json.products[i].handle);
                     }
                 });
 
@@ -631,7 +629,14 @@ $(document).ready(function () {
         }, 500);
     
     }
-    
+
+    //HACK!!!! empty div
+    setTimeout(() => {
+       let emptyDiv = $('body > div:first');
+       console.log(emptyDiv);
+       $('body > div:first').remove();
+      }, 5500);
+
 
     /// wish list ----------------------------------------------------------
     $(".header .header__icons .header__icon--heart").on('touchstart click', function () {
@@ -657,7 +662,6 @@ $(document).ready(function () {
     });
 
     let addToWishlist = function(item){
-        ga('send', 'event', 'wishlist', 'click', 'Item added to wishlist: ' + item );
         const event = new CustomEvent("wishlistAddItem", { detail: item });
         window.dispatchEvent(event);
     }

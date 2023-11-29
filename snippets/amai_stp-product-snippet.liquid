@@ -19,6 +19,21 @@
           },
       {%- endfor -%}
     }
-    new_product.variant_info = Object.values(variant_info)
+    new_product.variant_info = Object.values(variant_info);
     Spurit.QuantityBreaks2.snippet.product = new_product;
+
+/**
+*** BEGIN QB_INVENTORY_DATA - ID 1695277985 ***
+{
+{%- for variant in product.variants -%}
+  "{{ variant.id }}" : {
+    "variant_id": {{ variant.id}},
+    "inventory_quantity": {{ variant.inventory_quantity}},
+    "inventory_management": "{{ variant.inventory_management}}",
+    "inventory_policy": "{{ variant.inventory_policy}}"
+  },
+{% endfor %}
+}
+*** END QB_INVENTORY_DATA - ID 1695277985 ***
+**/
 </script>

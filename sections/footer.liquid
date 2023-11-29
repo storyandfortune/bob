@@ -38,7 +38,13 @@
         <h4>BOB'S BIG BOY</h4>
         <p>4211 W Riverside Drive</p>
         <p>Burbank, CA 91505</p>
-        <p><a href="https://www.google.com/maps/dir/4211+W+Riverside+Drive+Burbank+CA+91505" target="_blank" rel="external">Get Directions</a></p>		
+
+        <p>
+          <a href="https://www.google.com/maps/dir/4211+W+Riverside+Drive+Burbank+CA+91505" target="_blank" rel="external">
+            Get Directions <span class="visually-hidden">Link opens in a new window</span>
+          </a>
+        </p>	
+        	
       </div>
     </div>
 
@@ -46,10 +52,11 @@
 
       <a href="https://www.instagram.com/bobsbigboyburbank/" target="_blank" rel="external">
         <h1>INSTAGRAM CONTEST FOR $50</h1> <br/> <div>(Every Friday)</div>
+        <span class="visually-hidden">Link opens in a new window</span>
       </a>
       
-      <div id="big-boy-footer" class="footer-b-boy">
-            {{ 'big-boy-full.png' | asset_url | img_tag }}
+      <div id="big-boy-footer" class="footer-b-boy" role="button" tabindex="0">
+            {{ 'big-boy-burgandy.png' | asset_url | img_tag:"Big boy Statue" }}
       </div>
       
     </div>
@@ -164,7 +171,7 @@
               <li class="list-social__item">
                 <a href="{{ settings.reviews_yelp_link }}" target="_blank" rel="external" class="link link--text list-social__link" >
                   {%- render 'social-icon-yelp' -%}
-
+                  <span class="visually-hidden">yelp</span>
                 </a>
               </li>
             {%- endif -%}
@@ -172,6 +179,7 @@
               <li class="list-social__item">
                 <a href="{{ settings.reviews_tripadvisor_link }}" target="_blank" rel="external" class="link link--text list-social__link" >
                   {%- render 'social-icon-tripadvisor' -%}
+                  <span class="visually-hidden">trip advisor</span>
                 </a>
               </li>
             {%- endif -%}
@@ -179,6 +187,7 @@
               <li class="list-social__item">
                 <a href="{{ settings.reviews_google_plus_link }}" target="_blank" rel="external" class="link link--text list-social__link" >
                   {%- render 'social-icon-google-plus' -%}
+                  <span class="visually-hidden">google plus</span>
 
                 </a>
               </li>
@@ -296,7 +305,7 @@
 
   <!-- bottom footer -->
   <div class="footer__content-bottom">
-    <div class="footer__content-bottom-wrapper page-width">
+    <div class="footer__content-bottom-wrapper">
       
       <!-- nav -->
       {%- for block in section.blocks -%}
@@ -318,7 +327,7 @@
 
        <!-- copyright -->
         <div class="copyright">
-          <small class="copyright__content">&copy; {{ 'now' | date: "%Y" }} <a href="/">Bob's Big Boy &trade; </a></small>
+          &copy; {{ 'now' | date: "%Y" }} Bob's Big Boy &trade;
         </div>
       <!-- end copyright -->
 

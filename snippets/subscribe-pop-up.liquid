@@ -1,0 +1,81 @@
+
+{{ 'animate.min.css' | asset_url | stylesheet_tag }}
+{{ 'subscribe-pop-up.css' | asset_url | stylesheet_tag }}
+
+<div class="pop-up-container">
+
+
+    <div class="form-container">
+
+        <!-- close button -->
+
+        <div class="close">
+            {% render 'icon-times-solid' %}
+        </div>
+
+        <!-- left column -->
+        <div class="left-col">
+            <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/BeachBoys.svg?v=1687567370" />
+        </div>
+
+        <!-- Right column -->
+        <div class="form">
+
+            <div class="input">
+                <h1>Enter to Win </h1>
+                <p>A pair of tickets to the Beach Boys at the Hollywood Bowl!</p>
+                <p class="errormsg">Please enter a valid e-mail address.</p>
+
+                <div class="name">
+
+                    <input id="firstName"
+                    type="text" 
+                    placeholder="First Name"/>
+
+                    <input id="lastName"
+                        type="text" 
+                        placeholder="Last Name"/>
+                </div>
+
+                <div class="email">
+
+                    <div class="email-container">
+
+                        <input 
+                            id="email"  
+                            type="email" 
+                            placeholder="Email"/>
+
+                        <div class="submit_btn"> 
+                            Submit
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="legal">
+                    Sign up for our email list and be entered to win two tickets to see The Beach Boys play the Hollywood Bowl on the 4th of July! And if you're already on our email list, even better, you're automatically entered.
+                </div>
+            </div>
+
+            <div class="msg sending-msg">
+                <h1>Sending...</h1>
+            </div>
+            
+
+            <div class="msg sent-msg">
+                <h1>Thanks!</h1>
+            </div>
+            
+        </div>
+    
+    </div>
+
+
+   
+</div>
+
+<div class="pop-up-btn"> Like The Beach Boys? </div>
+
+<script src="{{ 'subscribe-pop-up.js' | asset_url }}" defer="defer"></script>

@@ -3,10 +3,10 @@ h1.main-page-title.page-title.h0 {
     text-align: center;
     font-size: 2rem;
     text-transform: uppercase;
-    color: #e62544;
+    color: var(--bob-red);
     margin: 0;
     padding: 0.75rem;
-    border-bottom: #b79668 1px solid;
+    border-bottom: var(--bob-gold) 1px solid;
 }
 
 .swiper-container {
@@ -187,12 +187,12 @@ h1.main-page-title.page-title.h0 {
 }
 
 .swiper-pagination-bullet-active{
-    background-color:#e62544;
+    background-color:var(--bob-red);
 }
 
 .featured-button-next,
 .featured-button-prev{
-    color:#e62544;
+    color:var(--bob-red);
 }
 
 .swiper-featured h3{
@@ -205,7 +205,7 @@ h1.main-page-title.page-title.h0 {
     line-height:6.5rem;
     height: 7rem;
     letter-spacing: 0rem;
-    color: #e62544;
+    color: var(--bob-red);
     background-color: #fff;
 }
 

@@ -1,8 +1,8 @@
 {
   "current": {
     "colors_solid_button_labels": "#ffffff",
-    "colors_accent_1": "#e62544",
-    "colors_accent_2": "#b79668",
+    "colors_accent_1": "#ad142d",
+    "colors_accent_2": "#8e6f44",
     "colors_text": "#121212",
     "colors_outline_button_labels": "#121212",
     "colors_background_1": "#ffffff",
@@ -16,7 +16,7 @@
     "reviews_yelp_link": "https:\/\/www.yelp.com\/biz\/bob-s-big-boy-burbank",
     "reviews_tripadvisor_link": "https:\/\/www.tripadvisor.com\/Restaurant_Review-g32123-d364895-Reviews-Bob_s_Big_Boy_Burbank-Burbank_California.html",
     "reviews_google_plus_link": "https:\/\/www.google.com\/maps\/place\/Bob's+Big+Boy\/@34.1524797,-118.3482922,17z\/data=!3m1!4b1!4m5!3m4!1s0x0:0x8d2acdfb878a2f0a!8m2!3d34.1524797!4d-118.3461035",
-    "favicon": "shopify:\/\/shop_images\/icon.png",
+    "favicon": "shopify:\/\/shop_images\/fav-icon.png",
     "currency_code_enabled": false,
     "checkout_logo_image": "shopify:\/\/shop_images\/logo_0827afb5-c87e-4a12-ac65-f80d48ae12f3.png",
     "checkout_logo_size": "large",
@@ -75,13 +75,13 @@
           "show_social": true
         }
       },
-      "hero-scroll": {
-        "type": "hero-scroll",
+      "hero-video-scroll": {
+        "type": "hero-video-scroll",
         "settings": {
         }
       },
-      "hero-video-scroll": {
-        "type": "hero-video-scroll",
+      "wish-list": {
+        "type": "wish-list",
         "settings": {
         }
       }
@@ -90,8 +90,8 @@
 
     ],
     "blocks": {
-      "548869057455184019": {
-        "type": "shopify:\/\/apps\/preorder-bear\/blocks\/widget\/c9ef47a7-e0f7-4d5b-a2e4-8c07318f330b",
+      "11349500561483629931": {
+        "type": "shopify:\/\/apps\/ReStock\/blocks\/app-embed\/b399b727-6c85-44fc-9e21-63114bd72054",
         "disabled": false,
         "settings": {
         }

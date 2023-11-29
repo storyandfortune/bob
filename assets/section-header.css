@@ -459,7 +459,7 @@ details.menu-drawer-container[open] .close-icon{
 }
 
 .header-wrapper--border-bottom {
-    border-bottom-color: #b79668;
+    border-bottom-color: var(--bob-gold);
     border-bottom-width: 5px;
     border-bottom-style: solid;
 }
@@ -533,6 +533,7 @@ details.menu-drawer-container[open] .close-icon{
 
     .header--top-center .header__heading-link,
     .header--top-center .header__heading {
+        margin-top: 30px;
         justify-self: center;
     }
 }
@@ -767,8 +768,8 @@ summary.header__menu-item {
 }
 
 summary.header__menu-item:hover {
-    color: #b79668;
-    border-bottom: 5px solid #b79668;
+    color: var(--bob-gold);
+    border-bottom: 5px solid var(--bob-gold);
 }
 
 .header__menu-item span {
@@ -780,7 +781,7 @@ summary.header__menu-item:hover {
 }
 
 .header__active-menu-item {
-    color: #e42948;
+    color: var(--bob-red);
 }
 
 .header__menu-item:hover .header__active-menu-item {
@@ -896,13 +897,13 @@ header {
         margin-top: 1rem;
         width: 100%;
         font-size: 2.2rem;
-        color:#e42948;
+        color:var(--bob-red);
     }
 
     .header__submenu summary.header__menu-item a{
         margin: 0 0 1rem 0;
         font-size: 2.5rem;
-        color:#e42948;
+        color:var(--bob-red);
         text-decoration: none;
         padding:0;
     }
@@ -1033,7 +1034,8 @@ header {
         margin-top: 2rem;
         font-family: "AvenirNextLTPro-Bold";
         text-transform: capitalize;
-        color: #e62544;
+        font-size: 2.25rem;
+        color: var(--bob-btn-red);
     }
 
     /* events -------------------------------------------------------------------- */
@@ -1058,7 +1060,7 @@ header {
         margin: 2rem 0 1rem 0;
         font-size: 2.5rem;
         text-transform: uppercase;
-        color:#e42948;
+        color:var(--bob-red);
     }
     
 
@@ -1066,7 +1068,8 @@ header {
         margin-top: 2rem;
         font-family: "AvenirNextLTPro-Bold";
         text-transform: capitalize;
-        color: #e62544;
+        font-size: 2.25rem;
+        color: var(--bob-red);
     }
 
     /* photos */
@@ -1100,10 +1103,11 @@ header {
 
     .list-menu li.nav-shop .header__submenu li.nav-apparel li:last-child a,
     .list-menu li.nav-shop .header__submenu li.nav-merchandise li:last-child a {
-        margin-top: 1rem;
-        color: #e62544;
+        margin-top: 2rem;
         font-family: "AvenirNextLTPro-Bold";
-
+        text-transform: capitalize;
+        font-size: 2.5rem;
+        color: var(--bob-btn-red);
     }
 
     .list-menu li.nav-shop  .header__submenu li.nav-seasoning-salt, 
@@ -1118,7 +1122,7 @@ header {
 
 
     .list-menu li.nav-shop .header__submenu li.nav-seasoning-salt .nav-image {
-        background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/t/2/assets/Seasoning-Salt.jpg?v=1638483582");
+        background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/3-msg.jpg?v=1692990764");
         background-size: 70%;
         background-position: bottom center;
         height: 30rem;
@@ -1165,3 +1169,5 @@ header {
         overflow: auto;
     }
 }
+
+/*--------*/

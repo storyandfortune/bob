@@ -140,7 +140,7 @@
                   <ul class="list list-social list-unstyled" role="list">
                     {%- if settings.social_twitter_link != blank -%}
                       <li class="list-social__item">
-                        <a href="{{ settings.social_twitter_link }}" class="link link--text list-social__link" target="_blank" rel="external" aria-describedby="a11y-external-message">
+                        <a href="{{ settings.social_twitter_link }}" class="link link--text list-social__link" target="_blank" rel="external">
                           {%- render 'icon-twitter' -%}
                           <span class="visually-hidden">{{ 'general.social.links.twitter' | t }}</span>
                         </a>
@@ -148,7 +148,7 @@
                     {%- endif -%}
                     {%- if settings.social_facebook_link != blank -%}
                       <li class="list-social__item">
-                        <a href="{{ settings.social_facebook_link }}" class="link link--text list-social__link" target="_blank" rel="external" aria-describedby="a11y-external-message">
+                        <a href="{{ settings.social_facebook_link }}" class="link link--text list-social__link" target="_blank" rel="external">
                           {%- render 'icon-facebook' -%}
                           <span class="visually-hidden">{{ 'general.social.links.facebook' | t }}</span>
                         </a>
@@ -156,7 +156,7 @@
                     {%- endif -%}
                     {%- if settings.social_pinterest_link != blank -%}
                       <li class="list-social__item">
-                        <a href="{{ settings.social_pinterest_link }}" class="link link--text list-social__link" target="_blank" rel="external" aria-describedby="a11y-external-message">
+                        <a href="{{ settings.social_pinterest_link }}" class="link link--text list-social__link" target="_blank" rel="external">
                           {%- render 'icon-pinterest' -%}
                           <span class="visually-hidden">{{ 'general.social.links.pinterest' | t }}</span>
                         </a>
@@ -164,7 +164,7 @@
                     {%- endif -%}
                     {%- if settings.social_instagram_link != blank -%}
                       <li class="list-social__item">
-                        <a href="{{ settings.social_instagram_link }}" class="link link--text list-social__link" target="_blank" rel="external" aria-describedby="a11y-external-message">
+                        <a href="{{ settings.social_instagram_link }}" class="link link--text list-social__link" target="_blank" rel="external">
                           {%- render 'icon-instagram' -%}
                           <span class="visually-hidden">{{ 'general.social.links.instagram' | t }}</span>
                         </a>
@@ -172,7 +172,7 @@
                     {%- endif -%}
                     {%- if settings.social_tumblr_link != blank -%}
                       <li class="list-social__item">
-                        <a href="{{ settings.social_tumblr_link }}" class="link link--text list-social__link" target="_blank" rel="external" aria-describedby="a11y-external-message">
+                        <a href="{{ settings.social_tumblr_link }}" class="link link--text list-social__link" target="_blank" rel="external">
                           {%- render 'icon-tumblr' -%}
                           <span class="visually-hidden">{{ 'general.social.links.tumblr' | t }}</span>
                         </a>
@@ -180,7 +180,7 @@
                     {%- endif -%}
                     {%- if settings.social_snapchat_link != blank -%}
                       <li class="list-social__item">
-                        <a href="{{ settings.social_snapchat_link }}" class="link link--text list-social__link" target="_blank" rel="external" aria-describedby="a11y-external-message">
+                        <a href="{{ settings.social_snapchat_link }}" class="link link--text list-social__link" target="_blank" rel="external">
                           {%- render 'icon-snapchat' -%}
                           <span class="visually-hidden">{{ 'general.social.links.snapchat' | t }}</span>
                         </a>
@@ -188,7 +188,7 @@
                     {%- endif -%}
                     {%- if settings.social_youtube_link != blank -%}
                       <li class="list-social__item">
-                        <a href="{{ settings.social_youtube_link }}" class="link link--text list-social__link" target="_blank" rel="external" aria-describedby="a11y-external-message">
+                        <a href="{{ settings.social_youtube_link }}" class="link link--text list-social__link" target="_blank" rel="external">
                           {%- render 'icon-youtube' -%}
                           <span class="visually-hidden">{{ 'general.social.links.youtube' | t }}</span>
                         </a>
@@ -196,7 +196,7 @@
                     {%- endif -%}
                     {%- if settings.social_vimeo_link != blank -%}
                       <li class="list-social__item">
-                        <a href="{{ settings.social_vimeo_link }}" class="link link--text list-social__link" target="_blank" rel="external" aria-describedby="a11y-external-message">
+                        <a href="{{ settings.social_vimeo_link }}" class="link link--text list-social__link" target="_blank" rel="external">
                           {%- render 'icon-vimeo' -%}
                           <span class="visually-hidden">{{ 'general.social.links.vimeo' | t }}</span>
                         </a>
@@ -217,7 +217,7 @@
       <details-modal class="header__search">
         <details>
 
-          <summary class="header__icon header__icon--search header__icon--summary link link--text focus-inset modal__toggle" aria-haspopup="dialog" aria-label="{{ 'general.search.search' | t }}">
+          <summary class="header__icon header__icon--search header__icon--summary link link--text focus-inset modal__toggle" aria-haspopup="dialog" aria-label="{{ 'general.search.search' | t }}" tabindex="0">
           
               <svg class="modal__toggle-open icon icon-search" aria-hidden="true" focusable="false" role="presentation">
                 <use href="#icon-search">
@@ -296,7 +296,7 @@
       <!-- Logo - SVG Hardcoded -->
       <h1 class="header__heading">
         <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
-          {{ 'logo.svg' | asset_url | img_tag }}
+          {{ 'logo-burgandy.svg' | asset_url | img_tag: "Bob's Big Boy Logo and Home Button" }} <span class="visually-hidden">Bob's Big Boy Logo and Home Button</span>
         </a>
       </h1>
       <!-- end logo -->
@@ -308,9 +308,9 @@
           {%- for link in section.settings.menu.links -%}
             <li class="nav-{{link.title | handleize}}" data-link="{{link.url}}" >
               {%- if link.links != blank -%}
-                <details-disclosure>
+                <details-disclosure aria-expanded="true" aria-haspopup="true">
                   <details>
-                    <summary class="header__menu-item list-menu__item link focus-inset">
+                    <summary class="header__menu-item list-menu__item link focus-inset"tabindex="0" >
                       <span {%- if link.child_active %} class="header__active-menu-item"{% endif %}>{{ link.title | escape }}</span>
                       {% render 'icon-caret' %}
                     </summary>
@@ -320,13 +320,13 @@
                         <li class="nav-{{ childlink.title | handleize | replace: '™', ''}}">
                           {%- if childlink.links == blank -%}
                             <a href="{{ childlink.url }}" class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if childlink.current %} list-menu__item--active{% endif %}"{% if childlink.current %} aria-current="page"{% endif %}>
-                              <div class="nav-image"></div>
+                              <div class="nav-image" role="img" aria-label="{{ childlink.title | escape }}"></div>
                               <div class="nav-title">{{ childlink.title | escape }}</div>
                             </a>
                           {%- else -%}
                           <!--  <details class="open"> -->
                           <div>
-                              <summary class="header__menu-item link link--text list-menu__item">
+                              <summary class="header__menu-item link link--text list-menu__item" tabindex="0">
                                <a href="{{childlink.url}}">{{ childlink.title | escape }}</a>
                                 {% render 'icon-caret' %}
                               </summary>
@@ -362,13 +362,13 @@
     <!-- right icons -->
     <div class="header__icons">
 
-      <div class="header__link header__icon header__icon--heart link">
-        {% render 'icon-heart' %} 
+      <div class="header__link header__icon header__icon--heart link" role="button">
+        {% render 'icon-heart' %} <span class="visually-hidden">Wishlist Button</span>
       </div>
 
       <details-modal class="header__link header__search">
         <details>
-          <summary class="header__icon header__icon--search header__icon--summary link link--text focus-inset modal__toggle" aria-haspopup="dialog" aria-label="{{ 'general.search.search' | t }}">
+          <summary class="header__icon header__icon--search header__icon--summary link link--text focus-inset modal__toggle" aria-haspopup="dialog" aria-label="{{ 'general.search.search' | t }}" tabindex="0">
             <span>
               <svg class="modal__toggle-open icon icon-search" aria-hidden="true" focusable="false" role="presentation">
                 <use href="#icon-search">
