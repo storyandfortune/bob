@@ -1969,11 +1969,11 @@ details[open] > .header__icon--menu .icon-hamburger {
 
 
   .free-shipping.up .mobile-left{
-    left:2rem;
+    left:2vw;
   }
 
   .free-shipping.up .mobile-right{
-    right:2rem;
+    right:2vw;
   }
 
   /* ------------------------ */
