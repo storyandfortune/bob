@@ -118,6 +118,8 @@ $(document).ready(function () {
             attributes: true //configure it to listen to attribute changes
           });
 
+    }else{
+        $('.free-shipping').addClass('up');
     }
 
   
