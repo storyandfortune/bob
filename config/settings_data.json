@@ -107,6 +107,12 @@
           "button_text": "no_text",
           "greeting_message": "We're very happy you came!"
         }
+      },
+      "1710008633607995074": {
+        "type": "shopify:\/\/apps\/rivo-product-reviews-app-ugc\/blocks\/app-embed\/5f785e18-66cc-4519-8181-565d1cce1705",
+        "disabled": false,
+        "settings": {
+        }
       }
     }
   },
