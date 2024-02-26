@@ -3,9 +3,6 @@
 <html class="no-js" lang="{{ request.locale.iso_code }}">
   <head>
 
-
-
-
     {% if template == '404' %}<meta http-equiv="refresh" content="0;URL={{ shop.url }}" />{% endif %}
 
     <meta charset="utf-8">
@@ -150,15 +147,6 @@
         --gradient-base-accent-2: {% if settings.gradient_accent_2 != blank %}{{ settings.gradient_accent_2 }}{% else %}{{ settings.colors_accent_2 }}{% endif %};
 
         --page-width: {{ settings.page_width | divided_by: 10 }}rem;
-
-
-        /* ------ BOBS ------ */
-
-        /* original colors
-        --bob-red-old:#e62544;
-        --bob-gold-old:#b79668;
-        */
-
         --bob-red:#ad142d;
         --bob-gold:#8e6f44;
         --bob-blue:#1e80ff;
@@ -231,17 +219,17 @@
   {% capture boostersnippet %}{% include "booster-apps-common" %}{% endcapture %}{% unless boostersnippet contains "Liquid error" %}{{ boostersnippet }}{% endunless %}
 </head>
 
+  {% if template == 'index' 
+      assign bodyClass = "home-page"
+   else
+     assign bodyClass = "sub-page"
+   endif %}
+    
+  <body class="gradient {{bodyClass}}"><a class="skip-to-content-link button visually-hidden" href="#MainContent">{{ "accessibility.skip_to_text" | t }}</a>
     {% if template == 'index' %}
-      <body class="gradient home-page"><a class="skip-to-content-link button visually-hidden" href="#MainContent">{{ "accessibility.skip_to_text" | t }}</a>
-
         {% section 'hero-video-scroll' %}
-
-
-    {% else %}
-      <body class="gradient"><a class="skip-to-content-link button visually-hidden" href="#MainContent">{{ "accessibility.skip_to_text" | t }}</a>
     {% endif %}
-
-
+    
     {% section 'free-shipping' %}
     {% section 'header' %}
     {% section 'wish-list' %}
