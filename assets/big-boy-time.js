@@ -28,7 +28,7 @@ $(document).ready(function () {
         
         var top = $(window).scrollTop();
         if ($('body').hasClass('home-page') && !top) {
-            $('.hero-scroll').css('height', (window.innerHeight - 117));
+            $('.hero-scroll').css('height', (window.innerHeight - 148));
             $(window).scrollTop(0); 
         }
         setOffsets();
@@ -46,14 +46,14 @@ $(document).ready(function () {
         resizing = setTimeout(endResize, 100);
     }
 
-    setHero();
+    //setHero();
   
     
     /* Waypoints --------------------------------------------------------- */
     if ($('body').hasClass('home-page')) {
 
          // set hero height
-         $('.hero-scroll').css('height', (window.innerHeight - 117));
+         $('.hero-scroll').css('height', (window.innerHeight - 148));
 
         /* big boy hides */
         var BigBoyHides = $('#big-boy-header').waypoint(function (direction) {
@@ -95,7 +95,7 @@ $(document).ready(function () {
 
 
     // google analytics click on main nav
-    $("#shopify-section-header nav .list-menu li").on('click', function (e) {
+    $("# nav .list-menu li").on('click', function (e) {
 
         var up = $('#shopify-section-header').hasClass('sticky');
 
