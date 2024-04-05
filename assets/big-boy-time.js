@@ -95,7 +95,7 @@ $(document).ready(function () {
 
 
     // google analytics click on main nav
-    $("# nav .list-menu li").on('click', function (e) {
+    $("#nav .list-menu li").on('click', function (e) {
 
         var up = $('#shopify-section-header').hasClass('sticky');
 
@@ -330,6 +330,7 @@ $(document).ready(function () {
     $('#big-boy-header').on('touchstart click', function () {
 
         console.log('big boy clicked');
+
         $("html, body").animate({
             scrollTop: ($("#MainContent").offset().top - 120)
         }, {
