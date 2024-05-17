@@ -1,16 +1,133 @@
-<style>
-    .landing-container{
-        display:flex;
-        width:100vw;
-        height:100vh;
-        justify-content:center;
-        align-items:center;
-    }
-    .landing-container h1{
-        font-size:clamp(20px, 20vw, 72px);
-    }
-</style>
 
-<div class="landing-container">
-    <h1>Bob's 75th Anniversary Place holder</h1>
+{% style %}
+
+      @font-face {
+        font-family: "AvenirNextLTPro-Medium";
+        src: url( {{- 'font-avenir-next_light.eot' | asset_url -}} );
+        src: url( {{- 'font-avenir-next_light.eot?#iefix' | asset_url -}} ) format("embedded-opentype"),
+          url(  {{- 'font-avenir-next_light.woff2' | asset_url -}} ) format("woff2"), url( {{- 'font-avenir-next_light.woff' | asset_url -}} ) format("woff"),
+          url( {{- 'font-avenir-next_light.svg#OTS-derived-font' | asset_url -}} ) format("svg");
+        font-weight: normal;
+        font-style: normal;
+      }
+    
+      @font-face {
+        font-family: "AvenirNextLTPro-Bold";
+        src: url(  {{- 'font-avenir-next_medium.eot' | asset_url -}} );
+        src: url( {{- 'font-avenir-next_medium.eot?#iefix' | asset_url -}} ) format("embedded-opentype"),
+          url( {{- 'font-avenir-next_medium.woff2' | asset_url -}} ) format("woff2"), url(  {{- 'font-avenir-next_medium.woff' | asset_url -}} ) format("woff"),
+          url(    {{- 'font-avenir-next_medium.svg#OTS-derived-font' | asset_url -}} ) format("svg");
+        font-weight: normal;
+        font-style: normal;
+      }
+
+
+
+{% endstyle %}
+
+{{ 'animate.min.css' | asset_url | stylesheet_tag }}
+{{ 'landing-75th.css' | asset_url | stylesheet_tag }}
+
+<!-- start app -->
+<div id="app">
+<!-- start container -->
+<div class="landing-container-75th">
+
+    <div class="page-continaer-75th animate__animated animate__zoomIn">
+    <!-- TITLE -->
+    <div class="title">
+        <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/2nd-chance-sweepstakes-header.svg?v=1715970733" width="100%" height="auto">
+    </div>
+    <!-- BODY -->
+
+
+    <!-- LIST -->
+    <div class="list-container" 
+         :class="{'show': showModal}">
+        <div class="list">
+            <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/ist-of-prizes.svg?v=1713807017" width="100%" height="auto">
+        </div>
+        <ul>
+            <li>15” M3 MacBook Air Laptop • 1:25000 • 1 Total</li>
+            <li>11” Apple iPad Pro • 1:5000 • 5 Total</li>
+            <li>75th Anniversary T-Shirt • 3:1000 • 75 Total</li>
+            <li>75th Anniversary Mug • 3:1000 • 75 Total</li>
+            <li>75th Anniversary Coin • 3:1000 • 75 Total</li>
+            <li>$20 Gift Certificate • 3:1000 • 75 Total</li>
+            <li>Free Hot Fudge Cake • 2:25 • 2000 Total</li>
+            <li>75th Anniversary Souvenir Cup • 1:25 • 1000 Total</li>
+            <li>75th Anniversary Sticker • 21.7:25 • 21694 Total</li>
+        </ul>
+    </div>
+
+  
+    <!-- FORM -->
+    <div v-if="live" class="form-container">
+   
+
+        <div v-if="sent" class="form animate__animated animate__jello">
+            <h1>Thanks!</h1>
+        </div>
+
+        <div v-else class="form animate__animated animate__zoomIn">
+            <h1>Enter to Win!</h1>
+            <div v-if="!email.sending">
+
+                <div class="name">
+
+                    <input v-model="firstName" 
+                    type="text" 
+                    placeholder="First Name"/>
+
+                    <input v-model="lastName" 
+                        type="text" 
+                        placeholder="Last Name"/>
+                </div>
+
+                <div class="email" 
+                    :class="{'error': !email.valid}">
+
+                    <div class="email-container">
+
+                        <input v-model="email.address" 
+                            id="email"  
+                            type="email" 
+                            placeholder="Email"
+                            v-on:keyup.enter="addEmail()"
+                            @focus="resetEmail()"/>
+
+                        <div class="submit_btn" 
+                            @click="addEmail()"> 
+                            Submit
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div v-if="email.sending" class="sending"> Sending... </div>
+        </div>
+    
+    </div>
+
+    <!-- Bob Statue -->
+    <div class="bob-statue-75th">
+        <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/75th-bob-statue.png?v=1714076319" width="100%" height="auto">
+    </div>
+
+<!-- end page container -->
 </div>
+
+
+<!-- end container -->
+</div>
+<!-- end app -->
+</div>
+
+
+
+
+<script src="{{ 'vue@3.4.27.min.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'jquery-3.6.0.min.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'landing-75th.js' | asset_url }}" defer="defer"></script>

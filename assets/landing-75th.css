@@ -1,0 +1,130 @@
+html,
+body{
+   padding:0;
+   margin:0;
+   font-family: "AvenirNextLTPro-Medium";
+}
+
+*{
+   box-sizing:border-box;
+}
+
+.landing-container-75th{
+   position:relative;
+   display:flex;
+   width:100vw;
+
+   margin:0 auto;
+   height:100vh;
+   justify-content:center;
+   background-color:#E0D7C5;
+   background-image: url('https://cdn.shopify.com/s/files/1/0593/5942/8759/files/bottom-wave.svg?v=1713310939');
+   background-repeat:no-repeat;
+   background-size:150%;
+   background-position:bottom;
+   overflow:hidden;
+
+}
+
+.landing-container-75th .page-continaer-75th{
+   position:relative;
+   justify-content:center;
+   align-items: center;
+   align-content: center;
+   width:clamp(320px, 50vw, 1200px);
+}
+
+/* title --------------------------------*/
+
+.landing-container-75th .title{
+   position:absolute;
+   top:45px;
+   width:100%;
+   z-index:1;
+}
+
+
+/* list --------------------------------*/
+
+.landing-container-75th .list-container{
+    display: none;
+}
+
+.landing-container-75th .list-container.show{
+   position:fixed;
+   display:block;
+   left:0;
+   right:0;
+   margin:0 auto;
+   padding:3rem;
+   top:0;
+   width:clamp(320px, 50vw, 1200px);
+   height: 100vh;
+   line-height: 1.75rem;
+   font-size: 1.25rem;
+   background-color:#E0D7C5;
+   z-index:100;
+
+      .list{
+         margin-bottom:2rem;
+      }
+
+      ul{
+         margin:0 auto;
+         padding:0;
+         list-style: none;
+      }
+
+}
+
+
+/* form --------------------------------*/
+.landing-container-75th .form-container{
+   position: absolute;
+   display:none;
+   z-index:10;
+   padding:15px;
+   background-color:#E0D7C5;
+}
+
+
+.landing-container-75th .form-container .form{
+   
+}
+
+.landing-container-75th .form-container.sent .form,
+.landing-container-75th .form-container.sending .form{
+   
+}
+
+
+/* sending */
+.landing-container-75th .form-container .sending-message{
+   
+}
+
+.landing-container-75th .form-container.sending .sending-message{
+   
+}
+
+
+/* sent */
+.landing-container-75th .form-container .sent-message{
+
+}
+
+.landing-container-75th .form-container.sent .sent-message{
+   
+}
+
+
+/* Statue */
+.bob-statue-75th{
+   position:absolute;
+   width:clamp(300px,75%, 600px);
+   bottom:-1rem;
+   left:-250px;
+   right:0;
+   margin: 0 auto;
+   z-index:1;
+}
