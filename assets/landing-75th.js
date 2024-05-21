@@ -6,7 +6,8 @@ const app = Vue.createApp({
 		return {
 			ready:false,
             endPoint:"https://api.storyandfortune.com/bobs/",
-			live:false,
+			live:true,
+			showModal:false,
             firstName:"",
             lastName:"",
             addressOne:"",
@@ -98,6 +99,9 @@ const app = Vue.createApp({
 		
 
 			}
+		},
+		toggleModal(){
+			this.showModal = !this.showModal
 		},
 		init(){
 			this.ready = true
