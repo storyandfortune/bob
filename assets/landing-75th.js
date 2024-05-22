@@ -52,7 +52,7 @@ const app = Vue.createApp({
 
 				$.ajax({
 					method: "POST",
-					url: this.endPoint,
+					url: this.endPoint + 'social/',
 					data: dataObj
 				}).done( (response)  => {
 

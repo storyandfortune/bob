@@ -6,8 +6,9 @@ body{
    background-color:#E0D7C5;
    background-image: url('https://cdn.shopify.com/s/files/1/0593/5942/8759/files/bottom-wave.svg?v=1713310939');
    background-repeat:no-repeat;
-   background-size:150%;
+   background-size:clamp(2500px, 150%, 100%);
    background-position:bottom;
+   height:100vh;
    overflow:hidden;
 }
 
@@ -21,7 +22,7 @@ body{
    display:flex;
    justify-content:center;
    align-items: center;
-   width:clamp(370px, 50vw, 1200px);
+   width:clamp(370px, 50vw, 800px);
    height:100vh;
    margin:0 auto;
    justify-content:center;
@@ -45,21 +46,20 @@ body{
 .landing-container-75th .list-container{
    position:relative;
    display:block;
-   bottom:0;
    line-height: 1.75rem;
    font-size: 1.25rem;
    z-index:100;
    transition:all .25s ease;
+
    .list{
       position:absolute;
       right:0;
+      bottom:0;
       cursor: pointer;
-      width:35%;
+      width:clamp(250px, 35%, 300px);
       padding:1rem;
-
-
       &:hover{
-         transform: rotate(-15deg) scale(1.5);
+         transform: rotate(-10deg) scale(1.5);
       }
    }
 
@@ -67,6 +67,7 @@ body{
 
 .landing-container-75th .list-container.show{
    position:fixed;
+   top:0;
    left:0;
    right:0;
    margin:0 auto;
@@ -76,6 +77,7 @@ body{
    width:100%;
 
    .list{
+      width:clamp(250px, 35%, 500px);
       position:relative;
       margin:0 auto;
    }
@@ -124,7 +126,13 @@ body{
 }
 
 .landing-container-75th .form-container .form .name{
-   display:none;
+  display:flex;
+}
+
+.landing-container-75th .form-container .form .error_msg{
+   font-size: 26px;
+   margin-left:10px;
+   color:#ff0000;
 }
 
 .landing-container-75th .form-container .form input{
@@ -134,6 +142,11 @@ body{
    margin:.25rem;
    border-radius: 1ch;
    border:5px solid #ba8c3f;
+}
+
+.landing-container-75th .form-container .form .email.error input{
+   border:5px solid #ff0000;
+   color:#ff0000;
 }
 
 .landing-container-75th .form-container .form .submit_btn{
