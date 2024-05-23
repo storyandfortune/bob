@@ -15,10 +15,10 @@ const app = Vue.createApp({
             city:"",
             state:"",
             zip:"",
-			sent:false,
 			email:{
 				address:'',
 				valid:true,
+				sent:false,
 				sending:false
 			}
 		}
