@@ -33,7 +33,7 @@
     <!-- start container -->
     <div class="landing-container-75th">
 
-        <div class="page-continaer-75th">
+        <div v-if="ready" class="page-continaer-75th">
 
             <!-- TITLE  -->
             <div class="title animate__animated animate__zoomIn ">
@@ -45,6 +45,7 @@
             <div v-if="live" class="form-container animate__animated animate__jello animate__delay-1s">
         
                 <!-- Thanks -->
+                ${sent}
                 <div v-if="sent" class="form animate__animated animate__jello">
                     <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/thanks.svg?v=1716235513" width="100%" height="auto">
                 </div>
