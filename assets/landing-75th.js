@@ -104,6 +104,7 @@ const app = Vue.createApp({
 			this.showModal = !this.showModal
 		},
 		init(){
+			this.sent = false;
 			this.ready = true
 			this.updateQR()
 	   }
