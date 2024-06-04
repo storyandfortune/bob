@@ -33,6 +33,7 @@
     <!-- start container -->
     <div class="landing-container-75th">
 
+
         <div v-if="ready" class="page-continaer-75th">
 
             <!-- TITLE  -->
@@ -42,15 +43,18 @@
             <!-- BODY -->
 
             <!-- FORM -->
-            <div v-if="live" class="form-container animate__animated animate__jello animate__delay-1s">
+            <div class="form-container animate__animated animate__jello animate__delay-1s">
         
                 <!-- Thanks -->
-                ${email.sent}
-                <div v-if="email.sent" class="form animate__animated animate__jello">
+                <div v-if="email.verified" class="form animate__animated animate__jello">
                     <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/thanks.svg?v=1716235513" width="100%" height="auto">
                 </div>
 
-                <div v-else class="form animate__animated animate__zoomIn animate__delay-1s">
+                <div v-if="email.sent">
+                    We have sent an e-mail to ${email.address}. Please click on the link to verify your address.
+                </div>
+
+                <div v-if="!email.sent" class="form animate__animated animate__zoomIn animate__delay-1s">
                     <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/enter-to-win.svg?v=1716234879" width="100%" height="auto">
                     <div v-if="!email.valid" class="error_msg">Please enter a valid e-mail.</div>
                     <div v-if="!email.sending">
@@ -79,7 +83,7 @@
                                     @focus="resetEmail()"/>
 
                                 <div class="submit_btn" 
-                                    @click="addEmail()"> 
+                                    @click="verifyEmail()"> 
                                     <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/submit.svg?v=1716234878" width="100%" height="auto">
                                 </div>
 
@@ -95,7 +99,8 @@
             
             </div>
 
-            <!-- LIST -->
+
+            <!-- LIST 
             <div class="list-container" 
                 :class="{'show': showModal}">
                 <div class="list" @click="toggleModal()">
@@ -113,6 +118,7 @@
                     <li>75th Anniversary Sticker <span>21.7:25 / 21694 Total</span></li>
                 </ul>
             </div>
+            -->
 
         <!-- end page container -->
         </div>

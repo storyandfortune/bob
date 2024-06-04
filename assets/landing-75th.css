@@ -112,8 +112,6 @@ body{
    align-content: center;
    width:100%;
    height:60vh;
-
-
    background-image: url('https://cdn.shopify.com/s/files/1/0593/5942/8759/files/75th-bob-statue.png?v=1714076319');
    background-repeat:no-repeat;
    background-size:contain;
@@ -126,7 +124,7 @@ body{
 }
 
 .landing-container-75th .form-container .form .name{
-  display:flex;
+  
 }
 
 .landing-container-75th .form-container .form .error_msg{

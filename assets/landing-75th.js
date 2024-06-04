@@ -6,7 +6,6 @@ const app = Vue.createApp({
 		return {
 			ready:false,
             endPoint:"https://api.storyandfortune.com/bobs/",
-			live:true,
 			showModal:false,
             firstName:"",
             lastName:"",
@@ -18,6 +17,7 @@ const app = Vue.createApp({
 			email:{
 				address:'',
 				valid:true,
+				verified:false,
 				sent:false,
 				sending:false
 			}
@@ -55,11 +55,10 @@ const app = Vue.createApp({
 					url: this.endPoint + 'social/',
 					data: dataObj
 				}).done( (response)  => {
-
 					console.log(response)
 					this.email.sending = false
-					this.sent = true
-
+					this.email.sent = true
+					this.email.verified = true
 
 				}).fail((error) => {
 					console.log(error)
@@ -69,12 +68,50 @@ const app = Vue.createApp({
 			}
 
 		},
-		updateQR(){
-			const queryString = window.location.search;
-			if( queryString === "?qr=true"){
-				console.log(queryString);
-				console.log("update QR");
+		verifyEmail(){
 
+			let dataObj = {
+				'fname':this.firstName,
+				'lname':this.lastName,
+				'email': this.email.address
+			}
+			$.ajax({
+				method: "POST",
+				url: this.endPoint + "verify/add/",
+				data: dataObj
+			}).done( (response)  => {
+				console.log(response)
+				if(response.status){
+					this.email.sent = true
+				}
+			}).fail((error) => {
+				console.log(error)
+			});
+		},
+		checkVerify(id){
+			let dataObj = {
+				'id':id
+			}
+			$.ajax({
+				method: "POST",
+				url: this.endPoint + "verify/check/",
+				data: dataObj
+			}).done( (response)  => {
+
+				console.log(response)
+
+				this.email.address = response.data.fields[0].value
+				this.firstName = response.data.fields[1].value
+				this.lastName = response.data.fields[2].value
+
+				if(response.status){
+					//this.addEmail()
+				}
+			}).fail((error) => {
+				console.log(error)
+			});
+		},
+		updateQR(){
 
 				let dataObj = {
 					'qrscan':'75th-anniversary'
@@ -96,17 +133,27 @@ const app = Vue.createApp({
 					console.log(error)
 					this.email.sending = false
 				});
-		
-
-			}
 		},
 		toggleModal(){
 			this.showModal = !this.showModal
 		},
 		init(){
-			this.sent = false;
+			
+			const queryString = window.location.search;
+	
+			if(queryString === "?qr=true"){
+				this.updateQR()
+			}
+
+			console.log();
+			if(queryString.substring(0, 7) === "?verify"){
+			   let id = queryString.slice(8);
+			   this.email.sent = true;
+			   this.checkVerify(id)
+			}
+
+			
 			this.ready = true
-			this.updateQR()
 	   }
 	},
 	delimiters: ['${', '}'],
