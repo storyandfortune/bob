@@ -14,16 +14,27 @@ const app = Vue.createApp({
             city:"",
             state:"",
             zip:"",
+			formState:{
+				verify :false,
+				form:true,
+				thanks:false,
+				error:false,
+				message:'This is the message.'
+			},
 			email:{
 				address:'',
 				valid:true,
-				verified:false,
-				sent:false,
 				sending:false
 			}
 		}
 	},
 	methods: {
+		resetFormState(){
+			this.formState.verify = false;
+			this.formState.form = false;
+			this.formState.thanks = false;
+			this.formState.error = false;
+		},
 		validateEmail(val){
 			return String(val)
 			.toLowerCase()
@@ -36,10 +47,6 @@ const app = Vue.createApp({
 			this.email.valid = true
 		},
 		addEmail(){
-
-			this.email.valid = this.validateEmail(this.email.address)
-
-			if(this.email.valid){
 
 				this.email.sending = true
 
@@ -57,19 +64,27 @@ const app = Vue.createApp({
 				}).done( (response)  => {
 					console.log(response)
 					this.email.sending = false
-					this.email.sent = true
-					this.email.verified = true
-
+					this.formState.message = response.message
+					this.resetFormState()
+					this.formState.thanks = true
 				}).fail((error) => {
 					console.log(error)
 					this.email.sending = false
+					this.resetFormState()
+					this.formState.error = true
 				});
 
-			}
+		
 
 		},
 		verifyEmail(){
 
+
+			this.email.valid = this.validateEmail(this.email.address)
+
+			if(this.email.valid){
+
+			this.email.sending = true
 			let dataObj = {
 				'fname':this.firstName,
 				'lname':this.lastName,
@@ -81,12 +96,30 @@ const app = Vue.createApp({
 				data: dataObj
 			}).done( (response)  => {
 				console.log(response)
-				if(response.status){
-					this.email.sent = true
+				this.email.sending = false
+				this.formState.message = response.message
+
+				if(response.status === true && response.newUser === true){
+					this.resetFormState()
+					this.formState.verify = true
 				}
+				else if(response.status === true && response.newUser === false){
+					this.resetFormState()
+					this.formState.thanks = true
+				}
+				else{
+					this.resetFormState()
+					this.formState.error = true
+				}
+
 			}).fail((error) => {
 				console.log(error)
+				this.email.sending = false
+				this.formState.message = error
+				this.resetFormState()
+				this.formState.error = true
 			});
+		}
 		},
 		checkVerify(id){
 			let dataObj = {
@@ -105,10 +138,12 @@ const app = Vue.createApp({
 				this.lastName = response.data.fields[2].value
 
 				if(response.status){
-					//this.addEmail()
+					this.addEmail()
 				}
 			}).fail((error) => {
 				console.log(error)
+				this.email.sending = false
+				this.setFormState(this.formState.error)
 			});
 		},
 		updateQR(){

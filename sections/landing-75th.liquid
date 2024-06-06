@@ -46,15 +46,27 @@
             <div class="form-container animate__animated animate__jello animate__delay-1s">
         
                 <!-- Thanks -->
-                <div v-if="email.verified" class="form animate__animated animate__jello">
+                <div v-if="formState.thanks" class="message animate__animated animate__jello">
                     <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/thanks.svg?v=1716235513" width="100%" height="auto">
+                    <p>${formState.message}</p>
                 </div>
 
-                <div v-if="email.sent">
-                    We have sent an e-mail to ${email.address}. Please click on the link to verify your address.
+                <!-- Verify -->
+                <div v-if="formState.verify" class="message animate__animated animate__jello">
+                    <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/verify.svg?v=1717534371" width="100%" height="auto">
+                    <p>We have sent an e-mail to: <br/> <strong>${email.address}.</strong><br/> Please click on the link in the email to verify your address.</p>
+                    <p>Click to Resend</p>
                 </div>
 
-                <div v-if="!email.sent" class="form animate__animated animate__zoomIn animate__delay-1s">
+                <!-- Error -->
+                <div v-if="formState.error" class="message animate__animated animate__jello">
+                    <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/error.svg?v=1717622663" width="100%" height="auto">
+                    <p>${formState.message}</p>
+                </div>
+
+                <!-- Form -->
+                <div v-if="formState.form" class="form animate__animated animate__zoomIn animate__delay-1s">
+                   
                     <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/enter-to-win.svg?v=1716234879" width="100%" height="auto">
                     <div v-if="!email.valid" class="error_msg">Please enter a valid e-mail.</div>
                     <div v-if="!email.sending">
@@ -92,6 +104,8 @@
                         </div>
 
                     </div>
+
+                    <!-- sending -->
                     <div v-if="email.sending" class="sending">
                         <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/sending.svg?v=1716235513" width="100%" height="auto">
                     </div>
