@@ -125,6 +125,7 @@ const app = Vue.createApp({
 			let dataObj = {
 				'id':id
 			}
+			this.email.sending = true
 			$.ajax({
 				method: "POST",
 				url: this.endPoint + "verify/check/",
@@ -143,7 +144,8 @@ const app = Vue.createApp({
 			}).fail((error) => {
 				console.log(error)
 				this.email.sending = false
-				this.setFormState(this.formState.error)
+				this.resetFormState()
+			    this.formState.error = true
 			});
 		},
 		updateQR(){
