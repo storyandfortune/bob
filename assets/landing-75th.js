@@ -9,11 +9,7 @@ const app = Vue.createApp({
 			showModal:false,
             firstName:"",
             lastName:"",
-            addressOne:"",
-            addressTwo:"",
-            city:"",
-            state:"",
-            zip:"",
+			subscribe:true,
 			formState:{
 				verify :false,
 				form:true,
@@ -54,6 +50,7 @@ const app = Vue.createApp({
                     'fname':this.firstName,
                     'lname':this.lastName,
 					'email': this.email.address,
+					'subscribe':this.subscribe,
 					'tag':'75th-anniversary'
 				}
 
@@ -88,7 +85,8 @@ const app = Vue.createApp({
 			let dataObj = {
 				'fname':this.firstName,
 				'lname':this.lastName,
-				'email': this.email.address
+				'email': this.email.address,
+				'subscribe':this.subscribe.toString()
 			}
 			$.ajax({
 				method: "POST",
@@ -101,7 +99,8 @@ const app = Vue.createApp({
 
 				if(response.status === true && response.newUser === true){
 					this.resetFormState()
-					this.formState.verify = true
+					setTimeout(() => {	this.formState.verify = true}, 1000)
+				
 				}
 				else if(response.status === true && response.newUser === false){
 					this.resetFormState()
@@ -137,6 +136,8 @@ const app = Vue.createApp({
 				this.email.address = response.data.fields[0].value
 				this.firstName = response.data.fields[1].value
 				this.lastName = response.data.fields[2].value
+				this.subscribe = response.data.fields[3].value
+				this.formState.message = response.data.message
 
 				if(response.status){
 					this.addEmail()

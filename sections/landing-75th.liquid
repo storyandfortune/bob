@@ -54,8 +54,8 @@
                 <!-- Verify -->
                 <div v-if="formState.verify" class="message animate__animated animate__jello">
                     <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/verify.svg?v=1717534371" width="100%" height="auto">
-                    <p>We have sent an e-mail to: <br/> <strong>${email.address}.</strong><br/> Please click on the link in the email to verify your address.</p>
-                    <p>Click to Resend</p>
+                    <p>${formState.message}<br/><h2>${email.address}</h2></p> <p>Please click on the link in the email to verify your address.</p>
+                    <p class="resend" @click="verifyEmail()">Didn’t get email? Check your spam or <span>click here to resend.</span></p>
                 </div>
 
                 <!-- Error -->
@@ -70,6 +70,8 @@
                     <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/enter-to-win.svg?v=1716234879" width="100%" height="auto">
                     <div v-if="!email.valid" class="error_msg">Please enter a valid e-mail.</div>
                     <div v-if="!email.sending">
+
+                      <!--  <p>Get a free limited-edition 75th Anniversary Postcard mailed from Big Boy directly to you!</p> -->
 
                         <div class="name">
 
@@ -94,6 +96,8 @@
                                     v-on:keyup.enter="addEmail()"
                                     @focus="resetEmail()"/>
 
+                                    <div class="subscribe"><input v-model="subscribe" type="checkbox" @click="subscribe = !subscribe"/> <span>I agree to receive occasional emails from Bob's Big Boy Burbank.</span></div>
+
                                 <div class="submit_btn" 
                                     @click="verifyEmail()"> 
                                     <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/submit.svg?v=1716234878" width="100%" height="auto">
@@ -113,26 +117,16 @@
             
             </div>
 
-
-            <!-- LIST 
             <div class="list-container" 
                 :class="{'show': showModal}">
                 <div class="list" @click="toggleModal()">
-                    <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/list-of-prizes.svg?v=1716234878" width="100%" height="auto">
+                    <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/see_prizes.svg?v=1718038566" width="100%" height="auto">
                 </div>
-                <ul v-if="showModal">
-                    <li>15” M3 MacBook Air Laptop  <span>1:25000 / 1 Total</span> </li>
-                    <li>11” Apple iPad Pro <span>1:5000 / 5 Total</span></li>
-                    <li>75th Anniversary T-Shirt <span>3:1000 / 75 Total</span></li>
-                    <li>75th Anniversary Mug <span>3:1000 / 75 Total</span></li>
-                    <li>75th Anniversary Coin <span> 3:1000 / 75 Total</span></li>
-                    <li>$20 Gift Certificate <span>3:1000 / 75 Total</span></li>
-                    <li>Free Hot Fudge Cake <span>2:25 / 2000 Total</span></li>
-                    <li>75th Anniversary Souvenir Cup <span>1:25 / 1000 Total</span></li>
-                    <li>75th Anniversary Sticker <span>21.7:25 / 21694 Total</span></li>
-                </ul>
+                <div v-if="showModal">
+                    <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/Bobs-Big-Boy-75th-Anniversary-Coin-Package_2c27dc5f-53a1-4881-adf6-d132e0f1cc10.jpg?v=1716585238" width="100%" height="auto">
+                </div>
             </div>
-            -->
+          
 
         <!-- end page container -->
         </div>

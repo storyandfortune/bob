@@ -135,7 +135,7 @@ body{
 }
 
 .landing-container-75th .form-container .message p{
-   margin:0;
+   margin:10px;
    padding:0;
    text-align: center;
    font-size:22px;
@@ -144,6 +144,17 @@ body{
    color:#382821
 }
 
+.landing-container-75th .form-container .message p h2{
+   margin:0;
+   padding:0;
+}
+.landing-container-75th .form-container .message p.resend span{
+   cursor: pointer;
+   text-decoration: underline;
+}
+.landing-container-75th .form-container .message p.resend span:hover{
+   color:red;
+}
 
 .landing-container-75th .form-container .form{
    width:50%;
@@ -152,6 +163,19 @@ body{
 
 .landing-container-75th .form-container .form .name{
   
+}
+
+.landing-container-75th .form-container .form .subscribe{
+   background-color:#e0d7c5ef;
+   padding:.5rem;
+   margin:.25rem;
+   border-radius: 10px;
+   border:3px solid #ba8c3f;
+}
+.landing-container-75th .form-container .form .subscribe input[type="checkbox"]{
+   display: inline;
+   width:auto;
+   accent-color:#ba8c3f;
 }
 
 .landing-container-75th .form-container .form .error_msg{

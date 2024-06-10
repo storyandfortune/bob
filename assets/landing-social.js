@@ -42,6 +42,7 @@
                     'fname':this.firstName,
                     'lname':this.lastName,
 					'email': this.email.address,
+					'subscribe':true,
 					'tag':'social-landing'
 				}
 
