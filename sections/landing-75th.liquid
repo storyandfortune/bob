@@ -118,12 +118,16 @@
             </div>
 
             <div class="list-container" 
+                @click="toggleModal()"
                 :class="{'show': showModal}">
-                <div class="list" @click="toggleModal()">
+                <div class="list">
                     <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/see_prizes.svg?v=1718038566" width="100%" height="auto">
                 </div>
                 <div v-if="showModal">
-                    <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/Bobs-Big-Boy-75th-Anniversary-Coin-Package_2c27dc5f-53a1-4881-adf6-d132e0f1cc10.jpg?v=1716585238" width="100%" height="auto">
+                    <div class="close">
+                        <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/close-75.png?v=1718125632" width="100%" height="auto">
+                    </div>
+                    <div class="square"></div>
                 </div>
             </div>
           

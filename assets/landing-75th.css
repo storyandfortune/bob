@@ -49,19 +49,16 @@ body{
    line-height: 1.75rem;
    font-size: 1.25rem;
    z-index:100;
-   transition:all .25s ease;
+   cursor:pointer;
+}
 
-   .list{
-      position:absolute;
-      right:0;
-      bottom:0;
-      cursor: pointer;
-      width:clamp(250px, 35%, 300px);
-      padding:1rem;
-      &:hover{
-         transform: rotate(-10deg) scale(1.5);
-      }
-   }
+.landing-container-75th .list-container .list{
+   position:absolute;
+   right:0;
+   bottom:0;
+   cursor: pointer;
+   width:clamp(250px, 35%, 300px);
+   padding:1rem;
 
 }
 
@@ -75,30 +72,29 @@ body{
    padding:5vw;
    background-color:#E0D7C5;
    width:100%;
+}
 
-   .list{
-      width:clamp(250px, 35%, 500px);
+.landing-container-75th .list-container.show .list{
+   width:clamp(250px, 35%, 500px);
       position:relative;
       margin:0 auto;
-   }
+}
+.landing-container-75th .list-container.show .close{
+   position:absolute;
+   top:5vw;
+   right:5vw;
+   width:2.5rem;
+}
 
-   ul{
-      font-size: 22px;
-      text-align: center;
-      margin:0 auto;
-      padding:0;
-      font-weight: 800;
-      line-height: 22px;
-      list-style: none;
-
-      li{
-         margin:0 0 1rem 0;
-      }
-      span{
-         display:block;
-         font-size:16px;
-      }
-   }
+.landing-container-75th .list-container.show .square{
+   width:90vw;
+   max-width: 1000px;
+   height: 75vh;
+   margin:0 auto;
+   background-image: url('https://cdn.shopify.com/s/files/1/0593/5942/8759/files/75-PRIZES.png?v=1718124786');
+   background-repeat: no-repeat;
+   background-size: contain;
+   background-position: center center;
 }
 
 
@@ -161,10 +157,6 @@ body{
    margin-left:50%;
 }
 
-.landing-container-75th .form-container .form .name{
-  
-}
-
 .landing-container-75th .form-container .form .subscribe{
    background-color:#e0d7c5ef;
    padding:.5rem;
@@ -202,27 +194,6 @@ body{
    cursor: pointer;
    width:150px;
    margin: 0 auto;
-   &:hover{
-      transform: rotate(-10deg) scale(1.5);
-   }
 }
 
 
-/* sending */
-.landing-container-75th .form-container .sending-message{
-   
-}
-
-.landing-container-75th .form-container.sending .sending-message{
-   
-}
-
-
-/* sent */
-.landing-container-75th .form-container .sent-message{
-
-}
-
-.landing-container-75th .form-container.sent .sent-message{
-   
-}
