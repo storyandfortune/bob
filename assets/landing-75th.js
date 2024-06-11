@@ -50,7 +50,7 @@ const app = Vue.createApp({
                     'fname':this.firstName,
                     'lname':this.lastName,
 					'email': this.email.address,
-					'subscribe':this.subscribe,
+					'subscribe':Boolean(this.subscribe),
 					'tag':'75th-anniversary'
 				}
 
@@ -137,7 +137,7 @@ const app = Vue.createApp({
 				this.firstName = response.data.fields[1].value
 				this.lastName = response.data.fields[2].value
 				this.subscribe = response.data.fields[3].value
-				this.formState.message = response.data.message
+				this.formState.message = response.message
 
 				if(response.status){
 					this.addEmail()
