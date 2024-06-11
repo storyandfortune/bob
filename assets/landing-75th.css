@@ -16,7 +16,6 @@ body{
    box-sizing:border-box;
 }
 
-
 .landing-container-75th{
    position:relative;
    display:flex;
@@ -38,29 +37,11 @@ body{
 .landing-container-75th .title{
    width:90%;
    margin: 0 auto;
+   z-index:1;
 }
-
 
 /* list --------------------------------*/
 
-.landing-container-75th .list-container{
-   position:relative;
-   display:block;
-   line-height: 1.75rem;
-   font-size: 1.25rem;
-   z-index:100;
-   cursor:pointer;
-}
-
-.landing-container-75th .list-container .list{
-   position:absolute;
-   right:0;
-   bottom:0;
-   cursor: pointer;
-   width:clamp(250px, 35%, 300px);
-   padding:1rem;
-
-}
 
 .landing-container-75th .list-container.show{
    position:fixed;
@@ -72,6 +53,7 @@ body{
    padding:5vw;
    background-color:#E0D7C5;
    width:100%;
+   cursor:pointer;
 }
 
 .landing-container-75th .list-container.show .list{
@@ -79,6 +61,7 @@ body{
       position:relative;
       margin:0 auto;
 }
+
 .landing-container-75th .list-container.show .close{
    position:absolute;
    top:5vw;
@@ -108,9 +91,23 @@ body{
    align-content: center;
    width:100%;
    height:60vh;
+
+   overflow:visible;
+
+   /*
    background-image: url('https://cdn.shopify.com/s/files/1/0593/5942/8759/files/75th-bob-statue.png?v=1714076319');
    background-repeat:no-repeat;
    background-size:contain;
+   background-position: left center
+   */
+
+}
+
+.landing-container-75th .form-container .big-boy{
+   position:absolute;
+   width:100%;
+   left:-50%;
+   z-index:0;
 }
 
 .landing-container-75th .form-container .message{
@@ -122,6 +119,7 @@ body{
    border-radius: 20px;
    border:1px solid #fff;
    box-shadow: 0px 0px 33px 3px rgba(56, 40, 33, 0.39);
+   z-index:1;
 }
 
 .landing-container-75th .form-container .message img{
@@ -144,26 +142,36 @@ body{
    margin:0;
    padding:0;
 }
+
 .landing-container-75th .form-container .message p.resend span{
    cursor: pointer;
    text-decoration: underline;
 }
+
 .landing-container-75th .form-container .message p.resend span:hover{
    color:red;
 }
 
 .landing-container-75th .form-container .form{
-   width:50%;
-   margin-left:50%;
+   width:90%;
+   z-index:1;
+}
+
+.landing-container-75th .form-container .form .prize-btn{
+   cursor:pointer;
+   width:200px;
+   margin:2rem auto;
 }
 
 .landing-container-75th .form-container .form .subscribe{
+   width:100%;
    background-color:#e0d7c5ef;
    padding:.5rem;
-   margin:.25rem;
+   margin:.5rem .25rem;
    border-radius: 10px;
    border:3px solid #ba8c3f;
 }
+
 .landing-container-75th .form-container .form .subscribe input[type="checkbox"]{
    display: inline;
    width:auto;
@@ -178,11 +186,11 @@ body{
 
 .landing-container-75th .form-container .form input{
    width:100%;
-   font-size: 1.25rem;
-   padding:.5rem;
+   font-size: 1.2rem;
+   padding:.45rem;
    margin:.25rem;
-   border-radius: 1ch;
-   border:5px solid #ba8c3f;
+   border-radius: 10px;
+   border:3px solid #ba8c3f;
 }
 
 .landing-container-75th .form-container .form .email.error input{
@@ -197,3 +205,11 @@ body{
 }
 
 
+
+/*
+@media (max-width: 420px) {
+body{
+   border:5px red solid;
+}
+ }
+*/

@@ -172,9 +172,6 @@ const app = Vue.createApp({
 					this.email.sending = false
 				});
 		},
-		toggleModal(){
-			this.showModal = !this.showModal
-		},
 		init(){
 			
 			const queryString = window.location.search;

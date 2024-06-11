@@ -103,6 +103,10 @@
                                     <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/submit.svg?v=1716234878" width="100%" height="auto">
                                 </div>
 
+                                <div class="prize-btn" @click="showModal = !showModal">
+                                    <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/see_prizes.svg?v=1718038566" width="100%" height="auto">
+                                </div>
+
                             </div>
 
                         </div>
@@ -114,21 +118,22 @@
                         <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/sending.svg?v=1716235513" width="100%" height="auto">
                     </div>
                 </div>
+
+                <div class="big-boy">
+                    <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/75th-bob-statue.png?v=1714076319" width="100%" height="auto">
+                </div>
             
             </div>
 
-            <div class="list-container" 
-                @click="toggleModal()"
+            <div v-if="showModal" class="list-container" 
+                @click="showModal = !showModal"
                 :class="{'show': showModal}">
-                <div class="list">
-                    <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/see_prizes.svg?v=1718038566" width="100%" height="auto">
-                </div>
-                <div v-if="showModal">
+              
                     <div class="close">
                         <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/close-75.png?v=1718125632" width="100%" height="auto">
                     </div>
                     <div class="square"></div>
-                </div>
+           
             </div>
           
 
