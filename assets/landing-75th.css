@@ -37,6 +37,7 @@ body{
 .landing-container-75th .title{
    width:90%;
    margin: 0 auto;
+   padding-bottom: 3rem;
    z-index:1;
 }
 
@@ -155,13 +156,14 @@ body{
 
 .landing-container-75th .form-container .form{
    width:90%;
+   max-width: 550px;
    z-index:1;
 }
 
 .landing-container-75th .form-container .form .prize-btn{
    cursor:pointer;
    width:200px;
-   margin:2rem auto;
+   margin:1rem auto;
 }
 
 .landing-container-75th .form-container .form .subscribe{
