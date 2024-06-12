@@ -16,6 +16,11 @@ body{
    box-sizing:border-box;
 }
 
+.fit{
+   width:100%;
+   word-wrap: break-word;
+}
+
 .landing-container-75th{
    position:relative;
    display:flex;

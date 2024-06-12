@@ -54,7 +54,7 @@
                 <!-- Verify -->
                 <div v-if="formState.verify" class="message animate__animated animate__jello">
                     <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/verify.svg?v=1717534371" width="100%" height="auto">
-                    <p>${formState.message}<br/><h2>${email.address}</h2></p> <p>Please click on the link in the email to verify your address.</p>
+                    <p>${formState.message}</p><div class="fit"><h2>${email.address}</h2></div> <p>Please click on the link in the email to verify your address.</p>
                     <p class="resend" @click="verifyEmail()">Didn’t get email? Check your spam or <span>click here to resend.</span></p>
                 </div>
 
@@ -67,7 +67,7 @@
                 <!-- Form -->
                 <div v-if="formState.form" class="form animate__animated animate__zoomIn animate__delay-1s">
                    
-                    <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/enter-to-win.svg?v=1716234879" width="100%" height="auto">
+                    <img v-if="!email.sending" src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/enter-to-win.svg?v=1716234879" width="100%" height="auto">
                     <div v-if="!email.valid" class="error_msg">Please enter a valid e-mail.</div>
                     <div v-if="!email.sending">
 
