@@ -11,14 +11,14 @@ const app = Vue.createApp({
             lastName:"",
 			subscribe:true,
 			formState:{
-				verify :false,
-				form:true,
+				verify :true,
+				form:false,
 				thanks:false,
 				error:false,
-				message:'This is the message.'
+				message:'This is the message. It is really long and sucks so bad. Fuck this stupid message for real man. We do not like it one fucking bit. not at all. ever! '
 			},
 			email:{
-				address:'',
+				address:'sales@retardedlightbulbcomapny.com',
 				valid:true,
 				sending:false
 			}
