@@ -61,7 +61,6 @@ const app = Vue.createApp({
 				}).done( (response)  => {
 					console.log(response)
 					this.email.sending = false
-					this.formState.message = response.message
 					this.resetFormState()
 					this.formState.thanks = true
 				}).fail((error) => {
