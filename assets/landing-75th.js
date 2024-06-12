@@ -50,7 +50,7 @@ const app = Vue.createApp({
                     'fname':this.firstName,
                     'lname':this.lastName,
 					'email': this.email.address,
-					'subscribe':Boolean(this.subscribe),
+					'subscribe':this.subscribe,
 					'tag':'75th-anniversary'
 				}
 
