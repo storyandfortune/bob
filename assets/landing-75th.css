@@ -183,6 +183,11 @@ body{
    border:3px solid #ba8c3f;
 }
 
+.landing-container-75th .form-container .form .subscribe.error{
+   border:3px solid red;
+   color:red;
+}
+
 .landing-container-75th .form-container .form .subscribe input[type="checkbox"]{
    display: inline;
    width:auto;

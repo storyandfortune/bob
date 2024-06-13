@@ -96,7 +96,12 @@
                                     v-on:keyup.enter="addEmail()"
                                     @focus="resetEmail()"/>
 
-                                    <div class="subscribe"><input v-model="subscribe" type="checkbox" @click="subscribe = !subscribe"/> <span>I agree to receive occasional emails from Bob's Big Boy Burbank.</span></div>
+                                    <div class="subscribe"
+                                        :class="{'error': !subscribe}">
+                                        <input v-model="subscribe" type="checkbox" @click="subscribe = !subscribe"/> 
+                                        <span v-if="subscribe">I agree to receive occasional emails from Bob's Big Boy Burbank.</span>
+                                        <span v-else>You have to subscribe to enter the contest.</span>
+                                    </div>
 
                                 <div class="submit_btn" 
                                     @click="verifyEmail()"> 

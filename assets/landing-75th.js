@@ -78,7 +78,7 @@ const app = Vue.createApp({
 
 			this.email.valid = this.validateEmail(this.email.address)
 
-			if(this.email.valid){
+			if(this.email.valid && this.subscribe){
 
 			this.email.sending = true
 			let dataObj = {
