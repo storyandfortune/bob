@@ -1,3 +1,12 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "current": {
     "colors_solid_button_labels": "#ffffff",
@@ -84,6 +93,11 @@
         "type": "wish-list",
         "settings": {
         }
+      },
+      "free-shipping": {
+        "type": "free-shipping",
+        "settings": {
+        }
       }
     },
     "content_for_index": [
@@ -102,9 +116,9 @@
         "settings": {
           "button_color": "#202a36",
           "button_icon": "chat_bubble",
+          "button_text": "no_text",
           "button_horizontal_position": "bottom_left",
           "button_vertical_position": "lowest",
-          "button_text": "no_text",
           "greeting_message": "We're very happy you came!"
         }
       },
@@ -146,5 +160,10 @@
         }
       }
     }
+  },
+  "platform_customizations": {
+    "custom_css": [
+      ".list-menu li.nav-menus .header__submenu li.nav-burgers .nav-image {background-image: url(\"https:\/\/cdn.shopify.com\/s\/files\/1\/0593\/5942\/8759\/files\/Burger_ea7f06cb-2222-4ab8-b1a3-46d4dd490d49.jpg?v=1726075686\"); background-size: 70%; background-position: bottom center; height: 30rem; }"
+    ]
   }
 }
