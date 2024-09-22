@@ -1,0 +1,231 @@
+html,
+body{
+   padding:0;
+   margin:0;
+   font-family: "AvenirNextLTPro-Medium";
+   background-color:#E0D7C5;
+   background-image: url('https://cdn.shopify.com/s/files/1/0593/5942/8759/files/bottom-wave.svg?v=1713310939');
+   background-repeat:no-repeat;
+   background-size:clamp(2500px, 150%, 100%);
+   background-position:bottom;
+   height:100vh;
+   overflow:hidden;
+}
+
+*{
+   box-sizing:border-box;
+}
+
+.fit{
+   width:100%;
+   word-wrap: break-word;
+}
+
+.landing-container-hv{
+   position:relative;
+   display:flex;
+   justify-content:center;
+   align-items: center;
+   width:clamp(370px, 50vw, 800px);
+   height:100vh;
+   margin:0 auto;
+   justify-content:center;
+}
+
+.landing-container-hv .page-continaer-hv{
+   position:relative;
+   width:100%;
+}
+
+/* title --------------------------------*/
+
+.landing-container-hv .title{
+   width:90%;
+   margin: 0 auto;
+   padding-bottom: 3rem;
+   z-index:1;
+}
+
+/* list --------------------------------*/
+
+
+.landing-container-hv .list-container.show{
+   position:fixed;
+   top:0;
+   left:0;
+   right:0;
+   margin:0 auto;
+   height: 100vh;
+   padding:5vw;
+   background-color:#E0D7C5;
+   width:100%;
+   cursor:pointer;
+}
+
+.landing-container-hv .list-container.show .list{
+   width:clamp(250px, 35%, 500px);
+      position:relative;
+      margin:0 auto;
+}
+
+.landing-container-hv .list-container.show .close{
+   position:absolute;
+   top:5vw;
+   right:5vw;
+   width:2.5rem;
+}
+
+.landing-container-hv .list-container.show .square{
+   width:90vw;
+   max-width: 1000px;
+   height: 75vh;
+   margin:0 auto;
+   background-image: url('https://cdn.shopify.com/s/files/1/0593/5942/8759/files/75-PRIZES.gif?v=1718141316');
+   background-repeat: no-repeat;
+   background-size: contain;
+   background-position: center center;
+}
+
+
+/* form --------------------------------*/
+.landing-container-hv .form-container{
+   position:relative;
+   display:flex;
+   justify-content:center;
+   justify-items: center;
+   align-items: center;
+   align-content: center;
+   width:100%;
+   height:60vh;
+   z-index: 0;
+   overflow:visible;
+
+   /*
+   background-image: url('https://cdn.shopify.com/s/files/1/0593/5942/8759/files/75th-bob-statue.png?v=1714076319');
+   background-repeat:no-repeat;
+   background-size:contain;
+   background-position: left center
+   */
+
+}
+
+.landing-container-hv .form-container .big-boy{
+   position:absolute;
+   width:100%;
+   max-width: 600px;;
+   left:-50%;
+   z-index:0;
+}
+
+.landing-container-hv .form-container .message{
+   display:block;
+   position:relative;
+   text-align: center;
+   background-color:#e0d7c5d8;
+   margin: 2rem;
+   max-width: 100%;
+   min-height: 75%;
+   padding:10px;
+   border-radius: 20px;
+   border:1px solid #fff;
+   box-shadow: 0px 0px 33px 3px rgba(56, 40, 33, 0.39);
+   z-index:1;
+}
+
+.landing-container-hv .form-container .message img{
+   width:100%;
+   max-width: 300px;
+   margin: 0 auto;
+}
+
+.landing-container-hv .form-container .message p{
+   margin:10px;
+   padding:0;
+   text-align: center;
+   font-size:22px;
+   line-height: 28px;
+   font-weight: 800;
+   color:#382821
+}
+
+.landing-container-hv .form-container .message p h2{
+   margin:0;
+   padding:0;
+}
+
+.landing-container-hv .form-container .message p.resend span{
+   cursor: pointer;
+   text-decoration: underline;
+}
+
+.landing-container-hv .form-container .message p.resend span:hover{
+   color:red;
+}
+
+.landing-container-hv .form-container .form{
+   width:90%;
+   max-width: 550px;
+   z-index:1;
+}
+
+.landing-container-hv .form-container .form .prize-btn{
+   cursor:pointer;
+   width:200px;
+   margin:1rem auto;
+}
+
+.landing-container-hv .form-container .form .subscribe{
+   width:100%;
+   background-color:#e0d7c5ef;
+   padding:.5rem;
+   margin:.5rem .25rem;
+   border-radius: 10px;
+   border:3px solid #ba8c3f;
+}
+
+.landing-container-hv .form-container .form .subscribe.error{
+   border:3px solid red;
+   color:red;
+}
+
+.landing-container-hv .form-container .form .subscribe input[type="checkbox"]{
+   display: inline;
+   width:auto;
+   accent-color:#ba8c3f;
+}
+
+.landing-container-hv .form-container .form .error_msg{
+   font-size: 26px;
+   margin-left:10px;
+   color:#ff0000;
+}
+
+.landing-container-hv .form-container .form input{
+   width:100%;
+   font-size: 1.2rem;
+   padding:.45rem;
+   margin:.25rem;
+   border-radius: 10px;
+   border:3px solid #ba8c3f;
+}
+
+.landing-container-hv .form-container .form .email.error input{
+   border:5px solid #ff0000;
+   color:#ff0000;
+}
+
+.landing-container-hv .form-container .form .submit_btn{
+   cursor: pointer;
+   width:150px;
+   margin: 0 auto;
+}
+
+
+
+/*
+@media (max-width: 420px) {
+body{
+   border:5px red solid;
+}
+ }
+*/
