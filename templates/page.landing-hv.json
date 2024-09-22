@@ -1,13 +1,14 @@
 {
-  "layout":"blank",  
-  "sections": {
+    "layout": "blank",
+    "sections": {
       "main": {
-        "type": "blank-page"
+        "type": "blank-page",
+        "settings": {
+        }
       },
       "form": {
-        "type": "spin-2-win",
+        "type": "landing-hv",
         "settings": {
-          "heading": ""
         }
       }
     },
