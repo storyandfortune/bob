@@ -31,8 +31,8 @@
         <div v-if="ready" class="page-continaer-hv">
 
             <!-- TITLE  -->
-            <div class="title animate__animated animate__zoomIn ">
-                <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/2nd-chance-sweepstakes-header-2.svg?v=1718131873" width="100%" height="auto">
+            <div class="title">
+                <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/header.png?v=1727048988" width="100%" height="auto">
             </div>
             <!-- BODY -->
 
@@ -102,10 +102,7 @@
                                     <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/submit.svg?v=1716234878" width="100%" height="auto">
                                 </div>
 
-                                <div class="prize-btn" @click="showModal = !showModal">
-                                    <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/see_prizes.svg?v=1718038566" width="100%" height="auto">
-                                </div>
-
+                          
                             </div>
 
                         </div>
@@ -118,20 +115,11 @@
                     </div>
                 </div>
 
-                <div class="big-boy">
-                    <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files-hv-bob-statue.png?v=1714076319" width="100%" height="auto">
-                </div>
             
             </div>
 
-            <div v-if="showModal" class="list-container" 
-                @click="showModal = !showModal"
-                :class="{'show': showModal}">
+            <div v-if="showGame" class="game-container">
               
-                    <div class="close">
-                        <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/close-75.png?v=1718125632" width="100%" height="auto">
-                    </div>
-                    <div class="square"></div>
            
             </div>
           

@@ -2,12 +2,8 @@ html,
 body{
    padding:0;
    margin:0;
-   font-family: "AvenirNextLTPro-Medium";
-   background-color:#E0D7C5;
-   background-image: url('https://cdn.shopify.com/s/files/1/0593/5942/8759/files/bottom-wave.svg?v=1713310939');
-   background-repeat:no-repeat;
-   background-size:clamp(2500px, 150%, 100%);
-   background-position:bottom;
+   font-family: "AvenirNextLTPro-Medium" sans-serif;
+   background-color:#000;
    height:100vh;
    overflow:hidden;
 }
@@ -24,15 +20,16 @@ body{
 .landing-container-hv{
    position:relative;
    display:flex;
-   justify-content:center;
-   align-items: center;
    width:clamp(370px, 50vw, 800px);
    height:100vh;
    margin:0 auto;
-   justify-content:center;
+   padding:0;
+
 }
 
 .landing-container-hv .page-continaer-hv{
+   margin:0 auto;
+   padding:0;
    position:relative;
    width:100%;
 }
@@ -40,10 +37,9 @@ body{
 /* title --------------------------------*/
 
 .landing-container-hv .title{
-   width:90%;
+   width:100%;
    margin: 0 auto;
-   padding-bottom: 3rem;
-   z-index:1;
+   z-index:0;
 }
 
 /* list --------------------------------*/
@@ -100,22 +96,10 @@ body{
    z-index: 0;
    overflow:visible;
 
-   /*
-   background-image: url('https://cdn.shopify.com/s/files/1/0593/5942/8759/files/75th-bob-statue.png?v=1714076319');
-   background-repeat:no-repeat;
-   background-size:contain;
-   background-position: left center
-   */
+
 
 }
 
-.landing-container-hv .form-container .big-boy{
-   position:absolute;
-   width:100%;
-   max-width: 600px;;
-   left:-50%;
-   z-index:0;
-}
 
 .landing-container-hv .form-container .message{
    display:block;

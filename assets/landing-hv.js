@@ -51,7 +51,7 @@ const app = Vue.createApp({
                     'lname':this.lastName,
 					'email': this.email.address,
 					'subscribe':this.subscribe,
-					'tag':'75th-anniversary'
+					'tag':'heros-and-villians'
 				}
 
 				$.ajax({
@@ -151,7 +151,7 @@ const app = Vue.createApp({
 		updateQR(){
 
 				let dataObj = {
-					'qrscan':'75th-anniversary'
+					'qrscan':'heros-and-villians'
 				}
 
 				/**/
