@@ -1,15 +1,38 @@
+
+:root{
+   --green: #169346;
+   --yellow: #f2d117;
+   --red: #ec1c3c;
+   --blue: #63bee1;
+   --black:#000;
+}
+
 html,
 body{
    padding:0;
    margin:0;
-   font-family: "AvenirNextLTPro-Medium" sans-serif;
+   font-family: "AvenirNextLTPro-Medium";
    background-color:#000;
+   color:white;
    height:100vh;
    overflow:hidden;
 }
 
 *{
    box-sizing:border-box;
+}
+
+h1,h2{
+   font-family: 'Harvard';
+   letter-spacing: 1px;
+}
+h1{
+   font-size: 42px;
+   padding:0;
+   margin:0;
+}
+h2{
+   font-size: 28px;
 }
 
 .fit{
@@ -24,7 +47,6 @@ body{
    height:100vh;
    margin:0 auto;
    padding:0;
-
 }
 
 .landing-container-hv .page-continaer-hv{
@@ -53,7 +75,7 @@ body{
    margin:0 auto;
    height: 100vh;
    padding:5vw;
-   background-color:#E0D7C5;
+   background-color: var(--green);
    width:100%;
    cursor:pointer;
 }
@@ -71,33 +93,15 @@ body{
    width:2.5rem;
 }
 
-.landing-container-hv .list-container.show .square{
-   width:90vw;
-   max-width: 1000px;
-   height: 75vh;
-   margin:0 auto;
-   background-image: url('https://cdn.shopify.com/s/files/1/0593/5942/8759/files/75-PRIZES.gif?v=1718141316');
-   background-repeat: no-repeat;
-   background-size: contain;
-   background-position: center center;
-}
-
-
 /* form --------------------------------*/
 .landing-container-hv .form-container{
    position:relative;
    display:flex;
    justify-content:center;
-   justify-items: center;
-   align-items: center;
-   align-content: center;
    width:100%;
    height:60vh;
    z-index: 0;
    overflow:visible;
-
-
-
 }
 
 
@@ -105,7 +109,7 @@ body{
    display:block;
    position:relative;
    text-align: center;
-   background-color:#e0d7c5d8;
+   background-color: var(--green);
    margin: 2rem;
    max-width: 100%;
    min-height: 75%;
@@ -152,6 +156,14 @@ body{
    z-index:1;
 }
 
+.landing-container-hv .form-container .form .form-header{
+   text-align: center;
+}
+
+.landing-container-hv .form-container .form .form-header p{
+   line-height: 22px;
+}
+
 .landing-container-hv .form-container .form .prize-btn{
    cursor:pointer;
    width:200px;
@@ -160,11 +172,13 @@ body{
 
 .landing-container-hv .form-container .form .subscribe{
    width:100%;
-   background-color:#e0d7c5ef;
+   background-color:var(--yellow);
+   color:var(--black);
    padding:.5rem;
    margin:.5rem .25rem;
-   border-radius: 10px;
-   border:3px solid #ba8c3f;
+   border-radius: 5px;
+   box-shadow: -6px 6px 2px 1px var(--blue);
+
 }
 
 .landing-container-hv .form-container .form .subscribe.error{
@@ -175,7 +189,7 @@ body{
 .landing-container-hv .form-container .form .subscribe input[type="checkbox"]{
    display: inline;
    width:auto;
-   accent-color:#ba8c3f;
+   accent-color:white
 }
 
 .landing-container-hv .form-container .form .error_msg{
@@ -189,8 +203,8 @@ body{
    font-size: 1.2rem;
    padding:.45rem;
    margin:.25rem;
-   border-radius: 10px;
-   border:3px solid #ba8c3f;
+   border-radius: 5px;
+   border: 3px solid var(--yellow);
 }
 
 .landing-container-hv .form-container .form .email.error input{
@@ -201,6 +215,10 @@ body{
 .landing-container-hv .form-container .form .submit_btn{
    cursor: pointer;
    width:150px;
+   background-color: var(--green);
+   text-align:center;
+   border-radius: 10px;
+   /*border: 3px solid var(--yellow);*/
    margin: 0 auto;
 }
 

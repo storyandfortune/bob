@@ -1,0 +1,32 @@
+{{ 'puzzle.css' | asset_url | stylesheet_tag }}
+
+
+<div class="game-container">
+
+    <div id="puzzle" class="animate__animated animate__swing"></div>
+
+    <div id="countdown"></div>
+
+    <div id="shuffleBtn" class="hv-btn" >Start Game</div>
+
+</div>
+
+<div id="alert" class="alert-container">
+ 
+    <div id="win" class="alert">
+        <h1>Winner!</h1>
+        <p>Use this screen to redeem your free sticker. Limit one per customer.</p>
+        <img id="winSticker" src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/hv-burgler.png?v=1727127335" width="100%" height="auto" />
+        <div id="playAgain" class="hv-btn" >Play Again.</div>
+    </div>
+
+    <div id="loose" class="alert">
+        <h1>Time is up! Game over.</h1>
+        <div id="tryAgain" class="hv-btn" >Try Again.</div>
+    </div>
+
+</div>
+
+
+<script src="{{ 'howler.min.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'puzzle.js' | asset_url }}" defer="defer"></script>

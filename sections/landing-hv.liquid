@@ -1,18 +1,43 @@
 
 {% style %}
 
-      @font-face {
+@font-face {
         font-family: "AvenirNextLTPro-Medium";
         src: url( {{- 'font-avenir-next_light.eot' | asset_url -}} );
+        src: url( {{- 'font-avenir-next_light.eot?#iefix' | asset_url -}} ) format("embedded-opentype"),
+          url(  {{- 'font-avenir-next_light.woff2' | asset_url -}} ) format("woff2"), 
+          url( {{- 'font-avenir-next_light.woff' | asset_url -}} ) format("woff"),
+          url( {{- 'font-avenir-next_light.svg?#OTS-derived-font' | asset_url -}} ) format("svg");
         font-weight: normal;
         font-style: normal;
+        font-display: swap; 
       }
     
       @font-face {
         font-family: "AvenirNextLTPro-Bold";
         src: url(  {{- 'font-avenir-next_medium.eot' | asset_url -}} );
+        src: url( {{- 'font-avenir-next_medium.eot?#iefix' | asset_url -}} ) format("embedded-opentype"),
+         url( {{- 'font-avenir-next_medium.otf' | asset_url -}} ) format("opentype"), 
+         url( {{- 'font-avenir-next_medium.ttf' | asset_url -}} ) format("truetype"), 
+         url( {{- 'font-avenir-next_medium.woff2' | asset_url -}} ) format("woff2"), 
+         url( {{- 'font-avenir-next_medium.woff' | asset_url -}} ) format("woff"),
+         url( {{- 'font-avenir-next_medium.svg?#OTS-derived-font' | asset_url -}} ) format("svg");
+         font-weight: normal;
+         font-style: normal;
+         font-display: swap; 
+      }
+
+
+      @font-face {
+        font-family: 'Harvard';
+        src: url( {{- 'font-filmotype-harvard.eot' | asset_url -}} );
+        src: url( {{- 'font-filmotype-harvard.eot?#iefix' | asset_url -}} ) format('embedded-opentype'),
+        url(  {{- 'font-filmotype-harvard.woff2' | asset_url -}}) format('woff2'),
+        url(  {{- 'font-filmotype-harvard.woff' | asset_url -}}) format('woff'),
+        url(  {{- 'font-filmotype-harvard.svg?#Hudson' | asset_url -}}) format('svg');
         font-weight: normal;
-        font-style: normal;
+        font-style: normal; 
+        font-display: swap; 
       }
 
 
@@ -21,6 +46,7 @@
 
 {{ 'animate.min.css' | asset_url | stylesheet_tag }}
 {{ 'landing-hv.css' | asset_url | stylesheet_tag }}
+{{ 'puzzle.css' | asset_url | stylesheet_tag }}
 
 <!-- start app -->
 <div id="app">
@@ -41,31 +67,33 @@
         
                 <!-- Thanks -->
                 <div v-if="formState.thanks" class="message animate__animated animate__jello">
-                    <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/thanks.svg?v=1716235513" width="100%" height="auto">
+                    <h1>Thanks!</h1>
                     <p>${formState.message}</p>
                 </div>
 
                 <!-- Verify -->
                 <div v-if="formState.verify" class="message animate__animated animate__jello">
-                    <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/verify.svg?v=1717534371" width="100%" height="auto">
+                    <h1>Verify</h1>
                     <p>${formState.message}</p><div class="fit"><h2>${email.address}</h2></div> <p>Please click on the link in the email to verify your address.</p>
-                    <p class="resend" @click="verifyEmail()">Didn’t get email? Check your spam or <span>click here to resend.</span></p>
+                    <p class="resend" @click="verifyEmail()">Didn't get email? Check your spam or <span>click here to resend.</span></p>
                 </div>
 
                 <!-- Error -->
                 <div v-if="formState.error" class="message animate__animated animate__jello">
-                    <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/error.svg?v=1717622663" width="100%" height="auto">
+                    <h1>Error</h1>
                     <p>${formState.message}</p>
                 </div>
 
                 <!-- Form -->
                 <div v-if="formState.form" class="form animate__animated animate__zoomIn animate__delay-1s">
                    
-                    <img v-if="!email.sending" src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/enter-to-win.svg?v=1716234879" width="100%" height="auto">
+                    <div class="form-header" v-if="!email.sending">
+                        <h1>Enter to Play</h1>
+                        <p>Enter your e-mail to play Bob's Heros & Villians Sticker Puzzle Game.Once your email is confirmed, you can play. Solve the puzzle, and you'll win a free exclusive sticker! Be sure to check your inbox for verification, so you don't miss out on the chance to play.</p>
+                    </div>
+
                     <div v-if="!email.valid" class="error_msg">Please enter a valid e-mail.</div>
                     <div v-if="!email.sending">
-
-                      <!--  <p>Get a free limited-edition-hv Anniversary Postcard mailed from Big Boy directly to you!</p> -->
 
                         <div class="name">
 
@@ -98,9 +126,16 @@
                                     </div>
 
                                 <div class="submit_btn" 
-                                    @click="verifyEmail()"> 
-                                    <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/submit.svg?v=1716234878" width="100%" height="auto">
+                                    @click="formState.form = false"> 
+                                   <h2>Enter</h2>
                                 </div>
+
+                                <!-- 
+                                <div class="submit_btn" 
+                                    @click="verifyEmail()"> 
+                                   <h2>Enter</h2>
+                                </div>
+                                 -->
 
                           
                             </div>
@@ -115,14 +150,35 @@
                     </div>
                 </div>
 
+                <!-- Game -->
+                <div v-else>
+                    <div id="puzzle" ref="puzzle">
+                        <div
+                          v-for="(piece, index) in pieces"
+                          :key="piece.order"
+                          class="piece"
+                          :class="{ active: piece === activePiece }"
+                          :style="getPieceStyle(piece)"
+                          @click="handlePieceClick(piece)"
+                        ></div>
+                      </div>
+                    <button id="shuffleBtn" @click="startGame" :style="{ visibility: gameActive ? 'hidden' : 'visible' }">Shuffle</button>
+                    <button id="solveBtn" @click="solvePuzzle">Solve</button>
+                    <div id="countdown" :style="{ visibility: gameActive ? 'visible' : 'hidden' }">${ timeLeft }</div>
+                    <div id="alert" :class="{ active: showAlert }">
+                        <div id="win" v-if="showWinAlert">
+                            <img id="winSticker" :src="randBob" alt="Win sticker" width="100%" height="auto">
+                            <button id="playAgain" @click="closeAlert">Play Again</button>
+                        </div>
+                        <div id="loose" v-if="showLooseAlert">
+                            <p>Time's up! Try again.</p>
+                            <button id="tryAgain" @click="closeAlert">Try Again</button>
+                        </div>
+                    </div>
+
+                </div>
             
             </div>
-
-            <div v-if="showGame" class="game-container">
-              
-           
-            </div>
-          
 
         <!-- end page container -->
         </div>
@@ -133,8 +189,7 @@
 </div>
 
 
-
-
-<script src="{{ 'vue@3.4.27.min.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'howler.min.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'vue.global.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'jquery-3.6.0.min.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'landing-hv.js' | asset_url }}" defer="defer"></script>
