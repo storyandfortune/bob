@@ -378,6 +378,10 @@ const app = Vue.createApp({
 		initGame(){
 			this.formState.form = false;
 			this.game = true;
+			this.scrollPageUp()
+		},
+		scrollPageUp() {
+			window.scrollTo(0, 1);
 		},
 		init(){
 			
@@ -396,6 +400,9 @@ const app = Vue.createApp({
 			this.randBob = this.stickers[Math.floor(Math.random() * this.stickers.length)];
 			this.createPieces();
 			this.initSounds();
+			this.$nextTick(() => {
+				this.scrollPageUp();
+			});
 	   }
 	},
 	delimiters: ['${', '}'],

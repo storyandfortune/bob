@@ -90,10 +90,12 @@
 
                             <input v-model="firstName" 
                             type="text" 
+                            @blur="scrollPageUp"
                             placeholder="First Name"/>
 
                             <input v-model="lastName" 
                                 type="text" 
+                                @blur="scrollPageUp"
                                 placeholder="Last Name"/>
                         </div>
 
@@ -106,6 +108,7 @@
                                     id="email"  
                                     type="email" 
                                     placeholder="Email"
+                                    @blur="scrollPageUp"
                                     v-on:keyup.enter="addEmail()"
                                     @focus="resetEmail()"/>
 
