@@ -323,6 +323,7 @@ const app = Vue.createApp({
 			this.showAlert = true;
 			this.showLooseAlert = true;
 			this.sounds.loose.play();
+			this.solvePuzzle();
 		},
 		solvePuzzle() {
 			if (this.gameActive) {
@@ -372,9 +373,6 @@ const app = Vue.createApp({
 				this.startCountdown();
 			  }
 			}, 100);
-		},
-		launchGame(){
-
 		},
 		init(){
 			

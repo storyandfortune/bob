@@ -46,20 +46,19 @@
 
 {{ 'animate.min.css' | asset_url | stylesheet_tag }}
 {{ 'landing-hv.css' | asset_url | stylesheet_tag }}
-{{ 'puzzle.css' | asset_url | stylesheet_tag }}
 
 <!-- start app -->
 <div id="app">
     <!-- start container -->
     <div class="landing-container-hv">
-
+       <!-- TITLE  -->
+       <div class="title">
+        <!-- <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/h-v-header-alt.png?v=1727369976" width="100%" height="auto"> -->
+    </div>
 
         <div v-if="ready" class="page-continaer-hv">
 
-            <!-- TITLE  -->
-            <div class="title">
-                <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/header.png?v=1727048988" width="100%" height="auto">
-            </div>
+     
             <!-- BODY -->
 
             <!-- FORM -->
@@ -88,8 +87,8 @@
                 <div v-if="formState.form" class="form animate__animated animate__zoomIn animate__delay-1s">
                    
                     <div class="form-header" v-if="!email.sending">
-                        <h1>Enter to Play</h1>
-                        <p>Enter your e-mail to play Bob's Heros & Villians Sticker Puzzle Game.Once your email is confirmed, you can play. Solve the puzzle, and you'll win a free exclusive sticker! Be sure to check your inbox for verification, so you don't miss out on the chance to play.</p>
+                      <!-- <h1>Enter to Play</h1> -->
+                        <p>Enter your e-mail to play Heros & Villians Sticker Puzzle Game. Once your email is confirmed, you can play. Solve the puzzle, and you'll win a free Bob's sticker! Be sure to check your inbox for verification, so you don't miss out on the chance to play.</p>
                     </div>
 
                     <div v-if="!email.valid" class="error_msg">Please enter a valid e-mail.</div>
@@ -151,7 +150,7 @@
                 </div>
 
                 <!-- Game -->
-                <div v-else>
+                <div class="game-container" v-else>
                     <div id="puzzle" ref="puzzle">
                         <div
                           v-for="(piece, index) in pieces"
@@ -162,8 +161,7 @@
                           @click="handlePieceClick(piece)"
                         ></div>
                       </div>
-                    <button id="shuffleBtn" @click="startGame" :style="{ visibility: gameActive ? 'hidden' : 'visible' }">Shuffle</button>
-                    <button id="solveBtn" @click="solvePuzzle">Solve</button>
+                    <button id="shuffleBtn" class="hv-btn" @click="startGame" :style="{ visibility: gameActive ? 'hidden' : 'visible' }">Shuffle</button>
                     <div id="countdown" :style="{ visibility: gameActive ? 'visible' : 'hidden' }">${ timeLeft }</div>
                     <div id="alert" :class="{ active: showAlert }">
                         <div id="win" v-if="showWinAlert">

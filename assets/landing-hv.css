@@ -42,8 +42,7 @@ h2{
 
 .landing-container-hv{
    position:relative;
-   display:flex;
-   width:clamp(370px, 50vw, 800px);
+   width:100%; 
    height:100vh;
    margin:0 auto;
    padding:0;
@@ -54,16 +53,24 @@ h2{
    padding:0;
    position:relative;
    width:100%;
+  /* background-color: var(--yellow);*/
 }
 
 /* title --------------------------------*/
 
-.landing-container-hv .title{
-   width:100%;
-   margin: 0 auto;
-   z-index:0;
+.landing-container-hv .title {
+   width: 120vw; /* Make the width larger than the viewport */
+   min-height: 300px; /* Ensure the height stays the same */
+   margin: 0 -10vw; /* Negative margins to center the element */
+   background-image: url('https://cdn.shopify.com/s/files/1/0593/5942/8759/files/h-v-header-alt.png?v=1727372161');
+   background-repeat: no-repeat;
+   background-position: center bottom;
+   background-size: contain;
+   background-color: #000;
+   border-bottom: 30px solid var(--green);
+   z-index: 0;
+   overflow: hidden; /* Hide any overflow */
 }
-
 /* list --------------------------------*/
 
 
@@ -161,6 +168,8 @@ h2{
 }
 
 .landing-container-hv .form-container .form .form-header p{
+   padding-top:25px;
+   font-size: 18px;
    line-height: 22px;
 }
 
@@ -201,10 +210,11 @@ h2{
 .landing-container-hv .form-container .form input{
    width:100%;
    font-size: 1.2rem;
-   padding:.45rem;
-   margin:.25rem;
+   padding:.5rem;
+   margin:.75rem;
    border-radius: 5px;
-   border: 3px solid var(--yellow);
+   border: 5px solid var(--yellow);
+   box-shadow: -6px 6px 2px 1px var(--blue);
 }
 
 .landing-container-hv .form-container .form .email.error input{
@@ -221,6 +231,124 @@ h2{
    /*border: 3px solid var(--yellow);*/
    margin: 0 auto;
 }
+
+
+
+
+
+.page-container{
+   position:relative;
+   display: flex;
+   flex-direction: column;
+   justify-items: center;
+   align-items: center;
+   height:100vh;
+   width:100vw;
+   max-width:600px;
+}
+
+.header{
+   margin:0 auto;
+   width:100%;
+   max-width:600px;
+   padding-top: 50%; /* 50% for 2:1 aspect ratio */
+   background-image: url('_images/header.png');
+   background-position: top center;
+   background-size: cover;
+   background-repeat: no-repeat;
+   z-index: 0;
+}
+
+.game-container{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding:0;
+   z-index:1;
+}
+
+#puzzle {
+   display: grid;
+   grid-template-columns: repeat(4, 1fr);
+   grid-template-rows: repeat(4, 1fr);
+   gap: 0px;
+   width: 90vw;
+   max-width: 400px;
+   aspect-ratio: 1 / 1;
+}
+
+.piece {
+   background-size: 400% 400%;
+   cursor: pointer;
+}
+
+.piece.active {
+   transform: scale(1.1);
+   z-index: 10;
+}
+
+#countdown{
+   visibility:hidden;
+   margin:20px;
+   font-size: 30px;
+   font-weight: bold;
+   text-align: center;
+}
+
+.hv-btn{
+   cursor:pointer;
+   position: relative;
+   display:block;
+   padding: 10px 20px;
+   font-size: 16px;
+   border-radius: 10px;
+   border: 2px solid white;
+   background-color: var(--green);
+   color:white;
+   width:45%;
+   margin: 20px auto;
+}
+
+/* alerts ---------- */
+.alert-container{
+   position:absolute;
+   display:none;
+   left:0;
+   top:0;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   width:100vw;
+   height:100vh;
+   z-index:10;
+}
+.alert-container.active{
+   display:flex;
+}
+
+.alert{
+   display:none;
+   flex-direction: column;
+   align-items: center;
+   justify-items: center;
+   background-color: var(--green);
+   width:100%;
+   max-width:600px;
+   border-radius:20px;
+   padding:10px;
+   margin:20px;
+   border:10px solid white;
+}
+
+.alert img{
+   width:65%;
+   height:auto;
+}
+
+.alert.on{
+   display:flex;
+}
+
 
 
 
