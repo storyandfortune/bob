@@ -16,6 +16,16 @@ body{
    color:white;
    height:100vh;
    overflow:hidden;
+
+   background-color: rgb(20, 16, 16);
+   background-image: 
+     linear-gradient(45deg, black 25%, transparent 25%), 
+     linear-gradient(-45deg, black 25%, transparent 25%), 
+     linear-gradient(45deg, transparent 75%, black 75%), 
+     linear-gradient(-45deg, transparent 75%, black 75%);
+   background-size: 200px 200px;
+   background-position: 0 0, 0 100px, 100px -100px, -100px 0px;
+   
 }
 
 *{
@@ -62,13 +72,12 @@ h2{
    width: 120vw; /* Make the width larger than the viewport */
    min-height: 300px; /* Ensure the height stays the same */
    margin: 0 -10vw; /* Negative margins to center the element */
-   background-image: url('https://cdn.shopify.com/s/files/1/0593/5942/8759/files/h-v-header-alt.png?v=1727372161');
+   background-image: url('https://cdn.shopify.com/s/files/1/0593/5942/8759/files/h-v-header-alt.png?v=1727375357');
    background-repeat: no-repeat;
    background-position: center bottom;
    background-size: contain;
-   background-color: #000;
-   border-bottom: 30px solid var(--green);
-   z-index: 0;
+  /* background-color: #000;
+   border-bottom: 30px solid var(--green);*/
    overflow: hidden; /* Hide any overflow */
 }
 /* list --------------------------------*/
