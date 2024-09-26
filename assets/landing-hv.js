@@ -12,7 +12,7 @@ const app = Vue.createApp({
 			subscribe:true,
 			formState:{
 				verify :false,
-				form:true ,
+				form:true,
 				thanks:false,
 				error:false,
 				message:'This is the message.'
@@ -22,6 +22,7 @@ const app = Vue.createApp({
 				valid:true,
 				sending:false
 			},
+			game:false,
 			pieces: [],
 			activePiece: null,
 			gameActive: false,
@@ -373,6 +374,10 @@ const app = Vue.createApp({
 				this.startCountdown();
 			  }
 			}, 100);
+		},
+		initGame(){
+			this.formState.form = false;
+			this.game = true;
 		},
 		init(){
 			
