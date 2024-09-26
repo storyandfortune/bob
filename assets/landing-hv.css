@@ -17,7 +17,7 @@ body{
    height:100vh;
    overflow:hidden;
 
-   background-color: rgb(12, 11, 11);
+   background-color: rgb(38, 33, 33);
    background-image: 
      linear-gradient(45deg, black 25%, transparent 25%), 
      linear-gradient(-45deg, black 25%, transparent 25%), 
@@ -202,10 +202,10 @@ h2{
    background-color:var(--yellow);
    color:var(--black);
    padding:.5rem;
-   margin:.5rem .25rem;
+   margin:.5rem;
    border-radius: 5px;
-   box-shadow: -6px 6px 2px 1px var(--blue);
-
+   border: 3px solid var(--yellow);
+   font-size: .85rem;
 }
 
 .landing-container-hv .form-container .form .subscribe.error{
@@ -215,8 +215,10 @@ h2{
 
 .landing-container-hv .form-container .form .subscribe input[type="checkbox"]{
    display: inline;
+   align-items: center;
    width:auto;
-   accent-color:white
+   padding:2px;
+   accent-color:var(--green);
 }
 
 .landing-container-hv .form-container .form .error_msg{
@@ -228,11 +230,11 @@ h2{
 .landing-container-hv .form-container .form input{
    width:100%;
    font-size: 1.2rem;
-   padding:.5rem;
-   margin:.75rem;
+   padding:.25rem;
+   margin:.5rem;
    border-radius: 5px;
-   border: 5px solid var(--yellow);
-   box-shadow: -6px 6px 2px 1px var(--blue);
+   border: 3px solid var(--yellow);
+ 
 }
 
 .landing-container-hv .form-container .form .email.error input{
