@@ -17,7 +17,7 @@ body{
    height:100vh;
    overflow:hidden;
 
-   background-color: rgb(20, 16, 16);
+   background-color: rgb(12, 11, 11);
    background-image: 
      linear-gradient(45deg, black 25%, transparent 25%), 
      linear-gradient(-45deg, black 25%, transparent 25%), 
@@ -56,6 +56,8 @@ h2{
    height:100vh;
    margin:0 auto;
    padding:0;
+   overflow-y: scroll;
+   overflow-x: hidden;
 }
 
 .landing-container-hv .page-continaer-hv{
@@ -70,15 +72,20 @@ h2{
 
 .landing-container-hv .title {
    width: 120vw; /* Make the width larger than the viewport */
-   min-height: 300px; /* Ensure the height stays the same */
+   min-height: 250px; /* Ensure the height stays the same */
    margin: 0 -10vw; /* Negative margins to center the element */
    background-image: url('https://cdn.shopify.com/s/files/1/0593/5942/8759/files/h-v-header-alt.png?v=1727375357');
    background-repeat: no-repeat;
-   background-position: center bottom;
+   background-position: center top;
    background-size: contain;
-  /* background-color: #000;
-   border-bottom: 30px solid var(--green);*/
    overflow: hidden; /* Hide any overflow */
+}
+
+@media screen and (max-width: 375px) {
+   .landing-container-hv .title {
+      min-height: 175px; /* Reduced height for smaller screens */
+      background-position: center center; /* Adjust if needed */
+   }
 }
 /* list --------------------------------*/
 
@@ -180,7 +187,6 @@ h2{
 }
 
 .landing-container-hv .form-container .form .form-header p{
-   padding-top:25px;
    font-size: 18px;
    line-height: 22px;
 }
