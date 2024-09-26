@@ -56,8 +56,6 @@ h2{
    height:101vh;
    margin:0 auto;
    padding:0;
-   overflow-y: scroll;
-   overflow-x: hidden;
 }
 
 .landing-container-hv .page-continaer-hv{
@@ -72,7 +70,7 @@ h2{
 
 .landing-container-hv .title {
    width: 120vw; /* Make the width larger than the viewport */
-   min-height: 250px; /* Ensure the height stays the same */
+   min-height: 225px; /* Ensure the height stays the same */
    margin: 0 -10vw; /* Negative margins to center the element */
    background-image: url('https://cdn.shopify.com/s/files/1/0593/5942/8759/files/h-v-header-alt.png?v=1727375357');
    background-repeat: no-repeat;
@@ -83,7 +81,7 @@ h2{
 
 @media screen and (max-width: 375px) {
    .landing-container-hv .title {
-      min-height: 175px; /* Reduced height for smaller screens */
+      min-height: 150px; /* Reduced height for smaller screens */
       background-position: center center; /* Adjust if needed */
    }
 }
@@ -205,7 +203,7 @@ h2{
    margin:.5rem;
    border-radius: 5px;
    border: 3px solid var(--yellow);
-   font-size: .85rem;
+   font-size: .95rem;
 }
 
 .landing-container-hv .form-container .form .subscribe.error{
@@ -215,10 +213,15 @@ h2{
 
 .landing-container-hv .form-container .form .subscribe input[type="checkbox"]{
    display: inline;
-   align-items: center;
+   align-items:baseline;
    width:auto;
    padding:2px;
    accent-color:var(--green);
+}
+.landing-container-hv .form-container .form .subscribe span{
+   font-size: .85rem;
+   display: inline;
+   align-items:baseline;
 }
 
 .landing-container-hv .form-container .form .error_msg{
@@ -253,9 +256,6 @@ h2{
 }
 
 
-
-
-
 .page-container{
    position:relative;
    display: flex;
@@ -284,7 +284,6 @@ h2{
    flex-direction: column;
    align-items: center;
    justify-items: center;
-   border:1px solid red;
    padding:0;
    z-index:1;
 }

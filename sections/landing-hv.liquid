@@ -115,7 +115,7 @@
                                     <div class="subscribe"
                                         :class="{'error': !subscribe}">
                                         <input v-model="subscribe" type="checkbox" @click="subscribe = !subscribe"/> 
-                                        <span v-if="subscribe">I agree to receive occasional emails from Bob's Big Boy Burbank.</span>
+                                        <span v-if="subscribe">I agree to receive emails from Bob's Big Boy Burbank.</span>
                                         <span v-else>You have to subscribe to enter the contest.</span>
                                     </div>
 
@@ -146,7 +146,8 @@
 
                 <!-- Game -->
                 <div class="game-container" v-if="game">
-                    <div id="countdown" :style="{ visibility: gameActive ? 'visible' : 'hidden' }">${ timeLeft }</div>
+                    <button id="shuffleBtn" class="hv-btn" @click="startGame" :style="{ display: gameActive ? 'none' : 'block' }">Start Game</button>
+                    <div id="countdown" :style="{ display: gameActive ? 'block' : 'none' }">${ timeLeft }</div>
                     <div id="puzzle" ref="puzzle">
                         <div
                           v-for="(piece, index) in pieces"
@@ -157,7 +158,8 @@
                           @click="handlePieceClick(piece)"
                         ></div>
                       </div>
-                    <button id="shuffleBtn" class="hv-btn" @click="startGame" :style="{ visibility: gameActive ? 'hidden' : 'visible' }">Shuffle</button>
+                  
+                    
                     <div id="alert" :class="{ active: showAlert }">
                         <div id="win" v-if="showWinAlert">
                             <!-- <img id="winSticker" :src="randBob" alt="Win sticker" width="100%" height="auto"> -->
