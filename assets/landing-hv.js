@@ -381,7 +381,7 @@ const app = Vue.createApp({
 			this.scrollPageUp()
 		},
 		scrollPageUp() {
-			window.scrollTo(0, 1);
+			window.scrollTo(0, 500);
 		},
 		init(){
 			
