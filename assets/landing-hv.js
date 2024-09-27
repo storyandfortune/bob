@@ -382,9 +382,6 @@ const app = Vue.createApp({
 		},
 		scrollPageUp() {
 			window.scrollTo(0, 0);
-			$('html, body').animate({ scrollTop: 1000 }, 1000, 'swing', () => {
-				window.scrollTo(0, 999);
-			});
 		},
 		handleKeyPress(event) {
 			console.log(event)

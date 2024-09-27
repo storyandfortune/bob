@@ -64,7 +64,7 @@
                 <!-- Verify -->
                 <div v-if="formState.verify" class="message animate__animated animate__jello">
                     <h1>Verify</h1>
-                    <p>${formState.message}</p><div class="fit"><h2>${email.address}</h2></div> <p>Please click on the link in the email to verify your address.</p>
+                    <p>${formState.message}</p><div class="fit"> ${email.address} </div> <p>Please click on the link in the email to verify your address.</p>
                     <p class="resend" @click="verifyEmail()">Didn't get email? Check your spam or <span>click here to resend.</span></p>
                 </div>
 
