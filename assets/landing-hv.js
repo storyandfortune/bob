@@ -381,7 +381,18 @@ const app = Vue.createApp({
 			this.scrollPageUp()
 		},
 		scrollPageUp() {
-			window.scrollTo(0, 500);
+			window.scrollTo(0, 0);
+			$('html, body').animate({ scrollTop: 1000 }, 1000, 'swing', () => {
+				window.scrollTo(0, 999);
+			});
+		},
+		handleKeyPress(event) {
+			console.log(event)
+			// Check if 'p' is pressed along with either Command (Mac) or Control (Windows/Linux)
+			if (event.key === 'ArrowRight' || event.keyCode === 39) {
+			  event.preventDefault(); // Prevent the default browser print dialog
+			  this.initGame();
+			}
 		},
 		init(){
 			
@@ -400,6 +411,8 @@ const app = Vue.createApp({
 			this.randBob = this.stickers[Math.floor(Math.random() * this.stickers.length)];
 			this.createPieces();
 			this.initSounds();
+
+			
 			this.$nextTick(() => {
 				this.scrollPageUp();
 			});
@@ -413,8 +426,15 @@ const app = Vue.createApp({
 	},
 	mounted(){
 		console.log('Heros & Villians')
+		document.addEventListener('keydown', this.handleKeyPress);
 		this.init()
-	}
+	},
+	beforeUnmount() {
+		const inputs = document.querySelectorAll('input');
+		inputs.forEach(input => {
+		  input.removeEventListener('blur', this.scrollPageUp);
+		});
+	  }
 })
 
 app.mount("#app");

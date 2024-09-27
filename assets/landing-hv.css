@@ -321,9 +321,9 @@ h2{
 }
 
 #countdown{
-   visibility:hidden;
-   margin:20px;
-   font-size: 30px;
+   margin:10px;
+   font-size: 25px;
+   color:white;
    font-weight: bold;
    text-align: center;
 }
@@ -339,7 +339,7 @@ h2{
    background-color: var(--green);
    color:white;
    width:45%;
-   margin: 20px auto;
+   margin: 10px auto;
 }
 
 /* alerts ---------- */
