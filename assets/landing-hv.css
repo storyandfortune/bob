@@ -80,7 +80,7 @@ h2{
 
 .landing-container-hv .title {
    width: 120vw; /* Make the width larger than the viewport */
-   min-height: 225px; /* Ensure the height stays the same */
+   min-height: 200px; /* Ensure the height stays the same */
    margin: 0 -10vw; /* Negative margins to center the element */
    background-image: url('https://cdn.shopify.com/s/files/1/0593/5942/8759/files/h-v-header-alt.png?v=1727375357');
    background-repeat: no-repeat;
@@ -91,7 +91,7 @@ h2{
 
 @media screen and (max-width: 375px) {
    .landing-container-hv .title {
-      min-height: 150px; /* Reduced height for smaller screens */
+      min-height: 125px; /* Reduced height for smaller screens */
       background-position: center center; /* Adjust if needed */
    }
 }
@@ -144,6 +144,7 @@ h2{
    justify-content: center;
    text-align: center;
    background-color: var(--green);
+   color:white;
    margin: 2rem;
    max-width: 100%;
    min-height: 75%;
@@ -190,6 +191,15 @@ h2{
    z-index:1;
 }
 
+
+.landing-container-hv .form-container .form .sending{
+   position:relative;
+   display:flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   text-align: center;
+}
 .landing-container-hv .form-container .form .form-header{
    text-align: center;
 }
@@ -277,17 +287,7 @@ h2{
    max-width:600px;
 }
 
-.header{
-   margin:0 auto;
-   width:100%;
-   max-width:600px;
-   padding-top: 50%; /* 50% for 2:1 aspect ratio */
-   background-image: url('_images/header.png');
-   background-position: top center;
-   background-size: cover;
-   background-repeat: no-repeat;
-   z-index: 0;
-}
+
 
 .game-container{
    display: flex;

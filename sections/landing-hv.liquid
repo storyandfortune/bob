@@ -114,7 +114,7 @@
                                     <div class="subscribe"
                                         :class="{'error': !subscribe}">
                                         <input v-model="subscribe" type="checkbox" @click="subscribe = !subscribe"/> 
-                                        <span v-if="subscribe">I agree to receive emails from Bob's Big Boy Burbank.</span>
+                                        <span v-if="subscribe">I agree to receive oemails from Bob's Big Boy Burbank.</span>
                                         <span v-else>You have to subscribe to enter the contest.</span>
                                     </div>
 
@@ -124,8 +124,6 @@
                                    <h2>Enter</h2>
                                 </div>
                              
-
-                          
                             </div>
 
                         </div>
@@ -134,7 +132,7 @@
 
                     <!-- sending -->
                     <div v-if="email.sending" class="sending">
-                        <img src="https://cdn.shopify.com/s/files/1/0593/5942/8759/files/sending.svg?v=1716235513" width="100%" height="auto">
+                        <h1>Sending...</h1>
                     </div>
                 </div>
 
