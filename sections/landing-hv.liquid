@@ -143,18 +143,16 @@
                 <!-- Game -->
                 <div class="game-container" v-if="game">
 
-                    <!-- START GAME -->
-                    <button id="shuffleBtn" class="hv-btn" @click="startGame" :style="{ display: gameActive ? 'none' : 'block' }">Start Game</button>
+                    <div class="puzzle-header">
+                        <!-- COUNTDOWN -->
+                        <div id="countdown" :style="{ display: gameActive ? 'block' : 'none' }">${ timeLeft }</div>
 
-                    <!-- COUNTDOWN -->
-                    <div id="countdown" :style="{ display: gameActive ? 'block' : 'none' }">${ timeLeft }</div>
+                        <!-- WIN ALERT -->
+                        <h2 id="win" class="animate__animated animate__jello" v-if="showWinAlert">You Win!</h2>
 
-                    <!-- WIN ALERT -->
-                    <h2 id="win" class="animate__animated animate__jello" v-if="showWinAlert">You Win!</h2>
-
-                    <!-- LOOSE ALERT -->    
-                    <h2 id="loose" class="animate__animated animate__jello" v-if="showLooseAlert">Time's up! Try again.</h2>
-                    
+                        <!-- LOOSE ALERT -->    
+                        <h2 id="loose" class="animate__animated animate__jello" v-if="showLooseAlert">Time's up! Try again.</h2>
+                    </div>
                     <!-- PUZZLE -->
                     <div id="puzzle" ref="puzzle">
                         <div
@@ -165,8 +163,11 @@
                           :style="getPieceStyle(piece)"
                           @click="handlePieceClick(piece)"
                         ></div>
+
+                         <!-- START GAME -->
+                        <button id="shuffleBtn" class="hv-btn" @click="startGame" :style="{ display: gameActive ? 'none' : 'block' }">Start Game</button>
                       </div>
-                  
+
        
                 </div>
             

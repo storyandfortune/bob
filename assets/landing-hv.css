@@ -6,6 +6,8 @@
    --blue: #63bee1;
    --black:#000;
    --height:calc(100vh - 200px);
+   --max-width:600px;
+   --max-height:600px;
 
    @media screen and (max-width: 375px) {
       --height:calc(100vh - 125px);
@@ -151,8 +153,8 @@ h2{
    background-color: var(--green);
    color:white;
    margin: 2rem;
-   max-width: 100%;
-   min-height: 75%;
+   max-width: var(--max-width);
+   min-height: var(--max-height);
    padding:20px;
    border-radius: 20px;
    border:3px solid #fff;
@@ -299,6 +301,7 @@ h2{
 }
 
 #puzzle {
+   position:relative;
    display: grid;
    grid-template-columns: repeat(4, 1fr);
    grid-template-rows: repeat(4, 1fr);
@@ -326,6 +329,16 @@ h2{
    color:white;
    font-weight: bold;
    text-align: center;
+}
+
+#shuffleBtn.hv-btn{
+   position:absolute;
+   bottom:20px;
+   left:0;
+   right:0;
+   margin:0 auto;
+   width:200px;
+   z-index:10;
 }
 
 .hv-btn{
