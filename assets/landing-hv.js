@@ -17,11 +17,10 @@ const app = Vue.createApp({
 				error:false,
 				message:'This is the message.',
 				meesages:{
-					//todo: we should send messaged to the back end from here.
+					//todo: we should send s to the back end from here. Except for error messages.
 					verify:'This is the message.',
 					form:'This is the message.',
 					thanks:'This is the message.',
-					error:'This is the message.'
 				}
 			},
 			email:{
@@ -39,11 +38,13 @@ const app = Vue.createApp({
 			showWinAlert: false,
 			showLooseAlert: false,
 			stickers: [
+				//V1
 				'https://cdn.shopify.com/s/files/1/0593/5942/8759/files/hv-burgler.png?v=1727127335',
 				'https://cdn.shopify.com/s/files/1/0593/5942/8759/files/hv-frankenboy.png?v=1727127335',
 				'https://cdn.shopify.com/s/files/1/0593/5942/8759/files/hv-dracula.png?v=1727127335',
 				'https://cdn.shopify.com/s/files/1/0593/5942/8759/files/hv-superboy.png?v=1727127335',
 				'https://cdn.shopify.com/s/files/1/0593/5942/8759/files/hv-cowboy.png?v=1727127351',
+				//V2
 				'https://cdn.shopify.com/s/files/1/0593/5942/8759/files/hv-beetlejuice.png?v=1727127369',
 				'https://cdn.shopify.com/s/files/1/0593/5942/8759/files/hv-evel.png?v=1727127369',
 				'https://cdn.shopify.com/s/files/1/0593/5942/8759/files/hv-lebowski.png?v=1727127369',
@@ -66,6 +67,27 @@ const app = Vue.createApp({
 			this.formState.form = false;
 			this.formState.thanks = false;
 			this.formState.error = false;
+		},
+		preloadStickers() {
+			console.log('Preloading stickers...');
+			const preloadImage = (url) => {
+			  return new Promise((resolve, reject) => {
+				const img = new Image();
+				img.onload = () => resolve(url);
+				img.onerror = () => reject(url);
+				img.src = url;
+			  });
+			};
+	  
+			const preloadPromises = this.stickers.map(url => preloadImage(url));
+	  
+			Promise.all(preloadPromises)
+			  .then(() => {
+				console.log('All stickers preloaded successfully');
+			  })
+			  .catch((failedUrl) => {
+				console.error('Failed to preload sticker:', failedUrl);
+			  });
 		},
 		validateEmail(val){
 			return String(val)
@@ -99,6 +121,7 @@ const app = Vue.createApp({
 					this.email.sending = false
 					this.resetFormState()
 					this.formState.thanks = true
+					this.preloadStickers()
 				}).fail((error) => {
 					console.log(error)
 					this.email.sending = false
