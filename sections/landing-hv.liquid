@@ -57,8 +57,12 @@
         
                 <!-- Thanks -->
                 <div v-if="formState.thanks" class="message animate__animated animate__jello">
-                    <h1>Thanks!</h1>
+                    <h1>Verified!</h1>
                     <p>${formState.message}</p>
+                    <div class="hv_btn" 
+                        @click="initGame()"> 
+                       <h2>Play</h2>
+                    </div>
                 </div>
 
                 <!-- Verify -->
@@ -119,7 +123,7 @@
                                     </div>
 
                          
-                                <div class="submit_btn" 
+                                <div class="hv_btn" 
                                     @click="verifyEmail()"> 
                                    <h2>Enter</h2>
                                 </div>

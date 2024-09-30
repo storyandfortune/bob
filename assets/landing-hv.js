@@ -12,10 +12,17 @@ const app = Vue.createApp({
 			subscribe:true,
 			formState:{
 				verify :false,
-				form:true,
-				thanks:false,
+				form:false,
+				thanks:true,
 				error:false,
-				message:'This is the message.'
+				message:'This is the message.',
+				meesages:{
+					//todo: we should send messaged to the back end from here.
+					verify:'This is the message.',
+					form:'This is the message.',
+					thanks:'This is the message.',
+					error:'This is the message.'
+				}
 			},
 			email:{
 				address:'',
@@ -376,7 +383,7 @@ const app = Vue.createApp({
 			}, 100);
 		},
 		initGame(){
-			this.formState.form = false;
+			this.resetFormState();
 			this.game = true;
 			this.scrollPageUp()
 		},
