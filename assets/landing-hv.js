@@ -12,8 +12,8 @@ const app = Vue.createApp({
 			subscribe:true,
 			formState:{
 				verify :false,
-				form:false,
-				thanks:true,
+				form:true,
+				thanks:false,
 				error:false,
 				message:'This is the message.',
 				messages:{
@@ -32,7 +32,8 @@ const app = Vue.createApp({
 			pieces: [],
 			activePiece: null,
 			gameActive: false,
-			timeLeft: 60,
+			timeLeft: 0,
+			globalTimeLeft: 60,
 			countdownTimer: null,
 			showAlert: false,
 			showWinAlert: false,
@@ -344,14 +345,12 @@ const app = Vue.createApp({
 		winGame() {
 			this.gameActive = false;
 			clearInterval(this.countdownTimer);
-			this.showAlert = true;
 			this.showWinAlert = true;
 			this.sounds.win.play();
 			setTimeout(() => { this.sounds.applause.play(); }, 1000);
 		},
 		endGame() {
 			this.gameActive = false;
-			this.showAlert = true;
 			this.showLooseAlert = true;
 			this.sounds.loose.play();
 			this.solvePuzzle();
@@ -389,10 +388,13 @@ const app = Vue.createApp({
 		startGame() {
 			console.log('Game started');
 			let i = 0;
+			this.showWinAlert = false;
+			this.showLooseAlert = false;
+
 			this.shufflePieces();
 			this.sounds.tileSound.play();
 			this.gameActive = true;
-			this.timeLeft = 60;
+			this.timeLeft = this.globalTimeLeft;
 		
 			const startInterval = setInterval(() => {
 			  this.shufflePieces();
@@ -419,6 +421,18 @@ const app = Vue.createApp({
 			if (event.key === 'ArrowRight' || event.keyCode === 39) {
 			  event.preventDefault(); // Prevent the default browser print dialog
 			  this.initGame();
+			}
+			if (event.key === 'ArrowUp' || event.keyCode === 38) {
+				event.preventDefault(); // Prevent the default browser print dialog
+				this.solvePuzzle();
+				this.winGame();
+			}
+			if (event.key === 'ArrowDown' || event.keyCode === 40) {
+				event.preventDefault(); // Prevent the default browser print dialog
+				this.gameActive = false;
+				clearInterval(this.countdownTimer);
+				this.timeLeft = 0;
+				this.endGame();
 			}
 		},
 		init(){
