@@ -9,6 +9,7 @@
 
    @media screen and (max-width: 375px) {
       --height:calc(100vh - 125px);
+   }
 }
 
 html,
