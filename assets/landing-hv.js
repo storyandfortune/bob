@@ -16,8 +16,8 @@ const app = Vue.createApp({
 				thanks:true,
 				error:false,
 				message:'This is the message.',
-				meesages:{
-					//todo: we should send s to the back end from here. Except for error messages.
+				messages:{
+					//todo: we should send messages to the back end from here. Except for error messages.
 					verify:'This is the message.',
 					form:'This is the message.',
 					thanks:'This is the message.',
