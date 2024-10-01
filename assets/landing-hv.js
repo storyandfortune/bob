@@ -38,6 +38,7 @@ const app = Vue.createApp({
 			showAlert: false,
 			showWinAlert: false,
 			showLooseAlert: false,
+			playBtnLabel:'Start Game',
 			stickers: [
 				//V1
 				'https://cdn.shopify.com/s/files/1/0593/5942/8759/files/hv-burgler.png?v=1727127335&width=500',
@@ -344,6 +345,7 @@ const app = Vue.createApp({
 		},
 		winGame() {
 			this.gameActive = false;
+			this.playBtnLabel = 'Play Again'
 			clearInterval(this.countdownTimer);
 			this.showWinAlert = true;
 			this.sounds.win.play();
@@ -352,6 +354,7 @@ const app = Vue.createApp({
 		endGame() {
 			this.gameActive = false;
 			this.showLooseAlert = true;
+			this.playBtnLabel = 'Try Again'
 			this.sounds.loose.play();
 			this.solvePuzzle();
 		},
