@@ -377,7 +377,7 @@ const app = Vue.createApp({
 				} else {
 					clearInterval(solveInterval);
 					if (this.checkWinCondition()) {
-						this.showLooseAlert = true;
+						//this.showLooseAlert = true;
 					}
 				}
 			}, 500);

@@ -145,16 +145,16 @@
 
                     <div class="puzzle-header">
                         <!-- COUNTDOWN -->
-                        <div id="countdown" :style="{ display: gameActive ? 'block' : 'none' }">${ timeLeft }</div>
+                        <div id="countdown"class="animate__animated animate__bounceIn" :style="{ display: gameActive ? 'block' : 'none' }">${ timeLeft }</div>
 
                         <!-- WIN ALERT -->
-                        <h2 id="win" class="animate__animated animate__jello" v-if="showWinAlert">You Win!</h2>
+                        <h2 id="win" class="animate__animated animate__bounceIn" v-if="showWinAlert">You Win!</h2>
 
                         <!-- LOOSE ALERT -->    
-                        <h2 id="loose" class="animate__animated animate__jello" v-if="showLooseAlert">Time's up! Try again.</h2>
+                        <h2 id="loose" class="animate__animated animate__bounceIn" v-if="showLooseAlert">Time's up! Try again.</h2>
                     </div>
                     <!-- PUZZLE -->
-                    <div id="puzzle" ref="puzzle">
+                    <div id="puzzle" class="animate__animated animate__swing" ref="puzzle">
                         <div
                           v-for="(piece, index) in pieces"
                           :key="piece.order"

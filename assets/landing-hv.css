@@ -300,6 +300,22 @@ h2{
    z-index:1;
 }
 
+.puzzle-header{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-items: center;
+   justify-content: center;
+   padding:0;
+   z-index:1;
+   height:60px;
+}
+
+.puzzle-header h2{
+   margin:0;
+   padding:0;
+}
+
 #puzzle {
    position:relative;
    display: grid;
