@@ -44,7 +44,7 @@
     <!-- start container -->
     <div class="landing-container-hv">
        <!-- TITLE  -->
-       <div class="title"> </div>
+       <div class="title animate__animated animate__bounceIn"></div>
      
 
         <div v-if="ready" class="page-continaer-hv">
@@ -53,7 +53,7 @@
             <!-- BODY -->
 
             <!-- FORM -->
-            <div class="form-container animate__animated animate__jello animate__delay-1s">
+            <div class="form-container">
         
                 <!-- Thanks -->
                 <div v-if="formState.thanks" class="message animate__animated animate__jello">
@@ -79,15 +79,16 @@
                 </div>
 
                 <!-- Form -->
-                <div v-if="formState.form" class="form animate__animated animate__zoomIn animate__delay-1s">
+                <div v-if="formState.form" class="form">
                    
-                    <div class="form-header" v-if="!email.sending">
+                    <div class="form-header animate__animated animate__bounceIn animate__delay-1s" v-if="!email.sending">
                       <!-- <h1>Enter to Play</h1> -->
                         <p>Enter your e-mail to play the Game. Solve the puzzle, and you'll win a free sticker! Be sure to check your inbox for verification.</p>
                     </div>
 
                     <div v-if="!email.valid" class="error_msg">Please enter a valid e-mail.</div>
-                    <div v-if="!email.sending">
+                    
+                    <div v-if="!email.sending" class="animate__animated animate__bounceIn animate__delay-2s">
 
                         <div class="name">
 
@@ -97,12 +98,14 @@
                             placeholder="First Name"/>
 
                             <input v-model="lastName" 
+                            
                                 type="text" 
                                 @blur="scrollPageUp"
                                 placeholder="Last Name"/>
                         </div>
 
                         <div class="email" 
+                              
                             :class="{'error': !email.valid}">
 
                             <div class="email-container">
@@ -115,7 +118,7 @@
                                     v-on:keyup.enter="addEmail()"
                                     @focus="resetEmail()"/>
 
-                                    <div class="subscribe"
+                                    <div class="subscribe animate__animated animate__bounceIn animate__delay-3s"
                                         :class="{'error': !subscribe}">
                                         <input v-model="subscribe" type="checkbox" @click="subscribe = !subscribe"/> 
                                         <span v-if="subscribe">I agree to receive oemails from Bob's Big Boy Burbank.</span>
@@ -123,7 +126,7 @@
                                     </div>
 
                          
-                                <div class="hv-btn" 
+                                <div class="hv-btn animate__animated animate__bounceIn animate__delay-4s" 
                                     @click="verifyEmail()"> 
                                    <h2>Enter</h2>
                                 </div>
