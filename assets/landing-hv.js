@@ -28,6 +28,7 @@ const app = Vue.createApp({
 				valid:true,
 				sending:false
 			},
+			user:{},
 			game:false,
 			pieces: [],
 			activePiece: null,
@@ -351,6 +352,13 @@ const app = Vue.createApp({
 			this.sounds.win.play();
 			setTimeout(() => { this.sounds.applause.play(); }, 1000);
 		},
+		setWinTag(){
+			this.gameActive = false;
+			this.showWinAlert = true;
+			this.playBtnLabel = 'Play Again'
+			this.sounds.win.play();
+			setTimeout(() => { this.sounds.applause.play(); }, 1000);
+		},
 		endGame() {
 			this.gameActive = false;
 			this.showLooseAlert = true;
@@ -438,6 +446,11 @@ const app = Vue.createApp({
 				this.endGame();
 			}
 		},
+		iosViewHeightFix(){
+			let vh = window.innerHeight * 0.01;
+			// Then we set the value in the --vh custom property to the root of the document
+			document.documentElement.style.setProperty('--vh', `${vh}px`);
+		},
 		init(){
 			
 			const queryString = window.location.search;
@@ -470,17 +483,9 @@ const app = Vue.createApp({
 	},
 	mounted(){
 		console.log('Heros & Villians')
-		document.addEventListener('keydown', this.handleKeyPress);
-
-		window.addEventListener('resize', () => {
-			// We execute the same script as before
-			let vh = window.innerHeight * 0.01;
-			document.documentElement.style.setProperty('--vh', `${vh}px`);
-		  });
-
-		let vh = window.innerHeight * 0.01;
-// Then we set the value in the --vh custom property to the root of the document
-document.documentElement.style.setProperty('--vh', `${vh}px`);
+		document.addEventListener('keydown', this.handleKeyPress)
+		window.addEventListener('resize', () => this.iosViewHeightFix())
+		this.iosViewHeightFix()
 		this.init()
 	},
 	beforeUnmount() {
