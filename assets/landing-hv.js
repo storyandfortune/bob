@@ -11,8 +11,8 @@ const app = Vue.createApp({
             lastName:"",
 			subscribe:true,
 			formState:{
-				verify :false,
-				form:true,
+				verify :true,
+				form:false,
 				thanks:false,
 				error:false,
 				message:'This is the message.',
