@@ -1,7 +1,7 @@
 $(document).ready(function () {
     
   
-    //todo rewrite as objects.
+    //todo rewrite as objects don't ever do this again.
 
     // shop slug hack -------------------------------------------------
     if($.url('path') === "/shop"){
