@@ -45,23 +45,55 @@
     <div class="landing-container-hv">
        <!-- TITLE  -->
        <div class="title animate__animated animate__bounceIn"></div>
-     
 
         <div v-if="ready" class="page-continaer-hv">
 
-     
-            <!-- BODY -->
-
             <!-- FORM -->
             <div class="form-container">
+
+
+               <!------- this is where the game would go if it were implemented -------->
+               <div v-if="game" class="game-container">
+
+                <div class="puzzle-header">
+                    <!-- COUNTDOWN -->
+                    <div id="countdown"class="animate__animated animate__bounceIn" :style="{ display: gameActive ? 'block' : 'none' }">${ timeLeft }</div>
+
+                    <!-- WIN ALERT -->
+                    <h2 id="win" class="animate__animated animate__bounceIn" v-if="showWinAlert">You Win!</h2>
+
+                    <!-- LOOSE ALERT -->    
+                    <h2 id="loose" class="animate__animated animate__bounceIn" v-if="showLooseAlert">Time's up! Try again.</h2>
+                </div>
+
+                <!-- PUZZLE -->
+                <div id="puzzle" class="animate__animated animate__swing" ref="puzzle">
+                    
+                    <div
+                      v-for="(piece, index) in pieces"
+                      :key="piece.order"
+                      class="piece"
+                      :class="{ active: piece === activePiece }"
+                      :style="getPieceStyle(piece)"
+                      @click="handlePieceClick(piece)"
+                    ></div>
+
+                     <!-- START GAME -->
+                    <div id="shuffleBtn" class="svg-btn" @click="startGame" :style="{ display: gameActive ? 'none' : 'block' }">
+                        <img :src="playBtnLabel" alt="Enter" width="100%" height="auto"> 
+                    </div>
+                  </div>
+
+   
+            </div>
         
                 <!-- Thanks -->
                 <div v-if="formState.thanks" class="message animate__animated animate__jello">
                     <h1>Verified!</h1>
                     <p>${formState.message}</p>
-                    <div class="hv_btn" 
+                    <div class="svg-btn" 
                         @click="initGame()"> 
-                       <h2>Play</h2>
+                        <img :src="btnGraphics.play" alt="Play" width="100%" height="auto"> 
                     </div>
                 </div>
 
@@ -126,12 +158,10 @@
                                     </div>
 
                          
-                                <div class="hv-btn animate__animated animate__bounceIn animate__delay-4s" 
+                                <div class="svg-btn animate__animated animate__bounceIn animate__delay-4s" 
                                     @click="verifyEmail()"> 
-                                   <h2>Enter</h2>
+                                        <img :src="btnGraphics.enter" alt="Enter" width="100%" height="auto"> 
                                 </div>
-                             
-                            </div>
 
                         </div>
 
@@ -143,36 +173,7 @@
                     </div>
                 </div>
 
-                <!-- Game -->
-                <div class="game-container" v-if="game">
-
-                    <div class="puzzle-header">
-                        <!-- COUNTDOWN -->
-                        <div id="countdown"class="animate__animated animate__bounceIn" :style="{ display: gameActive ? 'block' : 'none' }">${ timeLeft }</div>
-
-                        <!-- WIN ALERT -->
-                        <h2 id="win" class="animate__animated animate__bounceIn" v-if="showWinAlert">You Win!</h2>
-
-                        <!-- LOOSE ALERT -->    
-                        <h2 id="loose" class="animate__animated animate__bounceIn" v-if="showLooseAlert">Time's up! Try again.</h2>
-                    </div>
-                    <!-- PUZZLE -->
-                    <div id="puzzle" class="animate__animated animate__swing" ref="puzzle">
-                        <div
-                          v-for="(piece, index) in pieces"
-                          :key="piece.order"
-                          class="piece"
-                          :class="{ active: piece === activePiece }"
-                          :style="getPieceStyle(piece)"
-                          @click="handlePieceClick(piece)"
-                        ></div>
-
-                         <!-- START GAME -->
-                        <button id="shuffleBtn" class="hv-btn" @click="startGame" :style="{ display: gameActive ? 'none' : 'block' }">${playBtnLabel}</button>
-                      </div>
-
-       
-                </div>
+            
             
             </div>
 

@@ -39,7 +39,14 @@ const app = Vue.createApp({
 			showAlert: false,
 			showWinAlert: false,
 			showLooseAlert: false,
-			playBtnLabel:'Start Game',
+			btnGraphics:{
+				enter:'https://cdn.shopify.com/s/files/1/0593/5942/8759/files/HV_enter_btn.svg?v=1729018072',
+				play:'https://cdn.shopify.com/s/files/1/0593/5942/8759/files/HV_play.svg?v=1729019620',
+				startGame:'https://cdn.shopify.com/s/files/1/0593/5942/8759/files/HV_start_game_btn.svg?v=1729018072',
+				playAgain:'https://cdn.shopify.com/s/files/1/0593/5942/8759/files/HV_play_again_btn.svg?v=1729018072',
+				tryAgain:'https://cdn.shopify.com/s/files/1/0593/5942/8759/files/HV_try_again_btn_copy.svg?v=1729018072',
+			},
+			playBtnLabel:"",
 			stickers: [
 				//V1
 				'https://cdn.shopify.com/s/files/1/0593/5942/8759/files/hv-burgler.png?v=1727127335&width=500',
@@ -346,7 +353,7 @@ const app = Vue.createApp({
 		},
 		winGame() {
 			this.gameActive = false;
-			this.playBtnLabel = 'Play Again'
+			this.playBtnLabel = this.btnGraphics.playAgain
 			clearInterval(this.countdownTimer);
 			this.showWinAlert = true;
 			this.sounds.win.play();
@@ -355,14 +362,14 @@ const app = Vue.createApp({
 		setWinTag(){
 			this.gameActive = false;
 			this.showWinAlert = true;
-			this.playBtnLabel = 'Play Again'
+			this.playBtnLabel = this.btnGraphics.playAgain
 			this.sounds.win.play();
 			setTimeout(() => { this.sounds.applause.play(); }, 1000);
 		},
 		endGame() {
 			this.gameActive = false;
 			this.showLooseAlert = true;
-			this.playBtnLabel = 'Try Again'
+			this.playBtnLabel = this.btnGraphics.tryAgain
 			this.sounds.loose.play();
 			this.solvePuzzle();
 		},
@@ -419,7 +426,8 @@ const app = Vue.createApp({
 			}, 100);
 		},
 		initGame(){
-			this.resetFormState();
+			console.log('initGame')
+			this.resetFormState()
 			this.game = true;
 			this.scrollPageUp()
 		},
@@ -431,7 +439,10 @@ const app = Vue.createApp({
 			// Check if 'p' is pressed along with either Command (Mac) or Control (Windows/Linux)
 			if (event.key === 'ArrowRight' || event.keyCode === 39) {
 			  event.preventDefault(); // Prevent the default browser print dialog
-			  this.initGame();
+			  this.email.sending = false
+			  this.resetFormState()
+			  this.formState.thanks = true
+			  this.preloadStickers()
 			}
 			if (event.key === 'ArrowUp' || event.keyCode === 38) {
 				event.preventDefault(); // Prevent the default browser print dialog
@@ -452,7 +463,7 @@ const app = Vue.createApp({
 			document.documentElement.style.setProperty('--vh', `${vh}px`);
 		},
 		init(){
-			
+			this.playBtnLabel = this.btnGraphics.startGame
 			const queryString = window.location.search;
 	
 			if(queryString === "?qr=true"){

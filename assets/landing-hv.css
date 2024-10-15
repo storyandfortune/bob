@@ -350,34 +350,23 @@ h2{
    text-align: center;
 }
 
-#shuffleBtn.hv-btn{
+#shuffleBtn.svg-btn{
    position:absolute;
    bottom:20px;
    left:0;
    right:0;
    margin:0 auto;
-   width:200px;
+   width:70%;
    z-index:10;
 }
 
-.hv-btn{
+.svg-btn{
    cursor:pointer;
    position: relative;
    display:block;
-   padding: 10px 20px;
-   text-align: center;
-   font-size: 16px;
-   border-radius: 10px;
-   border: 2px solid white;
-   background-color: var(--green);
-   color:white;
    width:45%;
-   margin: 10px auto;
-   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
-}
-.hv-btn h2{
-   margin:0;
-   padding:0;
+   height:auto;
+   margin:0 auto;
 }
 
 /* alerts ---------- */
