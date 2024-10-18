@@ -78,10 +78,18 @@
                       @click="handlePieceClick(piece)"
                     ></div>
 
-                     <!-- START GAME -->
-                    <div id="shuffleBtn" class="svg-btn" @click="startGame" :style="{ display: gameActive ? 'none' : 'block' }">
+
+                    <!-- Play Again -->
+                    <div v-if="showWinAlert" id="shuffleBtn" class="svg-btn" @click="playAgain" :style="{ display: gameActive ? 'none' : 'block' }">
                         <img :src="playBtnLabel" alt="Enter" width="100%" height="auto"> 
                     </div>
+                    
+                    <!-- START GAME -->
+                    <div v-else id="shuffleBtn" class="svg-btn" @click="startGame" :style="{ display: gameActive ? 'none' : 'block' }">
+                        <img :src="playBtnLabel" alt="Enter" width="100%" height="auto"> 
+                    </div>
+
+
                   </div>
 
    

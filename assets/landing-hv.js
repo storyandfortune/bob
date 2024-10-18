@@ -61,6 +61,7 @@ const app = Vue.createApp({
 				'https://cdn.shopify.com/s/files/1/0593/5942/8759/files/hv-gojira.png?v=1727127369&width=500',
 				'https://cdn.shopify.com/s/files/1/0593/5942/8759/files/hv-rat-fink.png?v=1727127369&width=500'
 			],
+			availableStickers: [],
 			randBob: '',
 			sounds: {
 				tileSound: null,
@@ -403,17 +404,51 @@ const app = Vue.createApp({
 		getMisplacedPieces() {
 			return this.pieces.filter(piece => piece.order !== piece.correctOrder);
 		},
+		playAgain() {
+			// If availableStickers is empty, reset it with a deep copy of the original stickers
+			if (this.availableStickers.length === 0) {
+			  this.availableStickers = JSON.parse(JSON.stringify(this.stickers));
+			}
+	  
+			// Remove the current sticker from the availableStickers array
+			const currentStickerIndex = this.availableStickers.indexOf(this.randBob);
+			if (currentStickerIndex > -1) {
+			  this.availableStickers.splice(currentStickerIndex, 1);
+			}
+	  
+			// Pick a new random sticker from the availableStickers
+			this.randBob = this.availableStickers[Math.floor(Math.random() * this.availableStickers.length)];
+	  
+			// Reset game state
+			this.gameActive = false;
+			this.timeLeft = this.globalTimeLeft;
+			this.showWinAlert = false;
+			this.showLooseAlert = false;
+	  
+			// Recreate pieces with the new sticker
+			this.pieces = [];
+			this.createPieces();
+	  
+			// Start a new game
+			this.startGame();
+		},
 		startGame() {
+			if (this.gameActive) {
+			  // If a game is already active, start a new one with a new sticker
+			  this.playAgain();
+			  return;
+			}
+	  
 			console.log('Game started');
 			let i = 0;
 			this.showWinAlert = false;
 			this.showLooseAlert = false;
-
+	  
 			this.shufflePieces();
 			this.sounds.tileSound.play();
 			this.gameActive = true;
 			this.timeLeft = this.globalTimeLeft;
-		
+		  
 			const startInterval = setInterval(() => {
 			  this.shufflePieces();
 			  this.sounds.tileSound.play();
@@ -463,6 +498,14 @@ const app = Vue.createApp({
 			document.documentElement.style.setProperty('--vh', `${vh}px`);
 		},
 		init(){
+
+			 // Initialize availableStickers with a deep copy of stickers
+			 this.availableStickers = JSON.parse(JSON.stringify(this.stickers));
+      
+			 // Pick the initial random sticker from availableStickers
+			 this.randBob = this.availableStickers[Math.floor(Math.random() * this.availableStickers.length)];
+			 
+
 			this.playBtnLabel = this.btnGraphics.startGame
 			const queryString = window.location.search;
 	
