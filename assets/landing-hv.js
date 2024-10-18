@@ -289,7 +289,7 @@ const app = Vue.createApp({
 			}
 		},
 		swapPieces(piece1, piece2) {
-			console.log('Swapping', piece1, 'with', piece2);
+			//console.log('Swapping', piece1, 'with', piece2);
 			
 			// Store the indices of the pieces
 			const index1 = this.pieces.indexOf(piece1);
@@ -313,7 +313,7 @@ const app = Vue.createApp({
 			return this.pieces.every(piece => piece.order === piece.correctOrder);
 		},
 		shufflePieces() {
-			console.log('Shuffling pieces');
+			//console.log('Shuffling pieces');
 			
 			// Create a new array of indices and shuffle it
 			const indices = Array.from({ length: this.pieces.length }, (_, i) => i);
@@ -335,7 +335,7 @@ const app = Vue.createApp({
 			this.pieces = shuffledPieces;
 			
 			this.activePiece = null;
-			console.log('Pieces after shuffle:', this.pieces);
+			//console.log('Pieces after shuffle:', this.pieces);
 		},
 		startCountdown() {
 			this.countdownTimer = setInterval(() => {
@@ -405,30 +405,33 @@ const app = Vue.createApp({
 			return this.pieces.filter(piece => piece.order !== piece.correctOrder);
 		},
 		playAgain() {
-			// If availableStickers is empty, reset it with a deep copy of the original stickers
-			if (this.availableStickers.length === 0) {
+			// If availableStickers is empty or has only one sticker left, reset it
+			if (this.availableStickers.length <= 1) {
 			  this.availableStickers = JSON.parse(JSON.stringify(this.stickers));
 			}
-	  
+		  
 			// Remove the current sticker from the availableStickers array
 			const currentStickerIndex = this.availableStickers.indexOf(this.randBob);
 			if (currentStickerIndex > -1) {
 			  this.availableStickers.splice(currentStickerIndex, 1);
 			}
-	  
+		  
 			// Pick a new random sticker from the availableStickers
 			this.randBob = this.availableStickers[Math.floor(Math.random() * this.availableStickers.length)];
-	  
+		  
+			console.log('New sticker:', this.randBob);
+			console.log('Available stickers:', this.availableStickers);
+		  
 			// Reset game state
 			this.gameActive = false;
 			this.timeLeft = this.globalTimeLeft;
 			this.showWinAlert = false;
 			this.showLooseAlert = false;
-	  
+		  
 			// Recreate pieces with the new sticker
 			this.pieces = [];
 			this.createPieces();
-	  
+		  
 			// Start a new game
 			this.startGame();
 		},
