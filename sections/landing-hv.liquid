@@ -60,10 +60,20 @@
                     <div id="countdown"class="animate__animated animate__bounceIn" :style="{ display: gameActive ? 'block' : 'none' }">${ timeLeft }</div>
 
                     <!-- WIN ALERT -->
-                    <h2 id="win" class="animate__animated animate__bounceIn" v-if="showWinAlert">You Win!</h2>
-
+                    <div v-if="canWin">
+                        <div v-if="showWinAlert">
+                            <h2 class="animate__animated animate__bounceIn">Winner! ${timestamp}</h2>
+                            <div>Present this to your server to claim your prize!</div>
+                        </div>
+                    </div>
+                    <div v-else>
+                        <div v-if="showWinAlert">
+                        <h2 class="animate__animated animate__bounceIn">You Win Again!</h2>
+                        <div>Sticker claimed. Limit one prize per person.</div>
+                        </div>
+                    </div>
                     <!-- LOOSE ALERT -->    
-                    <h2 id="loose" class="animate__animated animate__bounceIn" v-if="showLooseAlert">Time's up! Try again.</h2>
+                    <h2 id="loose" class="animate__animated animate__bounceIn" v-if="showLooseAlert">Time's up!</h2>
                 </div>
 
                 <!-- PUZZLE -->

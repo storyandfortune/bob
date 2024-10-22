@@ -5,6 +5,7 @@ const app = Vue.createApp({
 	data() {
 		return {
 			ready:false,
+			test:false,
             endPoint:"https://api.storyandfortune.com/bobs/",
 			showModal:false,
             firstName:"",
@@ -29,6 +30,8 @@ const app = Vue.createApp({
 				sending:false
 			},
 			user:{},
+			canWin:true,
+			timestamp:'',
 			game:false,
 			pieces: [],
 			activePiece: null,
@@ -174,6 +177,8 @@ const app = Vue.createApp({
 				else if(response.status === true && response.newUser === false){
 					this.resetFormState()
 					this.formState.thanks = true
+					this.user = response.user
+					this.canWin()
 				}
 				else{
 					this.resetFormState()
@@ -352,20 +357,53 @@ const app = Vue.createApp({
 			this.showWinAlert = false;
 			this.showLooseAlert = false;
 		},
-		winGame() {
+	    handleWin() {
+			// Stop the game
 			this.gameActive = false;
-			this.playBtnLabel = this.btnGraphics.playAgain
 			clearInterval(this.countdownTimer);
+	  
+			// Update UI
 			this.showWinAlert = true;
+			this.playBtnLabel = this.btnGraphics.playAgain;
+	  
+			// Play win sounds
 			this.sounds.win.play();
 			setTimeout(() => { this.sounds.applause.play(); }, 1000);
+	  
+			// Update user win status if they can win
+			if (this.canWin) {
+			  const now = new Date();
+			  this.timestamp = `${(now.getMonth() + 1).toString().padStart(2, '0')}/${now.getDate().toString().padStart(2, '0')}/${now.getFullYear()}`;
+	  
+			  const dataObj = {
+				email: this.user.email,
+				tag: 'hv-1-win'
+			  };
+
+			  
+			  if(!this.test){
+					$.ajax({
+						method: "POST",
+						url: this.endPoint + "tag/",
+						data: dataObj
+					}).done((response) => {
+						console.log('User win status updated:', response);
+						//this.canWin = false; // Update local state
+					}).fail((error) => {
+							console.error('Failed to update user win status:', error);
+					});
+			  }
+
+
+			}
 		},
-		setWinTag(){
+		winGame() {
+			this.timeLeft = 0;
 			this.gameActive = false;
-			this.showWinAlert = true;
-			this.playBtnLabel = this.btnGraphics.playAgain
-			this.sounds.win.play();
-			setTimeout(() => { this.sounds.applause.play(); }, 1000);
+			clearInterval(this.countdownTimer);
+			
+			this.handleWin();
+			
 		},
 		endGame() {
 			this.gameActive = false;
@@ -473,27 +511,29 @@ const app = Vue.createApp({
 			window.scrollTo(0, 0);
 		},
 		handleKeyPress(event) {
-			console.log(event)
-			// Check if 'p' is pressed along with either Command (Mac) or Control (Windows/Linux)
-			if (event.key === 'ArrowRight' || event.keyCode === 39) {
-			  event.preventDefault(); // Prevent the default browser print dialog
-			  this.email.sending = false
-			  this.resetFormState()
-			  this.formState.thanks = true
-			  this.preloadStickers()
-			}
-			if (event.key === 'ArrowUp' || event.keyCode === 38) {
+			if(this.test){
+				console.log(event)
+				// Check if 'p' is pressed along with either Command (Mac) or Control (Windows/Linux)
+				if (event.key === 'ArrowRight' || event.keyCode === 39) {
 				event.preventDefault(); // Prevent the default browser print dialog
-				this.solvePuzzle();
-				this.winGame();
-			}
-			if (event.key === 'ArrowDown' || event.keyCode === 40) {
-				event.preventDefault(); // Prevent the default browser print dialog
-				this.gameActive = false;
-				clearInterval(this.countdownTimer);
-				this.timeLeft = 0;
-				this.endGame();
-			}
+				this.email.sending = false
+				this.resetFormState()
+				this.formState.thanks = true
+				this.preloadStickers()
+				}
+				if (event.key === 'ArrowUp' || event.keyCode === 38) {
+					event.preventDefault(); // Prevent the default browser print dialog
+					this.solvePuzzle();
+					this.winGame();
+				}
+				if (event.key === 'ArrowDown' || event.keyCode === 40) {
+					event.preventDefault(); // Prevent the default browser print dialog
+					this.gameActive = false;
+					clearInterval(this.countdownTimer);
+					this.timeLeft = 0;
+					this.endGame();
+				}
+		}
 		},
 		iosViewHeightFix(){
 			let vh = window.innerHeight * 0.01;
@@ -530,12 +570,52 @@ const app = Vue.createApp({
 			this.$nextTick(() => {
 				this.scrollPageUp();
 			});
-	   }
+	   },
+		canWin() {
+			// Check if user object is not empty and has tags
+			if (Object.keys(this.user).length > 0 && Array.isArray(this.user.tags)) {
+				if (this.user.tags.includes('hv-1-win')) {
+					this.canWin = false;
+					console.log('User has already won. canWin set to false.');
+				} else {
+					this.canWin = true;
+					console.log('User has not won yet. canWin set to true.');
+				}
+			} else {
+				// If user object is empty or doesn't have tags, assume they can win
+				this.canWin = true;
+				console.log('User object is empty or missing tags. Defaulting canWin to true.');
+			}
+		},
+		updateUserWinStatus() {
+			if (this.canWin) {
+				const now = new Date();
+				const timestamp = `${(now.getMonth() + 1).toString().padStart(2, '0')}/${now.getDate().toString().padStart(2, '0')}/${now.getFullYear()}`;
+
+				const dataObj = {
+					email: this.user.email,
+					tag: 'hv-1-win',
+					timestamp: timestamp
+				};
+
+				$.ajax({
+					method: "POST",
+					url: this.endPoint + "update-user-win/",
+					data: dataObj
+				}).done((response) => {
+					console.log('User win status updated:', response);
+					this.canWin = false; // Update local state
+				}).fail((error) => {
+					console.error('Failed to update user win status:', error);
+				});
+			}
+		},
 	},
 	delimiters: ['${', '}'],
 	beforeMount() {
 		if( window.location.hostname === '127.0.0.1'){
 			this.endPoint = "http://dev.api/bobs/"
+			this.test = true;
 		}
 	},
 	mounted(){
@@ -554,5 +634,8 @@ const app = Vue.createApp({
 })
 
 app.mount("#app");
+
+
+
 
 

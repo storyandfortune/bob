@@ -312,11 +312,14 @@ h2{
    padding:0;
    z-index:1;
    height:60px;
+   text-align: center;
 }
 
-.puzzle-header h2{
+.puzzle-header h2,
+.puzzle-header div{
    margin:0;
    padding:0;
+   text-align: center;
 }
 
 #puzzle {
