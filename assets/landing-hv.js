@@ -52,6 +52,14 @@ const app = Vue.createApp({
 			playBtnLabel:"",
 			stickers: [
 				//V1
+				'https://cdn.shopify.com/s/files/1/0593/5942/8759/files/Burglar_square.svg?v=1731011861&width=500',
+				'https://cdn.shopify.com/s/files/1/0593/5942/8759/files/bonanza_square.svg?v=1731011861&width=500',
+				'https://cdn.shopify.com/s/files/1/0593/5942/8759/files/superman_square.svg?v=1731011879&width=500',
+				'https://cdn.shopify.com/s/files/1/0593/5942/8759/files/dracula_suare.svg?v=1731011879&width=500',
+				'https://cdn.shopify.com/s/files/1/0593/5942/8759/files/franken_square.svg?v=1731011879&width=500',
+			],
+			stickersCheckers: [
+				//V1
 				'https://cdn.shopify.com/s/files/1/0593/5942/8759/files/hv-burgler.png?v=1727127335&width=500',
 				'https://cdn.shopify.com/s/files/1/0593/5942/8759/files/hv-frankenboy.png?v=1727127335&width=500',
 				'https://cdn.shopify.com/s/files/1/0593/5942/8759/files/hv-dracula.png?v=1727127335&width=500',
