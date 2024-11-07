@@ -5,7 +5,7 @@ const app = Vue.createApp({
 	data() {
 		return {
 			ready:false,
-			test:false,
+			test:true,
             endPoint:"https://api.storyandfortune.com/bobs/",
 			showModal:false,
             firstName:"",
