@@ -42,6 +42,7 @@ const app = Vue.createApp({
 			showAlert: false,
 			showWinAlert: false,
 			showLooseAlert: false,
+			loopId: null,
 			btnGraphics:{
 				enter:'https://cdn.shopify.com/s/files/1/0593/5942/8759/files/HV_enter_btn.svg?v=1729018072',
 				play:'https://cdn.shopify.com/s/files/1/0593/5942/8759/files/HV_play.svg?v=1729019620',
@@ -77,6 +78,7 @@ const app = Vue.createApp({
 			sounds: {
 				tileSound: null,
 				clockTick: null,
+				loop: null,
 				win: null,
 				applause: null,
 				loose: null
@@ -256,13 +258,33 @@ const app = Vue.createApp({
 		},
 		initSounds() {
 			// For testing purposes, we'll use a single sound file
-  
 			this.sounds.tileSound = new Howl({ src: ['https://cdn.shopify.com/s/files/1/0593/5942/8759/files/hv-tile-click.mp3?v=1727127235'], preload: true });
 			this.sounds.clockTick = new Howl({ src: ['https://cdn.shopify.com/s/files/1/0593/5942/8759/files/hv-count-down-clock.mp3?v=1727127235'], preload: true });
 			this.sounds.win = new Howl({ src: ['https://cdn.shopify.com/s/files/1/0593/5942/8759/files/hv-win-sound.mp3?v=1727127235'], preload: true });
 			this.sounds.applause = new Howl({  src: ['https://cdn.shopify.com/s/files/1/0593/5942/8759/files/hv-audience-applause.mp3?v=1727127235'], preload: true });
 			this.sounds.loose = new Howl({  src: ['https://cdn.shopify.com/s/files/1/0593/5942/8759/files/hv-loose-sound.mp3?v=1727127235'], preload: true });
+			this.sounds.loop = new Howl({ src: ['https://cdn.shopify.com/s/files/1/0593/5942/8759/files/hv-music-loop.mp3?v=1731610275'], preload: true, volume:0.85,loop: true });
 		},
+		stopLoop() {
+			if (this.sounds.loop && this.loopId !== undefined) {
+			  this.sounds.loop.stop(this.loopId);
+			  console.log('Loop stopped');
+			}
+		  },
+		
+		  // Optional: method to fade out the loop smoothly
+		  fadeOutLoop(duration = 1000) {
+			if (this.sounds.loop && this.loopId !== undefined) {
+			  const currentVolume = this.sounds.loop.volume();
+			  this.sounds.loop.fade(currentVolume, 0, duration, this.loopId);
+			  
+			  // Stop the sound after fade completes
+			  setTimeout(() => {
+				this.stopLoop();
+			  }, duration);
+			}
+		  },
+		
 		createPieces() {
 			for (let i = 0; i < 16; i++) {
 				this.pieces.push({
@@ -351,10 +373,17 @@ const app = Vue.createApp({
 			//console.log('Pieces after shuffle:', this.pieces);
 		},
 		startCountdown() {
+
+			this.loopId = this.sounds.loop.play();
+
 			this.countdownTimer = setInterval(() => {
 				this.timeLeft--;
-				this.sounds.clockTick.play();
+				if(this.timeLeft <= 11){
+					this.sounds.loop.volume(0.25, this.loopId);
+					this.sounds.clockTick.play();
+				}
 				if (this.timeLeft <= 0) {
+					
 					clearInterval(this.countdownTimer);
 					this.endGame();
 				}
@@ -368,6 +397,7 @@ const app = Vue.createApp({
 	    handleWin() {
 			// Stop the game
 			this.gameActive = false;
+			this.fadeOutLoop(2000); 
 			clearInterval(this.countdownTimer);
 	  
 			// Update UI
@@ -419,6 +449,7 @@ const app = Vue.createApp({
 			this.playBtnLabel = this.btnGraphics.tryAgain
 			this.sounds.loose.play();
 			this.solvePuzzle();
+			this.fadeOutLoop(2000); 
 		},
 		solvePuzzle() {
 			if (this.gameActive) {
@@ -500,7 +531,6 @@ const app = Vue.createApp({
 		  
 			const startInterval = setInterval(() => {
 			  this.shufflePieces();
-			  this.sounds.tileSound.play();
 			  i++;
 			  if (i === 20) {
 				clearInterval(startInterval);
