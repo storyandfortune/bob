@@ -156,7 +156,7 @@
     "custom_css": [
       ".list-menu li.nav-menus .header__submenu li.nav-burgers .nav-image {background-image: url(\"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/Burger_ea7f06cb-2222-4ab8-b1a3-46d4dd490d49.jpg?v=1726075686\"); background-size: 70%; background-position: bottom center; height: 30rem;}",
       ".list-menu li.nav-menus .header__submenu li.nav-milkshakes .nav-image {background-image: url(\"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/Milkshake_14a65f17-c1fd-43ec-92c7-153f47175985.jpg?v=1726077614\"); background-size: contain; height: 30rem;}",
-      "#form-container-ref h2; {font-family: RoadRadio-Black; font-size: 8rem; line-height: 7rem; margin: 5rem 0 0; display: block;}"
+      "section._formHeader h2; {font-family: RoadRadio-Black; font-size: 8rem; line-height: 7rem; margin: 5rem 0 0; display: block;}"
     ]
   }
 }
