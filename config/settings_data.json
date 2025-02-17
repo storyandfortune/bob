@@ -1,12 +1,12 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "current": {
     "colors_solid_button_labels": "#ffffff",
@@ -18,16 +18,16 @@
     "colors_background_2": "#f3f3f3",
     "type_header_font": "sans-serif",
     "type_body_font": "sans-serif",
-    "social_facebook_link": "https:\/\/www.facebook.com\/bobsburbank",
-    "social_pinterest_link": "https:\/\/www.pinterest.com\/bobsbigboy\/_created\/",
-    "social_instagram_link": "https:\/\/www.instagram.com\/bobsbigboyburbank\/",
-    "social_youtube_link": "https:\/\/www.youtube.com\/user\/bobsburbank\/videos",
-    "reviews_yelp_link": "https:\/\/www.yelp.com\/biz\/bob-s-big-boy-burbank",
-    "reviews_tripadvisor_link": "https:\/\/www.tripadvisor.com\/Restaurant_Review-g32123-d364895-Reviews-Bob_s_Big_Boy_Burbank-Burbank_California.html",
-    "reviews_google_plus_link": "https:\/\/www.google.com\/maps\/place\/Bob's+Big+Boy\/@34.1524797,-118.3482922,17z\/data=!3m1!4b1!4m5!3m4!1s0x0:0x8d2acdfb878a2f0a!8m2!3d34.1524797!4d-118.3461035",
-    "favicon": "shopify:\/\/shop_images\/fav-icon.png",
+    "social_facebook_link": "https://www.facebook.com/bobsburbank",
+    "social_pinterest_link": "https://www.pinterest.com/bobsbigboy/_created/",
+    "social_instagram_link": "https://www.instagram.com/bobsbigboyburbank/",
+    "social_youtube_link": "https://www.youtube.com/user/bobsburbank/videos",
+    "reviews_yelp_link": "https://www.yelp.com/biz/bob-s-big-boy-burbank",
+    "reviews_tripadvisor_link": "https://www.tripadvisor.com/Restaurant_Review-g32123-d364895-Reviews-Bob_s_Big_Boy_Burbank-Burbank_California.html",
+    "reviews_google_plus_link": "https://www.google.com/maps/place/Bob's+Big+Boy/@34.1524797,-118.3482922,17z/data=!3m1!4b1!4m5!3m4!1s0x0:0x8d2acdfb878a2f0a!8m2!3d34.1524797!4d-118.3461035",
+    "favicon": "shopify://shop_images/fav-icon.png",
     "currency_code_enabled": false,
-    "checkout_logo_image": "shopify:\/\/shop_images\/logo_0827afb5-c87e-4a12-ac65-f80d48ae12f3.png",
+    "checkout_logo_image": "shopify://shop_images/logo_0827afb5-c87e-4a12-ac65-f80d48ae12f3.png",
     "checkout_logo_size": "large",
     "checkout_accent_color": "#b79668",
     "checkout_button_color": "#e62544",
@@ -42,21 +42,20 @@
             "settings": {
               "text": "Order Online!",
               "color_scheme": "accent-1",
-              "link": "https:\/\/bobsbigboy.hrpos.heartland.us\/menu"
+              "link": "https://bobsbigboy.hrpos.heartland.us/menu"
             }
           }
         },
         "block_order": [
           "announcement-bar-0"
         ],
-        "settings": {
-        }
+        "settings": {}
       },
       "header": {
         "type": "header",
         "settings": {
           "color_scheme": "background-1",
-          "logo": "shopify:\/\/shop_images\/logo.png",
+          "logo": "shopify://shop_images/logo.png",
           "logo_width": 100,
           "logo_position": "middle-left",
           "menu": "main-menu",
@@ -86,32 +85,26 @@
       },
       "hero-video-scroll": {
         "type": "hero-video-scroll",
-        "settings": {
-        }
+        "settings": {}
       },
       "wish-list": {
         "type": "wish-list",
-        "settings": {
-        }
+        "settings": {}
       },
       "free-shipping": {
         "type": "free-shipping",
-        "settings": {
-        }
+        "settings": {}
       }
     },
-    "content_for_index": [
-
-    ],
+    "content_for_index": [],
     "blocks": {
       "11349500561483629931": {
-        "type": "shopify:\/\/apps\/ReStock\/blocks\/app-embed\/b399b727-6c85-44fc-9e21-63114bd72054",
+        "type": "shopify://apps/ReStock/blocks/app-embed/b399b727-6c85-44fc-9e21-63114bd72054",
         "disabled": false,
-        "settings": {
-        }
+        "settings": {}
       },
       "15683396631634586217": {
-        "type": "shopify:\/\/apps\/inbox\/blocks\/chat\/841fc607-4181-4ad1-842d-e24d7f8bad6b",
+        "type": "shopify://apps/inbox/blocks/chat/841fc607-4181-4ad1-842d-e24d7f8bad6b",
         "disabled": true,
         "settings": {
           "button_color": "#202a36",
@@ -123,10 +116,9 @@
         }
       },
       "1710008633607995074": {
-        "type": "shopify:\/\/apps\/rivo-product-reviews-app-ugc\/blocks\/app-embed\/5f785e18-66cc-4519-8181-565d1cce1705",
+        "type": "shopify://apps/rivo-product-reviews-app-ugc/blocks/app-embed/5f785e18-66cc-4519-8181-565d1cce1705",
         "disabled": false,
-        "settings": {
-        }
+        "settings": {}
       }
     }
   },
@@ -155,16 +147,16 @@
           "block_order": [
             "announcement-bar-0"
           ],
-          "settings": {
-          }
+          "settings": {}
         }
       }
     }
   },
   "platform_customizations": {
     "custom_css": [
-      ".list-menu li.nav-menus .header__submenu li.nav-burgers .nav-image {background-image: url(\"https:\/\/cdn.shopify.com\/s\/files\/1\/0593\/5942\/8759\/files\/Burger_ea7f06cb-2222-4ab8-b1a3-46d4dd490d49.jpg?v=1726075686\"); background-size: 70%; background-position: bottom center; height: 30rem;}",
-      ".list-menu li.nav-menus .header__submenu li.nav-milkshakes .nav-image {background-image: url(\"https:\/\/cdn.shopify.com\/s\/files\/1\/0593\/5942\/8759\/files\/Milkshake_14a65f17-c1fd-43ec-92c7-153f47175985.jpg?v=1726077614\"); background-size: contain; height: 30rem;}"
+      ".list-menu li.nav-menus .header__submenu li.nav-burgers .nav-image {background-image: url(\"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/Burger_ea7f06cb-2222-4ab8-b1a3-46d4dd490d49.jpg?v=1726075686\"); background-size: 70%; background-position: bottom center; height: 30rem;}",
+      ".list-menu li.nav-menus .header__submenu li.nav-milkshakes .nav-image {background-image: url(\"https://cdn.shopify.com/s/files/1/0593/5942/8759/files/Milkshake_14a65f17-c1fd-43ec-92c7-153f47175985.jpg?v=1726077614\"); background-size: contain; height: 30rem;}",
+      "#form-container-ref h2; {font-family: RoadRadio-Black; font-size: 8rem; line-height: 7rem; margin: 5rem 0 0; display: block;}"
     ]
   }
 }
