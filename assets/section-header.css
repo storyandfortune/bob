@@ -1133,7 +1133,7 @@ header {
     .list-menu li.nav-shop .header__submenu li.nav-coin-bank .nav-image {
         background-image: url("https://cdn.shopify.com/s/files/1/0593/5942/8759/files/Coin-Bank.jpg?v=1755040538");
         background-size: 85%;
-        background-position: bottom center;
+        background-position: contain;
         height: 30rem;
     }
 
