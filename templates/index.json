@@ -42,7 +42,7 @@
     "featured_products": {
       "type": "featured-collection",
       "settings": {
-        "title": "Closed",
+        "title": "Gift Shop",
         "collection": "all",
         "products_to_show": 8,
         "show_view_all": true,
