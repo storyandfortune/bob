@@ -170,8 +170,8 @@
       ".product-form__input .form__label {display: none;}",
       ".quantity {display: none;}",
       ".free-shipping {display: none;}",
-      ".header-top .xtra-info {margin: 0px 0;}",
-      ".hero-scroll .header-top .xtra-info {margin: 25px 0;}"
+      ".header-top .xtra-info {margin-top: 0px;}",
+      ".home-page .header-top .xtra-info {margin-bottom: 25px;}"
     ]
   }
 }
