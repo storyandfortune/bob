@@ -171,7 +171,7 @@
       ".quantity {display: none;}",
       ".free-shipping {display: none;}",
       ".header-top .xtra-info {margin-top: 0px;}",
-      ".home-page .header-top {margin-bottom: 25px;}"
+      ".home-page .header {margin-bottom: 25px;}"
     ]
   }
 }
