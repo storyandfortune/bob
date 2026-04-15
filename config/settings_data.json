@@ -167,7 +167,7 @@
       ".spaced-section--full-width:first-child h3 {font-family: Harvard; font-size: 6.5rem; line-height: 0; color: var(--bob-red);}",
       ".collection-grid-section {margin-top: 0;}",
       "button.product-form__submit.button.button {display: none;}",
-      "button.restock-alerts-submit-button {display: block;}",
+      "button.product-form__submit.button.button.restock-alerts-submit-button {display: block;}",
       ".product-form__input .form__label {display: none;}",
       ".quantity {display: none;}",
       ".free-shipping {display: none;}",
