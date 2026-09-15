@@ -1,4 +1,4 @@
- {% render section.settings.snippet %}
+ {% render section %}
 
   
   {% schema %}
@@ -15,4 +15,13 @@
     ]
   }
   {% endschema %}
-  
+  {%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render section.settings.snippet %}"
+  to: "{% render section %}"
+  position: 1..21
+{%- endcomment -%}
